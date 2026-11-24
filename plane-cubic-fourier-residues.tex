@@ -1,0 +1,906 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\title{Fourier Residues of a Plane Cubic, Rational Chords, and the Elliptic L-Function}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working draft for specialist review}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study a prime-power Fourier sum for the affine cone over an elliptic
+curve embedded as a plane cubic. Its double-pole coefficient at a
+primitive frequency is nonzero precisely when the corresponding line
+cuts out three rational points, counted with multiplicity. The weights
+for ordinary chords, tangents and flexes are in the ratio $6:3:1$,
+including at primes where distinct rational points have the same
+reduction. The resulting measure is a constant multiple of the
+pushforward of counting measure on pairs of rational points. Its
+height exponent is the Mordell--Weil rank. On the multiples of any
+one split frequency, a Dirichlet series of the same coefficients
+recovers the analytic rank by meromorphic continuation. We also
+prove uniformity for growing transverse chord height and a finite
+measure criterion for arithmetic rank zero. The equality of the two
+rank exponents remains open.
+\end{abstract}
+
+\section{The cubic and its frequencies}
+
+Let $E/\mathbb Q$ be an elliptic curve embedded in
+$\mathbb P^2$ by the complete linear system $|3O|$,
+with primitive integral plane-cubic equation, smooth over $\mathbb Q$,
+\[
+F(X_1,X_2,X_3)=0.
+\]
+Write
+\[
+r=\operatorname{rank}E(\mathbb Q),\qquad
+a=\operatorname{ord}_{s=1}L(E,s).
+\]
+Let $S$ be a finite nonempty set containing
+$2,3,5$ and every prime of bad reduction of
+the chosen integral model.
+
+All Euler products below are over $p\notin S$.
+Chambert-Loir and Tschinkel studied the blowup of the ideal $(x_0,F)$
+and its local additive Fourier transforms \cite[\S3]{CLT}. We work
+with explicitly normalized finite exponential sums at the retained primes.
+The archimedean test function and the local factors at $S$ are omitted.
+Write $\zeta^S(s)=\zeta(s)\prod_{p\in S}(1-p^{-s})$ and use $L^S$
+for the elliptic $L$-function with its factors at $S$ removed.
+
+For a nonzero integral frequency
+$\xi=(\xi_1,\xi_2,\xi_3)$, write
+\[
+L_\xi:\quad \xi_1X_1+\xi_2X_2+\xi_3X_3=0.
+\]
+Call $\xi$ primitive if
+$\gcd(\xi_1,\xi_2,\xi_3)=1$.
+Primitive vectors differing by sign represent
+the same rational projective line.
+
+\subsection{The exact local shell factor}
+
+For $p\notin S$, put
+\[
+n_p=\#E(\mathbb F_p)=p+1-a_p.
+\]
+For $k\geq1$ define
+\[
+R_{p,k}(\xi)=
+\#\left\{
+P\in E(\mathbb Z/p^k):
+\xi(P)\equiv0\pmod{p^k}
+\right\}.
+\]
+The condition is independent of the choice of
+primitive homogeneous coordinates for $P$.
+
+Write $e_m(t)=\exp(2\pi it/m)$. Our Fourier coefficient is defined by
+\[
+ S_{p^k}(\xi)=\sum_{\substack{x\in(\mathbb Z/p^k)^3,\ x\not\equiv0\pmod p\\
+ F(x)\equiv0\pmod{p^k}}} e_{p^k}(\xi\cdot x).
+\]
+For example, at a general modulus $d$ prime to $S$ these coefficients
+are the Fourier coefficients of the counting measure at the fractions
+$x/d$ on $\mathbb R^3/\mathbb Z^3$, with the same primitivity and cubic
+congruence imposed modulo $d$. The Chinese remainder theorem factors
+the corresponding sum into the prime-power sums above. The inverses
+introduced in the additive characters are units, which permute the
+allowed scalar multiples on each cone.
+
+Summing first over the unit scalar multiplying
+a projective point gives the Ramanujan sums
+\[
+c_{p^k}(n)=
+\begin{cases}
+p^k-p^{k-1},&p^k\mid n,\\
+-p^{k-1},&p^{k-1}\mid n,\ p^k\nmid n,\\
+0,&p^{k-1}\nmid n.
+\end{cases}
+\]
+Since the smooth curve has $p$ lifts of each
+point from modulus $p^{k-1}$ to modulus $p^k$,
+we obtain
+\begin{align}
+S_p(\xi)&=pR_{p,1}(\xi)-n_p,
+\label{eq:ram1}\\
+S_{p^k}(\xi)
+&=p^k\bigl(R_{p,k}(\xi)-R_{p,k-1}(\xi)\bigr),
+\quad k\geq2.
+\label{eq:ramk}
+\end{align}
+
+For $\Re w>2$ define
+\[
+F_{p,\xi}(w)=
+1+\sum_{k\geq1}p^{-kw}S_{p^k}(\xi).
+\]
+Writing $w=2+u$, equations
+\eqref{eq:ram1}--\eqref{eq:ramk} give
+\begin{equation}\label{eq:local-R}
+F_{p,\xi}(2+u)
+=
+1-n_pp^{-2-u}
++(1-p^{-1-u})
+\sum_{k\geq1}R_{p,k}(\xi)p^{-k(1+u)}.
+\end{equation}
+
+This normalization counts every primitive scalar representative.
+The use of hyperplane-section counts at prime powers is also present
+in the local integrals of \cite[\S3, Lemma~3.3]{CLT}.
+
+For the zero frequency, smooth Hensel lifting
+gives
+\[
+S_{p^k}(0)=(p-1)n_pp^{2k-2}.
+\]
+Thus
+\begin{equation}\label{eq:zero-local}
+F_{p,0}(2+u)
+=
+1+c_p\sum_{k\geq1}p^{-ku},
+\qquad
+c_p=\frac{(p-1)n_p}{p^2}.
+\end{equation}
+
+\subsection{A constant local value, including collisions}
+
+Suppose that $L_\xi$ has a completely split
+intersection divisor over $\mathbb Q$:
+\begin{equation}\label{eq:split-divisor}
+(L_\xi\cdot E)_{\mathbb Q}
+=[P_1]+[P_2]+[P_3],
+\qquad P_i\in E(\mathbb Q),
+\end{equation}
+with repetitions permitted. In this and the next two subsections the frequency is primitive.
+
+At every good prime $p$, the points $P_i$
+extend to sections of the smooth proper
+model $\mathcal E/\mathbb Z_p$.
+
+Because $\xi$ is primitive, the reduction
+of $L_\xi$ does not contain the entire
+special fibre. Therefore its horizontal
+Cartier divisor on $\mathcal E$ is exactly
+the sum of the three sections in
+\eqref{eq:split-divisor}, with
+multiplicities and no vertical component.
+
+Let $\mu_p$ denote the translation-invariant
+measure on $E(\mathbb Q_p)$ normalized so
+that every residue class modulo $p^k$
+has measure $p^{-k}$.
+Its total mass is $n_p/p$.
+
+For the line section put
+\[
+V_\xi(P)=v_p(\xi(P)).
+\]
+The divisor identity gives
+\[
+V_\xi(P)=V_{P_1}(P)+V_{P_2}(P)+V_{P_3}(P),
+\]
+where $V_{P_i}$ is the valuation of a
+local parameter cutting out the section
+$P_i$.
+
+For each section,
+\[
+\int V_{P_i}\,d\mu_p
+=\sum_{k\geq1}p^{-k}
+=\frac1{p-1}.
+\]
+This remains true when two or three sections
+coincide modulo arbitrarily high powers of $p$.
+Additivity therefore gives
+\[
+\sum_{k\geq1}R_{p,k}(\xi)p^{-k}
+=\int V_\xi\,d\mu_p
+=\frac3{p-1}.
+\]
+
+Substituting into \eqref{eq:local-R} at $u=0$
+proves the exact identity
+\begin{equation}\label{eq:constant-local}
+\boxed{
+F_{p,\xi}(2)
+=
+1-\frac{n_p}{p^2}+\frac3p
+=:F_p^*(0).
+}
+\end{equation}
+
+In particular, the value is independent
+of the rational split line and of all
+collisions between its three sections.
+
+Since $n_p=p+1-a_p$,
+\[
+F_p^*(0)
+=1+\frac2p+\frac{a_p-1}{p^2}>0
+\]
+for the retained primes.
+
+\subsection{Pole order and orbifold multiplicities}
+
+Define the good-prime Euler product
+\[
+D_\xi^S(2+u)
+=\prod_{p\notin S}F_{p,\xi}(2+u).
+\]
+
+For a transverse rational split line,
+away from finitely many collision primes,
+\[
+R_{p,k}(\xi)=3\quad(k\geq1).
+\]
+Hence
+\[
+F_{p,\xi}(2+u)
+=
+1-n_pp^{-2-u}+3p^{-1-u}
+=
+1+2p^{-1-u}+O(p^{-3/2})
+\]
+uniformly in a sufficiently small
+right-hand neighborhood of $u=0$.
+
+Thus the generic factor is
+$\zeta^S(1+u)^2$.
+
+For a rational tangent line with divisor
+$2[P]+[Q]$, $P\ne Q$, the generic local
+intersection is a unit times
+$t^2$ at $P$ and a unit times $t$ at $Q$.
+Consequently
+\[
+R_{p,k}=1+p^{\lfloor k/2\rfloor}
+\]
+outside finitely many exceptional primes.
+The first two nonuniform shell contributions
+give
+\[
+F_{p,\xi}(2+u)
+=
+1+p^{-1-u}+p^{-1-2u}
++O(p^{-3/2+\epsilon}).
+\]
+Its two zeta factors are therefore
+\[
+\zeta^S(1+u)\zeta^S(1+2u).
+\]
+
+For a rational flex line with divisor
+$3[P]$, the generic local equation is
+a unit times $t^3$. Then
+\[
+R_{p,k}=p^{k-\lceil k/3\rceil},
+\]
+and
+\[
+F_{p,\xi}(2+u)
+=
+1+p^{-1-2u}+p^{-1-3u}
++O(p^{-3/2+\epsilon}).
+\]
+Its two factors are
+\[
+\zeta^S(1+2u)\zeta^S(1+3u).
+\]
+
+All error terms above become absolutely
+summable Euler-product corrections in a
+small neighborhood of $u=0$.
+
+Put
+\[
+\rho_S=\prod_{p\in S}(1-p^{-1}),
+\]
+and
+\[
+A_E^S=
+\prod_{p\notin S}
+(1-p^{-1})^2F_p^*(0).
+\]
+By Hasse's bound,
+\[
+(1-p^{-1})^2F_p^*(0)
+=1+O(p^{-3/2}),
+\]
+so $A_E^S$ converges absolutely
+to a positive number.
+
+Define
+\begin{equation}\label{eq:CE}
+C_E^S=\rho_S^2A_E^S>0.
+\end{equation}
+The factor $\rho_S^2$ is essential:
+$\zeta^S(1+u)\sim\rho_S/u$,
+not $1/u$.
+
+For each rational split projective line,
+the limit
+\[
+R_\xi^S=
+\lim_{u\downarrow0}u^2D_\xi^S(2+u)
+\]
+therefore exists and equals
+\begin{equation}\label{eq:orbifold}
+\boxed{
+R_\xi^S=
+\begin{cases}
+C_E^S,&P_1,P_2,P_3\text{ distinct},\\[2mm]
+C_E^S/2,&L_\xi\cdot E=2P+Q,\ P\ne Q,\\[2mm]
+C_E^S/6,&L_\xi\cdot E=3P.
+\end{cases}}
+\end{equation}
+
+The constant is the same in all cases:
+the regularized Euler product at $u=0$
+depends on the values \eqref{eq:constant-local},
+which are universal. Only the slopes
+$1,2,3$ of the zeta factors change.
+
+For a reduced intersection divisor that is not completely split over
+$\mathbb Q$, let $A_\xi$ be its degree-three finite \'etale algebra.
+Outside its finite exceptional set, $R_{p,k}$ is constant in $k$ and
+equals the number of fixed points of Frobenius on its three geometric
+points. The first coefficient agrees with that of
+$\zeta_{A_\xi}(1+u)/\zeta(1+u)$; the quotient of Euler factors is
+$1+O(p^{-3/2+3\epsilon})$ near $u=0$ for small $\epsilon>0$.
+At the finitely many remaining good primes the reduced cubic has
+distinct geometric roots in characteristic zero. On disjoint
+$p$-adic neighborhoods of its rational roots its equation is a local
+parameter times a factor of fixed valuation, and away from those
+neighborhoods the valuation is bounded by compactness. Thus $R_{p,k}$
+is bounded for large $k$. The factors in \eqref{eq:local-R} are regular
+and positive at $u=0$ since $n_p<p^2$. Each field factor of $A_\xi$
+has a Dedekind zeta function with a simple pole at one. The resulting
+pole order is
+\[
+\#\{\text{field factors of }A_\xi\}-1<2.
+\]
+Hence its $u^2$ residue is zero.
+The nonreduced intersections are the
+rational tangent and flex cases above.
+
+\subsection{Exact chord-map measure}
+
+Let
+\[
+\Phi:E^2\longrightarrow(\mathbb P^2)^\vee
+\]
+be the chord map. It sends $(P,Q)$
+to the line through $P,Q$ when $P\ne Q$,
+and to the tangent at $P$ when $P=Q$.
+The third intersection is
+\[
+R=-P-Q.
+\]
+
+The action of $S_3$ on ordered triples
+$(P,Q,R)$ with $P+Q+R=O$
+makes $\Phi$ the finite degree-six quotient
+\[
+E^2/S_3\simeq |3O|\simeq\mathbb P^2.
+\]
+
+A transverse split line has six ordered
+preimages; a tangent line $2P+Q$
+has three; a flex $3P$ has one.
+Thus \eqref{eq:orbifold} gives the
+following exact identity of atomic
+measures on rational projective lines:
+\begin{equation}\label{eq:measure-push}
+\boxed{
+\sum_{\xi\ {\rm rational\ split}}
+R_\xi^S\,\delta_\xi
+=
+\frac{C_E^S}{6}\,
+\Phi_*\left(
+\sum_{(P,Q)\in E(\mathbb Q)^2}
+\delta_{(P,Q)}
+\right).
+}
+\end{equation}
+
+This includes the flex at $O$ and applies
+when the Mordell--Weil rank is zero.
+It is an identity for the finite Euler
+residues, not for the complete adelic
+Fourier transforms.
+
+\subsection{The height exponent}
+
+Let $H(\xi)$ be the standard primitive
+projective height on the dual plane.
+Choose a basis of $E(\mathbb Q)$ modulo torsion. Write $G$ for the
+Gram matrix of the N\'eron--Tate height attached to $\mathcal O_E(O)$,
+normalized by $\hat h(\sum_i n_i P_i)=n^{\mathrm T}Gn$. Write
+\[
+\operatorname{Reg}(E)=\det G,
+\qquad T=E(\mathbb Q)_{\rm tors}.
+\]
+
+To determine the chord-map height,
+choose the hyperplane in $|3O|$
+consisting of divisors containing $O$.
+Its pullback under $\Phi$ is
+\[
+\{P=O\}+\{Q=O\}+\{P+Q=O\}.
+\]
+Consequently
+\[
+\Phi^*\mathcal O(1)\simeq
+p_1^*\mathcal O_E(O)
+\otimes p_2^*\mathcal O_E(O)
+\otimes m^*\mathcal O_E(O),
+\]
+where $m(P,Q)=P+Q$.
+
+The associated canonical quadratic height is
+\[
+Q(P,Q)=
+\hat h(P)+\hat h(Q)+\hat h(P+Q).
+\]
+The ordinary projective height differs by
+a bounded term:
+\begin{equation}\label{eq:chord-height}
+\log H(\Phi(P,Q))=Q(P,Q)+O_E(1).
+\end{equation}
+
+On the free part of $E(\mathbb Q)^2$,
+the height matrix is
+\[
+\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\otimes G,
+\]
+whose determinant is
+\[
+3^r\operatorname{Reg}(E)^2.
+\]
+
+Geometry of numbers in dimension $2r$
+therefore gives, for $r>0$,
+\begin{equation}\label{eq:pair-count}
+\#\{(P,Q)\in E(\mathbb Q)^2:
+H(\Phi(P,Q))\le B\}
+\sim
+\frac{|T|^2\pi^r}
+{r!\,3^{r/2}\operatorname{Reg}(E)}
+(\log B)^r.
+\end{equation}
+
+For $r=0$, the left side is eventually
+the constant $|T|^2$; the same formula
+holds with $\operatorname{Reg}(E)=1$
+and $(\log B)^0=1$.
+
+Combining \eqref{eq:measure-push}
+and \eqref{eq:pair-count} proves
+\begin{equation}\label{eq:weighted-count}
+\boxed{
+\sum_{\substack{\xi\ {\rm rational\ split}\\
+H(\xi)\le B}}R_\xi^S
+\sim
+\frac{C_E^S|T|^2\pi^r}
+{6r!\,3^{r/2}\operatorname{Reg}(E)}
+(\log B)^r.
+}
+\end{equation}
+
+Thus the primitive split residue measure
+recovers the Mordell--Weil rank through
+the exponent of logarithmic height growth.
+
+\subsection{Uniformity and a joint split-sector limit}
+
+For a transverse split line, let
+$\Delta_\xi\ne0$ denote its integral
+dual-sextic discriminant.
+Outside the primes dividing $\Delta_\xi$,
+the three intersection sections remain
+distinct and
+\[
+F_{p,\xi}(2+u)
+=
+F_p^*(u):=
+1-n_pp^{-2-u}+3p^{-1-u}.
+\]
+
+At a collision prime, write
+\[
+V_\xi=V_{P_1}+V_{P_2}+V_{P_3}
+\]
+as above.
+The exact second moment of an individual
+section valuation is
+\[
+\int V_{P_i}^2\,d\mu_p
+=
+\sum_{k\ge1}(2k-1)p^{-k}
+=
+\frac{p+1}{(p-1)^2}.
+\]
+By Cauchy--Schwarz,
+\[
+\int V_\xi^2\,d\mu_p
+\le3\sum_i\int V_{P_i}^2\,d\mu_p
+\ll p^{-1},
+\]
+uniformly in the collision depth.
+
+Equation \eqref{eq:local-R}, expressed as
+\[
+F_{p,\xi}(2+u)
+=
+1-n_pp^{-2-u}
++(1-p^{-1-u})
+\int\sum_{k=1}^{V_\xi(P)}
+p^{-uk}\,d\mu_p(P),
+\]
+therefore gives
+\[
+\left|
+\frac{\partial}{\partial u}
+\bigl(F_{p,\xi}(2+u)-F_p^*(u)\bigr)
+\right|
+\ll\frac{\log p}{p},
+\qquad 0\le u\le u_0.
+\]
+
+The difference vanishes at $u=0$
+by \eqref{eq:constant-local}.
+For the retained primes the factors
+are uniformly bounded away from zero.
+Hence
+\[
+\log
+\frac{D_\xi^S(2+u)}
+{\prod_{p\notin S}F_p^*(u)}
+\ll
+u\sum_{p\mid\Delta_\xi}\frac{\log p}{p}.
+\]
+
+The elementary maximal-order estimate
+\[
+\sum_{p\mid n}\frac{\log p}{p}
+\ll\log\log(3|n|)
+\]
+and the degree-six bound
+\[
+|\Delta_\xi|\ll_E H(\xi)^6
+\]
+yield
+\begin{equation}\label{eq:uniform-ratio}
+\boxed{
+\frac{D_\xi^S(2+u)}
+{\prod_{p\notin S}F_p^*(u)}
+=
+1+O_E\bigl(u\log(1/u)\bigr)
+}
+\end{equation}
+uniformly for transverse split lines with
+\[
+H(\xi)\le e^{1/u}.
+\]
+
+The universal product satisfies
+\[
+u^2\prod_{p\notin S}F_p^*(u)
+\longrightarrow C_E^S.
+\]
+Therefore, for $r>0$, the transverse
+split sector has the genuine joint limit
+\begin{equation}\label{eq:joint-limit}
+\boxed{
+\begin{aligned}
+\lim_{u\downarrow0}
+u^{r+2}
+\sum_{\substack{\xi\ {\rm primitive,\ split,}\\
+\text{transverse}\\H(\xi)\le e^{1/u}}}
+D_\xi^S(2+u)
+=
+\frac{C_E^S|T|^2\pi^r}
+{6r!\,3^{r/2}\operatorname{Reg}(E)}.
+\end{aligned}
+}
+\end{equation}
+
+In deriving the transverse count from \eqref{eq:pair-count},
+repeated points contribute $O((\log B)^{r/2})$ ordered pairs:
+on a diagonal the quadratic height is $6\hat h(P)$. The other two
+diagonals are its permutations. The flexes belong to $E[3]$.
+
+When $r=0$ the limit for the transverse lines alone is $C_E^S$
+times their finite number. Including all split lines gives the total
+$C_E^S|T|^2/6$ by \eqref{eq:measure-push}.
+
+The uniform estimate is essential:
+\eqref{eq:joint-limit} does not follow
+from exchanging individual residues
+with an infinite frequency sum.
+
+\subsection{Content and the original elliptic L-function}
+
+Fix any primitive rational split frequency
+$\xi$, allowing transverse, tangent or flex
+contact. Let $h\ge1$ be prime to $S$.
+
+If $p^t\parallel h$, then the first $t$
+additive conductor shells of $h\xi$
+have zero frequency.
+For later shells, reduction by $p^t$
+and smooth lifting give
+\[
+S_{p^k}(h\xi)=p^{2t}S_{p^{k-t}}(\xi)
+\qquad(k>t).
+\]
+Using \eqref{eq:zero-local},
+\[
+\boxed{
+F_{p,h\xi}(2+u)
+=
+(1-p^{-tu})F_{p,0}(2+u)
++p^{-tu}F_{p,\xi}(2+u).
+}
+\]
+
+At $u=0$ this yields
+\[
+F_{p,h\xi}(2)
+=
+F_p^*(0)+t c_p.
+\]
+Thus the residue changes only by the
+content:
+\begin{equation}\label{eq:content-residue}
+\boxed{
+R_{h\xi}^S
+=
+R_\xi^S
+\prod_{p^t\parallel h}
+\left(1+\frac{t c_p}{F_p^*(0)}\right).
+}
+\end{equation}
+
+In particular, the content multiplier is
+independent of the split direction.
+
+For $\Re z>1$, define
+\[
+\mathcal C_\xi^S(z)=
+\sum_{\substack{h\ge1\\(h,S)=1}}
+\frac{R_{h\xi}^S}{h^z}.
+\]
+Put
+\[
+\lambda_p=
+\frac{a_p+2}{pF_p^*(0)}.
+\]
+The exact identity
+\[
+F_p^*(0)-c_p=\frac{a_p+2}{p}
+\]
+gives
+\begin{align}
+\mathcal C_\xi^S(z)
+&=
+R_\xi^S
+\prod_{p\notin S}
+\sum_{t\ge0}
+\left(1+t\frac{c_p}{F_p^*(0)}\right)
+p^{-tz}\notag\\
+&=
+\boxed{
+R_\xi^S\,\zeta^S(z)^2
+\prod_{p\notin S}(1-\lambda_pp^{-z}).
+}
+\label{eq:content-euler}
+\end{align}
+
+For the original elliptic curve, the good
+Euler denominator is
+\[
+L_p(E,1+z)^{-1}
+=
+1-a_pp^{-1-z}+p^{-1-2z}.
+\]
+Define
+\[
+V_p(z)=
+\frac{1-\lambda_pp^{-z}}
+{(1-a_pp^{-1-z}+p^{-1-2z})
+ (1-p^{-1-z})^2(1-p^{-1-2z})}.
+\]
+
+Using $|a_p|\le2\sqrt p$,
+the linear and quadratic logarithmic
+terms cancel, giving
+\[
+V_p(z)=1+O(p^{-3/2+3\epsilon})
+\]
+locally uniformly for $\Re z\ge-\epsilon$,
+with any fixed $\epsilon<1/6$,
+for all sufficiently large retained primes. For the finitely many others
+the factors and their denominators are nonzero at $z=0$ as the next
+formula shows.
+
+Hence
+\[
+V_E^S(z)=\prod_{p\notin S}V_p(z)
+\]
+is holomorphic and nonzero near $z=0$.
+
+At $z=0$,
+\[
+V_p(0)
+=
+\frac1{(1-p^{-1})^2F_p^*(0)},
+\]
+so the normalization is exact:
+\[
+\boxed{V_E^S(0)=(A_E^S)^{-1}.}
+\]
+
+We obtain the meromorphic identity
+\begin{equation}\label{eq:content-L}
+\boxed{
+\mathcal C_\xi^S(z)=
+\frac{
+R_\xi^S\zeta^S(z)^2V_E^S(z)}
+{
+L^S(E,1+z)\,
+\zeta^S(1+z)^2\,
+\zeta^S(1+2z)
+}.
+}
+\end{equation}
+
+Write
+\[
+a=\operatorname{ord}_{s=1}L(E,s).
+\]
+The incomplete factors at $1+z$
+have their usual poles.
+But because $S$ is nonempty,
+\[
+\zeta^S(z)
+=
+\zeta(z)\prod_{p\in S}(1-p^{-z})
+\]
+has a zero of order $|S|$ at $z=0$.
+
+Consequently the physical content series
+in \eqref{eq:content-L} has order
+\[
+\boxed{
+\operatorname{ord}_{z=0}
+\mathcal C_\xi^S(z)=2|S|+3-a.
+}
+\]
+
+If the known elementary omissions are
+restored by defining
+\[
+\widetilde{\mathcal C}_\xi^S(z)
+=
+\mathcal C_\xi^S(z)
+\prod_{p\in S}(1-p^{-z})^{-2},
+\]
+then
+\begin{equation}\label{eq:analytic-order}
+\boxed{
+\operatorname{ord}_{z=0}
+\widetilde{\mathcal C}_\xi^S(z)=3-a.
+}
+\end{equation}
+
+The restoration is a meromorphic
+normalization, not the addition of
+previously counted frequencies.
+
+Thus the analytic rank is recovered from
+the order of the content Dirichlet series
+attached to any single rational split
+frequency, after the explicit finite-set
+correction.
+
+\section{A norm for the primitive directions}
+
+For an integral frequency $\eta=hv\ne0$ with $v$ primitive and $h>0$,
+extend the content multiplier $g(h)$ of \eqref{eq:content-residue}
+by ignoring primes in $S$. Those primes do not occur in $D_\eta^S$.
+After division by $g(h)$ the residues have a value $b(hv)=R_v^S$
+constant along each rational line, and are zero along nonsplit lines.
+
+A direction of primitive height $H(v)$ has $O(B/H(v))$ nonzero
+multiples in the ball $\|\eta\|_\infty\le B$. By \eqref{eq:weighted-count}
+the sum of $1/H(v)$ over distinct split directions converges, since
+each nonzero weight is at least $C_E^S/6$. The number of supported
+integral frequencies in that ball is consequently $O_E(B)$.
+
+On the three-torus let $T_v=\{x:v\cdot x=0\bmod1\}$, and let $m_v$
+be its Haar probability measure. The Fourier transform of $m_v$ is
+the indicator of $\mathbb Z v$. Retain the \emph{whole} lines of
+primitive height at most $B$ and set all the other nonzero coefficients
+to zero. The minimum total variation of a finite measure with these
+Fourier coefficients, allowing any coefficient at zero, is exactly
+\[
+ \sum_{\substack{[v]\ {\rm split}\\H(v)\le B}}R_v^S .
+\]
+Indeed, $\sum_v R_v^S m_v$ realizes these coefficients. Every other
+realization differs by a multiple of Haar measure on the three-torus,
+by uniqueness of Fourier coefficients. This Haar measure is singular
+to the finite sum of subtorus measures. The minimum therefore has the
+height asymptotic in \eqref{eq:weighted-count}.
+
+For the full set of directions a finite complex measure with these
+coefficients exists exactly when $r=0$. The finite sum just constructed
+settles that case. Conversely, for a putative measure $\mu$ the averages
+of its coefficients at $jv$, $|j|\le n$, give $\mu(T_v)=R_v^S$ by
+dominated convergence. For two distinct split directions $v,v'$,
+average instead at $\eta_0+jv+kv'$, $|j|,|k|\le n$. For fixed $\eta_0$
+these are distinct and lie in a ball of radius $O(n+1)$. Only $O(n+1)$
+coefficients are nonzero and all are bounded, so the limit is zero.
+The same dominated convergence argument identifies this limit with
+the $\eta_0$-th Fourier coefficient of $\mu$ restricted to
+$T_v\cap T_{v'}$. Uniqueness gives $|\mu|(T_v\cap T_{v'})=0$.
+Thus $\|\mu\|$ is at least the sum of $R_v^S$ over any finite list of
+distinct split lines. For $r>0$ these sums diverge by
+\eqref{eq:weighted-count}.
+
+\section{The comparison left open}
+
+Equations \eqref{eq:weighted-count} and
+\eqref{eq:analytic-order} recover two
+different integers from one family of
+finite-place Fourier residues:
+\[
+r=\operatorname{rank}E(\mathbb Q)
+\]
+from the logarithmic growth of the
+primitive split support, and
+\[
+a=\operatorname{ord}_{s=1}L(E,s)
+\]
+from the meromorphic content factor.
+
+The radial scaling of an integral
+frequency satisfies
+\[
+\|h\xi\|_\infty=h\|\xi\|_\infty,
+\]
+so its content Mellin parameter is
+compatible with the ordinary frequency
+height. This does not identify the two
+rank exponents.
+
+The norm above is defined by retaining entire primitive directions.
+A global Poisson comparison would have to control the archimedean
+transform and the meromorphic continuation while the frequency range
+grows. A finite cutoff with zero mean removes the zero Fourier mode
+altogether.
+
+The missing implication is a rank-independent identity or bound
+forcing the growth exponent in \eqref{eq:weighted-count} to equal
+$3-\operatorname{ord}_{z=0}\widetilde{\mathcal C}_\xi^S(z)$.
+Both quantities are determined by the same residue family, but the
+formulas evaluate them by different operations. Their equality is
+the rank conjecture in the official statement \cite{Clay}.
+
+\begin{thebibliography}{9}
+\bibitem{CLT}
+A.~Chambert-Loir and Y.~Tschinkel,
+\emph{Points of bounded height on equivariant compactifications of vector
+groups, II}, especially Section~3 and Lemma~3.3.
+\href{https://arxiv.org/abs/math/9904008}{Authors' paper}.
+\bibitem{Clay}
+A.~Wiles, \emph{The Birch and Swinnerton-Dyer conjecture},
+\href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{official problem description}.
+\end{thebibliography}
+\end{document}
