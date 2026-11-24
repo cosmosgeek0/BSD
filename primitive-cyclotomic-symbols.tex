@@ -1,0 +1,557 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{1.5em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\C}{\mathbf C}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\av}{\operatorname{av}}
+\newcommand{\aug}{\operatorname{aug}}
+\newcommand{\ord}{\operatorname{ord}}
+\title{Recovering a central second derivative from primitive cyclotomic modular symbols}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a rational elliptic newform of even root number we construct a real analytic test on its ordinary cyclotomic modular symbols. At conductor \(p^n\) this test pairs only with primitive multiplicative characters. The normalized pairings converge to an explicit multiple of the ordinary completed second derivative. A nonzero limit forces large complex pairings for finite antiderivatives in the cyclotomic group ring. For almost every fixed generator, the lower bound for an antiderivative of order \(r\) grows at least as the \((r-1)\)-st power of \(p^{n/2}/n^{2+\varepsilon}\). We give a separate example showing why divisibility by an augmentation power alone supplies no upper bound for these pairings.
+\end{abstract}
+
+\section{The central derivative and the cyclotomic test}
+
+Let \(f(z)=\sum_{t\ge1}a_t\ee(tz)\) be the normalized weight-two newform of
+an elliptic curve over \(\Q\) of conductor \(N\), with
+\(\ee(x)=\exp(2\pi i x)\). Assume its root number is \(+1\).
+Fix a good ordinary prime \(p\ge5\).
+Write
+\[
+ \Lambda_f(s)=N^{s/2}(2\pi)^{-s}\Gamma(s)L(f,s),\qquad
+ \Gamma_p=1+p\Z_p,\qquad \Delta=\mu_{p-1}\subset\Z_p^\times .
+\]
+For \(m=p^n\) put \(D_m=(\Z/m\Z)^\times\) and \(G_n=D_m/\Delta\).
+The symbol \(\Delta\) in this quotient denotes its image modulo \(m\).
+The real modular symbol used here is
+\[
+ S(x)=\Re S^{\mathrm c}(x),\qquad
+ S^{\mathrm c}(x)=2\pi i\int_{i\infty}^{x} f(z)\,dz
+\]
+for a rational cusp \(x\), with the limiting integral along the vertical path.
+The coefficients \(a_t\) are real, so \(S(-x)=S(x)\).
+Let \(\alpha\) be the unit root of \(X^2-a_pX+p\), using a fixed
+\(p\)-adic embedding of \(F=\Q(\alpha)\). Fix also a complex embedding for
+every archimedean pairing below. Choose a positive real period
+\(\Omega\) scaled by a rational factor so that the \(S(x)/\Omega\) are
+rational and \(p\)-integral. Such a scaling follows from the modular
+parametrization and the bounded denominators of its modular symbols.
+
+The measure with the following convention belongs to
+\(\mathcal O[[\Gamma_p]]\), where \(\mathcal O\) is the ring of integers
+of the chosen \(p\)-adic completion of \(F\). Its finite projections have
+coefficients in \(F\):
+\begin{equation}\label{eq:measure}
+ \mu_n(g)=\frac{\alpha^{-n}}{\Omega}
+   \sum_{\substack{a\in D_m\\ a\mapsto g}}
+       \left(S(a/m)-\alpha^{-1}S(pa/m)\right).
+\end{equation}
+Here and below the sum indexed by a residue class uses any integer
+representative. The Hecke relation
+\(\sum_{h=0}^{p-1}S((a+hm)/(pm))=a_pS(a/m)-S(pa/m)\)
+gives compatibility under projection. This is the ordinary modular-symbol
+construction with its tame character taken to be trivial
+\cite{mtt}. Its augmentation is
+\((1-\alpha^{-1})^2 L(f,1)/\Omega\).
+
+Define real coefficients and a real analytic periodic function by
+\begin{align}
+ b_t&=2\int_1^\infty e^{-2\pi t y/\sqrt N}(\log y)^2\,dy,\nonumber\\
+ B_j&=\sum_{h\ge0}a_{p^h} b_{jp^h} \qquad (p\nmid j),\nonumber\\
+ K(x)&=2\sum_{\substack{j\ge1\\p\nmid j}}j B_j\cos(2\pi j x).
+ \label{eq:kernel}
+\end{align}
+These series converge exponentially. For \(g\in G_n\) represented by
+\(a\in D_m\) put
+\[
+ k_n(g)=\frac{1}{p-1}\sum_{\zeta\in\Delta}K((\zeta a\bmod m)/m).
+\]
+For \(x=\sum_{g\in G_n}x(g)[g]\in F[G_n]\), set
+\begin{equation}\label{eq:pairing}
+ R_n(x)=\frac{\Omega\alpha^n}{\varphi(m)}
+            \sum_{g\in G_n} x(g)k_n(g).
+\end{equation}
+The fixed complex embedding applies to \(x(g)\) and \(\alpha^n\).
+In particular this pairing is defined on the algebraic finite
+projections, without choosing a map from \(\Q_p\) to \(\C\).
+
+\begin{theorem}\label{thm:reconstruct}
+For \(n\ge2\) the test \(k_n\) has zero sum on each fibre of
+\(G_n\to G_{n-1}\). Consequently \(R_n\) uses only multiplicative
+characters of conductor exactly \(p^n\). There is a
+\(\delta=\delta(p)>0\) such that
+\begin{equation}\label{eq:limit}
+ R_n(\mu_n)=\frac{2}{p-1}\Lambda_f''(1)+O_{f,p}(m^{-\delta}).
+\end{equation}
+\end{theorem}
+
+We prove the estimate directly. The relation between averages of
+unprojected symbols and additive Fourier series has also been studied
+by Diamantis, Hoffstein, K{\i}ral and Lee \cite{dhkl}.
+The restriction to frequencies prime to \(p\) and the projection onto
+\(G_n\) are both used in \eqref{eq:limit}.
+
+\section{Sampling at additive cusps}
+
+For a \(p\)-adic unit \(v\), reduce \(v\) modulo \(m\) and put
+\[
+ F_m(v)=\frac{1}{\varphi(m)}\sum_{a\in D_m}
+                     S^{\mathrm c}(a/m)\ee(-av/m).
+\]
+For \(n\ge2\), let \(r_m(v)\) denote the least positive representative
+of \(v\) modulo \(m/p\). Write \(c_m(h)=\sum_{a\in D_m}\ee(ah/m)\).
+
+\begin{lemma}\label{lem:sampling}
+Uniformly in \(v\in\Z_p^\times\), with \(X=m^{3/2}\) and \(r=r_m(v)\),
+\[
+ F_m(v)=\frac{c_m(r-v)}{\varphi(m)}\frac{a_r}{r}e^{-2\pi r/X}
+           +O_{f,p,\varepsilon}(m^{-1/4+\varepsilon}).
+\]
+\end{lemma}
+
+\begin{proof}
+Split the integral defining \(S^{\mathrm c}(a/m)\) at height \(1/X\).
+Choose \(d\) with \(Nad\equiv1\pmod m\) and put \(b=(Nad-1)/m\).
+The matrix
+\(\left(\begin{smallmatrix}Na&b\\ Nm&Nd\end{smallmatrix}\right)\)
+lies in \(\Gamma_0(N)W_N\), with
+\(W_N=\left(\begin{smallmatrix}0&-1\\N&0\end{smallmatrix}\right)\).
+It sends \(-d/m+i t\) to \(a/m+i/(Nm^2t)\).
+The weight-two transformation and root number \(+1\) give, with \(Y=Nm^2/X\),
+\[
+ S^{\mathrm c}(a/m)=
+   \sum_{t\ge1}\frac{a_t}{t}\ee(ta/m)e^{-2\pi t/X}
+   +\sum_{t\ge1}\frac{a_t}{t}\ee(-td/m)e^{-2\pi t/Y}.
+\]
+The normalized average of the first phase against \(\ee(-av/m)\) is
+\(c_m(t-v)/\varphi(m)\). It is zero unless \(t\equiv v\pmod{m/p}\),
+and has absolute value at most one. By
+\(|a_t|\ll_{f,\varepsilon} t^{1/2+\varepsilon}\) \cite{deligne},
+the terms \(t=r+h(m/p)\), \(h\ge1\), have total absolute value
+\(O_{f,p,\varepsilon}(m^{-1/4+\varepsilon})\).
+
+The average of the second phase is a Kloosterman sum divided by
+\(\varphi(m)\), with first argument \(-v\) and second argument
+\(-tN^{-1}\pmod m\). Its absolute value is \(O_p(m^{-1/2})\).
+Indeed, put \(h=\lfloor n/2\rfloor\) and split the unit summation
+variable as \(x+p^{n-h}z\), where \(x\) runs modulo \(p^{n-h}\)
+and \(z\) modulo \(p^h\). Summation in \(z\) imposes
+\(v x^2\equiv tN^{-1}\pmod{p^h}\). There are at most two unit roots
+modulo \(p^h\), each with at most \(p\) lifts to \(p^{n-h}\).
+The unnormalized bound is therefore at most \(2p^{n-h}\).
+The dual contribution is \(O_{f,p,\varepsilon}(m^{-1/2}Y^{1/2+\varepsilon})\).
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:reconstruct}]
+The expansion \eqref{eq:kernel} contains only \(p\)-unit frequencies.
+Each has sum zero on the \(p\) lifts of a unit class modulo \(p^{n-1}\).
+Averaging over \(\Delta\) preserves this property, which also removes
+the lower-conductor term in \eqref{eq:measure}. Hence
+\[
+ R_n(\mu_n)=\frac{1}{\varphi(m)}\sum_{a\in D_m}S(a/m)k_n(a).
+\]
+The evenness and reality of \(k_n\) allow \(S\) to be replaced by
+\(S^{\mathrm c}\) in this sum.
+
+For a fixed positive integer \(j\) prime to \(p\), Lemma
+\ref{lem:sampling} gives \(F_m(j)\to a_j/j\) and \(F_m(-j)\to0\).
+For a Teichm\"uller root \(\zeta\ne\pm1\) of order \(d\), the
+representative \(r=r_m(j\zeta)\) satisfies
+\[
+ m/p\ \mid\ j^{\varphi(d)}\Phi_d(r/j).
+\]
+This integer is nonzero, since a primitive root of order \(d>2\) is
+irrational. Its absolute value is at most \((r+j)^{\varphi(d)}\).
+The same argument applies to \(-\zeta\). Thus the terms
+\(F_m(\pm j\zeta)\) tend to zero at a power rate, uniformly for
+\(j\le C\log m\) with fixed \(C\). For \(\zeta=\pm1\) the estimates for
+\(F_m(\pm j)\) are also uniform over this range, with the direct
+exponential factor absorbed in the error. To discard larger \(j\),
+use the exponential decay in \eqref{eq:kernel} and
+\(\sup_{a\in D_m}|S^{\mathrm c}(a/m)|\ll_f 1+\log m\).
+For the latter bound, the continued fraction of \(a/m\) gives
+\(O(1+\log m)\) unimodular paths between consecutive convergents.
+Integrals along these paths lie in a finite list up to sign, by
+invariance of the weight-two differential and the finite index of
+\(\Gamma_0(N)\). Choose \(C\) sufficiently large for the resulting
+tail to have a power saving.
+
+It follows that the limit is \(2\sum_{p\nmid j}a_j B_j/(p-1)\).
+The root number gives
+\(\Lambda_f''(1)=2\int_1^\infty f(iy/\sqrt N)(\log y)^2\,dy\)
+by splitting the Mellin integral at one. Its Fourier expansion and
+the identity \(a_{jp^h}=a_j a_{p^h}\) for \(p\nmid j\) give
+\(\sum_{p\nmid j}a_j B_j=\Lambda_f''(1)\), as required.
+\end{proof}
+
+\section{Augmentation antiderivatives}
+
+Let \(U\) be a topological generator of \(\Gamma_p\), also denoting
+its image in \(G_n\) by \(U\). Assume \(L(f,1)=0\), so
+\(\aug(\mu_n)=0\). For \(r\ge1\), define \(\eta_{n,r}\in F[G_n]\)
+by
+\[
+ (1-[U])^r\eta_{n,r}=\mu_n,\qquad \aug(\eta_{n,r})=0.
+\]
+In characteristic zero, multiplication by \(1-[U]\) is invertible
+on the kernel of augmentation. This proves uniqueness and existence.
+Let \(I\) denote the augmentation ideal in the Iwasawa algebra.
+If \(\mu\in I^{r+1}\), its quotient by \((1-[U])^r\) is integral
+and has augmentation zero. By uniqueness, each finite specialization
+agrees with the corresponding \(\eta_{n,r}\) in the chosen
+\(p\)-adic embedding. In particular those specializations have
+algebraic coefficients.
+
+\begin{theorem}\label{thm:growth}
+Fix \(\varepsilon>0\), and put
+\(J_n=\lfloor p^{n/2}/n^{2+\varepsilon}\rfloor\).
+For almost every fixed topological generator \(U\), with respect to
+normalized Haar measure conditional on being a generator, the following
+holds for all \(r\ge1\). If \(\Lambda_f''(1)\ne0\), then for all
+sufficiently large \(n\),
+\[
+ \max_{|i|\le J_n+r}
+      |R_n([U]^i\eta_{n,r})|
+    \ \gg_{p,r}\ |\Lambda_f''(1)|\,J_n^{\,r-1}.
+\]
+\end{theorem}
+
+\begin{proof}
+Put \(A_{n,i}=R_n([U]^i\mu_n)\). After removal of the old term as
+above, this is a linear combination of
+\(F_m(\pm j\zeta U^i)\), with total absolute coefficient sum bounded
+independently of \(n,i,U\). Additive Parseval and the continued-fraction
+bound give
+\[
+ \sum_{v\bmod m}|F_m(v)|^2
+   =\frac{m}{\varphi(m)^2}\sum_{a\in D_m}|S^{\mathrm c}(a/m)|^2
+   \ll_{f,p}(1+\log m)^2,
+\]
+where \(F_m(v)\) is extended to all \(v\) by its defining sum.
+For \(0<|i|\le J_n\), a given residue occurs under the map
+\(U\mapsto j\zeta U^i\bmod m\) with probability
+\(O_p(p^{v_p(i)}/m)\). Indeed, in a fixed generator coordinate on the
+cyclic \(G_n\), this map multiplies a uniformly chosen unit exponent
+by \(i\), followed by multiplication by the prescribed unit residue.
+Cauchy--Schwarz yields
+\[
+ \mathbb E_U |A_{n,i}|
+  \ll_{f,p} (1+\log m) p^{v_p(i)/2}/\sqrt m .
+\]
+The sum of \(p^{v_p(i)/2}\) over \(1\le i\le J\) is \(O_p(J)\).
+The expected sum of \(|A_{n,i}|\) over \(0<|i|\le J_n\) is
+therefore \(O_{f,p}(n^{-1-\varepsilon})\). These sums tend to
+zero for almost every fixed \(U\).
+
+Choose a smooth real function \(\psi\) supported in \((-1,1)\) with
+\(\psi(0)=1\). By Theorem \ref{thm:reconstruct},
+\[
+ \sum_i \psi(i/J_n) A_{n,i}\ \longrightarrow\
+          \frac{2}{p-1}\Lambda_f''(1).
+\]
+Set \(b_i'=R_n([U]^i\eta_{n,r})\). The relation defining \(\eta_{n,r}\)
+gives \(A_{n,i}=(1-\mathcal S)^rb_i'\), where
+\((\mathcal S b')_i=b_{i+1}'\). Summation by parts transfers these
+differences to the sampled \(\psi\). The sum of absolute values of
+its \(r\)-th finite differences is \(O_{\psi,r}(J_n^{1-r})\), by the
+integral formula for a finite difference. Their support is contained
+in \(|i|\le J_n+r\). This proves the claim.
+\end{proof}
+
+\begin{corollary}
+Suppose \(\mu\in I^{r+1}\), and suppose that for a generator in the
+full-measure set in Theorem \ref{thm:growth} the complex pairings of
+the resulting integral quotient satisfy
+\(\max_{|i|\le J_n+r}|R_n([U]^i\eta_{n,r})|=o(J_n^{r-1})\) on a
+subsequence. Then \(L''(f,1)=0\).
+\end{corollary}
+\begin{proof}
+The theorem gives \(\Lambda_f''(1)=0\). The even functional equation
+and \(L(f,1)=0\) also give \(L'(f,1)=0\), so the ordinary and
+completed second derivatives differ by a nonzero factor.
+\end{proof}
+
+
+For \(r=2\), three evaluations suffice for an exact signed limit.
+Put \(B_{n,i}=R_n([U]^i\eta_{n,2})\). For a generator and window as in
+Theorem \ref{thm:growth}, the second-difference identity gives
+\begin{align*}
+ \frac{B_{n,1+J_n}+B_{n,1-J_n}-2B_{n,1}}{J_n}
+ &=\sum_{|i|<J_n}(1-|i|/J_n) A_{n,i}\\
+ &\longrightarrow \frac{2}{p-1}\Lambda_f''(1).
+\end{align*}
+The finite equality follows by taking the second differences of the
+triangular weights at their two endpoints and their midpoint. The
+off-origin absolute-sum bound in the proof gives the limit. If
+\(\mu\in I^3\), the three evaluations use its actual integral
+second quotient. An \(o(J_n)\) upper bound on their displayed
+numerator along a subsequence would imply ordinary second-derivative
+vanishing. No such estimate is used here.
+
+\section{Scope of the growth criterion}
+
+For an explicit test of augmentation divisibility, take
+\(u=1+p\sqrt{1+p}\in\Gamma_p\), choosing the \(p\)-adic square root
+congruent to one modulo \(p\). This is a topological generator.
+No positive power of \(u\) is rational: the two real embeddings of
+\(u\) have different absolute values. Here \(1+p\) is nonsquare
+for prime \(p\ge5\). For any fixed \(i\ne0\), all
+\(\pm j\zeta u^i\), \(j\ge1\), are nonrational, as seen by raising
+to a multiple of the order of \(\zeta\).
+Their least positive representatives modulo \(p^{n-1}\) therefore
+tend to infinity. Lemma \ref{lem:sampling} and exponential decay
+imply
+\[
+ R_n([u]^i\mu_n)\ \longrightarrow\ 0 .
+\]
+For clarity, the sampling lemma bounds \(F_m(v)\) uniformly in both
+\(m\) and \(p\)-unit \(v\), since
+\(\sup_{r\ge1}|a_r|/r<\infty\). This justifies termwise passage to
+the limit here. It follows by the binomial theorem that for every
+fixed \(h\ge1\),
+\[
+ \lim_n R_n\big((1-[u])^h\mu_n\big)
+    =\frac{2}{p-1}\Lambda_f''(1).
+\]
+The modified distributions are integral translates of the given
+modular-symbol measure, combined with integer coefficients, and
+belong to \(I^h\). For \(h\ge r+1\) their order-\(r\)
+antiderivatives are themselves integral. Their shifted pairings
+obey the same lower bound as in Theorem \ref{thm:growth} whenever
+\(\Lambda_f''(1)\ne0\): each of the finitely many extra shifts
+multiplies the frequencies in the expectation bound by a fixed unit,
+so the proof applies with the same summable error. These examples show that
+an archimedean upper estimate for the actual quotient in the corollary
+requires further arithmetic input. No such estimate or general
+rank conclusion is established here.
+
+
+\section{What all fixed unit frequencies determine}
+
+For \(h\in\Gamma_p\) define another test and its normalized pairing by
+\begin{align*}
+ k_{n,h}(a)&=\frac{2}{p-1}\sum_{\zeta\in\Delta}
+        \cos\bigl(2\pi(\zeta ha\bmod m)/m\bigr),\\
+ T_n(x;h)&=\frac{\Omega\alpha^n}{\varphi(m)}
+                   \sum_{g\in G_n}x(g) k_{n,h}(g).
+\end{align*}
+For a positive rational \(q\) with \(v_p(q)=0\), let
+\(\langle q\rangle=q/\omega(q)\in\Gamma_p\), where \(\omega\) is the
+Teichm\"uller character. The map \(q\mapsto\langle q\rangle\) is
+injective on these rationals, since the only positive rational root of
+unity is one. Let \(H\) be its image.
+
+\begin{theorem}\label{thm:profile}
+For every fixed \(h\in\Gamma_p\) the limit \(T(h)=\lim_nT_n(\mu_n;h)\)
+exists. Its value is
+\[
+ T(h)=
+ \begin{cases}
+ \dfrac{2a_j}{(p-1)j},&
+   h=\langle j\rangle,\quad j\ge1,\quad p\nmid j,\\[3pt]
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+Let \(\rho\) be a real signed Borel measure on \(\Gamma_p\) of finite
+total variation, and write \(\rho_n\) for its pushforward to \(G_n\).
+Use the fixed complex embedding on \(\mu_n\) in forming
+\(\rho_n*\mu_n\). Then
+\[
+ \lim_{n\to\infty} T_n(\rho_n*\mu_n;h)=
+                 \int_{\Gamma_p}T(hx)\,d\rho(x).
+\]
+If all cylinder masses of \(\rho\) belong to \(D^{-1}\Z\) for some
+fixed positive integer \(D\), equality of this limiting profile with
+\(T(h)\) for every \(h\) implies \(\rho=\delta_1\).
+\end{theorem}
+
+\begin{proof}
+Each \(k_{n,h}\) has zero sum on the fibres down one level.
+After removal of the lower-conductor term, the pairing is the average
+of \(F_m(\pm\zeta h)\) over \(\zeta\), with both signs summed. For a
+fixed \(p\)-adic unit \(v\), its least positive representatives modulo
+\(p^{n-1}\) escape every bounded set unless \(v\) is a positive
+integer. Lemma \ref{lem:sampling} thus gives the asserted profile.
+The same lemma bounds all these sampled transforms uniformly, so
+bounded convergence against the total variation of \(\rho\) proves
+the convolution formula.
+
+A real measure with masses in \(D^{-1}\Z\) has at most
+\(D\|\rho\|_{\mathrm{TV}}\) nonzero cylinders in each level partition.
+The number of nonzero cylinders is nondecreasing under refinement,
+and hence eventually constant. Thereafter each nonzero cylinder has
+one nonzero child and a zero cylinder has none. This proves that the
+measure has finite support.
+
+It remains to see that a nonzero finite sum
+\(\sigma=\sum_i c_i\delta_{x_i}\) with distinct atoms cannot yield
+the zero profile. In any coset of \(H\) meeting its support write the
+atoms as \(x_i=x_0\langle q_i\rangle\). Choose the largest positive
+rational \(q_*\) on that finite list and set
+\(h=(x_0\langle q_*\rangle)^{-1}\). For every other atom in this
+coset, \(hx_i=\langle q_i/q_*\rangle\) with \(0<q_i/q_*<1\).
+Injectivity excludes every positive-integer contribution. Atoms in
+other cosets also give zero. Thus \(\int T(hx)\,d\sigma(x)=c_*T(1)\ne0\).
+Apply this statement to \(\sigma=\rho-\delta_1\).
+\end{proof}
+
+The fixed-denominator hypothesis has arithmetic content. Fix a
+generator \(g\) of \(\Gamma_p\). Take independent digits
+\(\epsilon_j=0,1\) with equal probabilities and let \(\nu\) be the
+distribution of \(g^{\sum_{j\ge0}\epsilon_jp^j}\).
+It is a nonatomic real probability measure. Its finite cylinder
+masses are zero or \(2^{-(n-1)}\) on \(G_n\), so they also give
+an element of \(\Z_p[[\Gamma_p]]\) of augmentation one. For \(s\ge1\)
+each \(\nu^{*s}\) is nonatomic, whereas \(T\) is supported on a
+countable set. Therefore Theorem \ref{thm:profile} gives, for every
+\(h\in\Gamma_p\) and \(r\ge1\),
+\[
+ \lim_n T_n\big((\delta_1-\nu_n)^{*r}*\mu_n;h\big)=T(h).
+\]
+The smooth tests \eqref{eq:kernel} give the same conclusion term by
+term, using their absolutely summable Fourier coefficients and the
+uniform bound of Lemma \ref{lem:sampling}. These modified measures lie
+in \(I^r\). The denominators of the auxiliary multiplier \(\nu_n\)
+grow with \(n\), precisely the case excluded by the rigidity statement.
+The rigidity applies to convolution multipliers under its stated
+hypotheses. It supplies no growth bound for the integral
+antiderivatives of a classical modular-symbol measure.
+
+
+\section{Uniform tests at moving frequencies}
+
+A version of the nonatomic example is uniformly invisible at all unit
+frequencies, even when the frequency varies with the conductor. Use
+the distribution \(\nu\) of \(g^{\sum_{j\ge0}\epsilon_jp^j}\) with
+independent digits uniform on \(\{0,\ldots,p-2\}\). Its cylinder
+masses at level \(n\) are zero or \((p-1)^{-(n-1)}\). In counting
+measure,
+\(\|\nu_n\|_2=(p-1)^{-(n-1)/2}\), while \(\|\nu_n\|_1=1\).
+For \(s\ge1\) the same upper bound for \(\|\nu_n^{*s}\|_2\) follows
+by convolution. For each fixed unit frequency and Teichm\"uller
+factor, multiplication by that unit injects \(\Gamma_p/\Gamma_p^{p^{n-1}}\)
+into \(D_m\). Additive Parseval from the proof of
+Theorem \ref{thm:growth} and Cauchy--Schwarz therefore give
+\[
+ \sup_{h\in\Gamma_p}|T_n(\nu_n^{*s}*\mu_n;h)|
+    \ll_{f,p}(1+\log m)(p-1)^{-(n-1)/2}.
+\]
+Thus the finite frequencies of \((\delta_1-\nu_n)^{*r}*\mu_n\) and
+\(\mu_n\) differ uniformly by a power saving for every fixed \(r\).
+The finite cylinder masses of the multiplier still have growing
+denominators prime to \(p\).
+
+In the opposite direction we recover individual cylinder increments
+from the unit frequencies under a fixed-denominator hypothesis.
+Define \(b'_d\) by \(L(f,s)^{-1}=\sum_{d\ge1}b'_d d^{-s}\)
+in the half-plane of absolute convergence. The Euler factors and the
+bound for \(a_d\) give \(|b'_d|\ll_{f,\varepsilon}d^{1/2+\varepsilon}\).
+For \(T=\lfloor m^{1/4}\rfloor\) define
+\[
+ \mathcal D_n(x;h)=\frac12
+   \sum_{\substack{d\le T\\p\nmid d}}\frac{b'_d}{d}
+       T_n(x;h/\langle d\rangle).
+\]
+Let \({\bf1}_{n}(h)\) be the indicator that \(h\) is the identity
+at level \(G_n\). Then, uniformly for \(h\in\Gamma_p\),
+\begin{equation}\label{eq:spike}
+ \mathcal D_n(\mu_n;h)=
+   \frac{p}{(p-1)^2}\bigl({\bf1}_n(h)-p^{-1}{\bf1}_{n-1}(h)\bigr)
+      +O_{f,p,\varepsilon}(m^{-1/8+\varepsilon}).
+\end{equation}
+
+To prove \eqref{eq:spike}, first apply the same sum over \(d\) to
+\(F_m(v/d)\) for any \(v\in D_m\). Division here means multiplication
+by the modular inverse. The errors in Lemma \ref{lem:sampling} sum
+to \(O(m^{-1/4+\varepsilon}T^{1/2+\varepsilon})\). Put
+\(h_d=r_m(v/d)\). The remaining terms with \(h_d>T^2\) are bounded
+by \(O(T^{-1/2+\varepsilon})\), using the bounds for \(a_{h_d}\)
+and \(b'_d\). For \(h_d\le T^2\), the integer \(t=d h_d\) lies below
+\(m/p\) for all sufficiently large \(n\) and is congruent to \(v\) modulo
+\(m/p\). Thus every such term has the same \(t\), if one exists.
+The normalized Ramanujan factor is \(c_m(t-v)/\varphi(m)\),
+independent of \(d\). Replacing the direct exponential by one costs
+\(O((T^2/X)t^{-1/2+\varepsilon})\), since the sum of the absolute
+values of \(b'_d a_{t/d}/t\) over divisors of \(t\) is
+\(O_{f,\varepsilon}(t^{-1/2+\varepsilon})\).
+If \(t>T\), that same bound gives a power saving.
+If \(t\le T\), every divisor occurs and
+\(\sum_{d\mid t}b'_d a_{t/d}={\bf1}_{t=1}\).
+The raw result is therefore
+\[
+ \sum_{\substack{d\le T\\p\nmid d}}\frac{b'_d}{d}F_m(v/d)
+ =
+ \frac{p}{p-1}\left(
+    {\bf1}_{v=1\bmod m}-p^{-1}{\bf1}_{v=1\bmod m/p}\right)
+   + O_{f,p,\varepsilon}(m^{-1/8+\varepsilon}).
+\]
+Averaging over \(\zeta\in\Delta\) proves \eqref{eq:spike}. The factor
+\(1/2\) cancels the two signs in the definition of \(T_n\). For
+\(h\in\Gamma_p\) only the trivial Teichm\"uller factor can contribute
+to the displayed raw indicators.
+
+Let \(\rho_n\) now be compatible elements of \(\Q[G_n]\), with
+\(\|\rho_n\|_1=m^{o(1)}\), and assume all their coefficients have a
+fixed common denominator \(D\). Equation \eqref{eq:spike} gives
+\begin{align*}
+ \mathcal D_n(\rho_n*\mu_n;h)
+ &=\frac{p}{(p-1)^2}
+     \left(\rho_n(h^{-1})-p^{-1}\rho_{n-1}(\bar h^{-1})\right)\\
+ &\quad+O_{f,p,\varepsilon}\left(m^{-1/8+\varepsilon}
+                                      \|\rho_n\|_1\right).
+\end{align*}
+Here \(\bar h\) denotes reduction to \(G_{n-1}\). The cylinder
+increments in parentheses belong to \((pD)^{-1}\Z\), so rounding
+recovers them exactly at all sufficiently large levels.
+Writing \(e_n(g)=\rho_n(g)-p^{-1}\rho_{n-1}(\bar g)\), one recovers
+a mass along any chain of descendants by
+\[
+ \rho_t(g_t)=-\sum_{j\ge1}p^j e_{t+j}(g_{t+j})
+       \qquad\text{in }\Q_p .
+\]
+The fixed denominator ensures that \(p^J\rho_{t+J}(g_{t+J})\)
+tends to zero in \(\Q_p\) in the finite telescoping identity.
+Projection then recovers the earlier levels.
+
+In particular, suppose that for each \(\varepsilon>0\)
+\[
+ \sup_{h\in\Gamma_p}|T_n(\rho_n*\mu_n-\mu_n;h)|
+                  \ll_\varepsilon m^{-1/4+\varepsilon}.
+\]
+Deconvolution costs \(O_{f,\varepsilon}(T^{1/2+\varepsilon})\).
+Applying the increment formula to \(\rho_n-\delta_1\) shows that its
+increments vanish identically at all sufficiently large levels,
+and thus \(\rho_n=\delta_1\) at every level. This conclusion concerns
+multipliers with the stated denominator and size bounds.
+
+\begin{thebibliography}{9}
+\bibitem{deligne}
+P. Deligne, \emph{La conjecture de Weil. I},
+Publ. Math. IH\'ES \textbf{43} (1974), 273--307.
+\href{https://doi.org/10.1007/BF02684373}{doi:10.1007/BF02684373}.
+\bibitem{dhkl}
+N. Diamantis, J. Hoffstein, M. K{\i}ral and M. Lee,
+\emph{Additive twists and a conjecture by Mazur, Rubin and Stein},
+J. Number Theory \textbf{209} (2020), 1--36.
+\href{https://doi.org/10.1016/j.jnt.2019.11.016}{doi:10.1016/j.jnt.2019.11.016}.
+\bibitem{mtt}
+B. Mazur, J. Tate and J. Teitelbaum,
+\emph{On \(p\)-adic analogues of the conjectures of Birch and Swinnerton-Dyer},
+Invent. Math. \textbf{84} (1986), 1--48.
+\href{https://doi.org/10.1007/BF01388731}{doi:10.1007/BF01388731}.
+\end{thebibliography}
+\end{document}
