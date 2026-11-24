@@ -1,0 +1,311 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\setlength{\emergencystretch}{3em}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\ord}{ord}
+\title{Central derivatives of elliptic curve L-functions\\
+from Fourier modes on closed geodesics}
+\author{}
+\date{Working draft}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For an elliptic curve \(E/\Q\) we construct an explicit sequence of closed
+geodesic traversals on \(X_0(N)\). A single, fixed nonzero Fourier mode of the
+modular differential on these traversals approximates the completed
+\(L\)-function at \(1+i\tau\), with \(\tau\) inversely proportional to the
+length. The absolute error is exponentially small in the length. Consequently
+the decay exponent of this mode equals the analytic rank, and its leading
+coefficient recovers the first nonzero central derivative with an explicit
+constant. The geodesics can be taken in nested orders of a fixed real
+quadratic field. The proof uses the Fricke involution, the Mellin transform
+and cusp decay. Recovering the Mordell--Weil rank from the same periods
+remains open.
+\end{abstract}
+
+\section{The period and the central derivative}
+
+Let \(E/\Q\) have conductor \(N\), with normalized weight-two newform
+\(f(z)=\sum_{n\ge1}a_n e^{2\pi i n z}\). Write
+\[
+ \omega=2\pi i f(z)\,dz,\qquad
+ \Lambda_E(s)=\left(\frac{\sqrt N}{2\pi}\right)^s\Gamma(s)L(E,s),
+ \qquad \Lambda_E(s)=w\Lambda_E(2-s),\quad w\in\{1,-1\}.
+\]
+Here \(L(E,s)\) includes the local factors at the bad primes. The Fricke
+involution \(W_N z=-1/(Nz)\) satisfies \(W_N^*\omega=-w\omega\).
+All heights on \(\HH\) below use the coordinate \(z=x+iy\), with hyperbolic
+arclength \(|dz|/y\).
+
+For a positive integer \(m\), put
+\[
+ \gamma_m=\begin{pmatrix}1+Nm^2&m\\Nm&1\end{pmatrix}\in\Gamma_0(N),
+ \qquad T=T_m=\arsinh\!\left(\frac{m\sqrt N}{2}\right).
+\]
+The axis of \(\gamma_m\) contains \(z_*=i/\sqrt N\). Orient the axis
+towards its positive real endpoint. Let \(z_m(t)\) be its unit-speed
+parametrization with \(z_m(0)=z_*\), and put
+\(G_m(t)=2\pi i f(z_m(t))z_m'(t)\).
+The translation length of \(\gamma_m\) is \(4T_m\).
+For \(h\in\Z\), define the \emph{unnormalized} Fourier integral over this
+specified traversal by
+\begin{equation}
+ I_{m,h}=\int_{-T_m}^{3T_m} e^{i\tau_{m,h}t} G_m(t)\,dt,
+ \qquad \tau_{m,h}=\frac{\pi h}{2T_m}.
+ \label{eq:period}
+\end{equation}
+The choice of \(z_*\) fixes the phase. The Fourier coefficient with probability
+arclength measure is \(I_{m,h}/(4T_m)\).
+
+\begin{theorem}\label{thm:comparison}
+For all integers \(h\) satisfying \((-1)^h=-w\), as \(m\) tends to infinity,
+\begin{equation}
+ I_{m,h}=-\frac{4\pi}{\sqrt N}\,
+         \Lambda_E(1+i\tau_{m,h})+O_E(e^{-T_m}).
+ \label{eq:comparison}
+\end{equation}
+The implied constant is uniform in \(h\).
+\end{theorem}
+
+\begin{corollary}\label{cor:rank}
+Set \(h=1\) if \(w=1\) and \(h=2\) if \(w=-1\).
+For \(r=\ord_{s=1}L(E,s)\),
+\begin{equation}
+ \lim_{m\to\infty} T_m^r I_{m,h}
+ =-\frac{2}{r!}\left(\frac{\pi i h}{2}\right)^r L^{(r)}(E,1)\ne0 .
+ \label{eq:rank}
+\end{equation}
+In particular, if \(w=1\) and \(L(E,1)=0\), then
+\[
+ \lim_{m\to\infty} T_m^2 I_{m,1}
+   =\frac{\pi^2}{4}\,L''(E,1).
+\]
+The last identity holds also when the second derivative vanishes.
+\end{corollary}
+
+\begin{proof}[Proof of Corollary \ref{cor:rank}]
+At the first nonzero derivative one has
+\(\Lambda_E^{(r)}(1)=\sqrt N\,L^{(r)}(E,1)/(2\pi)\).
+Taylor expansion in \eqref{eq:comparison} proves \eqref{eq:rank}. For the
+final assertion, the functional equation and \(w=1\) give
+\(\Lambda_E'(1)=0\). The hypothesis \(L(E,1)=0\) then also gives
+\(L'(E,1)=0\).
+\end{proof}
+
+Hyperbolic Fourier expansions and their relation to geodesic periods appear
+in O'Sullivan and Taylor \cite{ost}. Constantinescu and Nordentoft compare
+closed-geodesic periods and vertical line integrals in their distribution
+results \cite{cn}. Popa relates central Rankin \(L\)-values over real
+quadratic fields to automorphic periods \cite{popa}. Our calculation concerns
+one specified traversal and one low Fourier mode, with its phase retained,
+as the length increases. The proof below is independent of a formula for
+the square of a global toric period.
+
+\section{The two halves of the traversal}
+
+In the coordinate \(Z=\sqrt N z\) the fixed endpoints of \(\gamma_m\) solve
+\(Z^2-m\sqrt N Z-1=0\). They are \(-e^{-T}\) and \(e^T\). The Euclidean
+semicircle with these endpoints passes through \(i\). An explicit unit-speed
+parametrization is
+\begin{equation}
+ Z(t)=\sqrt N z_m(t)=
+ \frac{\lambda(u^2-1)+i u(1+\lambda^2)}{1+\lambda^2 u^2},
+ \qquad \lambda=e^{-T},\quad u=e^t.
+ \label{eq:param}
+\end{equation}
+For example, \(Z(t)\) is obtained by applying
+\(v\mapsto(-e^{-T}+e^T v)/(1+v)\) to \(v=i e^{t-T}\).
+The map is an orientation-preserving hyperbolic isometry, and \(Z(0)=i\).
+
+Complex conjugation on the modular curve is induced by \(c(z)=-\bar z\),
+and \(c^*\omega=\bar\omega\) since the \(a_n\) are real. The map \(W_N\)
+fixes \(z_*\) and interchanges the two endpoints, so
+\(W_N z_m(t)=z_m(-t)\). The antiholomorphic map
+\[
+ J_m(z)=m+\frac{1}{N\bar z}
+\]
+fixes the endpoints individually and sends \(z_*\) to \(m+z_*\) in the
+positive direction on the axis. The hyperbolic distance of these points is
+\(2T\), since its hyperbolic cosine is \(1+Nm^2/2=\cosh(2T)\).
+Thus \(J_m z_m(t)=z_m(t+2T)\). Direct composition gives
+\(J_m^2=\gamma_m\), proving the asserted translation length.
+The traversal is primitive even in \(\mathrm{PSL}_2(\Z)\). Indeed a
+positive translation along the same oriented axis has an integral determinant-one
+representative of trace \(t>2\) and upper right entry \(b>0\). Its fixed-point
+equation must be proportional to \(Nz^2-Nmz-1=0\), hence its lower left entry
+is \(Nb\) and its diagonal difference is \(Nmb\). Thus
+\(t^2=(Nmb)^2+4Nb^2+4\), with \(t\equiv Nmb\pmod 2\). If \(0<b<m\),
+then \(Nmb<t<Nmb+2\), an impossibility. The trace increases with \(b>0\),
+and \(\gamma_m\) realizes \(b=m\).
+
+Translation by \(m\) preserves \(\omega\), and \(J_m\) is this translation
+composed with \(W_N c\). Pullback of the differential therefore gives
+\begin{equation}
+ G_m(-t)=wG_m(t),\qquad
+ G_m(t+2T)=-w\overline{G_m(t)}.
+ \label{eq:symmetries}
+\end{equation}
+In the first identity the sign from reversing the parameter is essential.
+On splitting \eqref{eq:period} at \(T\) and using
+\(e^{2iT\tau_{m,h}}=(-1)^h=-w\), we obtain the exact identity
+\begin{equation}
+ I_{m,h}=2\int_{-T}^T e^{i\tau_{m,h}t}\operatorname{Re}G_m(t)\,dt .
+ \label{eq:half}
+\end{equation}
+
+\section{Comparison with the vertical Mellin integral}
+
+On the vertical geodesic \(z=i e^t/\sqrt N\), the corresponding coefficient
+of the differential is real and equals
+\[
+ G_\infty(t)=-\frac{2\pi}{\sqrt N}\,e^t f(i e^t/\sqrt N).
+\]
+It satisfies \(G_\infty(-t)=wG_\infty(t)\) by the same Fricke calculation.
+
+\begin{lemma}\label{lem:error}
+As \(m\to\infty\),
+\[
+ \int_{-T}^{T}|G_m(t)-G_\infty(t)|\,dt+
+ \int_{|t|>T}|G_\infty(t)|\,dt=O_E(e^{-T}).
+\]
+\end{lemma}
+
+\begin{proof}
+Both absolute integrands are even by \eqref{eq:symmetries} and the vertical
+symmetry. For \(0\le t\le T\), put \(u=e^t\), so that \(1\le u\le1/\lambda\).
+Equation \eqref{eq:param} gives \(\operatorname{Im}Z(t)\ge u/2\). The same
+formula and its derivative give the uniform estimates
+\[
+ |Z(t)-iu|+|Z'(t)-iu|\ll \lambda u^2,\qquad |Z'(t)|\ll u.
+\]
+Indeed the real numerator of \(Z'(t)\) over
+\((1+\lambda^2u^2)^2\) is \(2\lambda u^2(1+\lambda^2)\), and its
+imaginary numerator is
+\(u(1+\lambda^2)(1-\lambda^2u^2)\).
+On the segment joining \(Z(t)/\sqrt N\) to \(iu/\sqrt N\), the Fourier
+expansion at infinity bounds \(|f|+|f'|\) by \(C_Ee^{-c_Eu}\), with
+\(C_E,c_E>0\). It follows that
+\[
+ |G_m(t)-G_\infty(t)|\ll_E
+ \lambda(u^2+u^3)e^{-c_Eu}.
+\]
+The integral against \(du/u\) is \(O_E(\lambda)\). The same Fourier bound
+on the vertical ray gives
+\(\int_T^\infty|G_\infty(t)|\,dt\ll_E e^{-c_E e^T}\), after adjusting
+\(c_E\) if needed.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:comparison}]
+Since \(|e^{i\tau t}|=1\) for real \(\tau\), \eqref{eq:half} and
+Lemma \ref{lem:error} replace \(I_{m,h}\) by
+\(2\int_\R e^{i\tau_{m,h}t}G_\infty(t)\,dt\) with error \(O_E(e^{-T})\).
+The substitution \(y=e^t/\sqrt N\) and the Mellin transform of \(f(iy)\)
+give
+\[
+ \int_\R e^{i\tau t}G_\infty(t)\,dt
+  =-2\pi N^{i\tau/2}\int_0^\infty y^{i\tau}f(iy)\,dy
+  =-\frac{2\pi}{\sqrt N}\Lambda_E(1+i\tau).
+\]
+The Mellin identity follows first in the half-plane of absolute convergence
+of the Dirichlet series by integrating the Fourier expansion. Cusp decay at
+both ends continues the integral to every complex Mellin parameter.
+\end{proof}
+
+\section{Nested orders in a fixed real quadratic field}
+
+The endpoint in the original \(z\)-coordinate satisfies
+\(Nz^2-Nmz-1=0\). Its primitive quadratic discriminant is
+\begin{equation}
+ \Delta_m=N^2m^2+4N=4N\cosh^2 T_m.
+ \label{eq:disc}
+\end{equation}
+This number is positive and nonsquare since \(m^2\Delta_m=(2+Nm^2)^2-4\) lies strictly
+between two consecutive squares. For either endpoint \(\alpha\), the
+multiplier order of \(\Z+\Z\alpha\) is \(\Z+\Z N\alpha\).
+Indeed any multiplier is \(a+b\alpha\) with \(a,b\in\Z\). Its value on
+\(\alpha\) belongs to the lattice exactly when \(N\mid b\), by
+\(\alpha^2=m\alpha+1/N\). This order has discriminant \(\Delta_m\).
+
+\begin{proposition}\label{prop:nesting}
+Fix \(m_*\ge1\) and put \(T_*=T_{m_*}\). For each odd positive integer
+\(M\), set \(m(M)=2\sinh(MT_*)/\sqrt N\). Then \(m(M)\) is a positive
+integer and \(T_{m(M)}=MT_*\). All the multiplier orders belong to
+\(K=\Q(\sqrt{\Delta_{m_*}})\). If \(b(M)\) is their conductor in the
+maximal order of \(K\), then
+\begin{equation}
+ \frac{b(M)}{b(1)}=\frac{\cosh(MT_*)}{\cosh T_*}.
+ \label{eq:conductor}
+\end{equation}
+When \(M\mid M'\) and both are odd, \(b(M)\mid b(M')\). In particular,
+for any odd prime \(q\) the traversals indexed by \(M=q^j\) have lengths
+\(4q^j T_*\), and their multiplier orders form a descending chain.
+\end{proposition}
+
+\begin{proof}
+For \(t=T_*\), let \(x=4\sinh^2t=Nm_*^2\). As functions of positive odd
+\(M\), the sequences \(S_M=\sinh(Mt)/\sinh t\) and
+\(C_M=\cosh(Mt)/\cosh t\) both satisfy
+\(A_{M+4}=(x+2)A_{M+2}-A_M\). Their first two terms are
+\((1,x+3)\) and \((1,x+1)\), respectively. They are therefore positive
+integers. In particular \(m(M)=m_* S_M\). Equation \eqref{eq:disc} now
+gives \(\Delta_{m(M)}=\Delta_{m_*}C_M^2\), proving the common field and,
+using the discriminant-conductor formula for quadratic orders,
+\eqref{eq:conductor}. For \(M'=ML\), applying the same recurrence at
+\(t'=MT_*\) gives \(\cosh(Lt')/\cosh t'\in\Z\), since
+\(4\sinh^2 t'=Nm(M)^2\). This proves divisibility of the conductors.
+\end{proof}
+
+\section{The arithmetic question}
+
+The unweighted integral over each of these traversals is zero. In fact
+\[
+ \gamma_m=
+ \begin{pmatrix}1&m\\0&1\end{pmatrix}
+ \begin{pmatrix}1&0\\Nm&1\end{pmatrix}.
+\]
+The two factors are parabolic elements fixing cusps. Integration of a
+holomorphic differential defines an additive period homomorphism on
+\(\Gamma_0(N)\). It vanishes on parabolic elements because a loop around
+a cusp bounds a disk on \(X_0(N)\). The nonzero modes in
+Corollary \ref{cor:rank} retain information lost by that unweighted integral.
+
+For a fixed \(E\), equation \eqref{eq:rank} gives
+\(\lim_{m\to\infty}\log |I_{m,h}|/\log T_m=-r\).
+The rank formulation of Birch and Swinnerton-Dyer asks whether \(r\)
+equals \(\operatorname{rank}E(\Q)\) \cite{wiles}. An independent
+arithmetic determination of this decay exponent in terms of rational
+points would therefore suffice. The comparison proved here determines
+the exponent analytically. Even in the nested-order family the
+character \(e^{i\tau_{m,h}t}\) varies on the real geodesic, while the
+multiplier orders have the conductors in \eqref{eq:conductor}.
+Nesting by itself gives no relation between the period and a lattice
+of rational points.
+
+\begin{thebibliography}{9}
+\bibitem{cn} P. Constantinescu and A. C. Nordentoft,
+\emph{Non-vanishing of geodesic periods of automorphic forms},
+\href{https://doi.org/10.1007/s00039-025-00715-z}{Geom. Funct. Anal. (2025)}.
+\bibitem{ost} C. O'Sullivan and K. Taylor,
+\emph{Hyperbolic Fourier coefficients of Poincar\'e series},
+\href{https://doi.org/10.1007/s11139-016-9772-6}{Ramanujan J. (2016)}.
+\bibitem{popa} A. A. Popa,
+\emph{Central values of Rankin \(L\)-series over real quadratic fields},
+\href{https://doi.org/10.1112/S0010437X06002259}{Compos. Math. (2006)}.
+\bibitem{wiles} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture},
+\href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}
+{Clay Mathematics Institute, official problem description}.
+\end{thebibliography}
+\end{document}

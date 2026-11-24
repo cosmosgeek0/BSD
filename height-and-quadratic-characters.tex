@@ -1,0 +1,462 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\Res}{\operatorname*{Res}}
+\newcommand{\vol}{\operatorname{vol}}
+
+\title{Rational-Point Height Singularities and Quadratic-Character Series Attached to Elliptic Curves}
+\author{}
+\date{Working draft}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a rational elliptic curve presented as a double cover of the projective line, we attach the positive squareclasses of a binary quartic, a rational-square height series, and a two-variable series of primitive quadratic Dirichlet $L$-functions.  We prove an exact identification of the rational-square locus with rational elliptic points, a regulator-normalized height-counting asymptotic, and its Abelian pole-type singularity.  Two specializations of the quadratic-character series recover the same height series: evaluation at character parameter zero and the residue at character parameter one.  Independently, we prove an Euler-product formula for the bulk average of all locally admissible slopes, and a meromorphic continuation of that \emph{bulk coefficient} to character parameter zero.  Its order is $1+b-a$, where $b$ is the number of rational Galois orbits of the four branch points and $a$ is the complex analytic rank of the elliptic curve.  We identify a rigorous obstruction to equating this order with the height singularity: all rational-square slopes may be deleted without changing the bulk coefficient, and the normalized finite-height means have a divergent first character derivative at zero.  The two asymptotics therefore do not prove Birch--Swinnerton-Dyer.  No finiteness assumption on the Tate--Shafarevich group is made.
+\end{abstract}
+
+\section{Introduction and scope}
+Let $E/\Q$ be an elliptic curve with a rational Weierstrass model
+\begin{equation}\label{eq:model}
+ E:\quad y^2=f(x),\qquad
+ f(x)=A x^3+B x^2+C x+D\in\Z[x],\quad A\ne0,
+\end{equation}
+where $f$ is separable.  The point at infinity makes this genus-one curve an elliptic curve.  We use the binary quartic
+\begin{equation}\label{eq:quartic}
+ G(a,b)=b^4f(a/b)
+       =b(Aa^3+Ba^2b+Cab^2+Db^3).
+\end{equation}
+The four geometric branch points of the degree-two map $x:E\to\mathbb{P}^1$ are the three roots of $f$ and infinity.
+
+Let $r=\operatorname{rank}E(\Q)$ and
+\[
+ a_E=\ord_{s=1}L(E,s).
+\]
+The Birch--Swinnerton-Dyer rank conjecture asserts $r=a_E$.  The aim here is \emph{not} to establish that equality, but to give a precise, self-contained account of what two natural singularity calculations actually prove and where their comparison fails.
+
+Fix a finite set $S$ of rational primes containing $2$, all primes dividing the leading coefficient or discriminant of $f$ and all primes of bad reduction of \eqref{eq:model}, and, for the uniform Euler-product theorem below, $3,5,7$.  The extra three small primes are a technical convenience ensuring that the remaining local correction factors are nonzero at the boundary.  One may omit them on an individual curve after checking the corresponding factors directly.
+
+Let $\calV=\calV_{E,S}$ consist of primitive pairs
+\begin{equation}\label{eq:slopes}
+ (a,b)\in\Z\times\Z_{>0},\qquad \gcd(a,b)=1,\qquad
+ G(a,b)>0,\qquad G(a,b)\in\Q_p^{\times2}\ (p\in S).
+\end{equation}
+Write $H(a,b)=(a^2+b^2)^{1/2}$.  There is a unique positive fundamental quadratic discriminant $D_{a,b}$ such that $G(a,b)/D_{a,b}$ is a square in $\Q^\times$; set $D_{a,b}=1$ precisely when $G(a,b)$ is a rational square.  Since $G(a,b)$ is an integer, the latter means an integer square.  Let $\chi_D$ be the corresponding primitive even quadratic Dirichlet character, with $L(w,\chi_1)=\zeta(w)$.
+
+We use the modularity theorem \cite{BCDT} to regard $L(E,s)$ as the entire weight-two elliptic $L$-function, including its bad Euler factors.  We use only the Mordell--Weil theorem, the height comparison, classical quadratic Dirichlet functional equations, and elementary adelic averaging for the arithmetic assertions; see \cite{SilvermanHeight,SilvermanAEC,DirichletClass,HeckeTate}.  In particular no special-value formula of BSD type is an input.
+
+\section{Rational square slopes and the height singularity}
+\subsection{Exact parametrization}
+\begin{lemma}\label{lem:points}
+For $(a,b)\in\calV$, the condition $D_{a,b}=1$ is equivalent to the existence of a finite rational point $P\in E(\Q)$ with $x(P)=a/b$ and $y(P)\ne0$.  Each such rational $x$-coordinate is counted once by $\calV$ and corresponds to the two points $P,-P$.  All rational finite points with $y(P)\ne0$ occur, independently of the choice of $S$.
+\end{lemma}
+\begin{proof}
+If $G(a,b)=c^2$ with $c\in\Z\setminus\{0\}$, then
+$f(a/b)=(c/b^2)^2$, giving $(a/b,\pm c/b^2)\in E(\Q)$.
+Conversely, if $x(P)=a/b$ in lowest terms, then
+$G(a,b)=(b^2y(P))^2$.  Since $G(a,b)\in\Z$, its rational square root is integral.  A global rational square is a square in each $\Q_p$, so the local conditions in \eqref{eq:slopes} remove no such points.  The sign convention $b>0$ makes the primitive pair unique.  The points with $y=0$ and the point at infinity are finitely many and are omitted by definition.
+\end{proof}
+
+\subsection{Height normalization and exact leading constant}
+Define the canonical height by the convention
+\begin{equation}\label{eq:height-convention}
+ \widehat h_E(P)=\frac12\lim_{n\to\infty}4^{-n}
+ h\bigl(x([2^n]P)\bigr),\qquad
+ h(a/b)=\log\max\{|a|,b\}.
+\end{equation}
+Thus $h(x(P))=2\widehat h_E(P)+O_E(1)$, by the Weil--canonical height comparison \cite{SilvermanHeight}.  Let $P_1,\ldots,P_r$ be a basis of the free part of $E(\Q)$, and set
+\[
+ \mathrm H=(\langle P_i,P_j\rangle)_{i,j},\qquad
+ \langle P,Q\rangle=\tfrac12(\widehat h_E(P+Q)-\widehat h_E(P)-\widehat h_E(Q)),
+\quad \Reg_E=\det\mathrm H.
+\]
+For $r>0$, this matrix is positive definite.  Put $t_E=|E(\Q)_{\mathrm{tors}}|$ and let $\vol(B_r)=\pi^{r/2}/\Gamma(1+r/2)$ be the volume of the unit ball in $\R^r$.
+
+\begin{theorem}[Unconditional rational-square height asymptotic]\label{thm:height}
+Suppose $r\ge1$.  With
+\[
+ N_{\square}(X)=\#\{v\in\calV:H(v)\le X,\ D_v=1\},
+\]
+one has
+\begin{equation}\label{eq:squarecount}
+ N_{\square}(X)\sim
+ \mathrm C_E(\log X)^{r/2},\qquad
+ \mathrm C_E=\frac{t_E\,\vol(B_r)}{2^{1+r/2}\sqrt{\Reg_E}}.
+\end{equation}
+The constant is independent of the finite local-square set $S$.
+\end{theorem}
+\begin{proof}
+By the Mordell--Weil theorem, every point has the form
+$T+\sum_i n_iP_i$, with $T$ torsion and $\mathbf n\in\Z^r$.  Its canonical height is $\mathbf n^{\mathrm t}\mathrm H\mathbf n$.  Therefore the number of rational points with canonical height at most $R$ is
+\[
+ t_E\#\{\mathbf n\in\Z^r:\mathbf n^{\mathrm t}\mathrm H\mathbf n\le R\}
+ \sim t_E\frac{\vol(B_r)}{\sqrt{\Reg_E}}R^{r/2},
+\]
+by elementary lattice-point counting in an expanding ellipsoid.  Since
+$\log H(a,b)=h(a/b)+O(1)=2\widehat h_E(P)+O_E(1)$,
+the height cutoff corresponds to $R=\frac12\log X+O_E(1)$.  Lemma \ref{lem:points} divides the count by two, except for finitely many torsion and two-torsion exceptions.  This gives \eqref{eq:squarecount}.
+\end{proof}
+
+\begin{theorem}[Abelian height singularity]\label{thm:height-zeta}
+For $r\ge1$ define
+\begin{equation}\label{eq:hsquare}
+ \mathcal H_E(s)=\sum_{\substack{v\in\calV\\D_v=1}}H(v)^{-2s}.
+\end{equation}
+The series converges absolutely and locally uniformly for $\Re s>0$, and along the positive real axis,
+\begin{equation}\label{eq:heightpole}
+ \boxed{\displaystyle
+ \mathcal H_E(s)\sim
+ \mathrm C_E\,\Gamma(1+r/2)(2s)^{-r/2}
+ \qquad(s\downarrow0).}
+\end{equation}
+For $r=0$, the square-slope set is finite and $\mathcal H_E(s)$ has a finite limit as $s\downarrow0$.
+\end{theorem}
+\begin{proof}
+Let $A(t)=N_{\square}(e^t)$.  Abel summation gives
+\[
+ \mathcal H_E(s)=\int_{[0,\infty)}e^{-2st}\,dA(t)
+ =2s\int_0^\infty e^{-2st}A(t)\,dt+O(1).
+\]
+For $r>0$, Theorem \ref{thm:height} implies
+$A(t)\sim\mathrm C_Et^{r/2}$.  Substitute $u=2st$ and apply dominated convergence, using the elementary polynomial bound on $A(t)$, to obtain \eqref{eq:heightpole}.  The same bound proves normal convergence for $\Re s>0$.  When $r=0$, all rational points are torsion, so Lemma \ref{lem:points} gives a finite set.
+\end{proof}
+
+\begin{remark}[What ``pole'' means]\label{rem:notmero}
+Equation \eqref{eq:heightpole} is an \emph{Abelian real-axis pole-type asymptotic}.  It does \emph{not} prove a meromorphic continuation of $\mathcal H_E(s)$ through $s=0$.  Even a Gaussian theta series of a positive-definite lattice has exponentially small Poisson-dual terms of the form $e^{-c/s}$, which preclude a naive meromorphic interpretation.  Nor does the cumulative asymptotic \eqref{eq:squarecount} alone imply a sharp asymptotic in every fixed multiplicative annulus $X\le H<2X$: subtracting two main terms may be smaller than the available lattice-point error.
+\end{remark}
+
+\section{A two-variable quadratic-character series}
+Define
+\begin{equation}\label{eq:two-variable}
+ \mathcal Z_E(s,w)=\sum_{v\in\calV}H(v)^{-2s}L(w,\chi_{D_v}).
+\end{equation}
+For $\Re s>1$ and $\Re w>1$ the series is absolutely convergent, since $|L(w,\chi_D)|\le\zeta(\Re w)$ and the number of primitive slopes of height at most $X$ is $O(X^2)$.  Standard elementary estimates on partial sums of Dirichlet characters and the even quadratic functional equation give normal convergence near $w=1$ for every fixed $\Re s>1$, after the principal-character pole is removed.  They also give normal convergence near $w=0$ when $\Re s>2$.
+
+\begin{proposition}[Two exact boundary specializations]\label{prop:twoslices}
+With the indicated domains,
+\begin{align}
+ \mathcal Z_E(s,0)&=-\tfrac12\mathcal H_E(s)
+       &&(\Re s>2),\label{eq:at-zero}\\
+ \Res_{w=1}\mathcal Z_E(s,w)&=\mathcal H_E(s)
+       &&(\Re s>1).\label{eq:at-one}
+\end{align}
+The right-hand side of \eqref{eq:at-zero} continues as a separately defined holomorphic function of $s$ for $\Re s>0$.  Neither identity asserts a two-variable continuation to $(s,w)=(0,0)$ or $(1,0)$.
+\end{proposition}
+\begin{proof}
+For a nontrivial primitive even quadratic character, $L(0,\chi_D)=0$.  For $D=1$, $L(0,\chi_1)=\zeta(0)=-1/2$.  Normal convergence near zero proves \eqref{eq:at-zero}.  At $w=1$, every nonprincipal $L(w,\chi_D)$ is holomorphic, while $\zeta(w)$ has residue one.  Local uniform convergence of the nonprincipal contribution gives \eqref{eq:at-one}.  For completeness, the elementary partial-sum estimate $|\sum_{n\le T}\chi_D(n)|\le\min(T,D)$ gives $L(w,\chi_D)\ll_\delta D^\delta(1+\log D)$ uniformly for $|w-1|\le\delta<1/2$.  Since $D_v\ll_EH(v)^4$, any $\Re s>1$ allows a sufficiently small $\delta$ for normal convergence. For $|w|\le\delta$, the even quadratic functional equation and the same bound at $1-w$ give $L(w,\chi_D)\ll_\delta D^{1/2+2\delta}(1+\log D)$. Summing over dyadic height intervals proves normal convergence for $\Re s>2+4\delta$ and gives the claimed neighborhood of zero whenever $\Re s>2$.
+\end{proof}
+
+\begin{proposition}[The nonprincipal derivative]\label{prop:class-number}
+For $\Re s>2$,
+\begin{equation}\label{eq:wderivative}
+ \frac{\partial\mathcal Z_E}{\partial w}(s,0)
+ =\zeta'(0)\mathcal H_E(s)
+ +\frac12\sum_{\substack{v\in\calV\\D_v>1}}
+ H(v)^{-2s}\sqrt{D_v}\,L(1,\chi_{D_v}).
+\end{equation}
+If $h_D$ and $R_D$ denote the class number and regulator of the real quadratic field of fundamental discriminant $D>1$, then each nonsquare summand has positive coefficient
+\begin{equation}\label{eq:class-number}
+ L'(0,\chi_D)=\tfrac12\sqrt D\,L(1,\chi_D)=h_DR_D>0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The completed even primitive quadratic $L$-function is invariant under $w\mapsto1-w$.  Comparing its leading terms at $0$ and $1$ gives $L'(0,\chi_D)=\sqrt D\,L(1,\chi_D)/2$.  The real quadratic class-number formula gives the final equality \cite{DirichletClass,HeckeTate}.  The conductor bound $D_v\ll_EH(v)^4$ and the standard $L(1,\chi_D)\ll\log(2D)$ ensure absolute convergence for $\Re s>2$.
+\end{proof}
+
+\section{The independent bulk limit and its Euler product}
+Let
+\[
+ \Omega_\infty=\{(x,y)\in\R^2:x^2+y^2\le1,\ y>0,\ G(x,y)>0\}.
+\]
+For $p\in S$, let $\alpha_{p,S}$ be the conditional Haar probability that $G(a,b)$ is a nonzero $p$-adic square, given that $(a,b)\in\Z_p^2$ is primitive.  Put
+\begin{equation}\label{eq:density}
+ \mathrm d_{E,S}=\frac{\operatorname{area}(\Omega_\infty)}{\zeta(2)}
+ \prod_{p\in S}\alpha_{p,S}>0.
+\end{equation}
+For positivity at a prime $p$, take $a=1$ and $b=Ap^{2n}$ for large $n$. Then $G(1,b)=A^2p^{2n}(1+O_E(p^{2n}))$ in $\Q_p$, where the parenthesis tends $p$-adically to one and is a square for large $n$, also at $p=2$. Continuity gives an open set of primitive local solutions. Over $\R$ take $a$ of the same sign as $A$ and $b>0$ small, then rescale into the unit disk. Elementary lattice counting with Moebius inversion and the Chinese remainder theorem, approximating the boundaries of $p$-adic square loci by finite congruences, gives
+\begin{equation}\label{eq:allcount}
+ N(X):=\#\{v\in\calV:H(v)\le X\}
+ \sim\mathrm d_{E,S}X^2.
+\end{equation}
+
+For each odd good prime $p\notin S$, let
+\[
+ a_p=p+1-\#E(\F_p),\qquad
+ b_p=\#\{x\in\mathbb P^1(\F_p):G(x)=0\}.
+\]
+The latter includes the branch point at infinity and equals the number of Frobenius-fixed geometric branch points.  In particular $1\le b_p\le4$.  Define
+\begin{equation}\label{eq:localmoments}
+ \mu_p=-\frac{a_p}{p+1},\qquad
+ \delta_p=\frac{p b_p}{(p+1)^2}.
+\end{equation}
+
+\begin{lemma}[Exact good-prime character average]\label{lem:local}
+On the space of primitive $p$-adic slopes with normalized Haar measure,
+\[
+ \mathbb E[\chi_{D_v}(p)]=\mu_p,\qquad
+ \mathbb P(p\mid D_v)=\delta_p,
+\]
+and, with $t=p^{-w}$,
+\begin{equation}\label{eq:Mp}
+ \mathbb E[(1-\chi_{D_v}(p)t)^{-1}]
+ =\frac{1+\mu_pt-\delta_pt^2}{1-t^2}.
+\end{equation}
+At $p\in S$, the conditional local factor is $(1-p^{-w})^{-1}$.
+\end{lemma}
+\begin{proof}
+The $p+1$ residue classes of primitive projective slopes are equiprobable.  The point-count identity for the double cover $y^2=G$ is
+$\sum_{x\in\mathbb P^1(\F_p)}(G(x)/p)=-a_p$, giving the first expectation.  A simple branch root has probability $1/(p+1)$ at the first residue level.  Conditional on that root, the probability that the valuation of $G$ is odd is
+\[
+ \sum_{j\ge0}(p-1)p^{-(2j+1)}=\frac{p}{p+1}.
+\]
+This gives $\delta_p$.  The even-valuation branches have zero mean quadratic character after averaging their unit residues.  Hence all positive odd moments equal $\mu_p$, while all positive even moments equal $1-\delta_p$.  Summing the geometric series proves \eqref{eq:Mp}.  At primes in $S$, the local squareclass is trivial, so $\chi_{D_v}(p)=1$.
+\end{proof}
+
+\begin{theorem}[Bulk mean and Abelian boundary residue]\label{thm:bulk}
+For $\Re w>1$, the limit
+\begin{equation}\label{eq:bulkmean}
+ \mathcal M_{E,S}(w)=\lim_{X\to\infty}
+ \frac{1}{N(X)}\sum_{\substack{v\in\calV\\H(v)\le X}}
+ L(w,\chi_{D_v})
+\end{equation}
+exists and is the absolutely convergent Euler product
+\begin{equation}\label{eq:eulerproduct}
+ \boxed{\displaystyle
+ \mathcal M_{E,S}(w)=
+ \prod_{p\in S}\frac1{1-p^{-w}}
+ \prod_{p\notin S}
+ \frac{1-\frac{a_p}{p+1}p^{-w}
+       -\frac{p b_p}{(p+1)^2}p^{-2w}}
+      {1-p^{-2w}}.}
+\end{equation}
+For real $w>1$,
+\begin{equation}\label{eq:abelian-residue}
+ \lim_{s\downarrow1}(s-1)\mathcal Z_E(s,w)
+ =\mathrm d_{E,S}\mathcal M_{E,S}(w).
+\end{equation}
+The limit in \eqref{eq:abelian-residue} is an Abelian boundary residue; a meromorphic continuation of $\mathcal Z_E(s,w)$ across $s=1$ is not asserted.  If such a continuation with a simple pole exists, its residue must equal the displayed expression.
+\end{theorem}
+\begin{proof}
+For any fixed integer $n$, $\chi_{D_v}(n)$ is a product of bounded local functions at the primes dividing $n$.  They are locally constant outside zero sets of $G$, which have $p$-adic measure zero.  Equidistribution of primitive lattice points under the finite local restrictions and the Chinese remainder theorem show that the mean of $\chi_{D_v}(n)$ tends to the product of its local means.  Since for $\Re w>1$,
+$L(w,\chi_D)=\sum_{n\ge1}\chi_D(n)n^{-w}$ is absolutely bounded by $\zeta(\Re w)$, dominated convergence permits termwise passage to the limit.  Local factorization and Lemma \ref{lem:local} give \eqref{eq:eulerproduct}.  Finally the weighted counting function is asymptotic to
+$\mathrm d_{E,S}\mathcal M_{E,S}(w)X^2$.  Partial summation of $H^{-2s}$ proves \eqref{eq:abelian-residue}.
+\end{proof}
+
+\subsection{Meromorphic continuation of the bulk coefficient}
+Let
+\begin{equation}\label{eq:branchalgebra}
+ \calB=\Q\times\Q[T]/(f(T)),\qquad
+ b=\#\{\text{irreducible factors of }G\text{ in }\Q[T,U]\}.
+\end{equation}
+Since $f$ is separable, $\calB$ is an etale $\Q$-algebra of degree four, and $\zeta_{\calB}(z)$ is the product of its Dedekind zeta functions.  Its pole at $z=1$ has order $b$; equivalently, $b$ is the number of rational Galois orbits among the four branch points.  If $f$ is irreducible, $b=2$.
+
+A superscript $S$ denotes deletion of Euler factors at $S$.  The omitted elliptic Euler factors are nonzero at $s=1$, so $L^S(E,s)$ and the full $L(E,s)$ have the same central vanishing order.
+
+\begin{theorem}[The character bulk has order $1+b-a_E$]\label{thm:order}
+The Euler product $\mathcal M_{E,S}(w)$ of Theorem \ref{thm:bulk} has a meromorphic continuation to a neighborhood of $w=0$ of the form
+\begin{equation}\label{eq:factorization}
+ \boxed{\displaystyle
+ \mathcal M_{E,S}(w)=
+ U_{E,S}(w)\,
+ \frac{\zeta(2w)}
+ {L^S(E,1+w)\,\zeta^S(1+2w)\,
+  \zeta_{\calB}^S(1+2w)},}
+\end{equation}
+where $U_{E,S}(w)$ is holomorphic and nonzero near $w=0$.
+Consequently
+\begin{equation}\label{eq:order}
+ \boxed{\displaystyle
+ \ord_{w=0}\mathcal M_{E,S}(w)=1+b-a_E.}
+\end{equation}
+This statement uses modularity of $E$, not BSD or finiteness of the Tate--Shafarevich group.
+\end{theorem}
+\begin{proof}
+For $p\notin S$, set $t=p^{-w}$ and
+\[
+ V_p(w)=1-\frac{a_p}{p+1}t-\frac{p b_p}{(p+1)^2}t^2,
+ \qquad L_p(E,1+w)^{-1}=1-\frac{a_p}{p}t+\frac1p t^2.
+\]
+The permutation representation on the four branch points has Frobenius trace $b_p$, so
+\[
+ \zeta_{\calB,p}(1+2w)^{-1}
+ =1-\frac{b_p}{p}t^2+O(p^{-2}|t|^4).
+\]
+Multiplying this with $1-p^{-1}t^2$ and $L_p(E,1+w)^{-1}$ gives
+\[
+ V_p(w)=L_p(E,1+w)^{-1}(1-p^{-1}t^2)
+ \zeta_{\calB,p}(1+2w)^{-1}
+ \bigl(1+O(p^{-3/2+4\epsilon})\bigr)
+\]
+uniformly for $\Re w\ge-\epsilon$, with $0<\epsilon<1/8$. Indeed $|t|\le p^\epsilon$ throughout this half-plane, and the displayed local comparison factors have no zeros there: the reciprocal roots for the elliptic factor have absolute value $\sqrt p$ in the unshifted Euler variable, and those for the permutation representation have absolute value one. Hasse's bound $|a_p|\le2\sqrt p$ and $b_p\le4$ give the stated summable error. The product of the local correction factors therefore converges normally on $\Re w>-\epsilon$. This common domain reaches the original half-plane $\Re w>1$, so the factorization gives analytic continuation from that Euler product.
+
+We must also check that it is nonzero there.  For $p\ge11$, Hasse's lower bound
+$\#E(\F_p)\ge p+1-2\sqrt p>5\ge1+b_p$
+ensures a nonbranch point with nonzero square value of $G$.  Hence
+$V_p(0)=1+\mu_p-\delta_p>0$.  All comparison factors at $w=0$ are positive and nonzero.
+
+Finally,
+\[
+ \prod_{p\in S}(1-p^{-w})^{-1}\zeta^S(2w)
+ =\zeta(2w)\prod_{p\in S}(1+p^{-w}).
+\]
+The finite product is a holomorphic unit at zero. This proves
+\eqref{eq:factorization}. The factors $\zeta^S(1+2w)$ and
+$\zeta_{\calB}^S(1+2w)$ have poles of orders one and $b$ respectively.
+Since $\zeta(0)=-1/2$ and $L^S(E,1+w)$ has order $a_E$,
+\eqref{eq:order} follows.
+\end{proof}
+
+\section{Deleting the square slopes and differentiating the mean}
+\begin{proposition}\label{prop:delete}
+For fixed $\Re w>1$, deleting the slopes for which $D_v$ belongs to any
+fixed finite set of fundamental discriminants leaves the limit
+$\mathcal M_{E,S}(w)$ unchanged.
+\end{proposition}
+\begin{proof}
+Theorem \ref{thm:height} bounds the number of square slopes of height
+at most $X$ by $O((1+\log X)^{r/2})$. For fixed $D>1$, the slopes with
+$D_v=D$ lift to rational points on the quadratic twist $f(x)=Dy^2$.
+Applying the same height comparison gives the bound
+$O_D((1+\log X)^{r_D/2})$, with $r_D$ the Mordell--Weil rank of the twist.
+Each slope in that set contributes the same value $L(w,\chi_D)$.
+A finite sum of these bounds is $o(N(X))$ by \eqref{eq:allcount}.
+\end{proof}
+
+Write
+\[
+ M_X(w)=\frac1{N(X)}\sum_{\substack{v\in\calV\\ H(v)\le X}}L(w,\chi_{D_v}).
+\]
+At zero, $M_X(0)=-N_\square(X)/(2N(X))$. For $r>0$ it is asymptotic to
+$-\mathrm C_E(\log X)^{r/2}/(2\mathrm d_{E,S}X^2)$.
+\begin{proposition}
+For every curve in the given setting, $M_X'(0)\to+\infty$ as
+$X\to\infty$. In particular the finite-height means cannot converge
+locally uniformly near zero to a holomorphic continuation of the bulk mean.
+\end{proposition}
+\begin{proof}
+By \eqref{eq:class-number},
+\[
+ M_X'(0)=\frac{N_\square(X)}{N(X)}\zeta'(0)+
+ \frac1{N(X)}\sum_{\substack{v\in\calV,\ H(v)\le X\\D_v>1}}h_{D_v}R_{D_v}.
+\]
+Proposition \ref{prop:delete} shows that $D_v$ tends to infinity in
+probability under the uniform measure on the slopes. A fundamental real
+quadratic unit $\epsilon>1$ satisfies $\epsilon\ge\sqrt D/2$ (subtract
+its conjugate and use $|\epsilon'|<1$). Hence
+$h_DR_D\ge\tfrac12\log D-\log2$. The nonprincipal terms are nonnegative,
+and their mean tends to infinity. The principal term tends to zero.
+Local uniform convergence of holomorphic functions would give
+convergence of their first derivatives.
+\end{proof}
+
+Even for a meromorphic function of two variables, different orders of taking
+a residue and a specialization can give different results. For example
+\[
+ F(x,w)=\frac1{x(x+w)}-\frac1{x^2}
+\]
+satisfies $F(x,0)=0$, while $\Res_{x=0}F(x,w)=1/w$ for $w\ne0$.
+For the actual mean, Proposition \ref{prop:delete} goes further.
+Removing every global rational-square slope preserves the bulk coefficient
+in its initial half-plane and hence preserves its meromorphic continuation.
+
+\section{Retaining the square part}
+Write $G(v)=D_v q_v^2$ with $q_v>0$ rational, and put
+$A(v)=G(v)/H(v)^4$. For a bounded smooth angular weight $\varphi$ define
+\[
+ \mathcal Z_E(s,w,\tau;\varphi)=
+ \sum_{v\in\calV} H(v)^{-2s}q_v^{-\tau}
+ \varphi(v/H(v))L(w,\chi_{D_v}).
+\]
+The even quadratic functional equation has gamma factor
+$\gamma(w)=\pi^{w-1/2}\Gamma((1-w)/2)/\Gamma(w/2)$. Substitution of
+$D_v=H(v)^4 A(v)/q_v^2$ in each summand yields
+\[
+ \mathcal Z_E(s,w,\tau;\varphi)=\gamma(w)
+ \mathcal Z_E(s-1+2w,1-w,\tau+1-2w;\varphi A^{1/2-w}).
+\]
+The weight on the right is evaluated on the positive arcs $A>0$ and may grow at their endpoints. On the sampled slopes $H^{-4}\le A\ll_E1$, so for fixed $w$ its growth is at most a fixed power of $H$. The identity holds in common domains of absolute convergence, with both sides
+interpreted meromorphically at the exceptional character parameters when
+justified. For fixed $w,\tau$ away from poles such domains exist for
+sufficiently large $\Re s$, since $G$ is an integer of size $O_E(H^4)$,
+$D_v\ll_E H^4$, and $q_v$ has denominator at most two. Both $s+\tau$
+and $s+w-1$ are invariant under the reflection. On square slopes,
+$q_v=H(v)^2\sqrt{A(v)}$ exactly, so the square-part variable retains
+data lost in the unweighted bulk. The reflection still supplies no
+comparison of the two invariant directions.
+
+\section{Two quartics}\label{sec:examples}
+For $E_4:y^2+xy=x^3-x^2-79x+289$, put $u=4x-1$, $v=8y+4x$.
+Then $v^2=u^3-1267u+17230$, giving
+\[
+ G_4(a,b)=b(a^3-1267ab^2+17230b^3).
+\]
+Direct substitution gives $G_4(15,1)=40^2$ and
+$G_4(5,3)=4785\cdot16^2$. The cubic is irreducible modulo three,
+so the branch algebra has $b=2$ rational components.
+For $E_2:y^2+y=x^3+x^2-2x$, completing the square instead gives
+\[
+ G_2(a,b)=b(4a^3+4a^2b-8ab^2+b^3).
+\]
+Here $G_2(3,1)=11^2$ and $G_2(-8,5)=4785$. The rational-root test
+shows the cubic has no rational root, hence $b=2$ again. These
+examples of $D=4785$ concern the unrestricted quartics. The local
+square restrictions at $3$ and $5$ exclude that discriminant in $\calV$.
+
+Taking the independently recorded ranks two and four for $389.a1$ and
+$234446.a1$ gives, respectively, growth proportional to $s^{-1}$ and
+$s^{-2}$ in Theorem \ref{thm:height-zeta} \cite{curves}. The bulk formula
+gives $3-a_E$ on both curves. The height formula concerns the actual
+rational points. The analytic order concerns a coefficient preserved
+after those points are deleted. Identifying the two ranks would require
+an additional arithmetic argument.
+
+\begin{thebibliography}{9}
+\bibitem{SilvermanHeight}
+J. H. Silverman, \emph{The difference between the Weil height and the canonical height on elliptic curves},
+Math. Comp. \textbf{55} (1990), 723--743.
+\url{https://doi.org/10.1090/S0025-5718-1990-1035944-5}.
+\bibitem{SilvermanAEC}
+J. H. Silverman, \emph{The Arithmetic of Elliptic Curves}, 2nd ed.,
+Graduate Texts in Mathematics 106, Springer, 2009, Chapter VIII.
+\bibitem{BCDT}
+C. Breuil, B. Conrad, F. Diamond and R. Taylor,
+\emph{On the modularity of elliptic curves over $\Q$: wild $3$-adic exercises},
+J. Amer. Math. Soc. \textbf{14} (2001), 843--939.
+\url{https://doi.org/10.1090/S0894-0347-01-00370-8}.
+\bibitem{Deligne}
+P. Deligne, \emph{La conjecture de Weil II},
+Publ. Math. IH\'ES \textbf{52} (1980), 137--252.
+\url{https://doi.org/10.1007/BF02684780}.
+\bibitem{DirichletClass}
+T. Mitsuhiro, T. Nakahara and T. Uehara, \emph{The class number formula of a real quadratic field and an estimate of the value of a unit},
+Canad. Math. Bull. \textbf{38} (1995), 98--103.
+\url{https://doi.org/10.4153/CMB-1995-013-6}.
+\bibitem{HeckeTate}
+J. Tate, \emph{Fourier analysis in number fields and Hecke's zeta-functions},
+in \emph{Algebraic Number Theory}, Academic Press, 1967.
+\bibitem{Cremona}
+J. E. Cremona, \emph{Algorithms for Modular Elliptic Curves}, 2nd ed.,
+Cambridge University Press, 1997. \url{https://johncremona.github.io/book/amec.html}.
+\bibitem{curves}
+The LMFDB Collaboration, elliptic curve records
+\href{https://www.lmfdb.org/EllipticCurve/Q/389/a/1}{389.a1} and
+\href{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}{234446.a1}.
+\end{thebibliography}
+\end{document}

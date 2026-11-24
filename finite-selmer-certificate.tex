@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\F}{\mathbf F}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\loc}{\operatorname{loc}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Sel}{\operatorname{Sel}}
+\newcommand{\GQ}{G_{\Q}}
+\title{Finite first moments detecting a mock plectic invariant}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For an elliptic curve and an imaginary quadratic field satisfying the hypotheses of Fornea and Gehrmann, we give a finite witness for nonvanishing of their rational mock plectic invariant. The witness is a weighted sum of coefficients of a level-raised quaternionic theta element modulo a power of \(p\). The proof combines their first-derivative formula and explicit reciprocity law with detection of a cohomology class at a single admissible Frobenius. A finite Fourier identity gives an equivalent criterion in terms of squared absolute values at cyclic characters. The precision and auxiliary prime depend on the class. Fornea and Gehrmann's Selmer-rank theorem then gives the arithmetic consequence of finding a witness.
+\end{abstract}
+
+\section{The finite criterion}
+
+Let \(E/\Q\) have conductor \(N\), let \(K\) be an imaginary quadratic field other than \(\Q(i)\) and \(\Q(\sqrt{-3})\), and let \(p\geq5\) be a prime. We impose Assumptions 1.1 and 1.2 of \cite{FG}. Thus the discriminant of \(K\) is prime to \(N\), the prime \(p\) is inert in \(K\), and \(E\) has multiplicative reduction at \(p\). Write \(N=pN^+N^-\) with \(N^-\) supported on the primes of \(N/p\) inert in \(K\) and \(N^+\) supported on split primes. Assume that \(N^-\) is squarefree with an even number of prime factors, that the action of \(\GQ\) on \(E[p]\) is surjective onto \(\mathrm{GL}_2(\F_p)\), and that this action is ramified at each \(v\mid N^-\) with \(v^2\equiv1\bmod p\). For a field \(F\) we write \(G_F\) for its absolute Galois group.
+
+Let \(K_\infty/K\) be the anticyclotomic \(\Z_p\)-extension and fix a topological generator \(\gamma\) of \(\Gamma=\Gal(K_\infty/K)\). Put \(\Lambda=\Z_p[[\Gamma]]\), \(X=\gamma-1\) and \(I=(X)\). Following the construction initiated in \cite{DF}, let \(\mathcal Q_K\) be the trivial-character invariant of \cite[eq.~(13)]{FG}. Via local reciprocity as in \cite[\S3.4.3]{FG}, it has coordinates in \(H^1(K,V)\otimes_{\Z_p} I/I^2\), for \(T=T_p(E)\) and \(V=T\otimes_{\Z_p}\Q_p\).
+
+For \(k\geq1\) set \(M=p^k\). A prime \(\ell\nmid N\) inert in \(K\) is \(k\)-admissible when \(\ell^2\not\equiv1\bmod p\) and
+\[
+             a_\ell(E)\equiv \epsilon_\ell(\ell+1)\pmod M
+             \quad\text{for some }\epsilon_\ell\in\{1,-1\}.
+\]
+The distinct roots \(\epsilon_\ell,\epsilon_\ell\ell\) of the Frobenius polynomial modulo \(M\) explain the equivalent local definition in \cite[\S3.1]{FG}. Use the theta element \(\lambda_{\ell,k}\in\Lambda/M\Lambda\) of \cite[Def.~3.14]{FG} for the definite index consisting of the single auxiliary prime \(\ell\). In particular it includes their factor \(\ord_p(q_E)\), where \(q_E\) is the Tate period over \(K_p\). Define
+\begin{equation}
+ \lambda_{\ell,k}\bmod (\gamma^M-1)
+     =\sum_{j=0}^{M-1}c_j[\gamma^j],
+ \qquad
+ B_{\ell,k}=\sum_{j=0}^{M-1}j\,c_j \ \in\Z/M\Z .
+ \label{eq:moment}
+\end{equation}
+These are finite CM sums. In the notation of \cite[eqs.~(23)--(24)]{FG}, choose the level-raised eigenfunction \(g_\ell\), an optimal embedding and its path of CM edges \(e_n\). Choose \(n\) large enough that the ring class field \(H_{p^n}\) contains \(K_\infty^{\Gamma^M}\). The coefficient \(c_j\) is \(\ord_p(q_E)a_p(E)^{-n}\) times the sum of \(g_\ell\) at the Galois translates of \(e_n\) over all \(\sigma\in\Gal(H_{p^n}/K)\) mapping to \(\gamma^j\) in \(\Gamma/\Gamma^M\). The distribution relation makes the coefficients independent of increasing \(n\).
+
+One may take \(n=k+1\). By ring class reciprocity, the kernel of restriction from the union of the \(p\)-power ring class fields to \(H_{p^{k+1}}\) is the image of \(1+p^{k+1}\mathcal O_{K_p}\), modulo rational local units. Since \(p\) is odd and \(K_p/\Q_p\) is unramified, the local logarithm gives
+\[
+ 1+p^{k+1}\mathcal O_{K_p}=(1+p\mathcal O_{K_p})^{p^k}.
+\]
+Its image in \(\Gamma\) is therefore contained in \(\Gamma^M\).
+
+\begin{theorem}\label{th:main}
+Under the stated hypotheses, \(\mathcal Q_K\neq0\) if and only if \(B_{\ell,k}\neq0\) for some \(k\geq1\) and some \(k\)-admissible prime \(\ell\). If \(\mathcal Q_K\neq0\), there is an integer \(e\geq0\) such that for every \(k\geq e+1\) a positive-density set of rational primes is \(k\)-admissible and has \(B_{\ell,k}\) of exact \(p\)-adic valuation \(e\) modulo \(p^k\).
+\end{theorem}
+
+The theorem gives a finite witness in the nonzero case. The precision threshold in its proof involves a global cohomology class, so failure to find a witness at a fixed precision gives no general vanishing test. Sections 2 and 3 prove the theorem. Section 4 describes its rank and Fourier consequences.
+
+\section{The integral derivative and explicit reciprocity}
+
+Write \(\mathcal{T}=T\widehat{\otimes}_{\Z_p}\Lambda\) with the diagonal action in \cite[\S3]{FG}. Let \(\kappa^\infty\in H^1(K,\mathcal{T})\) denote their distinguished integral Euler system class. Cohomology here is continuous. The relevant global classes are unramified outside a finite set, and one can take all global cohomology groups with such a fixed ramification set containing the bad primes. In particular \(H^1\) of a finite free \(p\)-adic representation with this ramification restriction is finitely generated over \(\Z_p\).
+
+\begin{lemma}\label{lem:int}
+There is a unique \(y\in H^1(K,\mathcal{T})\) with \(Xy=\kappa^\infty\). Write \(D\in H^1(K,T)\) for its augmentation. In rational cohomology,
+\[
+       D\otimes(X\bmod I^2)=\ord_p(q_E)\,\mathcal Q_K .
+\]
+In particular \(D=0\) if and only if \(\mathcal Q_K=0\).
+\end{lemma}
+\begin{proof}
+The fields \(K\) and \(\Q(E[p^j])\) are disjoint over \(\Q\) for every \(j\geq1\). Indeed the latter is unramified outside \(Np\) and \(K\) ramifies at a finite prime outside \(Np\). Thus \(E[p]^{G_K}=0\), which implies \(H^0(K,T)=0\) and \(H^1(K,T)[p]=0\) by the multiplication-by-\(p\) sequence. The rational augmentation of \(\kappa^\infty\) vanishes by \cite[Lem.~3.12]{FG}. Its integral augmentation vanishes by torsion-freeness. Apply the long exact sequence for
+\[
+ 0\longrightarrow\mathcal{T}\xrightarrow{\ X\ }\mathcal{T}
+     \longrightarrow T\longrightarrow0 .
+\]
+Exactness and \(H^0(K,T)=0\) now give existence and uniqueness of \(y\). Reducing the first copy modulo \(I\) identifies the linear term of \(\kappa^\infty\) with \(D\otimes(X\bmod I^2)\). Equation (22) of \cite{FG} gives the asserted rational equality. The valuation \(\ord_p(q_E)\) is a positive integer.
+\end{proof}
+
+\begin{lemma}\label{lem:local}
+For any \(k\)-admissible \(\ell\), the element \(B_{\ell,k}\) is, up to a basis of the free rank-one unramified local cohomology \(H^1_{\mathrm{unr}}(K_\ell,E[M])\), the localization of \(D\bmod M\). In particular their vanishing and their \(p\)-divisibilities agree.
+\end{lemma}
+\begin{proof}
+The prime of \(K\) above \(\ell\) splits completely in \(K_\infty/K\). Indeed it is unramified, fixed by conjugation, and conjugation acts by inversion on \(\Gamma\), which has no element of order two. Locally, therefore, the Iwasawa coefficient imposes no Galois twist. The unramified local cohomology over \(\Lambda/M\Lambda\) is the scalar extension of \(E[M]/(\mathrm{Frob}_{K_\ell}-1)E[M]\). It is free of rank one since the two eigenvalues of arithmetic Frobenius over \(K_\ell\) are \(1\) and \(\ell^2\), distinct modulo \(p\).
+
+The second explicit reciprocity law \cite[Thm.~3.16, indefinite index \(1\)]{FG} identifies the localization of \(\kappa^\infty\bmod M\) with \(\lambda_{\ell,k}\) by a \(\Lambda/M\Lambda\)-module isomorphism. Here one may take \(y\) unramified at \(\ell\) because both classes in Lemma~\ref{lem:int} are constructed in cohomology with ramification restricted to the primes dividing \(Np\). In a local basis the reciprocity isomorphism differs from scalar extension of a fixed basis by a unit. Since \(\kappa^\infty=Xy\), the theta element has zero constant coefficient. Its linear coefficient equals the chosen coordinate of \(\loc_\ell(D\bmod M)\) times the constant term of that unit. To read the coefficient in the finite group ring, observe that
+\[
+ (1+X)^M-1\equiv 0\pmod{M,X^2},\qquad
+ (1+X)^j\equiv1+jX\pmod{X^2}.
+\]
+This proves the assertion and also gives \(\sum c_j=0\bmod M\).
+\end{proof}
+
+Changing the ray of CM edges or its optimal embedding multiplies \(\lambda_{\ell,k}\) by a group element, and changing the normalized eigenfunction multiplies it by a unit, as in \cite[Rem.~3.13 and \S3.4.4]{FG}. The zero constant term makes the first change immaterial to the linear coefficient. Another topological generator rescales the linear coordinate by a unit as well.
+
+\section{Choosing the detecting prime}
+
+Bertolini and Darmon already establish detection of a nonzero mod-\(p\) class at admissible primes of arbitrarily prescribed precision \cite[Thm.~3.2]{BD}. We give the argument here to record the Frobenius sign, the integral divisibility of the particular class \(D\), and its relation to the moment in \eqref{eq:moment}.
+
+\begin{lemma}\label{lem:frob}
+Let \(D\neq0\) be as in Lemma~\ref{lem:int}. Let \(\eta\in\{1,-1\}\) be the complex conjugation sign of its global cohomology coordinate, so that conjugation acts on \(D\) by \(\eta\). Write \(D=p^e c\) with \(c\) primitive in integral cohomology. For every \(k>e\), there is a positive-density set of \(k\)-admissible primes of sign \(\epsilon_\ell=\eta\) where \(\loc_\ell(D\bmod p^k)\) has valuation \(e\).
+\end{lemma}
+\begin{proof}
+The existence of the sign for the global coordinate is the conjugation calculation of \cite[Cor.~2.9 and proof of Thm.~3.4]{FG}, which gives \(\eta=-a_p(E)\varepsilon(E/\Q)\), where \(\varepsilon\) is the root number. The finite generation and torsion-freeness in Section 2 give \(e\) and a nonzero mod-\(p\) class \(\bar c\). Since \(2\) is a \(p\)-adic unit, twisting by the quadratic character of \(K/\Q\) when \(\eta=-1\) makes \(c\) invariant, and it then extends to \(H^1(\Q,T')\) by restriction and inflation. Here \(T'=T\) for \(\eta=1\) and \(T'=T\otimes\chi_K\) for \(\eta=-1\). Use the same letters for a representing cocycle and its reductions.
+
+Write \(F=K(E[p^k])\). The restriction of \(\bar c\) to \(G_F\) surjects onto \(E[p]\). To see this, the group \(\Gal(F/K)\) contains the scalar \(-1\) modulo \(p^k\). A lift of residual \(-1\) has order \(2p^b\) for some \(b\). Its \(p^b\)-th power is an involution \(A\) with \(A\equiv-1\bmod p\), hence \(A=-1\) since \(A-1\) is invertible. For a central scalar \(z=-1\) the cocycle identity gives \((z-1)u(g)=(g-1)u(z)\) for any \(1\)-cocycle of \(\Gal(F/K)\) on \(E[p]\). Therefore its \(H^1\) is zero. Inflation-restriction gives nonzero restriction of \(\bar c\). On \(G_F\) this restriction is a homomorphism, and its image is a nonzero stable subspace for the full residual group. Irreducibility proves surjectivity.
+
+Choose \(d_0\in\F_p^\times\setminus\{1,-1\}\). In the image on \(E[p^k]\) there is an element conjugate to \(\operatorname{diag}(\eta,\eta d)\), where \(d\) is the Teichm\"uller lift of \(d_0\) modulo \(p^k\). Indeed start with a lift of the desired residual diagonal matrix. The kernel of reduction is a \(p\)-group. Taking a power congruent to \(1\) modulo the residual order and divisible by the \(p\)-part of the order removes the \(p\)-part. The distinct residual eigenvalues lift uniquely as roots of unity of prime-to-\(p\) order. By disjointness from \(K\), prescribe this action and nontrivial action on \(K\) simultaneously for an element \(g\in G_{\Q}\). On the twisted representation the two eigenvalues of \(g\) are \(1,d\). Replacing \(g\) by \(hg\), \(h\in G_F\), prescribes the first coordinate of \(\bar c(g)\) arbitrarily. Choose it nonzero.
+
+The cocycle identity gives \(c(g^2)=(1+g)c(g)\), whose first coordinate is nonzero modulo \(p\). Apply Chebotarev to the conjugacy class of the image of \(g\) in a finite Galois quotient recording the action on \(F\) and the cocycle \(\bar c\) (use the associated affine representation). Each resulting unramified prime \(\ell\) is inert in \(K\), satisfies \(\ell\equiv d\bmod p^k\) by the determinant, and has \(a_\ell(E)\equiv\eta(1+\ell)\bmod p^k\). At its prime over \(K\), Frobenius is the square of rational Frobenius. Its first eigenvalue equals \(1\) modulo \(p^k\), and the second is distinct from \(1\) modulo \(p\). Thus the first coordinate survives in the unramified quotient. The class \(p^e c\) has exactly valuation \(e\) there for \(k>e\). This local property is invariant under changing the representative of the conjugacy class.
+\end{proof}
+
+Lemmas~\ref{lem:int}--\ref{lem:frob} prove Theorem~\ref{th:main}. The argument chooses the prime after choosing the precision. The finite ring and its level-raised eigenfunction can change at each precision.
+
+\section{Rank consequences and a Fourier expression}
+
+Write \(r_p(E/F)=\operatorname{corank}_{\Z_p}\Sel_{p^\infty}(E/F)\) and let \(E^K\) be the quadratic twist by \(K/\Q\). If \(L(E/K,1)=0\) and a witness in \eqref{eq:moment} exists, \cite[Thm.~3.4]{FG} gives \(r_p(E/K)=2\). In particular \(\operatorname{rank}E(\Q)\leq2\). If \(\varepsilon(E/\Q)=+1\) and reduction at \(p\) is nonsplit multiplicative, its proof gives
+\[
+                  r_p(E/\Q)=2,\qquad r_p(E^K/\Q)=0 .
+\]
+Indeed the two coranks sum to two and are even by the parity result used there. The nonzero invariant has its global factor in the \(+\)-eigenspace because \(-a_p(E)\varepsilon(E/\Q)=+1\). If two independent rational points are also known, this proves that \(E(\Q)\) has rank exactly two. For split multiplicative reduction with the same root number the signs reverse, so the existence of a nontorsion point in \(E(\Q)\) precludes a witness whenever \(L(E/K,1)=0\).
+
+\begin{proposition}
+Put \(\zeta=\exp(2\pi i/M)\). Choose integral lifts \(b_j\) of the \(c_j\) in \eqref{eq:moment}, and let \(c'_j=b_j-M^{-1}\sum_i b_i\). Define
+\[
+ \mathcal E_{\ell,k}
+  =\sum_{h=1}^{M-1}\frac{\left|\sum_{j=0}^{M-1}c'_j\zeta^{hj}\right|^2}
+                           {|1-\zeta^h|^2}.
+\]
+Then \(\mathcal E_{\ell,k}\) is a nonnegative integer and
+\[
+                  \mathcal E_{\ell,k}\equiv - B_{\ell,k}^2 \pmod M .
+\]
+In particular \(\mathcal Q_K\neq0\) if and only if some such energy is nonzero modulo \(M\).
+\end{proposition}
+\begin{proof}
+The common shift is an integer by Lemma~\ref{lem:local}. Since \(M\) is odd and \(\sum_{j=0}^{M-1}j=M(M-1)/2\), the shift preserves the weighted moment modulo \(M\), and it preserves every nontrivial Fourier coefficient exactly. Choose integers \(d_j\) cyclically indexed modulo \(M\) with \(c'_j=d_j-d_{j-1}\), which exist because \(\sum_j c'_j=0\) as an integer. Parseval gives
+\[
+  \mathcal E_{\ell,k}=M\sum_j d_j^2-\Big(\sum_jd_j\Big)^2 .
+\]
+Cyclic summation gives \(\sum_jj c'_j=Md_{M-1}-\sum_jd_j\), proving the congruence. When \(D\neq0\), choose \(k=2e+1\) and a prime from Lemma~\ref{lem:frob}, so squaring the moment preserves nonvanishing modulo \(M\).
+\end{proof}
+
+The energy's integer value depends on the lifts. Its residue is the invariant used here, up to the square of the unit in the theta normalization. The arithmetic input to the rank bound is the mock plectic class. A connection from nonvanishing of the ordinary complex \(L''(E,1)\) to existence of a detecting moment would require an additional theorem. The general equality between the rational rank and the order of the ordinary complex \(L\)-function remains open.
+
+\begin{thebibliography}{9}
+\bibitem{BD}
+M. Bertolini and H. Darmon,
+\emph{Iwasawa's main conjecture for elliptic curves over anticyclotomic \(\Z_p\)-extensions},
+Ann. of Math. (2) \textbf{162} (2005), 1--64.
+\url{https://annals.math.princeton.edu/wp-content/uploads/annals-v162-n1-p01.pdf}.
+\bibitem{FG}
+M. Fornea and L. Gehrmann,
+\emph{Iwasawa theory and mock plectic points}, arXiv:2311.03100v2 (2024).
+\url{https://arxiv.org/abs/2311.03100}.
+\bibitem{DF}
+H. Darmon and M. Fornea, \emph{Mock plectic points}, arXiv:2310.16758.
+\url{https://arxiv.org/abs/2310.16758}.
+\end{thebibliography}
+\end{document}

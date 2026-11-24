@@ -1,0 +1,653 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\title{A Global Heat-Sign Inequality for the
+Conductor-234446 Elliptic Curve}
+\author{}
+\date{Working draft}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{hypothesis}{Hypothesis}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study a Gaussian heat deformation of the completed
+complex $L$-function of the elliptic curve
+$E=[1,-1,0,-79,289]$, of conductor $234446$.
+Assuming an explicitly stated two-sign-change certificate
+for its weight-two newform along the positive imaginary
+axis, we prove that a second-order constant-coefficient
+differential operator applied to the heat transform is
+strictly positive for every real heat parameter.
+All derivatives of this positive transform are positive.
+
+We obtain an exact decomposition of the original heat
+transform into a strictly positive integral and a single
+homogeneous term proportional to $\Lambda_E''(1)$.
+The decomposition yields a complete classification of
+its real zeros, including multiplicities, and identifies
+the missing second complex derivative as the sole
+undetermined scalar.
+
+The general analytic theorem is proved unconditionally.
+Its specialization to the stated elliptic curve is
+conditional on the explicit sign certificate, whose
+interval-arithmetic verification is not reproduced here.
+No Birch--Swinnerton-Dyer equality is assumed or proved.
+\end{abstract}
+
+\section{The modular heat transform}
+
+Let
+\[
+E:\quad y^2+xy=x^3-x^2-79x+289
+\]
+be the elliptic curve of conductor
+\[
+N=234446.
+\]
+Let
+\[
+f_E(z)=\sum_{n\ge1}a_n e^{2\pi inz}
+\]
+be its normalized weight-two newform.
+
+Define
+\[
+\Lambda_E(s)=
+N^{s/2}(2\pi)^{-s}\Gamma(s)L(E,s).
+\]
+The root number of $E$ is $+1$, so
+\[
+\Lambda_E(s)=\Lambda_E(2-s).
+\]
+
+Put
+\[
+\alpha=\frac{2\pi}{\sqrt N},
+\qquad
+g(t)=e^t f_E\left(\frac{ie^t}{\sqrt N}\right),
+\qquad t\ge0.
+\]
+Equivalently,
+\[
+g(t)=e^t\sum_{n\ge1}a_n
+             \exp(-\alpha n e^t).
+\]
+
+The completed Mellin integral, split at
+$y=1/\sqrt N$ and transformed using the Fricke
+functional equation, gives
+\begin{equation}
+\Lambda_E(1+s)
+=2\int_0^\infty g(t)\cosh(st)\,dt.
+\label{eq:mellin}
+\end{equation}
+
+The Fourier expansion implies that $g$ decreases
+superexponentially as $t\to\infty$.
+All subsequent differentiations and integrations
+are therefore absolutely justified.
+
+For $\lambda\in\mathbb C$, define
+\begin{equation}
+H(\lambda)=
+2\int_0^\infty e^{\lambda t^2}g(t)\,dt.
+\label{eq:heat}
+\end{equation}
+This is an entire function of $\lambda$.
+
+Its derivatives at the origin satisfy
+\begin{equation}
+H^{(m)}(0)=\Lambda_E^{(2m)}(1),
+\qquad m\ge0.
+\label{eq:derivatives}
+\end{equation}
+In particular,
+\[
+H(0)=\Lambda_E(1),\qquad
+H'(0)=\Lambda_E''(1),\qquad
+H''(0)=\Lambda_E^{(4)}(1).
+\]
+
+The associated two-variable transform is
+\[
+\Xi_\lambda(z)=
+2\int_0^\infty
+e^{\lambda t^2}g(t)\cos(zt)\,dt.
+\]
+It satisfies the backward heat equation
+\[
+\partial_\lambda\Xi_\lambda
+=-\partial_z^2\Xi_\lambda,
+\]
+with
+\[
+\Xi_0(z)=\Lambda_E(1+iz),
+\qquad
+H(\lambda)=\Xi_\lambda(0).
+\]
+
+\section{A general positive-forcing theorem}
+
+We first prove an analytic result independent
+of modular forms.
+
+Let $g:[0,\infty)\to\mathbb R$ be continuous,
+decaying faster than $e^{-At^2}$ for every
+$A>0$. Assume that it has exactly two simple
+zeros
+\[
+0<t_1<t_2
+\]
+and satisfies
+\begin{equation}
+g(t)>0\quad(0\le t<t_1),\qquad
+g(t)<0\quad(t_1<t<t_2),\qquad
+g(t)>0\quad(t>t_2).
+\label{eq:signpattern}
+\end{equation}
+
+Put
+\[
+x_1=t_1^2,\qquad x_2=t_2^2,
+\qquad
+D=\frac{d}{d\lambda},
+\]
+and define $H$ by \eqref{eq:heat}.
+
+\begin{theorem}[Global positive forcing]
+\label{thm:positive}
+Under \eqref{eq:signpattern}, the function
+\[
+F(\lambda)=(D-x_1)(D-x_2)H(\lambda)
+\]
+has the integral representation
+\begin{equation}
+F(\lambda)=
+2\int_0^\infty
+e^{\lambda t^2}
+(t^2-x_1)(t^2-x_2)g(t)\,dt.
+\label{eq:forcing}
+\end{equation}
+For every real $\lambda$ and every integer $m\ge0$,
+\begin{equation}
+F^{(m)}(\lambda)>0.
+\label{eq:allpositive}
+\end{equation}
+
+In particular, $F$ is strictly log-convex
+on $\mathbb R$.
+\end{theorem}
+
+\begin{proof}
+Differentiation under the integral defining
+$H$ gives
+\[
+(D-x_j)H(\lambda)
+=
+2\int_0^\infty
+(t^2-x_j)e^{\lambda t^2}g(t)\,dt.
+\]
+Applying both operators proves
+\eqref{eq:forcing}.
+
+By \eqref{eq:signpattern},
+\[
+(t^2-x_1)(t^2-x_2)g(t)>0
+\]
+except at the two isolated zeros.
+Since $e^{\lambda t^2}>0$ for real $\lambda$,
+the integral is strictly positive.
+
+Differentiating $m$ more times inserts the
+nonnegative factor $t^{2m}$. Hence
+\[
+F^{(m)}(\lambda)=
+2\int_0^\infty
+t^{2m}e^{\lambda t^2}
+(t^2-x_1)(t^2-x_2)g(t)\,dt>0.
+\]
+
+For strict log-convexity, regard
+\[
+d\nu(x)=
+\frac{(x-x_1)(x-x_2)g(\sqrt{x})}{\sqrt{x}}\,dx
+\]
+as a positive measure. Then
+\[
+F(\lambda)=\int_0^\infty e^{\lambda x}\,d\nu(x).
+\]
+Cauchy--Schwarz gives
+\[
+FF''-(F')^2\ge0.
+\]
+Equality would require $x$ to be constant
+$\nu$-almost everywhere, which is impossible
+because $\nu$ has nontrivial interval support.
+The inequality is therefore strict.
+\end{proof}
+
+\section{The surviving homogeneous term}
+
+Assume additionally that
+\begin{equation}
+H(0)=0.
+\label{eq:centralzero}
+\end{equation}
+
+Define
+\begin{equation}
+B(\lambda)=
+\frac{e^{x_2\lambda}-e^{x_1\lambda}}
+{x_2-x_1}.
+\label{eq:B}
+\end{equation}
+Then
+\[
+B(0)=0,\qquad B'(0)=1,
+\qquad
+(D-x_1)(D-x_2)B=0.
+\]
+
+\begin{theorem}[Exact positive decomposition]
+\label{thm:decomposition}
+Under \eqref{eq:signpattern} and
+\eqref{eq:centralzero}, one has, for every
+real $\lambda$,
+\begin{equation}
+\boxed{
+H(\lambda)=
+B(\lambda)H'(0)+
+\int_0^\lambda B(\lambda-u)F(u)\,du.
+}
+\label{eq:duhamel}
+\end{equation}
+Moreover,
+\begin{equation}
+\boxed{
+H(\lambda)-B(\lambda)H'(0)>0
+\qquad(\lambda\ne0).
+}
+\label{eq:strictremainder}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The function $B$ is the fundamental solution
+of the homogeneous differential equation
+\[
+(D-x_1)(D-x_2)y=0
+\]
+with initial data $B(0)=0$, $B'(0)=1$.
+
+Variation of constants gives the unique
+solution of
+\[
+(D-x_1)(D-x_2)H=F
+\]
+satisfying $H(0)=0$ and the prescribed
+value of $H'(0)$. This is precisely
+\eqref{eq:duhamel}.
+
+For $\lambda>0$ and $0\le u<\lambda$,
+\[
+B(\lambda-u)>0,\qquad F(u)>0.
+\]
+Thus the integral is positive.
+
+If $\lambda<0$, then $B(\lambda-u)<0$
+for $\lambda<u\le0$. Reversing the orientation
+of integration gives
+\[
+\int_0^\lambda B(\lambda-u)F(u)\,du>0.
+\]
+This proves \eqref{eq:strictremainder}.
+\end{proof}
+
+There is also a direct convexity proof,
+which gives a second positive representation.
+
+For $\lambda\in\mathbb R$, let
+\[
+A(\lambda)=
+\frac{x_2e^{x_1\lambda}
+      -x_1e^{x_2\lambda}}{x_2-x_1}.
+\]
+The affine function
+\[
+\ell_\lambda(x)=A(\lambda)+B(\lambda)x
+\]
+interpolates $e^{\lambda x}$ at $x_1,x_2$.
+
+For $\lambda\ne0$, strict convexity of
+$x\mapsto e^{\lambda x}$ gives
+\[
+\operatorname{sgn}
+\bigl(e^{\lambda x}-\ell_\lambda(x)\bigr)
+=
+\operatorname{sgn}((x-x_1)(x-x_2))
+\]
+for $x\ne x_1,x_2$.
+
+Since $H(0)=0$,
+\begin{equation}
+\boxed{
+\begin{aligned}
+&H(\lambda)-B(\lambda)H'(0)\\
+&\quad=
+2\int_0^\infty g(t)
+\left[
+e^{\lambda t^2}
+-A(\lambda)-B(\lambda)t^2
+\right]dt>0
+\end{aligned}
+}
+\label{eq:convexrepresentation}
+\end{equation}
+for every $\lambda\ne0$.
+
+Thus the positive remainder is not a
+numerical observation: it follows from the
+certified sign geometry and strict convexity.
+
+\section{The complete real-zero dichotomy}
+
+\begin{theorem}[Real zeros, counting multiplicity]
+\label{thm:zeros}
+Assume \eqref{eq:signpattern} and $H(0)=0$.
+Then $H$ has at most two real zeros,
+counting multiplicity.
+
+Writing $c=H'(0)$, exactly one of the
+following occurs:
+\begin{enumerate}
+\item If $c=0$, then $0$ is a zero of
+exact multiplicity two and
+\[
+H(\lambda)>0\qquad(\lambda\ne0).
+\]
+\item If $c>0$, then $0$ is simple and
+there is exactly one additional simple
+zero in $(-\infty,0)$.
+\item If $c<0$, then $0$ is simple and
+there is exactly one additional simple
+zero in $(0,\infty)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Put
+\[
+Y(\lambda)=e^{-x_1\lambda}H(\lambda).
+\]
+Then
+\[
+Y'(\lambda)=e^{-x_1\lambda}(D-x_1)H(\lambda).
+\]
+
+Define
+\[
+Z(\lambda)=
+e^{-x_2\lambda}(D-x_1)H(\lambda).
+\]
+By Theorem \ref{thm:positive},
+\[
+Z'(\lambda)=e^{-x_2\lambda}F(\lambda)>0.
+\]
+Thus $Z$ is strictly increasing and has
+at most one real zero.
+
+If $H$ had at least three real zeros
+counting multiplicity, generalized Rolle's
+theorem would give at least two zeros
+of $Y'$, hence at least two zeros of $Z$.
+This is impossible.
+
+Now suppose $c=0$. Since $H(0)=0$,
+\[
+F(0)=H''(0)>0.
+\]
+Thus $0$ is exactly a double zero.
+Theorem \ref{thm:decomposition} gives
+$H(\lambda)>0$ everywhere else.
+
+For the remaining cases, note that
+$g(0)>0$. Gaussian localization gives
+\[
+H(-T)\sim g(0)\sqrt{\frac{\pi}{T}}>0
+\qquad(T\to+\infty).
+\]
+
+Also $H(\lambda)>0$ for sufficiently
+large positive $\lambda$. Indeed, the
+negative part of $g$ is confined to
+$(t_1,t_2)$, while a compact interval
+strictly beyond $t_2$ contributes a
+positive term growing faster than
+$e^{\lambda t_2^2}$.
+
+If $c>0$, then $H(\lambda)<0$ for
+negative $\lambda$ sufficiently close
+to zero. Positivity at $-\infty$
+forces an additional negative zero.
+
+If $c<0$, the analogous argument
+forces an additional positive zero.
+
+The two-zero bound proves uniqueness
+and simplicity in both cases.
+\end{proof}
+
+\section{Conditional specialization to 234446.a1}
+
+We now state precisely the computational
+input required for the elliptic curve.
+
+Let
+\[
+P(q)=\frac{f_E(q)}q
+=\sum_{n\ge1}a_nq^{n-1},
+\]
+where
+\[
+q_0=\exp\left(-\frac{2\pi}{\sqrt{234446}}\right)
+<0.988.
+\]
+
+\begin{hypothesis}[Exact sign certificate]
+\label{hyp:sign}
+The function $P(q)$ has exactly two
+simple roots on $0<q\le q_0$.
+They lie in
+\[
+r_-\in(0.423,0.424),\qquad
+r_+\in(0.943,0.944),
+\]
+and there are no other roots on this interval.
+\end{hypothesis}
+
+This is a finite, checkable hypothesis.
+For example, with
+\[
+P_M(q)=\sum_{n=1}^{M}a_nq^{n-1},
+\qquad M=3200,
+\]
+the standard coefficient bound
+$|a_n|\le d(n)\sqrt n\le2n$ gives
+\[
+|P(q)-P_M(q)|
+\le
+\frac{2q_*^M((M+1)-Mq_*)}{(1-q_*)^2},
+\qquad 0\le q\le q_*=0.988.
+\]
+Derivative tails admit analogous explicit
+geometric-series bounds.
+
+Outward interval Horner evaluation and
+root-isolation inequalities for $P_M$,
+combined with these tails, would establish
+Hypothesis \ref{hyp:sign}. The complete
+interval certificate is not included
+in this paper. Accordingly, all statements
+below using it are explicitly conditional.
+
+Because
+\[
+q(t)=e^{-\alpha e^t}
+\]
+decreases strictly from $q_0$ to $0$,
+Hypothesis \ref{hyp:sign} gives two
+simple zeros
+\[
+t_1=
+\log\left(-\frac{\sqrt N}{2\pi}\log r_+\right),
+\qquad
+t_2=
+\log\left(-\frac{\sqrt N}{2\pi}\log r_-\right).
+\]
+They satisfy $0<t_1<t_2$.
+
+Since $P(0)=1$, their sign pattern is
+exactly
+\[
+g(t):\qquad +,\ -,\ +.
+\]
+
+We separately retain the exact central-value
+input
+\begin{equation}
+L(E,1)=0.
+\label{eq:Ecentral}
+\end{equation}
+This also follows from the four independent rational generators recorded for this curve and the analytic-rank-zero theorem stated by Wiles \cite{lmfdb,wiles}.
+It implies
+\[
+\Lambda_E(1)=\Lambda_E'(1)=0
+\]
+by the functional equation.
+
+\begin{corollary}[Curve-specific global inequality]
+\label{cor:curve}
+Assume Hypothesis \ref{hyp:sign} and
+\eqref{eq:Ecentral}. Put
+$x_j=t_j^2$. Then, for every real $\lambda$,
+\begin{equation}
+\boxed{
+(\partial_\lambda-x_1)
+(\partial_\lambda-x_2)H(\lambda)>0.
+}
+\label{eq:curvepositive}
+\end{equation}
+Every derivative of the left-hand side
+is also strictly positive.
+
+Moreover,
+\begin{equation}
+\boxed{
+H(\lambda)=
+\Lambda_E''(1)
+\frac{e^{x_2\lambda}-e^{x_1\lambda}}
+{x_2-x_1}
++R_E(\lambda),
+}
+\label{eq:curveidentity}
+\end{equation}
+where
+\[
+R_E(\lambda)=
+\int_0^\lambda
+\frac{e^{x_2(\lambda-u)}
+      -e^{x_1(\lambda-u)}}
+{x_2-x_1}
+F(u)\,du
+\]
+satisfies
+\[
+R_E(\lambda)>0\quad(\lambda\ne0),
+\qquad
+R_E(0)=R_E'(0)=0.
+\]
+
+If $\Lambda_E''(1)=0$, then
+\[
+H(\lambda)>0\quad(\lambda\ne0),
+\qquad
+\Lambda_E^{(4)}(1)>0.
+\]
+In particular, the original complex
+$L$-function then has a zero of
+exact order four at $s=1$.
+\end{corollary}
+
+\begin{proof}
+Hypothesis \ref{hyp:sign} gives
+\eqref{eq:signpattern}. Equation
+\eqref{eq:Ecentral} gives $H(0)=0$.
+Theorems \ref{thm:positive},
+\ref{thm:decomposition}, and
+\ref{thm:zeros} apply directly.
+
+If $\Lambda_E''(1)=0$, then
+\[
+\Lambda_E^{(4)}(1)=F(0)>0.
+\]
+Since the gamma and conductor factors
+in $\Lambda_E$ are analytic and nonzero
+at $s=1$, the complex $L$-function
+has exact order four.
+\end{proof}
+
+\section{Scope of the result}
+
+The decomposition
+\[
+H(\lambda)=B(\lambda)\Lambda_E''(1)
+           +R_E(\lambda)
+\]
+is exact, and the remainder is strictly
+positive at every nonzero real parameter.
+
+Nevertheless, its positive forcing term
+does not determine the homogeneous
+coefficient $\Lambda_E''(1)$.
+
+Indeed, the general theorem permits
+all three possibilities
+\[
+\Lambda_E''(1)<0,\qquad
+\Lambda_E''(1)=0,\qquad
+\Lambda_E''(1)>0.
+\]
+In the two nonzero cases, the heat transform
+has exactly one further real zero, on the
+side predicted by Theorem \ref{thm:zeros}.
+
+Therefore the sign certificate and the
+global positive-forcing representation,
+by themselves, do not establish the
+missing second complex zero.
+
+The contribution of this note is the
+explicit strictly positive differential
+transform, its exact integral solution,
+and the complete real-zero classification.
+An additional arithmetic or automorphic
+identity eliminating the surviving
+homogeneous term would be required to
+deduce analytic rank four for the curve.
+
+\begin{thebibliography}{9}
+\bibitem{lmfdb} The LMFDB Collaboration, \emph{Elliptic curve 234446.a1}, \url{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}.
+\bibitem{wiles} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture}, Clay Mathematics Institute, \url{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}.
+\end{thebibliography}
+\end{document}
