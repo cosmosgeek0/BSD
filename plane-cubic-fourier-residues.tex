@@ -23,7 +23,9 @@ height exponent is the Mordell--Weil rank. On the multiples of any
 one split frequency, a Dirichlet series of the same coefficients
 recovers the analytic rank by meromorphic continuation. We also
 prove uniformity for growing transverse chord height and a finite
-measure criterion for arithmetic rank zero. The equality of the two
+measure criterion for arithmetic rank zero. On a pencil through a nonflex
+rational point we compute an all-prime boundary coefficient whose continuation
+has a half-integral singular exponent in odd rank. The equality of the two
 rank exponents remains open.
 \end{abstract}
 
@@ -893,6 +895,803 @@ Both quantities are determined by the same residue family, but the
 formulas evaluate them by different operations. Their equality is
 the rank conjecture in the official statement \cite{Clay}.
 
+\appendix
+\section{A one-sided coarea--Euler residue on a rational pencil}
+\label{app:coarea-euler}
+
+A pencil is the family of lines through one point. For a pencil through
+a rational point on $E$, we compute a boundary coefficient using both
+real integration and congruences at every prime. Its one-variable
+continuation has magnitude comparable to $|b|^{-r/2}$. The assertion
+concerns the reduced sum defined in \eqref{eq:app-trace}.
+
+Let
+\[
+E:\ F(X_1,X_2,X_3)=0
+\]
+be a smooth plane cubic with an integral equation over $\mathbb Q$, embedded by
+$|3O|$, and put
+\[
+r=\operatorname{rank}E(\mathbb Q).
+\]
+Fix a nonflex rational point $P$, represented by a primitive
+integral vector $P\in\mathbb Z^3$. Set
+\[
+\Lambda_P=P^\perp\cap\mathbb Z^3.
+\]
+Choose an oriented basis $v_1,v_2$ with
+$v_1\times v_2=P$, and write $B=(v_1,v_2)$.
+Then
+\[
+\operatorname{covol}(\Lambda_P)=\|P\|_2.
+\]
+Primitivity of $P$ implies that
+$B^T:\mathbb Z^3\to\mathbb Z^2$ is surjective.
+Choose an integral linear right inverse
+\[
+A:\mathbb Z^2\longrightarrow\mathbb Z^3,
+\qquad B^TA(m)=m.
+\]
+
+For $m\in\mathbb Z^2$, define
+\[
+f_m(T)=F(A(m)+TP)=a_mT^2+b_mT+c_m,
+\qquad D_m=b_m^2-4a_mc_m.
+\]
+The cubic term vanishes because $F(P)=0$.
+The coefficients $a_m,b_m,c_m$ are homogeneous
+in $m$ of degrees $1,2,3$, respectively.
+
+We exclude $m=0$, the unique projective direction
+$a_m=0$, and the finitely many directions $D_m=0$.
+Denote the remaining oriented frequencies by
+$\mathcal M_P^\circ$.
+
+\subsection{Finite reflection and its exact local factors}
+
+Write $e(x)=\exp(2\pi i x)$. For $q\ge1$ let
+\[
+c_q(n)=\sum_{\substack{a\bmod q\\(a,q)=1}}
+e(an/q),
+\qquad
+T_q(v)=\sum_{x\bmod q}c_q(F(x))e(v\cdot x/q).
+\]
+Finite Fourier orthogonality gives
+\begin{equation}\label{eq:app-reflection}
+\sum_{n\bmod q}T_q(Bn)e(-m\cdot n/q)
+=q^2C_q(m),
+\end{equation}
+where
+\[
+C_q(m)=\sum_{\lambda\bmod q}c_q(f_m(\lambda)).
+\]
+Indeed, the two Fourier equations force
+$B^Tx=m\bmod q$, whose solutions are exactly
+$x=A(m)+\lambda P\bmod q$.
+
+Define, initially for $\Re t>1$,
+\[
+\mathcal Z_m(t)=
+\sum_{q\ge1}\frac{C_q(m)}{q^{1+t}}.
+\]
+For each prime $p$, put
+\[
+N_{p,k}(m)=
+\#\{\lambda\bmod p^k:
+f_m(\lambda)\equiv0\pmod{p^k}\},
+\qquad N_{p,0}=1.
+\]
+The Ramanujan-sum identity gives
+\[
+C_{p^k}(m)=
+p^k\bigl(N_{p,k}(m)-N_{p,k-1}(m)\bigr).
+\]
+Consequently
+\begin{equation}\label{eq:app-local}
+\boxed{
+\mathcal Z_{m,p}(t)=
+(1-p^{-t})\sum_{k\ge0}N_{p,k}(m)p^{-kt}.
+}
+\end{equation}
+This formula includes every prime, including primes
+dividing the coefficients, content, or discriminant
+of $f_m$.
+
+If $p\nmid2a_mD_m$, then
+\[
+\mathcal Z_{m,p}(t)
+=1+\chi_{D_m}(p)p^{-t}.
+\]
+Thus
+\begin{equation}\label{eq:app-quadratic}
+\mathcal Z_m(t)
+=
+\frac{L(t,\chi_{D_m})}{\zeta(2t)}
+\prod_{p\mid2a_mD_m}\mathcal E_{p,m}(t),
+\end{equation}
+where $\chi_{D_m}$ is the primitive character of the quadratic
+field for nonsquare $D_m$, and the trivial character of conductor
+one for square $D_m$. Writing $X=p^{-t}$, we have
+\[
+\mathcal E_{p,m}(t)=
+\mathcal Z_{m,p}(t)\frac{1-\chi_{D_m}(p)X}{1-X^2}.
+\]
+In particular the baseline factor at a ramified prime is $1-X^2$.
+For square $D_m$ the global baseline is $\zeta(t)/\zeta(2t)$.
+
+\subsection{One-sided control at the finite boundary}
+
+We take $t\downarrow0$ along the positive reals. Local correction
+factors can contain $(1+p^{-t})^{-1}$, with poles at imaginary points
+approaching zero as $p$ grows. We use compact subsets of $\Re t>0$
+for continuation and separate estimates on the positive real axis for
+the boundary limit.
+
+Here is a uniform arithmetic bound.
+
+For a separable quadratic $f(T)=aT^2+bT+c$
+with discriminant $D\ne0$, every root modulo
+$p^k$ satisfies
+\[
+(2aT+b)^2\equiv D\pmod{p^k}.
+\]
+The elementary lifting bounds for quadratic
+congruences give
+\begin{equation}\label{eq:app-root-bound}
+N_{p,k}\ll
+p^{v_p(2a)+\lceil v_p(D)/2\rceil},
+\end{equation}
+uniformly in $k$, with an absolute implied
+constant (one may take a factor $4$ after
+accounting for the dyadic case).
+
+If $D$ is nonsquare in $\mathbb Q_p$, then
+$N_{p,k}=0$ once $k$ exceeds a quantity bounded
+in terms of $1+v_p(2a)+v_p(D)$.
+
+For real $0<X<1$,
+\[
+(1-X)\sum_{k\ge0}N_{p,k}X^k
+\le\sup_{k\ge0}N_{p,k}.
+\]
+At a nonsplit exceptional prime the root counts eventually vanish.
+For odd $p$ it suffices that $k>v_p(D_m)$, and for $p=2$ that
+$k>v_2(D_m)+2$, since any higher square congruence would make the
+discriminant a local square. The factor $(1-X)$ in
+\eqref{eq:app-local} cancels the zero of the baseline at $X=1$.
+At an inert prime the correction is $\sum_k N_{p,k}X^k$, and at a
+ramified prime it is $\sum_k N_{p,k}X^k/(1+X)$. At a split prime
+the correction on $0<X<1$ is bounded by $\sup_k N_{p,k}$.
+Multiplying \eqref{eq:app-root-bound} and the length bounds over
+$p\mid 2a_mD_m$ costs at most a fixed power of $|2a_mD_m|$.
+
+On compact subsets of $\Re t>0$, the same finite corrections have
+polynomial bounds in $\|m\|_2$, using the absolute values of the finite
+sums or the geometric series in \eqref{eq:app-local}.
+
+Suppose $D_m>0$ is nonsquare. The corresponding
+primitive quadratic character is nontrivial
+and even, so
+\[
+L(0,\chi_{D_m})=0.
+\]
+This follows from the Dirichlet functional equation \cite{DLMF}.
+
+ Consequently
+\begin{equation}\label{eq:app-nonsquare}
+\boxed{
+D_m>0,\quad D_m\notin\mathbb Q^{\times2}
+\quad\Longrightarrow\quad
+\mathcal Z_m(0^+)=0.
+}
+\end{equation}
+
+Now suppose $D_m>0$ is a square. Let
+$\lambda_+,\lambda_-\in\mathbb Q$ be the
+distinct roots of $f_m$.
+
+For each prime $p$, sufficiently deep root
+lifting gives
+\[
+\lim_{k\to\infty}N_{p,k}(m)
+=
+p^{v_p(\sqrt{D_m})}
+\left(
+\mathbf1_{\lambda_+\in\mathbb Z_p}
++\mathbf1_{\lambda_-\in\mathbb Z_p}
+\right).
+\]
+This remains valid at primes dividing
+$2a_mD_m$: near an integral simple
+$p$-adic root, the stable number of
+solutions is $p^{v_p(f_m'(\lambda))}$.
+
+The unexceptional Euler product is
+$\zeta(t)/\zeta(2t)$, whose continued
+value at zero is $1$.
+Comparing the finitely many exceptional
+factors gives
+\begin{equation}\label{eq:app-split-value}
+\boxed{
+\mathcal Z_m(0^+)
+=
+|\sqrt{D_m}|
+\prod_p
+\frac{
+\mathbf1_{\lambda_+\in\mathbb Z_p}
++\mathbf1_{\lambda_-\in\mathbb Z_p}
+}{2}.
+}
+\end{equation}
+The product differs from $1$ at finitely
+many primes only. It may vanish if neither
+root is integral at some prime.
+
+\subsection{The separated real Mellin transform}
+
+Let $W(x)=w(\|x\|_2)$ be a nonnegative,
+nonzero, smooth radial function supported
+in a compact annulus. Take a nonnegative, nonzero $\omega\in C_c^\infty(0,\infty)$, with
+Mellin transform $M\omega(s)=\int_0^\infty \omega(y)y^{s-1}\,dy$.
+We use the Mellin specialization of the delta kernel in
+\cite{HB}.
+
+Consider the separated Mellin kernel
+\begin{align}
+\mathcal A(v;t,b)
+={}&\frac23\zeta(t)
+\int_0^\infty\rho^{b-1}
+\int_{\mathbb R^3}W(x)\notag\\
+&\quad\times
+\left[
+M\omega(t-1)
+-|F(x)|^{t-1}M\omega(1-t)
+\right]e(-\rho v\cdot x)\,dx\,d\rho.
+\label{eq:app-kernel}
+\end{align}
+Its physical Mellin relation, when used,
+is
+\[
+t=\frac{2(s+b)}3.
+\]
+The symbol $s$ here denotes the height Mellin parameter. The trace
+below is defined with independent variables $b,t$.
+
+For clarity, at a finite modulus $q$ the finite-frequency multiplier
+is $T_q(Bn)$. Its Fourier inversion and the Dirac-comb formula give,
+in distributions,
+\[
+ \sum_{n\in\mathbb Z^2}T_q(Bn)e(-\rho Bn\cdot x)
+ =\sum_{m\in\mathbb Z^2}C_q(m)\,
+       \delta^{(2)}(\rho B^Tx-m/q).
+\]
+Since $[A_1,A_2,P]$ is unimodular, $x=A(y)+\lambda P$ has Jacobian
+one. Integration in $y$ supplies $\rho^{-2}$. Rescaling
+$\rho^{-1}=qh$ and the remaining line coordinate by $h$ gives the
+argument $h(A(m)+LP)$ and the factor $q^{2-b}$. In the separated
+modulus sum this changes $q^{-3-u}$ to $q^{-1-t}$, where $t=u+b$.
+This computation fixes both local normalizations.
+
+Homogeneity gives
+\[
+F(h(A(m)+LP))=h^3f_m(L).
+\]
+The singular real term becomes
+\begin{equation}\label{eq:app-J}
+\mathcal J_m(t,b)=
+\int_0^\infty h^{3t-1-b}
+\int_{\mathbb R}
+|f_m(L)|^{t-1}
+W(h(A(m)+LP))\,dL\,dh.
+\end{equation}
+
+For radial $W$, set
+\[
+M_w(z)=\int_0^\infty h^{z-1}w(h)\,dh.
+\]
+Since $w$ has compact annular support,
+$M_w$ is entire. Radial integration gives
+\begin{equation}\label{eq:app-radial}
+\boxed{
+\mathcal J_m(t,b)=
+M_w(3t-b)
+\int_{\mathbb R}
+\|A(m)+LP\|_2^{b-3t}
+|f_m(L)|^{t-1}\,dL.
+}
+\end{equation}
+
+In particular, the radial exponent at
+$t=0$ is $h^{-1-b}$, with no additional
+gamma-factor zero.
+
+Define the regular real term
+\[
+\mathcal U_m(b)=
+\int_0^\infty h^{2-b}
+\int_{\mathbb R}W(h(A(m)+LP))\,dL\,dh
+=M_w(3-b)\int_{\mathbb R}\|A(m)+LP\|_2^{b-3}\,dL.
+\]
+The \emph{reduced separated trace} is
+\begin{equation}\label{eq:app-trace}
+\boxed{
+\begin{aligned}
+\mathcal T_P(t,b)
+=\frac23\zeta(t)
+\sum_{m\in\mathcal M_P^\circ}
+\mathcal Z_m(t)
+\bigl[
+&M\omega(t-1)\mathcal U_m(b)\\
+&-M\omega(1-t)\mathcal J_m(t,b)
+\bigr].
+\end{aligned}}
+\end{equation}
+
+The sum is over \emph{oriented} lattice
+frequencies: $m$ and $-m$ both occur.
+
+One may start with $1<\Re t<2$ and $\Re b<-B_0$, for
+$B_0$ sufficiently large. The modulus series and the reduced
+$m$-sum converge absolutely there. On compact positive-real-part
+$t$-regions we use \eqref{eq:app-quadratic} for continuation, avoiding
+its poles. Taking $B_0$ larger if necessary covers a path to the
+interval $0<t<1/4$.
+
+Equation \eqref{eq:app-trace} defines the
+reduced separated object; no identification
+with the complete physical delta transform
+is made.
+
+\subsection{Coarea residue and dominated convergence}
+
+Suppose $D_m>0$. The roots $\lambda_\pm$
+are distinct and real, and
+\[
+|f_m'(\lambda_\pm)|=|\sqrt{D_m}|.
+\]
+
+The one-dimensional distribution
+$|f_m(L)|^{t-1}$ has a simple pole at
+$t=0$, with residue
+\[
+2\sum_{j=\pm}
+\frac{\delta_{\lambda_j}(L)}
+{|\sqrt{D_m}|}.
+\]
+Hence
+\begin{align}
+\operatorname*{Res}_{t=0}\mathcal J_m(t,b)
+={}&
+\frac{2}{|\sqrt{D_m}|}
+\sum_{j=\pm}
+\int_0^\infty h^{-1-b}
+W(hx_j(m))\,dh,\label{eq:app-coarea}\\
+x_j(m)&=A(m)+\lambda_jP.\notag
+\end{align}
+
+If $D_m<0$, there is no real root,
+and $\mathcal J_m(t,b)$ has no
+$t=0$ coarea pole.
+
+We justify taking the one-sided residue
+inside the reduced frequency sum.
+
+Put $M=\|m\|_2$, write $L=M\ell$, and set
+\[
+\widehat f_m(\ell)=
+M^{-3}f_m(M\ell),\quad
+\alpha_m=a_m/M,\quad
+\Delta'_m=D_m/M^4.
+\]
+The coefficients of $\widehat f_m$
+are bounded independently of $m$.
+Because $a_m,D_m$ are nonzero integers,
+\[
+|\alpha_m|\gg M^{-1},
+\qquad
+|\Delta'_m|\ge M^{-4}.
+\]
+
+For positive discriminant, separate
+neighborhoods of the two roots.
+If $\ell_j$ is a nearest root to $\ell$, the other root is
+at distance at least half their separation. Therefore
+\[
+|\widehat f_m(\ell)|
+\ge \tfrac12\sqrt{\Delta'_m}\,|\ell-\ell_j|
+\]
+everywhere. Also $\|A(m)/M+\ell P\|_2\asymp_P 1+|\ell|$, since
+its orthogonal projection has norm bounded below and its value at
+$\ell=0$ is bounded above.
+
+For negative discriminant, completing
+the square gives
+\[
+|\widehat f_m(\ell)|
+\ge\frac{|\Delta'_m|}{4|\alpha_m|}.
+\]
+The change of variables contributes $M^{b-2}$ in
+\eqref{eq:app-radial}. For $0<t<1/4$ and $b$ sufficiently negative,
+$t\int(1+|\ell|)^{-2}\min_j|\ell-\ell_j|^{t-1}\,d\ell$ is bounded
+uniformly in the roots: integrate separately within distance one of
+a root and on the complement. The positive- and negative-discriminant
+bounds cost at most $O(M^2)$ and $O(M^4)$ respectively.
+
+Using \eqref{eq:app-radial} and the
+annular support of $W$, one obtains,
+for fixed sufficiently negative real $b$,
+\begin{equation}\label{eq:app-majorant}
+\sup_{0<t<t_0}
+\left|t\mathcal J_m(t,b)\right|
+\ll_{b,P,W} M^{b+2}.
+\end{equation}
+The estimate is deliberately coarse;
+its purpose is summability, not a sharp
+frequency exponent.
+
+The quadratic Dirichlet factors and
+the exceptional local corrections admit
+one-sided bounds polynomial in $M$,
+by \eqref{eq:app-root-bound}, the conductor
+bound, and the functional equation.
+For each fixed positive nonsquare discriminant, the finite factor tends to zero.
+
+Thus, for a sufficiently large $B_0$,
+the terms of
+\[
+t\mathcal T_P(t,b)
+\]
+have a summable majorant when
+$b<-B_0$.
+
+Dominated convergence now applies to
+$t\downarrow0$ along the real axis.
+No uniform complex disk is required.
+
+The $\mathcal U_m(b)$ term has no
+$t=0$ pole. For $D_m>0$ nonsquare,
+the zero \eqref{eq:app-nonsquare}
+cancels the real coarea pole, so its
+contribution to the residue is zero.
+For $D_m<0$, the archimedean term
+has no coarea pole.
+
+Only positive square discriminants
+survive.
+
+Since $\zeta(0)=-1/2$, the two minus
+signs from \eqref{eq:app-trace} and
+$\zeta(0)$ cancel. For each oriented
+split frequency, the residue is
+\begin{equation}\label{eq:app-oriented}
+\boxed{
+\frac23M\omega(1)
+\frac{\mathcal Z_m(0^+)}
+{|\sqrt{D_m}|}
+\sum_{j=\pm}\mathcal W_b(x_j(m)),
+}
+\end{equation}
+where
+\[
+\mathcal W_b(x)=
+\int_0^\infty h^{-1-b}W(hx)\,dh
+=M_w(-b)\|x\|_2^b.
+\]
+
+\subsection{Exact content summation}
+
+Choose a primitive representative $m_0$
+of each split projective direction,
+identifying $m_0$ with $-m_0$.
+Let $\mathcal P_P$ denote these
+projective directions, with the
+linear and repeated-root exceptions
+removed.
+
+For a primitive split $m_0$, write
+its distinct rational roots as
+\[
+\lambda_\pm=\frac{u_\pm}{d_\pm},
+\qquad
+(u_\pm,d_\pm)=1,\quad d_\pm>0.
+\]
+
+For $n\ge1$,
+\[
+f_{nm_0}(T)=n^3f_{m_0}(T/n),
+\]
+so
+\[
+\lambda_\pm(nm_0)=n\lambda_\pm,
+\qquad
+\sqrt{D_{nm_0}}=n^2\sqrt{D_{m_0}}.
+\]
+Consequently \eqref{eq:app-split-value}
+gives
+\[
+\frac{\mathcal Z_{nm_0}(0^+)}
+{|\sqrt{D_{nm_0}}|}
+=
+\prod_p
+\frac{
+\mathbf1_{v_p(n)\ge v_p(d_+)}
++\mathbf1_{v_p(n)\ge v_p(d_-)}
+}{2}.
+\]
+
+The real roots also scale:
+\[
+x_\pm(nm_0)=nx_\pm(m_0),
+\qquad
+\mathcal W_b(nx)=n^b\mathcal W_b(x).
+\]
+
+For $\Re b<-1$, the content sum
+converges absolutely and equals
+\begin{align}
+&\sum_{n\ge1}n^b
+\prod_p
+\frac{
+\mathbf1_{v_p(n)\ge v_p(d_+)}
++\mathbf1_{v_p(n)\ge v_p(d_-)}
+}{2}\notag\\
+&\qquad=
+\boxed{
+\zeta(-b)
+\prod_{p\mid d_+d_-}
+\frac{
+p^{b v_p(d_+)}
++p^{b v_p(d_-)}
+}{2}.
+}
+\label{eq:app-content}
+\end{align}
+
+This includes all primes and every
+nonprimitive content.
+
+Let
+\[
+\mathfrak d_{m_0}(b)=
+\prod_{p\mid d_+d_-}
+\frac{
+p^{b v_p(d_+)}
++p^{b v_p(d_-)}
+}{2}.
+\]
+
+Because the original trace sums over
+oriented frequencies, both $m_0$
+and $-m_0$ contribute. Their radial
+weights agree. Thus the exact reduced
+residue, written as a projective sum, is
+\begin{equation}\label{eq:app-final-residue}
+\boxed{
+\begin{aligned}
+\mathcal R_P(b)
+:={}&\lim_{t\downarrow0}t\mathcal T_P(t,b)\\
+={}&\frac43M\omega(1)\zeta(-b)
+\sum_{m_0\in\mathcal P_P}
+\mathfrak d_{m_0}(b)
+\sum_{j=\pm}\mathcal W_b(x_j(m_0)).
+\end{aligned}}
+\end{equation}
+
+The coefficient $4/3$ includes the
+factor two for the two orientations.
+If the trace is defined using one
+representative modulo sign from the
+outset, its coefficient is $2/3$.
+
+Equation \eqref{eq:app-final-residue}
+is proved initially for $b<-B_0$.
+Its right-hand side then defines the
+one-variable meromorphic continuation
+in $b$.
+
+The factor $\zeta(-b)$ has its pole
+at $b=-1$. Continuing past that pole
+does not mean that the original
+positive content series converges
+for $-1<b<0$.
+
+\subsection{The Mordell--Weil exponent}
+
+Here is the height calculation and the convergence needed for this
+last continuation. The pencil of lines through $P$ defines
+a morphism
+\[
+\pi_P:E\longrightarrow\mathbb P^1
+\]
+of degree two. Its rational split
+fibres, away from finitely many branch
+directions, are parametrized by
+\[
+Q\longmapsto\{Q,-P-Q\},
+\qquad Q\in E(\mathbb Q).
+\]
+
+The associated degree-two height satisfies
+\[
+h(\pi_P(Q))
+=
+2\widehat h(Q)
++O_P(\sqrt{\widehat h(Q)}+1).
+\]
+Mordell--Weil lattice counting therefore
+gives, for $r>0$,
+\begin{equation}\label{eq:app-pencil-count}
+\#\{m_0\in\mathcal P_P:
+\|m_0\|_2\le X\}
+\asymp_{E,P}(\log X)^{r/2}.
+\end{equation}
+
+We now bound the weights in
+\eqref{eq:app-final-residue}.
+
+Write $M=\|m_0\|_2$.
+Since $a_m,b_m,c_m$ have degrees
+$1,2,3$ and $a_m$ is a nonzero integer,
+the quadratic formula gives
+\[
+|\lambda_\pm|\ll_P M^2.
+\]
+The rational-root theorem gives
+\[
+d_\pm\mid |a_{m_0}|,
+\qquad d_\pm\ll_P M.
+\]
+
+Because $B^Tx_j(m_0)=m_0$,
+\[
+\|x_j(m_0)\|_2\gg_P M.
+\]
+The root bound gives
+\[
+\|x_j(m_0)\|_2\ll_P M^2.
+\]
+
+For real $b<0$,
+\[
+0<\mathfrak d_{m_0}(b)\le1.
+\]
+By the arithmetic--geometric mean
+inequality,
+\[
+\mathfrak d_{m_0}(b)
+\ge(d_+d_-)^{b/2}
+\gg_P M^b.
+\]
+
+Since $W$ is radial and nonnegative,
+$M_w(-b)>0$ for real $b$.
+Uniformly for $b<0$ sufficiently close
+to zero,
+\[
+c_{E,P}M^{3b}
+\le
+\mathfrak d_{m_0}(b)
+\sum_{j=\pm}\mathcal W_b(x_j(m_0))
+\le
+C_{E,P}M^b.
+\]
+
+Partial summation applied to
+\eqref{eq:app-pencil-count} gives
+\[
+\sum_{m_0\in\mathcal P_P}M^{3b}
+\asymp_{E,P}|b|^{-r/2},
+\qquad
+\sum_{m_0\in\mathcal P_P}M^b
+\asymp_{E,P}|b|^{-r/2}
+\]
+as $b\uparrow0$ through negative
+real values.
+
+The projective sum in
+\eqref{eq:app-final-residue} converges
+locally uniformly for $\Re b<0$.
+The factor $\zeta(-b)$ supplies a
+meromorphic continuation there,
+with its explicit pole at $b=-1$.
+
+As $b\uparrow0$,
+\[
+\zeta(-b)\longrightarrow
+\zeta(0)=-\frac12.
+\]
+All remaining factors in
+\eqref{eq:app-final-residue} are
+positive for real $b<0$.
+
+We have proved the following result.
+
+\medskip
+\noindent\textbf{Theorem (reduced coarea--Euler rank exponent).}
+{\itshape
+Let $E/\mathbb Q$ be a smooth integral
+plane cubic embedded by $|3O|$, and
+let $P\in E(\mathbb Q)$ be nonflex.
+Form the reduced separated trace
+\eqref{eq:app-trace}, excluding the
+zero, linear and repeated-root
+directions.
+
+For sufficiently negative real $b$,
+its one-sided $t=0$ residue exists
+after continuation of the complete
+all-prime arithmetic Euler factors,
+and is given by
+\eqref{eq:app-final-residue}.
+
+The right-hand side continues
+meromorphically to $\Re b<0$,
+apart from its explicit zeta pole,
+and, if $r>0$, satisfies
+\[
+\boxed{
+|\mathcal R_P(b)|
+\asymp_{E,P,W,\omega}
+|b|^{-r/2}
+\qquad(b\uparrow0,\ b<0).
+}
+\]
+For $r=0$ the reduced split sum is
+finite and remains bounded; it may
+vanish if there are no separable
+split directions.
+}
+
+\medskip
+
+The sign is also determined near zero.
+Since $\zeta(-b)<0$ for $-1<b<0$,
+\[
+\mathcal R_P(b)<0
+\]
+there whenever the split sum is nonempty.
+
+If $r>0$ is odd, the asymptotic
+$|\mathcal R_P(b)|\asymp|b|^{-r/2}$
+rules out a meromorphic extension of
+this \emph{one-variable continued
+reduced trace} across $b=0$.
+Indeed, a nonzero meromorphic function
+has an integral Laurent order, which
+cannot be comparable to a nonintegral
+half-power.
+
+This conclusion concerns only that
+one-variable continuation. It does not
+assert failure of joint meromorphy for
+the original two-parameter transform.
+
+\subsection{Exact scope of the residue}
+
+The arithmetic factor in this appendix
+uses every prime. Omitting a fixed
+prime set can cancel the trivial zero
+of a positive nonsquare quadratic
+Dirichlet $L$-function and would
+invalidate the split-fibre projection.
+
+The real residue is a coarea residue,
+not the full value at $t=0$.
+Positive nonsquare discriminants can
+contribute to the finite part after
+the arithmetic zero cancels the
+archimedean pole; they do not contribute
+to the $t^{-1}$ coefficient.
+
+The omitted directions are $m=0$, $a_m=0$ and $D_m=0$.
+Their contributions and the remaining contour terms are needed for
+the full height problem.
+
+The order of operations is essential. We first take
+$\lim_{t\downarrow0}t\mathcal T_P(t,b)$ with $b$ sufficiently negative,
+and then continue that coefficient in $b$. The behavior of the
+complete height transform near its central parameters is open.
+
 \begin{thebibliography}{9}
 \bibitem{CLT}
 A.~Chambert-Loir and Y.~Tschinkel,
@@ -902,5 +1701,12 @@ groups, II}, especially Section~3 and Lemma~3.3.
 \bibitem{Clay}
 A.~Wiles, \emph{The Birch and Swinnerton-Dyer conjecture},
 \href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{official problem description}.
+\bibitem{HB}
+D. R. Heath-Brown, \emph{A new form of the circle method, and its
+application to quadratic forms}, J. reine angew. Math. \textbf{481}
+(1996), 149--206. \href{https://ora.ox.ac.uk/objects/uuid%3Abbd3c62f-f010-44b5-8be5-87e903fb0084}{Author's paper}.
+\bibitem{DLMF}
+NIST Digital Library of Mathematical Functions,
+\href{https://dlmf.nist.gov/25.15}{Section 25.15, Dirichlet $L$-functions}.
 \end{thebibliography}
 \end{document}
