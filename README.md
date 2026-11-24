@@ -1,6 +1,18 @@
-# BSD working papers
+# BSD research archive
 
-These manuscripts study the relation between rational points on an elliptic curve and the order of vanishing of its complex L-function. The general Birch and Swinnerton-Dyer rank conjecture remains open.
+Contact: [admin@cosmosgeek.org](mailto:admin@cosmosgeek.org)
+
+[Download the source archive](bsd-research-history.zip). It preserves the recovered research records and a snapshot of replies from 28 conversations in the original ChatGPT BSD project. The records include corrections, conjectures, and failed approaches. The collection remains private during manuscript selection.
+
+## Research selection
+
+The first BSD-specific result selected for further checking is the arithmetic sign calculation for prime twists of the curve $y^2=x^3-28x+1$ (successor record, entries 612–617). The calculation expresses a sign using one coefficient computed modulo four in a particular quartic field. Fisher gives the general Cassels–Tate pairing method. The historical work supplies the specialization to this family. Whether its sign predicts the normalized complex central value across the eligible primes is a separate open assertion. The original ChatGPT project is testing that assertion. [Fisher’s paper](https://doi.org/10.1007/s40993-022-00376-z) · [Source conversation](https://chatgpt.com/c/6b007460-d838-83ec-b673-fe66dca8e493)
+
+Item 453 is a separate candidate for specialists in integral representations. It asserts a sharp lower bound on the size of a lattice supporting a first cohomology class of order $p^4$. Its proof and relationship to published exponent bounds need specialist checking before a priority claim. [Adem’s paper](https://personal.math.ubc.ca/~adem/ZG-lattices.pdf) · [Original review conversation](https://chatgpt.com/c/6af068e6-a3b4-8320-b137-01d03fe069a1)
+
+## Drafts
+
+Of the six drafts below, the strongest candidate for external review on BSD-related analysis is the quadratic-character average. Its claimed contribution is the explicit factorization of the average indexed by values of a binary quartic. Counting rational points by their canonical heights is established mathematics. The source chat reports that the full interval certificate needed to apply the heat-sign result to curve 234446.a1 was not recovered. All six are internal working drafts. Priority has not been established. The general BSD rank equality remains open.
 
 | Paper | Result | Files |
 | --- | --- | --- |
