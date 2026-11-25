@@ -1,0 +1,268 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Sha}{\mathrm{Sha}}
+\newcommand{\Sel}{\operatorname{Sel}}
+\newcommand{\ord}{\operatorname{ord}}
+\title{A Kurihara Witness and the Leading Values of All Full-Support Twists}
+\author{\small Project correspondence: \href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Public working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+For a weight-two newform attached to an elliptic curve, a single nonzero
+mod-$p$ modular-symbol moment determines the exact cyclotomic valuation
+of every central twist value whose local characters have the same
+$p$-power order and the prescribed full support. The proof uses an
+inclusion--exclusion identity before evaluating the norm relations.
+There is no bound on the number of prime factors. We obtain an exact
+valuation $hd$ for the relative leading value in a cyclic field of degree
+$p^h$ with $d$ primes in the conductor. The Selmer application additionally
+requires Kim's hypotheses, $d$ independent rational points, and cyclic
+local $p$-groups of sufficient order at the ramified primes.
+\end{abstract}
+
+\section{A fixed-conductor congruence}
+Let $E/\Q$ have conductor $N$, with normalized newform
+$f=\sum_{n\ge1}a_n e^{2\pi inz}$ and real period $\Omega^+$.
+Use the plus symbol
+\[
+ c(x)=\frac{\operatorname{Re}\left(2\pi\int_0^\infty f(x+iy)\,dy\right)}{\Omega^+}.
+\]
+The period convention in Kim \cite[\S1.4]{Kim} is the integral of the
+absolute N\'eron differential over $E(\mathbb R)$.
+Fix an odd prime $p$. Let $n=\ell_1\cdots\ell_d$, $d\ge1$, be
+squarefree with $(n,Np)=1$. Assume $c(a/m)\in\Z_{(p)}$ for
+$m\mid n$ and $(a,m)=1$, including $c(0)$.
+For $h\ge1$ assume
+\[
+ \ell_i\equiv1\pmod{p^h},\qquad a_{\ell_i}\equiv2\pmod p .
+ \tag{1}
+\]
+Choose a primitive root $\eta_i$ at each $\ell_i$ and let $j_i(a)$
+be the discrete logarithm of $a$ to this base. Put
+\[
+ \delta_n=\sum_{a\in(\Z/n)^\times}c(a/n)
+         \prod_{i=1}^d j_i(a)\pmod p.
+\]
+The condition $\delta_n\ne0$ is independent of the choices of
+primitive roots.
+
+\begin{theorem}\label{main}
+Let $1\le b\le h$ and $\zeta$ be a primitive $p^b$th root of unity.
+Let $\chi=\prod_i\chi_i$ be a Dirichlet character with
+$\chi_i(\eta_i)=\zeta^{u_i}$, $p\nmid u_i$ for every $i$.
+Put $\tau(\chi)=\sum_{a\bmod n}\chi(a)e^{2\pi ia/n}$,
+$\pi=\zeta-1$, and normalize $v_\pi(\pi)=1$. Then
+\[
+ T(\chi):=\frac{\tau(\chi)L(E,\overline\chi,1)}{\Omega^+}
+ \in\pi^d\Z_{(p)}[\zeta],\qquad
+ \frac{T(\chi)}{\pi^d}\equiv\delta_n\prod_i u_i\pmod\pi .
+ \tag{2}
+\]
+In particular $\delta_n\ne0$ implies $v_\pi(T(\chi))=d$ for every such
+character.
+\end{theorem}
+
+\begin{proof}
+For $m\mid n$ and a character $\psi$ modulo $m$, write
+\[
+ A_m(\psi)=\sum_{a\in(\Z/m)^\times} c(a/m)\psi(a),\qquad A_1(1)=c(0).
+\]
+For primitive $\psi$ of odd order the Gauss-sum identity gives
+$A_m(\psi)=T(\psi)$. These characters are even, so the minus modular
+symbols cancel in pairs. Fourier expansion and
+$\sum_a\psi(a)e^{2\pi ika/m}=\overline\psi(k)\tau(\psi)$ give the
+stated convention, by Abel limiting at each of the finitely many cusps.
+For $\ell\mid n/m$ and a character inflated from $m$,
+\[
+ A_{m\ell}(\psi)=
+ (a_\ell-\psi(\ell)-\psi(\ell)^{-1})A_m(\psi).
+ \tag{3}
+\]
+Indeed the weight-two Hecke relation on the primitive of $f$ gives
+$\sum_{j\bmod\ell} c((x+j)/\ell)=a_\ell c(x)-c(\ell x)$.
+For $x=a/m$ the unique term with numerator divisible by $\ell$
+is $c(\ell^{-1}a/m)$, with the inverse read modulo $m$.
+Removing it and summing proves (3), also for $m=1$.
+
+The factor in (3) belongs to $(\pi^2)$ by (1) and
+$\xi+\xi^{-1}-2=(\xi-1)^2/\xi$ for $\xi=\psi(\ell)$.
+Here $v_\pi(p)=\varphi(p^b)\ge2$. For a subset $I$ of the
+$d$ primes, let $m_I$ be their product and $\chi_I$ the product
+of the corresponding local characters. Consider
+\[
+ \sum_{a\in(\Z/n)^\times}c(a/n)\prod_{i=1}^d(\chi_i(a)-1)
+   =\sum_{I\subseteq\{1,\dots,d\}}(-1)^{d-|I|}A_n(\chi_I).
+ \tag{4}
+\]
+The left side divided by $\pi^d$ reduces to
+$\delta_n\prod_i u_i$. We prove (2) by induction on $d$, using
+only the lower bound $v_\pi(A_{m_I}(\chi_I))\ge|I|$ for proper
+subsets. For the empty set this is integrality of $c(0)$.
+Iteration of (3) then gives
+$v_\pi(A_n(\chi_I))\ge |I|+2(d-|I|)\ge d+1$
+for every proper subset. The full subset in (4) is $T(\chi)$.
+\end{proof}
+
+\section{The relative leading term}
+Let $\chi$ have exact local order $p^h$ at every $\ell_i$ and let $F$
+be the cyclic degree-$p^h$ field cut out by $\chi$. There are
+$\varphi(p^h)^{d-1}$ distinct such fields, since there are
+$\varphi(p^h)^d$ characters and each kernel has $\varphi(p^h)$ faithful characters.
+\begin{corollary}\label{relative}
+If $\delta_n\ne0$, both Mordell--Weil rank and complex analytic rank
+are unchanged from $\Q$ to $F$. Moreover
+\[
+ B_F=(\Omega^+)^{1-p^h}
+ \lim_{s\to1}\frac{L(E/F,s)}{L(E/\Q,s)}
+ \in\Q^\times,\qquad v_p(B_F)=hd .
+ \tag{5}
+\]
+\end{corollary}
+\begin{proof}
+For each $1\le b\le h$, the $\varphi(p^b)$ order-$p^b$ characters of
+$\operatorname{Gal}(F/\Q)$ have full conductor $n$ and equal local
+orders. All their central values are nonzero by (2). Artin
+factorization proves the equality of vanishing orders. For $E$ without
+complex multiplication, Kato's theorem gives
+$(E(F)\otimes\mathbb C)^\psi=0$ for each nontrivial character
+component with nonzero central value
+\cite[\S14]{Kato}, \cite[III, Thm.~5.4(ii)]{Rubin}.
+For $E$ with complex multiplication the corresponding conclusion
+comes from elliptic units \cite[III, Remark~5.7]{Rubin}.
+The $T(\psi)$ in each exact-order orbit are algebraic conjugates.
+The sum of their $v_p$ is $\varphi(p^b)\,d/\varphi(p^b)=d$.
+The Gauss sums over that orbit multiply to $n^{\varphi(p^b)/2}$,
+since $\tau(\psi)\tau(\overline\psi)=n$ for these even characters.
+Their product is a rational $p$-unit. Multiplication over the $h$
+orbits gives (5).
+\end{proof}
+If $a=\ord_{s=1}L(E,s)$, simultaneous comparison at $1+u/p^h$
+upstairs and $1+u$ downstairs instead multiplies (5) by $p^{-ha}$.
+The resulting valuation is $h(d-a)$. The norm relation (3) proves
+(5) at a common argument and imposes no integrality on the rescaled
+ratio.
+
+\section{Rank certification and the local norm conditions}
+For the rest of this section take $p\ge5$ and $\Omega^+$ in Kim's
+N\'eron normalization. Assume that the Galois representation
+$G_{\Q}\to\mathrm{GL}_2(\Z_p)$ on $T_pE$ is surjective, the Manin
+constant is prime to $p$, $E(\Q_p)[p]=0$, and every Tamagawa number is
+prime to $p$. Suppose that (1) holds, $\delta_n\ne0$, and $E(\Q)$
+contains $d$ independent points. Then Kim's Theorems 1.8 and 1.10
+\cite{Kim} imply
+\[
+ \operatorname{rank}E(\Q)=d,\qquad \Sha(E/\Q)[p^\infty]=0 .
+ \tag{6}
+\]
+Indeed Theorem 1.8 identifies the Selmer corank with the minimum number
+of primes of a nonzero Kurihara number, at most $d$ and at least the
+rational rank. The same theorem's Fitting formula gives the unit
+$d$th Fitting ideal, since the minimum valuation at weight $d$ and
+the overall minimum are both zero. The dual Selmer group thus has rank
+$d$ and is free on $d$ generators. The Kummer exact sequence gives
+a surjection from this free module onto the dual of
+$E(\Q)\otimes\Q_p/\Z_p$, also free of rank $d$. Its kernel
+$\Sha(E/\Q)[p^\infty]^\vee$ is zero. Further, the minimum weight of a mod-$p$ unit is
+$d$, since a unit also gives a nonzero Kurihara number. Kim's
+Theorem 1.10 gives the semilocal isomorphism at this witness.
+
+\begin{corollary}
+In addition to all hypotheses of this section, suppose that for each
+$\ell\mid n$ the group
+$E(\F_\ell)[p^\infty]$ is cyclic of order divisible by $p^h$.
+Then $\Sha(E/F)[p^\infty]=0$.
+\end{corollary}
+\begin{proof}
+Write $G=\operatorname{Gal}(F/\Q)$. The irreducible residual image
+has no fixed vectors over $F$. By normality its fixed subspace
+is either zero or all, and the full residual image cannot factor
+through a $p$-group. By Corollary~\ref{relative}, the ranks are
+equal. Thus $E(F)\otimes\Z_p=E(\Q)\otimes\Z_p$. A difference of a
+Galois conjugate of a point and that point is prime-to-$p$ torsion,
+and multiplication by the prime-to-$p$ torsion exponent descends it.
+In particular $H^1(G,E(F))=0$ and the $p$-part of
+$H^2(G,E(F))$ is identified by cyclic cohomology with
+$E(\Q)/p^hE(\Q)$.
+
+At $\ell\mid n$ the extension is totally ramified of degree $p^h$.
+Its norm cokernel is $E(\F_\ell)/p^hE(\F_\ell)$. Reduction of the
+norm acts by $p^h$, and the reduction kernel is uniquely
+$p$-divisible. At an unramified finite place the norm is
+surjective on the identity component. On its finite residue group
+this follows from Lang's theorem and cyclic cohomology, and on each
+successive formal-group quotient from surjectivity of the residue-field
+trace. Successive approximation lifts to the formal group. The remaining
+component group at the base has order prime to $p$ by hypothesis.
+Real places split. By local Tate duality the restriction kernels on
+local Weil--Ch\^atelet groups thus have no $p$-part outside $n$.
+
+The resulting diagonal map
+\[
+ E(\Q)/p^hE(\Q)\longrightarrow
+ \bigoplus_{\ell\mid n}E(\F_\ell)/p^hE(\F_\ell)
+\]
+has source and target free of rank $d$ over $\Z/p^h$. Its reduction modulo $p$
+is an isomorphism by (6) and Kim's semilocal isomorphism, so it
+is an isomorphism over $\Z/p^h$.
+If $\beta\in\Sha(E/F)[p]^G$, its transgression in $H^2(G,E(F))$
+vanishes locally. Injectivity of the global-to-local norm map
+makes that transgression zero. Thus $\beta$ descends to
+$c\in H^1(\Q,E)[p]$ by inflation--restriction and $H^1(G,E(F))=0$.
+The localizations of $c$ vanish outside $n$. At the primes of $n$
+they pair trivially in sum with every $Q\in E(\Q)$ by global
+reciprocity for the Tate pairing on $E$ and its dual (identified by the principal
+polarization). The surjective diagonal map and local
+duality force each localization to vanish. Hence $c=0$ by (6).
+A nonzero finite $\F_p[G]$-module has nonzero invariants when $G$
+is a $p$-group; applying this to $\Sha(E/F)[p]$ proves the claim.
+\end{proof}
+
+\section{A published witness and its twists}
+Kim gives $p=5$, $n=41\cdot61$ and $\delta_n\ne0$ for the curve
+$389\mathrm{a}1$, with equation $y^2+y=x^3+x^2-2x$.
+The same source records rational rank two, trivial $5$-primary
+Tate--Shafarevich group over $\Q$, and the semilocal localization
+isomorphism \cite[\S8, example (1)]{Kim}.
+For $q=41,61$ the point-count formula
+\[
+ \#E(\F_q)=1+q+\sum_{x\bmod q}
+       \left(\frac{1+4(x^3+x^2-2x)}{q}\right)
+\]
+gives $45$ and $70$, respectively. In particular $a_{41}=-3$,
+$a_{61}=-8$, and each local $5$-primary group has order five.
+Theorem~\ref{main} gives $v_{\zeta_5-1}(T(\chi))=2$ for all
+$4^2=16$ full-support characters. Their kernels define four cyclic
+quintic fields. Equation (5) gives $v_5(B_F)=2$ for each field.
+
+
+The horizontal nonvanishing results of Kriz and Nordentoft
+\cite[Cor.~5.20]{KN} give estimates across conductors. The
+calculation here evaluates the leading residue at a given unit
+witness, for every equal-order full-support character and its lower
+order powers. Birch--Stevens interpolation, the Hecke norm
+relation, and the results of Kim, Kato and Rubin provide the inputs.
+This is a project working paper prepared with ChatGPT and Codex.
+Independent literature-priority review remains open.
+\begin{thebibliography}{9}
+\bibitem{Kim} C.-H. Kim, \emph{The structure of Selmer groups and
+the Iwasawa main conjecture for elliptic curves}, Theorems 1.8 and 1.10.
+\href{https://preprint.press.jhu.edu/ajm/sites/default/files/AJM-kim.pdf}{Paper}.
+\bibitem{KN} D. Kriz and A. C. Nordentoft, \emph{Horizontal $p$-adic
+$L$-functions}, Corollary~5.20.
+\href{https://arxiv.org/abs/2310.20678}{Paper}.
+\bibitem{Kato} K. Kato, \emph{$p$-adic Hodge theory and values of zeta
+functions of modular forms}, Ast\'erisque 295 (2004), 117--290.
+\href{https://www.numdam.org/item/AST_2004__295__117_0/}{Paper}.
+\bibitem{Rubin} K. Rubin, \emph{Euler Systems}, Chapter~III,
+Theorem~5.4 and Remark~5.7. \href{https://swc-math.github.io/notes/files/99RubinES.pdf}{Lecture notes}.
+\end{thebibliography}
+\end{document}

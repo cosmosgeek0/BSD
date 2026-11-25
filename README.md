@@ -14,6 +14,9 @@ Contact: [admin@cosmosgeek.org](mailto:admin@cosmosgeek.org)
 
 ## Further working papers
 
+- **A conditional three-prime Kolyvagin-class test for 234446.a1.** Three primes single out a line in the rational mod-seven Kummer space. The paper gives a finite-field detector at 19. The identification of the derived class uses stated Selmer hypotheses, and its scalar remains unevaluated. [PDF](three-prime-localization.pdf) · [LaTeX](three-prime-localization.tex)
+- **A Kurihara witness and the leading values of all full-support twists.** A nonzero modular-symbol witness determines the cyclotomic valuation of the normalized central values of the specified twists. The Selmer and Tate–Shafarevich conclusions have additional hypotheses. [PDF](kurihara-full-support-twists.pdf) · [LaTeX](kurihara-full-support-twists.tex)
+
 - **Quartic halving fields and rank growth.** Explicit trace-zero points in a quartic halving field and rank growth on rational specializations. [PDF](quartic-halving-rank-growth.pdf) · [LaTeX](quartic-halving-rank-growth.tex)
 
 - **Effective detection by reduction at finitely many primes.** Under a full Kummer-image hypothesis, a subgroup of rank r modulo a prime power is detected by r distinct good primes with an explicit size bound. [PDF](effective-kummer-detection.pdf) · [LaTeX](effective-kummer-detection.tex)

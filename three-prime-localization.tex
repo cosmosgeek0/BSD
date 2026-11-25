@@ -1,0 +1,542 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\begin{document}
+
+\title{A Conditional Three-Prime Kolyvagin-Class Test
+for the Elliptic Curve 234446.a1}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Computational working paper}
+\maketitle
+
+\begin{abstract}
+We record an explicit mod-$7$ localization calculation
+for the elliptic curve 234446.a1 over
+$K=\mathbb Q(\sqrt{-11})$. Three Kolyvagin primes
+select a one-dimensional rational Kummer line.
+Under explicit Selmer and lower-support hypotheses,
+the corresponding derived Heegner class belongs to that line.
+Its nonvanishing is equivalent to a finite-field test at 19.
+The test's final scalar remains unevaluated.
+\end{abstract}
+
+\section{Curve, points, and coordinates}
+
+Let
+\[
+ E:\quad y^2+xy=x^3-x^2-79x+289,
+ \qquad N_E=234446=2\cdot117223.
+\]
+Use the integral short Weierstrass coordinates
+\[
+ X=4x-1,\qquad Y=8y+4x,
+\]
+giving
+\[
+ E':\quad Y^2=X^3-1267X+17230.
+\]
+
+The conductor and global rank four are recorded in \cite{LMFDB}.
+Fix the ordered rational points
+\[
+\begin{aligned}
+ P_1&=(0,17),&
+ P_2&=(1,14),\\
+ P_3&=(3,7),&
+ P_4&=(-4,25).
+\end{aligned}
+\]
+Their coordinates on $E'$ are respectively
+\[
+ (-1,136),\quad(3,116),\quad
+ (11,68),\quad(-17,184).
+\]
+
+The group law gives the exact identity
+\[
+ \boxed{
+ B=P_1+P_3=(52/9,-95/27).
+ }
+\]
+In short Weierstrass coordinates,
+\[
+ B'=(199/9,-136/27).
+\]
+
+The points are independent modulo
+$7E(\mathbb Q)$, as certified by the localization
+matrix below. Under the four-dimensional
+plus-Selmer hypothesis, their Kummer images
+form a basis of the plus-Selmer space.
+
+\section{Finite-field Kummer calculations}
+
+Put $p=7$. For each prime $\ell$ in the table,
+write
+\[
+ h_\ell=\#E(\mathbb F_\ell)/7.
+\]
+Choose the generator
+\[
+ v_\ell=[h_\ell]\overline{P}_{j_\ell}
+ \in E(\mathbb F_\ell)[7],
+\]
+where $j_{1091}=2$ and $j_\ell=1$ otherwise.
+All these generators are nonzero.
+
+Define $m_{\ell i}\in\mathbb F_7$ by
+\[
+ [h_\ell]\overline{P}_i=[m_{\ell i}]v_\ell.
+\]
+
+For these primes the rational $7$-primary subgroup is cyclic. Indeed
+Frobenius has determinant $\ell\bmod 7\ne1$ on $E[7]$, so cannot fix
+all of $E[7]$; each displayed group has order divisible by seven.
+Consequently the kernel of the map $R\mapsto[h_\ell]R$ is exactly
+$7E(\mathbb F_\ell)$. Direct finite-field group arithmetic gives
+\[
+\begin{array}{c|r|r|rrrr}
+ \ell&a_\ell&\#E(\mathbb F_\ell)&
+ m_{\ell1}&m_{\ell2}&m_{\ell3}&m_{\ell4}\\ \hline
+ 19&-8&28&1&1&5&3\\
+ 167&14&154&1&2&3&1\\
+ 853&-28&882&1&2&6&4\\
+ 1091&-42&1134&0&1&0&3\\
+ 1553&21&1533&1&3&6&1
+\end{array}
+\]
+
+For the three proposed support primes and the
+original detector, in that order, the matrix is
+\[
+ M=
+ \begin{pmatrix}
+ 1&2&6&4\\
+ 0&1&0&3\\
+ 1&3&6&1\\
+ 1&2&3&1
+ \end{pmatrix},
+ \qquad
+ \det M=-18\equiv3\pmod7.
+\]
+
+The first three rows have rank three, with
+\[
+ \ker M_{\{853,1091,1553\}}
+   =\mathbb F_7(1,0,1,0).
+\]
+To reproduce the table, count
+$1+\sum_{X\bmod\ell}(1+(\frac{X^3-1267X+17230}{\ell}))$
+points, multiply by $h_\ell$ using the elliptic group law, and compare
+the result with the seven multiples of $v_\ell$. In order of the
+five table rows, the generators on the short model are
+$(2,6),(166,136),(537,642),(967,954),(1226,130)$.
+Therefore the rational Kummer classes with
+zero localization at all three support primes
+form precisely
+\[
+ \boxed{\mathbb F_7\,\delta_7(B)}
+\]
+inside the four-dimensional rational Kummer
+space.
+
+The remaining detector coordinates are
+\[
+ m_{167}(B)=4,\qquad m_{19}(B)=6.
+\]
+Thus both 167 and 19 detect every nonzero class
+on this line.
+
+The comparison with the local Kummer spaces
+over $K$ is valid because the listed support
+primes are inert in $K$, and extension of finite
+residue fields from degree one to degree two
+does not destroy mod-$7$ divisibility
+information on rational residue points.
+
+\section{Ring-class group and derivative}
+
+Let
+\[
+ K=\mathbb Q(\sqrt{-11}),\qquad
+ n_*=853\cdot1091\cdot1553
+     =1445257519.
+\]
+The field $K$ has class number one and unit group
+$\{\pm1\}$. Each prime dividing $n_*$ is inert
+in $K$.
+
+Enumerating odd primes $\ell\le1553$ with
+$\ell\equiv-1\bmod7$, $(\frac{-11}{\ell})=-1$ and $7\mid a_\ell$
+gives exactly $167,853,1091,1553$. Trial division and the point-count
+formula above suffice for the enumeration. Since $167$ detects $B$,
+the last three are the smallest three admissible support primes at
+which $B$ is locally divisible by seven. This proves minimality among
+squarefree products of three primes satisfying these requirements.
+
+Let $L=K[n_*]$ be the ring-class field of
+conductor $n_*$. The ring-class number formula
+gives
+\[
+ G=\operatorname{Gal}(L/K)
+ \simeq C_{854}\times C_{1092}\times C_{1554},
+\]
+and
+\[
+ \boxed{[L:K]=1449210672.}
+\]
+
+The unit index in the ring-class formula
+$[\mathcal O_K^\times:\mathcal O_{n_*}^\times]$
+equals one.
+
+For each $\ell\mid n_*$, choose a generator
+$\sigma_\ell$ of the local cyclic factor
+\[
+ \frac{(\mathcal O_K/\ell\mathcal O_K)^\times}
+       {(\mathbb Z/\ell\mathbb Z)^\times}
+ \simeq C_{\ell+1},
+\]
+using a fixed Artin-reciprocity convention.
+
+Write $\ell+1=7d_\ell$, where
+\[
+ (d_{853},d_{1091},d_{1553})
+       =(122,156,222).
+\]
+Let
+\[
+ H=\prod_{\ell\mid n_*}\langle\sigma_\ell^7\rangle.
+\]
+Then
+\[
+ |H|=4225104\equiv2\pmod7,\qquad
+ G/H\simeq C_7^3.
+\]
+
+Let $g_\ell$ denote the image of $\sigma_\ell$
+in $G/H$, and put $T_\ell=g_\ell-1$.
+
+For $M_\ell=\ell+1$, define
+\[
+ D_\ell=\sum_{j=1}^{M_\ell-1}
+             j\sigma_\ell^j,\qquad
+ N_\ell=\sum_{j=0}^{M_\ell-1}\sigma_\ell^j.
+\]
+These satisfy
+\[
+ (\sigma_\ell-1)D_\ell=M_\ell-N_\ell.
+\]
+
+Modulo seven,
+\[
+ D_\ell=
+ \left(\sum_{r=1}^{6}r\sigma_\ell^r\right)
+ \left(\sum_{t=0}^{d_\ell-1}
+                      \sigma_\ell^{7t}\right).
+\]
+
+In $\mathbb F_7[C_7]$ the seven-term derivative
+has the exact expression
+\[
+ D_7(g)=\sum_{r=1}^{6}rg^r
+       =-g(g-1)^5.
+\]
+
+The image of the full derivative
+$D_{n_*}=\prod_{\ell\mid n_*}D_\ell$
+in the quotient group algebra is
+\[
+ \overline D_{n_*}
+   =5g_{853}g_{1091}g_{1553}
+     T_{853}^5T_{1091}^5T_{1553}^5.
+\]
+Here the scalar $5$ comes from
+$d_{853}d_{1091}d_{1553}\equiv2$
+and the three minus signs.
+
+\section{Compression of the Heegner point}
+
+Let $y_{n_*}\in E(L)$ be the Heegner point
+obtained from the specified Shimura-curve
+parametrization and its fixed CM orientation.
+
+Define the unnormalized trace
+\[
+ Y_H=\operatorname{Tr}_H(y_{n_*})
+       =\sum_{h\in H}h\,y_{n_*}.
+\]
+It belongs to $E(L^H)$.
+
+The derived point
+\[
+ z=D_{n_*}y_{n_*}
+\]
+has the following exact expression modulo
+$7E(L)$:
+\[
+ \boxed{
+ z\equiv
+ \sum_{r_1,r_2,r_3=1}^{6}
+ r_1r_2r_3\,
+ g_1^{r_1}g_2^{r_2}g_3^{r_3}Y_H
+ \pmod{7E(L)}.
+ }
+\]
+There are $6^3=216$ nonzero terms.
+
+No division by $[L:K]$ or $|H|$ is used.
+If the normalized average $|H|^{-1}Y_H$
+is used instead, its factor
+$|H|\equiv2\pmod7$ must be restored.
+
+The Heegner norm relations and the identities
+above show that the class of $z$ in $E(L)/7$
+is $G$-invariant.
+
+Under the full residual-image hypothesis, the image of $G_K$
+contains $\operatorname{SL}_2(\mathbb F_7)$: the quotient of
+the full image by the image of $G_K$ is abelian, since $K/\mathbb Q$
+is quadratic. The latter special linear group is perfect. As $L/K$
+is abelian, the image of $G_L$ still contains this group.
+Thus $E[7](L)=0$. Inflation--restriction
+therefore gives
+\[
+ H^1(K,E[7])
+   \simeq H^1(L,E[7])^G.
+\]
+Hence the invariant point class has a unique
+global cohomological descent, without
+dividing by the ring-class degree.
+
+Identifying this descent with the standard
+mod-seven Kolyvagin class requires the
+specified Heegner normalization and local
+finite--singular comparison.
+
+\section{Conditional rational-point line}
+
+Let $\kappa_n\in H^1(K,E[7])$ denote the mod-seven system for a
+fixed integral Heegner parametrization. For this section assume that
+its local conditions and finite--singular recursion are those in
+\cite[\S8.1, properties (1)--(2)]{Zhang}, with the usual elliptic
+Kummer conditions away from the support. Assume also that
+\[
+ \dim_{\mathbb F_7}\operatorname{Sel}_7(E/K)^+=4.
+\]
+For the support $n_*$ assume that $\kappa_{n_*}$ lies in the
+plus eigenspace and that $\kappa_{n_*/\ell}=0$ for each
+$\ell\mid n_*$. In particular the latter assumption holds if the
+system's minimal nonzero support has three prime factors.
+
+To see precisely why the \emph{entire} localization vanishes, let
+$v$ be the unique place of $K$ over $\ell\mid n_*$. The finite
+(unramified) and transverse local conditions are complementary:
+\[
+ H^1(K_v,E[7])=H^1_{\rm fin}(K_v,E[7])
+                   \oplus H^1_{\rm tr}(K_v,E[7]).
+\]
+By property (1), $\operatorname{loc}_v\kappa_{n_*}$ already belongs
+to the transverse summand. Its projection to the singular quotient
+$H^1/H^1_{\rm fin}$ determines it uniquely there. Under this
+identification, equation (8.1) of \cite{Zhang} gives
+\[
+ \operatorname{loc}_v\kappa_{n_*}
+ =\psi_\ell(\operatorname{loc}_v\kappa_{n_*/\ell})=0,
+ \qquad \ell\mid n_*.
+\]
+Thus the class satisfies the ordinary Selmer condition at every
+place, including all three support places. Its plus Selmer space
+is spanned by the four rational point classes: their mod-seven
+independence persists after restriction to $K$ by
+restriction--corestriction, and the assumed dimension is four.
+
+Applying the three rows of the localization matrix gives
+\[
+ \boxed{
+ \kappa_{n_*}
+   =\lambda\,\delta_7(B),
+ \qquad\lambda\in\mathbb F_7.
+ }
+\]
+
+When the minimal nonzero support has size three, at least one
+three-prime support gives a nonzero class. This leaves the value
+of $\lambda$ at $n_*$ open.
+
+\section{Two exact finite-field detectors}
+
+The prime 167 is inert in $K$, and the
+$K$-prime $(167)$ is principal and coprime
+to $n_*$. It therefore splits completely
+in $L/K$.
+
+One computes
+\[
+ \#E(\mathbb F_{167^2})
+   =168^2-14^2
+   =28028=49\cdot572.
+\]
+Its 7-primary subgroup is $E[7]$.
+
+On the short model,
+\[
+ \overline B_{167}=(152,63),\qquad
+ [572]\overline B_{167}=(166,31)\ne O.
+\]
+The required scalar is consequently
+characterized by
+\[
+ [572]\overline z_{167}
+    =[\lambda](166,31),
+\]
+provided $\overline z_{167}$ is the reduction
+of the correctly normalized derived point.
+
+A smaller detector is available at 19.
+It is also inert in $K$, with principal
+$K$-prime $(19)$, and splits completely in
+$L/K$. It need not be Kolyvagin-admissible
+because it is used only for detection.
+
+Here
+\[
+ \#E(\mathbb F_{19})=28,\qquad
+ \#E(\mathbb F_{19^2})=336=7\cdot48.
+\]
+On the short model,
+\[
+ \overline B_{19}=(1,2),\quad
+ [4]\overline B_{19}=(2,13),\quad
+ V_{19}:=[48]\overline B_{19}=(3,2)\ne O.
+\]
+The group $E(\mathbb F_{19^2})[7]$ is the
+cyclic group generated by $V_{19}$.
+
+Define
+\[
+ L_{19}:E(\mathbb F_{19^2})/7
+           \longrightarrow\mathbb F_7,
+ \qquad
+ [48]Q=[L_{19}(Q)]V_{19}.
+\]
+
+Then the exact unevaluated scalar is
+\[
+ \boxed{
+ \lambda=
+ \sum_{r_1,r_2,r_3=1}^{6}
+ r_1r_2r_3\,
+ L_{19}\!\left(
+ \operatorname{red}_{19}
+ (g_1^{r_1}g_2^{r_2}g_3^{r_3}Y_H)
+ \right).
+ }
+\]
+
+Equivalently,
+\[
+ \kappa_{n_*}\ne0
+ \quad\Longleftrightarrow\quad
+ [48]\overline z_{19}\ne O.
+\]
+
+\section{Finite reductions in a nodal comparison}
+
+For the same four points one obtains a second independence
+certificate at $3$. With the coordinate of the first nonzero local
+point normalized to one, at $\ell=11,17,23,29$ the rows in
+$E(\mathbb F_\ell)/3$ are
+\[
+ \begin{pmatrix}
+ 1&0&0&1\\0&1&0&1\\0&1&2&0\\1&0&0&2
+ \end{pmatrix}.
+\]
+The group orders are $18,24,30,36$, respectively. Each prime is
+$2\bmod3$, so again the endomorphism $[\#E(\mathbb F_\ell)/3]$
+detects the one-dimensional quotient. The matrix is invertible.
+
+The mod-three Galois image for this curve is full \cite{LMFDB}.
+It also follows by factoring its three-division polynomial
+\[
+ 3X^4-3X^3-474X^2+3468X-7108
+\]
+modulo $5$ and $7$, obtaining cycle types $(4)$ and $(1)(3)$.
+The only subgroup of $S_4$ containing both types is $S_4$.
+A lift of a projective four-cycle in $\operatorname{GL}_2(\mathbb F_3)$
+has fourth power $-I$ (use the nonsplit multiplicative group
+$\mathbb F_9^\times$), so the kernel also contains the scalar $-I$.
+
+For $1\le k\le4$ set
+\[
+ D_k=\mathbb Q(E[3],3^{-1}P_1,\ldots,3^{-1}P_k).
+\]
+Then $[D_k:\mathbb Q]=48\cdot3^{2k}$. Indeed $-I$ acts by $-1$
+on $E[3]$ and trivially by conjugation on its Galois group, implying
+$H^1(\operatorname{GL}_2(\mathbb F_3),E[3])=0$. Restriction of the
+independent Kummer classes to the three-division field remains
+independent. The translation image is a submodule of $E[3]^k$. If
+it were proper, a nonzero equivariant map from $E[3]^k$ to $E[3]$
+would kill it, because this is a sum of simple modules with
+endomorphisms $\mathbb F_3$. This would give a relation among the
+restricted classes. Thus, by Chebotarev, good primes where $E[3]$
+is rational and all $k$ points are three-divisible in the residue
+group have density $1/(48\cdot3^{2k})$.
+
+A distinction between finite group size and Kummer data can be seen
+in the generalized Jacobian $J$ of the curve obtained by gluing
+$P_i$ to $2P_i$ for $i=1,2,3$. At $p=373$ these six branches remain
+distinct. The extension by $\mathbb G_m^3$ has classes $-P_i$ in
+$\operatorname{Pic}^0(E)$. The finite-field connecting map
+\[
+ E(\mathbb F_p)[3]\longrightarrow
+ \bigl(\mathbb F_p^\times/(\mathbb F_p^\times)^3\bigr)^3
+\]
+is given by the finite Tate pairings with these classes. This is the
+definition of the Tate pairing via lifting a torsion point to the
+extension of the Jacobian by the line bundle. The pairing with
+$E(\mathbb F_p)/3$ is perfect since $p\equiv1\bmod3$. Enumeration
+on the short model gives $\#E(\mathbb F_{373})=405$ and
+$\#(3E(\mathbb F_{373}))=45$. Modulo $3E(\mathbb F_{373})$, the first
+two points form a basis and $P_3$ has coordinates $(2,2)$. These
+facts can be reproduced by tripling all $405$ points and comparing
+$P_i-uP_1-vP_2$ with this set for $0\le u,v\le2$. The map therefore
+has rank two. It follows that $\#J(\mathbb F_{373})[3]=27$, whereas
+the split extension has $243$ points killed by three. Both groups
+have total $3$-primary order $3^7$. Their $3^m$-torsion
+cardinalities agree for $m\ge7$.
+
+More generally, for $k$ split nodes the order
+$(p-1)^k\#E(\mathbb F_p)$ is independent of the gluing points. If
+$\ell^m>(Y-1)^k(\sqrt Y+1)^2$, the $\ell^m$-torsion cardinalities
+of the extension and its split counterpart agree simultaneously
+at all good primes $p\le Y$ with these split nodes. This follows by
+bounding the order of each group and then taking its full
+$\ell$-primary subgroup.
+
+\section{Arithmetic scope}
+The detector at $19$ reduces a class on the specified Kummer line
+to one scalar. Its evaluation requires the actual conductor-$n_*$
+CM points and their integral elliptic quotient, including the
+chosen generators and orientations. The sign or nonvanishing of this
+scalar has not been established. The conditional formula and the
+finite local certificates above yield no determination of the
+central second derivative.
+\begin{thebibliography}{9}
+
+\bibitem{LMFDB}
+LMFDB Collaboration, \emph{Elliptic curve 234446.a1}, including its
+residual Galois images. \url{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}.
+\bibitem{Zhang}
+W. Zhang,
+\emph{Selmer groups and the indivisibility
+of Heegner points},
+Cambridge Journal of Mathematics 2 (2014),
+191--253, especially Sections 3 and 8.
+\url{https://math.mit.edu/~wz2113/math/online/Kconj.pdf}
+
+\end{thebibliography}
+
+\end{document}
