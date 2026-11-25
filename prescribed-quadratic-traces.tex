@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}\newcommand{\Z}{\mathbb Z}
+\DeclareMathOperator{\Tr}{Tr}\DeclareMathOperator{\Sel}{Sel}
+\title{Prescribed traces and quadratic twist points on elliptic curves}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+For a non-CM rational elliptic curve admitting a cyclic isogeny of odd degree greater than one, two rational points independent modulo doubling are simultaneous traces from infinitely many linearly disjoint quadratic fields. The associated twists carry two independent points representing the original Kummer classes, subject to the rank hypothesis below. The construction uses the degree-two addition map on a genus-two theta divisor. We give a genus obstruction to rationally parametrizing several prescribed classes, an exact least-height formula for a rank-one witness, and a complementary density-one theorem: for almost every quadratic field, every rational trace is twice a rational point. All analytic assertions concern specified twists or explicitly stated products of their $L$-functions.
+\end{abstract}
+
+\section{Quadratic traces and a single marked class}
+For a quadratic extension $K=\Q(\sqrt D)$ write $c$ for its involution, $A=E(K)$, $A^+=E(\Q)$, and $A^-=\{x:cx=-x\}$. The last group identifies with $E^D(\Q)$. We identify all twist two-torsion modules with $V=E[2]$.
+The exact integral gluing group is
+\begin{equation}\label{glue}
+ A/(A^++A^-)\simeq (1+c)A/2A^+\simeq (1-c)A/2A^- .
+\end{equation}
+Indeed the first map has the stated image, and $(1+c)x=2P$ means $x-P\in A^-$. The other map follows by exchanging signs.
+If $P=(1+c)R$ and $U=(1-c)R$, the twisted Kummer class of $U$ equals the usual Kummer class of $P$. To see this choose $2H=P$ and use $R-H$ as a half of $U$. For an automorphism acting as $c$ on $K$, its twisted action on this half gives
+$-\sigma(R-H)-(R-H)=\sigma H-H$; for an automorphism fixing $K$ the difference is $H-\sigma H=\sigma H-H$ in $V$.
+
+Given a single $P\in E(\Q)$, the pencil $|[O]+[P]|$ has involution $R\mapsto P-R$. Hilbert irreducibility applied to its degree-two map supplies infinitely many quadratic fibres, disjoint in succession from any previously selected compositum. The conjugate points have trace $P$. The anti-trace $2R-P$ is nontorsion outside finitely many fibres: torsion points on a fixed elliptic curve of bounded degree form a finite set by Northcott and the canonical height.
+
+The construction also realizes an arbitrary $\beta\in\Sel_2(E)$ on individual twists. The locally soluble two-cover $C_\beta$ is a twist of $[2]:E\to E$ by the translation cocycle $\beta$. Its quotient by the involution induced by $[-1]$ is a conic, with a point over every completion, hence is $\mathbb P^1$. In a binary-quartic model $C_\beta:y^2=g(u,v)$, twisting this equation to $D y^2=g(u,v)$ twists its target to $E^D$ and retains the same translation cocycle in $V$. Every squareclass of a nonzero value $g(u,v)$ therefore supplies a rational point on $E^D$ of Kummer class $\beta$. The image on $E$ has bounded degree at rational parameters, so the same torsion finiteness argument applies. At any prescribed finite set of places, including infinity, local solubility gives an unramified parameter whose fibre splits over the completion. Weak approximation and Hilbert irreducibility with local conditions preserve these open conditions and give infinitely many distinct quadratic fields. In particular, $D$ can be positive and square at primes over $2N_E$. If $w(E)=+1$, such twists have even analytic rank at least two, by modularity, the quadratic-twist sign formula, and the rank-zero theorem \cite{wiles}. This also applies to $\beta$ whose image in the Tate--Shafarevich group is nonzero.
+
+\section{Two prescribed points simultaneously}
+\begin{theorem}\label{pair}
+Suppose $E/\Q$ is non-CM, has positive Mordell--Weil rank, and admits a rational cyclic isogeny $\tau:E\to E'$ of odd degree $d>1$. For $P_1,P_2\in E(\Q)$ there exist infinitely many jointly linearly disjoint quadratic fields $K$ in which both points are traces, with their preimages lying in the same $K$. If the classes of $P_1,P_2$ in $E(\Q)/2E(\Q)$ are independent, the fields can be chosen so the corresponding anti-traces are independent modulo torsion. In particular the twists have rational and analytic rank at least two.
+\end{theorem}
+\begin{proof}
+On $A=E\times E'$ choose the symmetric line bundle with polarization matrix, relative to the product polarization,
+\[
+\begin{pmatrix}2&\tau^\vee\\ \tau&(d+1)/2\end{pmatrix}.
+\]
+It is realized over $\Q$ by the two factor line bundles of the displayed degrees and the pullback of the normalized Poincar\'e bundle using $\tau$. Its form is positive by the Schur complement; the matrix inverse has entries $(d+1)/2,-\tau^\vee,-\tau,2$, so it is principal.
+
+We detail its geometric indecomposability, in the framework of \cite{polar}. The group $\operatorname{Hom}_{\overline\Q}(E,E')$ is generated by $\tau$: it has rank one since $E$ is non-CM, and divisibility by an integer $h>1$ in this group would force $E[h]\subseteq\ker\tau$. Every elliptic subgroup of $A$ is thus the image of $x\mapsto(mx,n\tau x)$ with coprime integers $m,n$. Its parametrization has kernel of order $g=(m,d)$, because on $E[m]$ multiplication by $n$ is invertible and $\ker\tau$ is cyclic. This also holds for an axis with $m=0$ or $n=0$. Twice the polarizing degree on the image is
+\[
+       g\bigl((2m+dn)/g\bigr)^2+(d/g)n^2.
+\]
+When both squares are nonzero their sum with these coefficients is at least $g+d/g>2$. If only one is nonzero its coefficient is odd, and an odd multiple of an integer square cannot equal two. Thus there is no elliptic subgroup of degree one. The geometrically indecomposable principal polarization on an abelian surface has a smooth genus-two theta divisor $C$. The rational symmetric line bundle has a one-dimensional space of global sections, so its unique effective divisor is defined over $\Q$ and satisfies $C=-C$.
+
+Put $S=(P_1,\tau P_2)$. For general $T=S+2y$, with $y\in A(\Q)$, there is a unique unordered pair $x,x'\in C$ with $x+x'=T$. Indeed $\operatorname{Sym}^2 C\to \operatorname{Pic}^2 C$ is birational by Riemann--Roch and the Abel--Jacobi identification induced by the theta embedding identifies the addition map with this map up to a translate. Away from the exceptional and diagonal images there are two distinct points, either both rational or quadratic conjugates. The set of available $y$ is Zariski dense since the two elliptic factors have positive rank. Given any finite extension $M/\Q$, pairs both defined over $M$ account for finitely many $y$: $C(M)$ is finite by Faltings \cite{faltings}, and $[2]$ is finite. Thus we may choose a quadratic fibre outside $M$ and iterate with $M$ enlarged by each chosen field.
+
+The point
+\[
+ (1,\tau^\vee)(x-y)-
+ \bigl(0,(d-1)P_2/2\bigr)\in E(K)^2
+\]
+has trace $(P_1,P_2)$; the quotient $(d-1)/2$ here is an integer multiplying $P_2$. Let its components be $R_i$ and put $U_i=2R_i-P_i$.
+
+At each step include $E[4]$ and all halves of $P_i$ in the initial finite field to be avoided. Then $E(K)[2]=E(\Q)[2]$. The two-primary part of the torsion in $A^-$ (now for $E(K)$) has exponent two: any point of order four in it is rational by disjointness and cannot be simultaneously fixed and negated. A dependence in the free anti-invariant lattice would give a primitive mod-two relation
+$\sum e_iU_i=2Z+T$ with $Z\in E(K)^-$, $T\in E(\Q)[2]$ and $e_i\in\{0,1\}$ not both zero, after absorbing the odd torsion. Then $H=\sum e_iR_i-Z$ is a half of $\sum e_iP_i+T$. All such halves lie in the initial field, as halves of $T$ are in $E[4]$. Hence $H$ is rational. But $H+cH=\sum e_iP_i$, so this combination is twice a rational point, a contradiction. The low-analytic-rank implications in \cite{wiles} now give the analytic assertion.
+\end{proof}
+
+There is a sign refinement. Assume $E[2]$ is real and $P_1,P_2$ lie in $E(\mathbb R)^0$. Inversion on $C$ is the hyperelliptic involution, since it negates both holomorphic differentials. Its six fixed points lie in the real group $A[2]$; in particular $C$ has real points. At a general real $w\in C$, the addition map from the ordered square has a simple branch along $2w$. This follows from the local model of the symmetric square and the fact that $2w$ avoids the exceptional image of $\operatorname{Sym}^2 C$. Real fibres on opposite sides consist of two real points and a pair of conjugate nonreal points, respectively.
+
+Choose a rational $y_0$ in the good locus. At the finitely many places $p\mid 2N_E$ the quadratic fibre algebra is locally constant near $y_0$. A coset of a finite-index subgroup of $A(\Q)$ through $y_0$ stays in these neighborhoods, by taking sufficiently small open local subgroups. It is dense in the real connected component of $y_0$: in each real elliptic factor an infinite-order rational point has a multiple dense in the identity circle. The map $y\mapsto S+2y$ takes each component onto $A(\mathbb R)^0$, which contains $2w$. Thus both real signs occur while the finite local data stay fixed. The exclusion of $C(M)$ still removes only finitely many choices. Outside $2N_E$ the local twist root number at ramified odd primes is $(\frac{-1}{p})$, and it is one at other good primes. Quadratic reciprocity, or the product formula for $(-1,D)_v$, now gives $w(E^D)=c\,\operatorname{sgn}(D)$ with constant $c\in\{\pm1\}$ \cite{root}. With independent classes in Theorem~\ref{pair}, infinitely many twists have odd analytic rank at least three.
+
+\subsection{The translated Kummer surface}
+The same theta divisor gives a Hilbert-property refinement. Let $X_S$ be the smooth minimal model of $A/(w\sim S-w)$. For any rational $S$ and the abelian surface and symmetric $C$ of Theorem~\ref{pair}, $X_S$ has the Hilbert property. Here is the geometric verification needed for applying Demeio's criterion \cite[Theorem~1.2]{demeio}.
+
+On the open set where $S-2w=x+x'$ gives a unique unordered pair on $C$, define $j([w])=[w+x]$. Exchanging $x$ for $x'$ changes the representative to $S-(w+x)$, and replacing $w$ by $S-w$ negates the unordered pair. Since $(-x)+x'=S-2(w+x)$, this map is an involution. It extends over the resolution by minimality of smooth K3 surfaces. Over a geometric half $w_0$ of $S$, the exceptional line is identified with the exceptional fibre of $\operatorname{Sym}^2 C\to A$ at zero: the latter map is the blowup at the canonical class, and $w\mapsto S-2w$ is \'etale. Its points are the pairs $\{x,-x\}$. Thus the switch carries that exceptional line to the strict transform of the image of $w_0+C$. This is a curve away from the exceptional locus.
+
+The projections onto the two elliptic factors modulo the corresponding involutions give genus-one fibrations on $X_S$. Each base is a genus-zero curve with a rational point, the image of the origin. Together the two maps contract exactly the exceptional curves: before resolution the map to the product of the quotient curves is finite. The two conjugate fibrations under $j$ contract no common divisor with the original pair, by the exceptional-line calculation. The geometric K3 surface is simply connected, and $A(\Q)$ gives Zariski-dense points. These are precisely the hypotheses of the criterion. For the ordinary product Kummer this conclusion is already in \cite[Prop.~4.2.1]{demeio}.
+
+\section{Ramification cost for a fixed family of classes}
+\begin{theorem}
+Suppose $\operatorname{Gal}(\Q(E[2])/\Q)=S_3$ and $\beta_1,\ldots,\beta_s\in H^1(\Q,V)$ are linearly independent. Let a geometrically nonconstant quadratic twist of $E$ over $\Q(t)$ realize each constant $\beta_i$ as the Kummer image of a $\Q(t)$-point. Every closed branch point of its associated double cover of $\mathbb P^1$ has degree divisible by $4^s$. The geometric genus of the double cover is at least $2^{2s-1}-1$.
+\end{theorem}
+\begin{proof}
+Let $K=\Q(E[2])$. Since the order-three subgroup fixes no nonzero element of $V$, inflation--restriction and its odd order give $H^1(S_3,V)=0$. The restrictions of the $s$ classes to $G_K$ are therefore independent equivariant homomorphisms $G_K\to V$. Their combined image is a submodule of the semisimple module $V^s$. A proper submodule admits a nonzero annihilating map $V^s\to V$. Since $\operatorname{End}_{S_3}(V)=\F_2$, it would give a linear relation between the restrictions. Hence the combined image is all of $V^s$.
+
+Twist the curve $E$ with its involution $[-1]$ by each translation cocycle $\beta_i$. Its fixed locus is the four-element affine $V$-torsor defined by $\beta_i$. A point realizing the constant class on the function-field twist lifts to the corresponding twisted two-cover. Over the quadratic parameter curve this supplies an equivariant morphism to the curve with involution just described (rational maps from a smooth curve to a proper curve extend). At a ramification point each of its $s$ images is fixed by the involution. The product of the fixed loci is one Galois orbit of size $4^s$ by the translation-image calculation. Its residue field embeds in the residue field of each closed branch point, since the ramification point over it has the same residue field. Riemann--Hurwitz gives the result.
+\end{proof}
+
+\section{Minimum heights of witnesses}
+For a two-cover $\pi:C_\beta\to E$, put
+$\mu_F(\beta)=\min\{\hat h(\pi(Z)):Z\in C_\beta(F)\}$, with value $+\infty$ for an empty set. Use absolute N\'eron--Tate heights. Suppose $K=\Q(\sqrt D)$, $E(K)[2]=0$, and a generator $Q_D$ of the rank-one free part of $E^D(\Q)=A^-$ represents $\beta$. Then
+\begin{equation}\label{height}
+ \mu_K(\beta)=\min\{\mu_{\Q}(\beta),\hat h(Q_D)\}.
+\end{equation}
+Indeed the images over $K$ form the coset $Q_D+2E(K)$. Each image $X=Q_D+2R$ has integral components
+$X_+=R+cR$ and $X_-=Q_D+R-cR$ in the invariant and anti-invariant spaces. These components are orthogonal. If the coefficient of $Q_D$ in $X_-$ is odd, its height is at least $\hat h(Q_D)$. Otherwise $X_-\in 2A^-$ since there is no even torsion. Then $X_+$ is a base-rational representative of $\beta$: its Kummer class agrees over $K$, and restriction on $H^1(\Q,V)$ is injective as $V^{G_K}=0$. The reverse bounds follow from the available lifts of $Q_D$ and the rational representatives themselves.
+
+For squarefree $D$, $\hat h(Q_D)\ge (\log |D|)/8-O_E(1)$. In a fixed integral short model, the rational abscissa $a/b$ in lowest terms satisfies $D\mid b(a^3+Aab^2+Bb^3)$ away from a fixed set of primes, since $y/\sqrt D$ is rational. The right side has absolute value $O_E(\max(|a|,|b|)^4)$. The height comparison with the abscissa gives the bound. Consequently the minima in \eqref{height} are eventually constant for a rational class and grow for a nonrational class along any infinite sequence satisfying the hypotheses.
+
+\section{How frequent are the nontrivial traces?}
+\begin{theorem}
+For every $E/\Q$, the number of quadratic fundamental discriminants $D$ with $|D|\le X$ and $\Tr E(\Q(\sqrt D))\ne2E(\Q)$ is $O_E(X/(\log X)^{1/4})$. There is a positive squarefree $b\equiv1\bmod 8N_E$ such that ramification at every prime dividing $b$ forces equality.
+\end{theorem}
+\begin{proof}
+For each nonzero coset $P\bmod 2E(\Q)$ the permutation group of its four halves has no common fixed point. At least one quarter of the group elements have no fixed point individually. In the transitive case this follows by checking the transitive subgroups $C_4,V_4,D_8,A_4,S_4$ of $S_4$. In the only other possible orbit partition, $2+2$, the two nonzero swap characters are simultaneously nonzero on at least one quarter of the group.
+
+By Chebotarev the good odd primes with a fixed-point-free Frobenius on the halves have density $\delta_P\ge1/4$. At such a prime $P$ cannot be a trace from a ramified quadratic local extension, since conjugation acts trivially on the residue field and every trace reduces to twice a point. A discriminant admitting $P$ as a trace thus avoids every such prime. The fixed-field Chebotarev prime theorem gives $\sum_{p\le x,\ p\ {\rm blocking}}1/p=\delta_P\log\log x+O_E(1)$. Applying the nonnegative multiplicative-function upper bound to the indicator of integers avoiding these primes gives $O_E(X(\log X)^{-\delta_P})$ \cite{ten}. Sum over the finitely many nonzero classes. For the last assertion, for each class choose two distinct blocking primes with inverse Frobenius conjugacy classes in the compositum with $\Q(\zeta_{8N_E})$. Their product is one modulo $8N_E$; the inverse of a derangement is again a derangement. Avoid all previously chosen primes. The product of the resulting pairs is the required $b$.
+\end{proof}
+
+\subsection{A first-moment control}
+Suppose $w(E)=+1$. In the restricted family write $D=bd$ with $d$ coprime to $b$ and with fixed local conditions giving sign $-1$ for the twist. Apply the first-derivative moment formula of Luo--Ramakrishnan \cite[\S2]{LR} to the fixed curve $E^b$. At any good prime $p\nmid 2N_Eb$, after excluding $p\mid D$, the ratio of leading moments with $\chi_D(p)=+1$ and $-1$ is
+\[
+                      r_p=\frac{p+1+a_p(E)}{p+1-a_p(E)}.
+\]
+Indeed the two square-diagonal local weights are proportional to
+\[
+\sum_{j\ge0}a_{p^j}(E)(\pm1)^j/p^j=(1\mp a_p(E)/p+1/p)^{-1}.
+\]
+ Replacing $E$ by $E^b$ multiplies its trace by $\chi_b(p)$, exactly the same change as from the character label of $d$ to that of $D$. The relative prime restriction and identical exceptional sets in both moments are important.
+
+For $\Re s>3/2$, put $H(s)=\exp(\sum_{p\notin S}p^{1-s}\log r_p)$ for a fixed finite set $S$ including the exceptional primes. Direct Euler expansion gives
+\[
+H(s)=L^S(E,s)^2\frac{\zeta^S(2s-1)}{L^S(\operatorname{Sym}^2 E,2s)}\,U(s)
+\]
+with $U$ holomorphic and nonzero near one. In fact $p\log r_p=2a_p+O(p^{-1/2})$ by Hasse. In twice the logarithm of the elliptic Euler product the quadratic term is $(a_p^2-2p)p^{-2s}$; the first terms of the two auxiliary factors contribute its negative. All remaining prime terms converge normally in a neighborhood of one. The symmetric-square $L$-value at $2$ is finite and positive by Rankin--Selberg theory (in classical weight-two normalization). If $\operatorname{ord}_{s=1} L(E,s)\ge2$ this yields
+$H'''(1)=c_{E,S}L''(E,1)^2$ with a positive constant depending on $E$ and $S$, by expanding the simple zeta pole. The same ratio test survives even though the restricted quadratic extensions have trivial integral gluing as in \eqref{glue}.
+
+\begingroup\raggedright
+\begin{thebibliography}{10}
+\bibitem{demeio} J.~L.~Demeio, \emph{Elliptic fibrations and Hilbert Property}, \href{https://arxiv.org/abs/1808.09808}{arXiv:1808.09808}.
+\bibitem{LR} W.~Luo and D.~Ramakrishnan, \emph{Determination of modular elliptic curves by Heegner points}, Pacific J. Math. \textbf{181} (1997), \href{https://msp.org/pjm/1997/181-3/pjm-v181-n3-p13-s.pdf}{251--258}.
+
+\bibitem{polar} M.~Schmidt, \emph{Integrality of Seshadri constants and irreducibility of principal polarizations on products of two isogenous elliptic curves}, \href{https://doi.org/10.1007/s00229-021-01312-8}{doi:10.1007/s00229-021-01312-8}.
+\bibitem{faltings} G.~Faltings, \emph{Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern}, \href{https://doi.org/10.1007/BF01388432}{doi:10.1007/BF01388432}.
+\bibitem{root} J.~Desjardins, \emph{Root number of twists of an elliptic curve}, \href{https://doi.org/10.5802/jtnb.1112}{doi:10.5802/jtnb.1112}.
+\bibitem{ten} G.~Tenenbaum, \emph{Effective mean value estimates for complex multiplicative functions}, \href{https://tenenb.perso.math.cnrs.fr/PPP/Eff-mean-values.pdf}{author's paper}, introduction.
+\bibitem{wiles} A.~Wiles, \emph{The Birch and Swinnerton-Dyer conjecture}, \href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Clay Mathematics Institute}.
+\end{thebibliography}\endgroup
+\end{document}

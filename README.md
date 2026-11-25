@@ -16,6 +16,8 @@ Item 453 is a separate candidate for specialists in integral representations. It
 
 ## Further working papers
 
+- **Prescribed quadratic traces on elliptic curves.** A genus-two construction realizes two prescribed traces under cyclic-isogeny hypotheses, with branch-degree, height and exceptional-set estimates. [PDF](prescribed-quadratic-traces.pdf) · [LaTeX](prescribed-quadratic-traces.tex)
+
 - **Translated periods and integral Hecke congruences at conductor 234446.** Positive translated periods coexist with a changing-sign Laplace density. The three-eigenform integral Hecke lattice has index four. [PDF](translated-periods-234446.pdf) · [LaTeX](translated-periods-234446.tex)
 - **Marked elliptic covers.** The paper combines a genus-two marking, its Kummer parity, a nodal Selmer comparison and a sharp visibility dimension under large residual image. [PDF](marked-elliptic-covers.pdf) · [LaTeX](marked-elliptic-covers.tex)
 
