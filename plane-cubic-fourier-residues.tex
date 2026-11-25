@@ -2196,6 +2196,92 @@ as $z$ approaches zero. The finite-level Fourier law extends the local
 calculations of \cite[\S3]{CLT} in the squared norm; its global
 normalization remains the open step.
 
+\section{A critical fluctuation of the independent-prime model}
+\label{app:bernoulli}
+The local factors of Appendix~\ref{app:conormal} admit a probabilistic
+interpretation. Fix an integer $d\ge0$ and omit the same finite set
+$S$ as there. Write $c_p=(1-1/p)^d\#E(\mathbb F_p)/p$ in this
+appendix. For real $\varepsilon>0$, select primes independently, with
+$B_p$ taking value one with probability $t_p=p^{-\varepsilon}$ and zero
+otherwise. The expectation of the finite product of $c_p^{B_p}$ is
+$\prod_{p\le X,\,p\notin S}(1+t_p(c_p-1))$. Its factors are precisely
+those used to define $\mathcal M_d^S$.
+
+\medskip\noindent\textbf{Proposition.}
+The compensated products
+\[
+ Y_{\varepsilon,X}=\prod_{\substack{p\le X\\p\notin S}}
+ \frac{c_p^{B_p}}{1+t_p(c_p-1)}
+\]
+converge almost surely and in $L^2$ to a strictly positive variable
+$Y_\varepsilon$ of expectation one. As $\varepsilon\downarrow0$,
+\[
+ \log Y_\varepsilon\ \Longrightarrow\
+ \mathcal N\bigl(-\tfrac12\log 2,\log 2\bigr),\qquad
+ \lim_{\varepsilon\downarrow0}{\bf E}\,Y_\varepsilon^z
+    =2^{z(z-1)/2}\quad(z\in\mathbb R).
+\]
+This includes curves with complex multiplication.
+
+\medskip\noindent\emph{Proof.}
+Put $\delta_p=c_p-1$ and $\lambda_p=\log c_p$.
+Hasse's estimate gives $\delta_p=-a_p/p+O_d(1/p)$ and
+$\lambda_p=-a_p/p+O_d(1/p)$. All sums below run over $p\notin S$.
+Independence gives the exact identity
+\[
+ {\bf E}\,Y_{\varepsilon,X}^2
+ =\prod_{p\le X}\left(1+
+ \frac{t_p(1-t_p)\delta_p^2}{(1+t_p\delta_p)^2}\right).
+\]
+For fixed $\varepsilon>0$ the product is bounded in $X$ since the
+correction terms are $O_d(p^{-1-\varepsilon})$ at large primes.
+The positive mean-one martingale therefore converges in $L^2$ and
+almost surely. The centered logarithmic increments
+$(B_p-t_p)\lambda_p$ have summable variances. The sum of their
+deterministic centering corrections converges by the same estimate.
+Thus the logarithm converges to a finite real value almost surely.
+
+Let $V_\varepsilon=\sum_p t_p(1-t_p)\lambda_p^2$. For the unitary
+cuspidal representation $\pi_E$ of $E$, the Rankin--Selberg
+self-convolution $L(s,\pi_E\times\widetilde\pi_E)$ has a simple pole
+at one \cite{RS}. In the logarithm of its incomplete Euler product
+the first-prime coefficients are $a_p^2/p$, and the higher prime
+powers converge absolutely in a neighborhood of one by the
+good-prime Satake bounds. Consequently
+\[
+ \sum_p a_p^2p^{-2-h}=\log(1/h)+C_{E,S}+o(1)\quad(h\downarrow0).
+\]
+Since $\lambda_p^2=a_p^2/p^2+O_d(p^{-3/2})$ and
+$t_p(1-t_p)\to0$ at every fixed prime, subtraction at
+$h=\varepsilon$ and $h=2\varepsilon$ gives $V_\varepsilon\to\log2$.
+Only cuspidality and the good-prime bounds are needed in this step.
+
+The sum of the third absolute moments of the centered increments is
+bounded by $\sum_p t_p(1-t_p)|\lambda_p|^3=o(1)$ by dominated
+convergence. The Lyapunov central limit theorem, truncating each row
+with a tail of variance tending to zero, therefore gives a centered
+Gaussian limit of variance $\log2$. For bounded real $x$, Taylor
+expansion in $\lambda$ gives
+\[
+ \log(1-t+te^{x\lambda})
+ =xt\lambda+\tfrac12 x^2t(1-t)\lambda^2
+       +O_x\bigl(t(1-t)|\lambda|^3\bigr)
+\]
+uniformly on $0\le t\le1$ and on the bounded range of the
+$\lambda_p$. Using $x=1$ shows that the mean of $\log Y_\varepsilon$
+tends to $-\tfrac12\log2$. Using $x=z$ and subtracting $z$ times the
+expansion for $x=1$ proves the moment assertion, first for finite
+products. At fixed $\varepsilon$ the log-moment products converge
+absolutely; their bounded moments of order $2z$ give uniform
+integrability and justify passage to $Y_\varepsilon$. \hfill$\square$
+
+In particular the limiting relative second moment is two, although
+each fixed prime's compensated factor tends to one in probability.
+These fluctuations have the same limiting law for every $d$. The
+deterministic scalar whose continued order is $d-a$ was divided out
+before applying the martingale argument, so this law gives no
+nonvanishing estimate for that scalar.
+
 \begin{thebibliography}{9}
 \bibitem{CLT}
 A.~Chambert-Loir and Y.~Tschinkel,
@@ -2217,5 +2303,9 @@ S.~Bloch, \emph{A note on height pairings, Tamagawa numbers,
 and the Birch and Swinnerton-Dyer conjecture}, Invent. Math.
 \textbf{58} (1980), 65--76.
 \href{https://virtualmath1.stanford.edu/~conrad/BSDseminar/refs/BlochBSD.pdf}{Author's paper}.
+\bibitem{RS}
+P. Humphries, with an appendix by F. Brumley,
+\emph{Standard zero-free regions for Rankin--Selberg $L$-functions
+via sieve theory}. \href{https://arxiv.org/abs/1703.05450}{arXiv:1703.05450}.
 \end{thebibliography}
 \end{document}

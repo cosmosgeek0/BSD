@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\title{Real origin fibres of a modular parametrization and the central analytic rank}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper for specialist review}
+\begin{document}\raggedbottom\emergencystretch=2em\maketitle
+\begin{abstract}
+For a modular parametrization of an elliptic curve over $\mathbb Q$,
+an analytic rank $a\ge2$ forces at least $a-1$ distinct crossings of zero
+by its real elliptic logarithm between the cusps $0$ and $\infty$.
+Consequently each sufficiently close real point has at least $a+1$ real
+preimages. We obtain one-sided central-rank tests by counting real roots
+of a polynomial on the origin fibre. For positive root number an empty
+open half-arc above the origin, together with $L(E,1)=0$, certifies
+analytic rank two. The argument is an application of Mellin moments
+and sign changes, classical for the differential itself.
+\end{abstract}
+Let $E/\mathbb Q$ have conductor $N$, normalized weight-two newform
+$f$, and root number $w$. Fix $\phi:X_0(N)\to E$ over $\mathbb Q$ with
+$\phi(\infty)=O$ and $\phi^*\omega_E=c\,2\pi i f(z)\,dz$ for a real
+$c\ne0$. Set $a=\operatorname{ord}_{s=1}L(E,s)$. We write
+\[
+ y(t)=e^t/\sqrt N,\qquad X(t)=2\pi\int_{y(t)}^\infty f(iy)\,dy .
+\]
+In the real uniformization, $cX(t)$ is a lift of $\phi(iy(t))$.
+The normalizations of $X$ and the sign below are fixed by $a_1(f)=1$.
+
+\begin{theorem}\label{th:fibre}
+If $a\ge2$, at least $a-1$ distinct noncuspidal real algebraic points
+on the imaginary geodesic map to $O$. At each of these points the
+parametrization crosses $O$ on its real locus. Every point of
+$E(\mathbb R)$ sufficiently close to $O$ has at least $a+1$ distinct
+real preimages. In particular $\deg\phi\ge a+1$.
+\end{theorem}
+\begin{proof}
+Assume $L(E,1)=0$. Then $X(t)$ tends to zero at both ends of the
+real axis. At $+\infty$ this follows from the Fourier expansion,
+and at $-\infty$ it follows from the central value and the Fricke
+involution. At both ends it decays faster than $e^{-A|t|}$ for every
+fixed $A>0$. The Mellin identity and integration by parts give the
+entire identity
+\[
+ D(u):=N^{u/2}(2\pi)^{-u}\Gamma(1+u)L(E,1+u)
+   =\int_{\mathbb R}e^{ut}(-X'(t))\,dt
+   =u\int_{\mathbb R}e^{ut}X(t)\,dt .
+\]
+The displayed product is interpreted by continuation. Its prefactor
+is $1$ at zero. Thus
+$\int_{\mathbb R} t^jX(t)\,dt=0$ for $0\le j\le a-2$.
+The function $X$ is real analytic and positive for all sufficiently
+large $t$. Fricke symmetry gives $X(-t)=-wX(t)$, so its sign is also
+fixed in a left tail. If it had just $h<a-1$ sign changes at $t_i$,
+the continuous function $X(t)\prod_{i=1}^h(t-t_i)$ would have constant
+sign and be nonzero somewhere. Its strictly nonzero integral
+contradicts the moment conditions. Each crossing of zero of $X$ has
+odd multiplicity and maps to $O$.
+
+The open imaginary axis embeds in $X_0(N)$. In fact a matrix
+$\bigl(\begin{smallmatrix}A&B\\ C&D\end{smallmatrix}\bigr)$ in
+$\mathrm{SL}_2(\mathbb Z)$ taking $iy$ to a point on this axis
+satisfies $AC y^2+BD=0$. If all four entries are nonzero, $AD$ and
+$BC$ must have opposite signs, contradicting $AD-BC=1$. The only
+remaining possibilities are $\pm I$ or an antidiagonal matrix with
+$|C|=1$, the latter excluded by $N>1$. The fibre above a rational
+point is finite over $\mathbb Q$, so these real points are algebraic.
+
+Both cusps map to $O$ and are distinct. Both are unramified:
+the first coefficient in the expansion at $\infty$ is one and
+Fricke interchanges the cusps. Each of the $a-1$ odd crossings maps
+its real neighborhood onto a real neighborhood of $O$, as does each
+unramified cusp on the real modular curve. The neighborhoods in the
+source can be chosen pairwise disjoint. This proves the assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:half}
+Suppose $L(E,1)=0$. If $k$ is the number of points of
+$\phi^{-1}(O)$ on $iy$, $y>1/\sqrt N$, then
+\[
+ a\le 2+2k\quad(w=+1),\qquad a\le 1+2k\quad(w=-1).
+\]
+In the first case, if $k=0$ then $L''(E,1)>0$. In the second case,
+if $k=0$ then $L'(E,1)>0$.
+\end{corollary}
+\begin{proof}
+For $w=+1$ write $a=2m$. The odd function $X$ has zero moments on
+the positive half-axis against $t,t^3,\ldots,t^{2m-3}$. Fewer than
+$m-1$ positive crossings would give a contradiction by using
+$t\prod_i(t^2-t_i^2)$ as a test polynomial. For $w=-1$ write $a=2m+1$:
+use the evenness of $X$ and $\prod_i(t^2-t_i^2)$ for the moments
+against $1,t^2,\ldots,t^{2m-2}$. With $k=0$, $X$ is positive
+on the entire open positive half-axis. The Mellin identity gives
+$L''(E,1)=4\int_0^\infty tX(t)\,dt$ in the even case and
+$L'(E,1)=2\int_0^\infty X(t)\,dt$ in the odd case. The Fricke
+midpoint is excluded throughout.
+\end{proof}
+
+\section*{An algebraic upper certificate}
+Use the rational modular unit
+\[
+ U_N(z)=N^6\frac{\Delta(Nz)}{\Delta(z)},\qquad
+ B_\phi(T)=\prod_{\substack{x\in\phi^{-1}(O)_{\mathrm{red}}\\
+                             x\ {\rm noncuspidal}}}(T-U_N(x)).
+\]
+The product is over geometric points, so its coefficients are rational
+by Galois invariance. The unit has no poles at the indicated points.
+In the positive real $q=e^{-2\pi y}$ coordinate it equals
+\[
+ N^6q^{N-1}\prod_{n\ge1}(1+q^n+\cdots+q^{n(N-1)})^{24}.
+\]
+It is strictly decreasing as $y$ increases. The transformation law of
+$\Delta$ gives $U_N(-1/(Nz))=U_N(z)^{-1}$, so $U_N$ maps the
+strict upper half of the geodesic bijectively onto $(0,1)$.
+The number of distinct real roots of $B_\phi$ in $(0,1)$ is therefore
+an upper bound for $k$ in Corollary~\ref{cor:half}. Extraneous roots
+can come from other branches. The empty interval criterion involves
+only a finite fibre and real root isolation once an explicit algebraic
+model of $\phi$ has been obtained, for example by the methods
+of Griffin--Hales~\cite{GH}.
+
+\section*{Real versus rational branches}
+Suppose in addition that $\phi$ comes from the optimal elliptic quotient
+of $J_0(N)$ and $E(\mathbb Q)$ contains a point $P$ of infinite order.
+Then there are rational points arbitrarily close to $O$ for which
+all the preimages constitute a single Galois orbit. Indeed $\phi$
+does not factor geometrically through a nontrivial \'etale isogeny
+of $E$. Such a factorization would factor the optimal Jacobian
+quotient through that isogeny, contradicting connectedness of its
+kernel. Equivalently its pullbacks by multiplication maps are
+geometrically irreducible (an unconnected pullback gives a nontrivial
+intermediate \'etale quotient). The Hilbert irreducibility theorem
+for covers of abelian varieties~\cite[Theorem 1.4]{CDJLZ} gives a
+finite-index coset in $\langle 2P\rangle$ on which the fibres are
+integral. Each such coset is dense in the real identity circle.
+Intersect it with the neighborhood in Theorem~\ref{th:fibre}, omitting
+the finitely many branch values. Many real preimages can therefore
+belong to one rational orbit even on a single cyclic subgroup.
+The sign-change method of Mazur and Swinnerton-Dyer, as presented by
+Delaunay~\cite{D}, counts changes of sign of the newform along the
+modular path. The fibre count here applies the argument to its
+primitive and counts crossings of a specified elliptic-curve value.
+\section*{A degree refinement for even central order}
+If $w=+1$ and $a\ge2$, the real lift $X$ is odd, so its zero at
+$t=0$ has odd order $e$, the ramification index of $\phi$ at
+$z_*=i/\sqrt N$. The lattice $\mathbb Z+\mathbb Z z_*$ has CM by
+$\mathbb Z[\sqrt{-N}]$, of discriminant $-4N$: the primitive quadratic
+equation is $Nz_*^2+1=0$. Its $j$-invariant therefore has degree the
+order class number $h(-4N)$ by the main theorem of complex multiplication.
+Since the $j$-map is rational, the orbit of $z_*$ on $X_0(N)$ contains
+at least this many points, each in the origin fibre with multiplicity
+$e$, and each fixed by the rational Fricke involution. On the embedded
+imaginary path $z_*$ is the only Fricke fixed point. The two cusps
+and at least $a-2$ other sign-changing points found above are disjoint
+from this orbit. Hence $\deg\phi\ge e\,h(-4N)+a$. For the CM description
+of Fricke fixed points see \cite[\S5]{Oz}.
+\begin{thebibliography}{9}
+\bibitem{D} C. Delaunay, \emph{Critical and ramification points of the modular
+parametrization of an elliptic curve}, J. Th\'eor. Nombres Bordeaux
+\textbf{17} (2005), 109--124. \href{https://doi.org/10.5802/jtnb.480}{Paper}.
+\bibitem{GH} M. Griffin and J. Hales, \emph{Divisors of modular parametrizations
+of elliptic curves}, \href{https://arxiv.org/abs/2003.01675}{arXiv:2003.01675}.
+\bibitem{CDJLZ} P. Corvaja, J. Demeio, A. Javanpeykar, D. Lombardo and
+U. Zannier, \emph{On the distribution of rational points on ramified covers
+of abelian varieties}, \href{https://arxiv.org/abs/2011.12840}{arXiv:2011.12840}.
+\bibitem{Oz} E. \"Ozman, \emph{Points on quadratic twists of $X_0(N)$},
+\href{https://arxiv.org/abs/0911.4537}{arXiv:0911.4537}.
+\end{thebibliography}\end{document}

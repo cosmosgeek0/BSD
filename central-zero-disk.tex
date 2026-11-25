@@ -1,0 +1,274 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\title{A Certified Four-Zero Disk for the Elliptic Curve 234446.a1}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Computational working paper}
+\begin{document}
+\maketitle
+\begin{abstract}
+We certify that the Hasse--Weil \(L\)-function of the elliptic curve
+\(y^2+xy=x^3-x^2-79x+289\) has exactly four zeros, counted with
+multiplicity, within distance \(10^{-57}\) of \(1\).
+An interval computation encloses its second and fourth completed
+central derivatives. A strip bound for trapezoidal quadrature and a
+Taylor remainder bound turn these enclosures into a zero count.
+The count leaves open whether the central point itself has order two
+or four.
+\end{abstract}
+
+\section{Statement and normalization}
+The curve \(E\) in the abstract has conductor \(N=234446=2\cdot117223\)
+and Mordell--Weil rank four \cite{curve}. Its two finite local root
+numbers are \(+1,-1\) at \(2,117223\), respectively. Including the real
+place gives sign \(+1\). Write
+\[
+ c=\frac{2\pi}{\sqrt N},\qquad
+ \Lambda(s)=c^{-s}\Gamma(s)L(E,s),\qquad
+ f(z)=\sum_{n\ge1}a_n e^{2\pi i n z}.
+\]
+Here \(f\) is the normalized modular newform of \(E\). The theorem
+that analytic rank zero implies Mordell--Weil rank zero gives
+\(L(E,1)=0\) \cite{Wiles}. The even functional equation then gives
+\(\Lambda'(1)=L'(E,1)=0\).
+
+\begin{theorem}
+There are exactly four zeros of \(L(E,s)\), counting multiplicity,
+in \(|s-1|<10^{-57}\). If the central zero has order two, the other
+two zeros in that disk are distinct and are either real or on the
+line \(\Re s=1\).
+\end{theorem}
+The LMFDB reliability statement discusses why numerical proximity to
+zero does not certify analytic rank four for this curve \cite{reliability}.
+The specific contribution here is a reproducible disk count with
+explicit truncation and discretization errors.
+
+\section{Enclosing the two moments}
+Let \(g(t)=e^t f(ie^t/\sqrt N)\). The Mellin integral and Fricke
+symmetry give
+\[
+ \Lambda(1+u)=\int_{\R}e^{ut}g(t)\,dt,\qquad g(-t)=g(t).
+\]
+Both identities extend by analyticity on their respective domains.
+For \(j=2,4\) let \(I_j=\int_\R t^jg(t)\,dt=\Lambda^{(j)}(1)\).
+Set \(h=1/32,\ d=7/5\). Approximate \(I_j\) by the finite sum
+\[
+ Q_j=2h\sum_{i=1}^{320}(ih)^j e^{ih}
+       \sum_{n=1}^{M_i}a_n \exp(-nc e^{ih}).
+\]
+Here \(ih=i/32\) is real, and \(i\) is an integer summation index.
+Choose \(M_i\) by rounding \(300/(ce^{ih})\) up, using the lower
+endpoint of an enclosure of \(ce^{ih}\) in the denominator. With the
+enclosures below, \(M_i\le25001\).
+
+\paragraph{Infinite mesh.}
+The Fourier series is analytic for \(|\Im t|<\pi/2\). Put
+\(\alpha=c\cos d>0.002\). Using \(|a_n|\le d(n)\sqrt n\le2n\)
+and \(\sum_{n\ge1}n e^{-nv}=(2\sinh(v/2))^{-2}\le v^{-2}\)
+gives
+\[
+ |g(x\pm id)|\le 2\alpha^{-2} e^{-x}\qquad(x\ge0).
+\]
+The other half-lines satisfy the reflected bounds. The two boundary
+integrals of \(|t^j g(t)|\) therefore sum to at most
+\[
+ A_2=8(2+d^2)/\alpha^2,\qquad A_4=8(24+4d^2+d^4)/\alpha^2 .
+\]
+The infinite trapezoidal error is bounded by
+\(A_j/(\exp(2\pi d/h)-1)\). This follows by contour shifting the
+Fourier transform at the nonzero frequencies \(2\pi k/h\) to the
+two boundary lines and summing the geometric series \cite{TW}.
+The bounds are \(4.5\cdot10^{-116}\) for \(j=2\) and
+\(4.1\cdot10^{-115}\) for \(j=4\).
+
+\paragraph{Two tails.}
+Beyond \(x=10\) use
+\(|g(x)|\le8e^{x-ce^x}\). The logarithmic derivative of
+\(x^je^{x-ce^x}\) is \(j/x+1-ce^x<-280\) there. Thus the omitted
+mesh contributes at most
+\[
+ \frac{16h\,10^j e^{10}\exp(-ce^{10})}{\exp(280h)-1}
+ <10^{-118}\qquad(j=2,4).
+\]
+At mesh point \(i\) put \(q_i=\exp(-ce^{ih})\).
+The discarded Fourier coefficients have total absolute contribution
+to the inner sum at most
+\[
+ 2q_i^{M_i+1}
+ \left(\frac{M_i+1}{1-q_i}+
+       \frac{q_i}{(1-q_i)^2}\right).
+\]
+Using \(q_i^{M_i+1}\le e^{-300}\),
+\(q_i\le e^{-0.012}\), and summing the outer weights by
+\(20\cdot 10^j e^{10}\) gives bounds \(10^{-116}\) and \(10^{-114}\),
+respectively. In particular
+\[
+ |I_2-Q_2|<10^{-113},\qquad |I_4-Q_4|<10^{-112}.
+\]
+
+\paragraph{Finite arithmetic.}
+Every needed prime other than 2 is good. The program below uses the
+short model \(Y^2=X^3-1267X+17230\), obtained from
+\(X=4x-1,\ Y=8y+4x\), for the odd-prime point counts. The bad
+coefficient at 2 is \(-1\). The Euler factors supply every
+\(a_n\) through Hecke recursion. The Machin identity
+\(\pi=16\arctan(1/5)-4\arctan(1/239)\) with its alternating series
+and an integer square root give interval endpoints for \(c\).
+The interval endpoints in the Horner sums are fixed-point integers
+with scale \(10^{150}\). Python's Decimal exponential is
+correctly rounded \cite{decimal}. The neighboring decimal numbers
+and outward integer division bound every exponential.
+Executing the program gives the deliberately widened enclosures
+\[
+ -1.207\cdot10^{-123}<Q_2<-1.206\cdot10^{-123},
+ \qquad 16541.5867<Q_4<16541.5869.
+\]
+Hence \(|\Lambda''(1)|<2\cdot10^{-113}\) and \(\Lambda^{(4)}(1)>16541\).
+The small negative interval above describes the finite sum only.
+
+\section{The disk count}
+Let \(A(u)=\Lambda(1+u)\). For \(|u|\le1\) the Mellin
+integral, reflection, and the coefficient bound give
+\[
+ |A(u)|\le4\sum_{n\ge1}n\int_1^\infty t e^{-cnt}\,dt
+ =4\left(\frac1{c(e^c-1)}
+  -\frac{\log(1-e^{-c})}{c^2}\right)<2\cdot10^5 .
+\]
+The last inequality already follows from \(c>0.0129\).
+Cauchy's bound at radius one controls the Taylor remainder from
+degree six onward by \(2\cdot10^5 R^6/(1-R)\) on \(|u|=R\).
+The constant term is zero, and the odd coefficients vanish.
+For \(R=10^{-57}\),
+\[
+ \tfrac12 |I_2|R^2+\frac{2\cdot10^5 R^6}{1-R}
+ <\frac{16541}{24}R^4.
+\]
+Rouch\'e's theorem, applied to \(I_4u^4/24\), proves the count.
+Completion does not alter the zeros in this disk. If the central
+order is two, evenness and conjugation symmetry force the two
+remaining zeros into one symmetric real or one symmetric
+imaginary pair in the \(u\)-coordinate. Their coincidence would
+place them at the origin.
+
+\section*{Reproducing the finite enclosures}
+Run the following code with Python 3.8 or later. Values printed are
+endpoints before adding the three analytic errors above.
+\begingroup\fontsize{8}{9.6}\selectfont
+\font\codeface=ec-lmtt10 at 8pt\let\ttfamily\codeface
+\begin{verbatim}
+"""Certified central moments for Cremona 234446a1. Python 3, standard library."""
+from decimal import Decimal, getcontext
+from math import isqrt
+
+D = 150
+B = 10**D
+getcontext().prec = D + 22
+
+def ceildiv(a, b):
+    return -((-a)//b)
+
+def mul(x, y):
+    products = [u*v for u in x for v in y]
+    return min(products)//B, ceildiv(max(products), B)
+
+def decint(x, upper):
+    n, d = x.as_integer_ratio()
+    return ceildiv(n*B, d) if upper else n*B//d
+
+def exponential(x):
+    lo = Decimal(x[0]).scaleb(-D).exp().next_minus()
+    hi = Decimal(x[1]).scaleb(-D).exp().next_plus()
+    return decint(lo, False), decint(hi, True)
+
+def atan_inv(q):
+    lo = hi = j = 0
+    while True:
+        d = (2*j+1)*q**(2*j+1)
+        sign = (-1)**j
+        term = sign*B
+        lo += term//d
+        hi += ceildiv(term, d)
+        if d > B:
+            return lo-1, hi+1
+        j += 1
+
+a, b = atan_inv(5)
+e, f = atan_inv(239)
+pi = 16*a-4*f, 16*b-4*e
+root = isqrt(234446*B*B)
+c = (2*B*pi[0]//(root+1), ceildiv(2*B*pi[1],root))
+
+def coefficients(limit):
+    spf = list(range(limit+1))
+    for p in range(2, isqrt(limit)+1):
+        if spf[p] == p:
+            for j in range(p*p,limit+1,p):
+                if spf[j] == j:
+                    spf[j] = p
+    a = [0]*(limit+1)
+    a[1], a[2] = 1, -1
+    for n in range(3,limit+1):
+        p = spf[n]
+        if p == n:
+            qr = bytearray(p)
+            for j in range(1,(p+1)//2):
+                qr[j*j%p]=1
+            a[p] = 0
+            for x in range(p):
+                y = ((x*x-1267)*x+17230)%p
+                if y:
+                    a[p] += 1-2*qr[y]
+        else:
+            j = n//p
+            a[n] = a[p]*a[j]
+            if p != 2 and j%p == 0:
+                a[n] -= p*a[j//p]
+    return a
+
+def moments():
+    a = coefficients(ceildiv(300*B,c[0]))
+    out = {2:[0,0], 4:[0,0]}
+    for j in range(1,321):
+        t = j*B//32
+        y = exponential((t,t))
+        x = mul(c,y)
+        q = exponential((-x[1],-x[0]))
+        count = ceildiv(300*B,x[0])
+        lo = hi = 0
+        for n in range(count,0,-1):
+            lo,hi=mul((lo+a[n]*B,hi+a[n]*B),q)
+        lo,hi=mul((lo,hi),y)
+        for k in out:
+            num,den=2*j**k,32**(k+1)
+            out[k][0] += num*lo//den
+            out[k][1] += ceildiv(num*hi,den)
+    return out
+
+if __name__ == "__main__":
+    for k, I in moments().items():
+        print(k, *(Decimal(z).scaleb(-D) for z in I))
+\end{verbatim}
+\endgroup
+\raggedright
+\begin{thebibliography}{9}
+\bibitem{curve} LMFDB Collaboration, \emph{Elliptic curve 234446.a1}.
+\url{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}
+\bibitem{reliability} LMFDB Collaboration,
+\emph{Reliability of elliptic curve data over \(\mathbb Q\)}.
+\url{https://www.lmfdb.org/EllipticCurve/Q/reliability}
+\bibitem{Wiles} A. Wiles, \emph{The Birch and Swinnerton-Dyer Conjecture}.
+\url{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}
+\bibitem{TW} L. N. Trefethen and J. A. C. Weideman,
+\emph{The exponentially convergent trapezoidal rule},
+SIAM Review 56 (2014), 385--458.
+\url{https://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf}
+\bibitem{decimal} Python Software Foundation, \emph{decimal}.
+\url{https://docs.python.org/3/library/decimal.html#decimal.Decimal.exp}
+\end{thebibliography}
+\end{document}
