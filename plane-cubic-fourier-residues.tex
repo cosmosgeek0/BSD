@@ -1692,6 +1692,510 @@ $\lim_{t\downarrow0}t\mathcal T_P(t,b)$ with $b$ sufficiently negative,
 and then continue that coefficient in $b$. The behavior of the
 complete height transform near its central parameters is open.
 
+
+\section{A positive conormal limit and a Kummer-density obstruction}
+\label{app:conormal}
+
+Let $E/\mathbb Q$ be a smooth elliptic curve embedded
+in $\mathbb P^2$ by $|3O|$, with primitive integral
+homogeneous cubic equation
+\[
+F(X_1,X_2,X_3)=0.
+\]
+Fix a good prime $p\ge5$, and put
+\[
+n_p=\#E(\mathbb F_p)=p+1-a_p(E),\qquad
+c_p=\frac{(p-1)n_p}{p^2}.
+\]
+Normalize additive Haar measure by $\operatorname{vol}(\mathbb Z_p^3)=1$, and write $\psi_p$ for a character of $\mathbb Q_p$ with kernel $\mathbb Z_p$. The measures on compact groups used as probability laws have mass one.
+
+\subsection{Exact finite-level squared-shell distribution}
+
+For $k\ge1$, set
+\[
+\mathcal A_{p,k}=
+\{a\in(\mathbb Z/p^k)^3:
+a\not\equiv0\pmod p,\ F(a)\equiv0\pmod{p^k}\}.
+\]
+Smooth Hensel lifting gives
+\[
+T_{p,k}:=\#\mathcal A_{p,k}
+=(p-1)n_p p^{2(k-1)}.
+\]
+
+For $\xi\in\mathbb Z_p^3$, define
+\[
+S_{p^k}(\xi)=
+\sum_{a\in\mathcal A_{p,k}}
+\psi_p(p^{-k}a\cdot\xi).
+\]
+Orthogonality gives
+\[
+\int_{\mathbb Z_p^3}|S_{p^k}(\xi)|^2\,d\xi
+=T_{p,k}.
+\]
+Consequently
+\[
+d\nu_{p,k}(\xi)=
+T_{p,k}^{-1}|S_{p^k}(\xi)|^2\,d\xi
+\]
+is a probability measure.
+
+Fix $l\ge1$ and assume $k\ge2l$.
+For $u\in(\mathbb Z/p^l)^3$, Fourier
+orthogonality yields
+\begin{align}
+&\int_{\mathbb Z_p^3}
+\psi_p(-p^{-l}u\cdot\xi)\,d\nu_{p,k}(\xi)
+\notag\\
+&\quad=
+\frac1{T_{p,k}}
+\#\{a\in\mathcal A_{p,k}:
+a+p^{k-l}u\in\mathcal A_{p,k}\}.
+\label{eq:conormal-correlation}
+\end{align}
+
+Since $k\ge2l$, Taylor expansion gives
+\[
+F(a+p^{k-l}u)
+\equiv F(a)+p^{k-l}\nabla F(a)\cdot u
+\pmod{p^k}.
+\]
+The second condition in
+\eqref{eq:conormal-correlation} is therefore
+equivalent to
+\[
+\nabla F(a)\cdot u\equiv0\pmod{p^l}.
+\]
+
+Multiplying a primitive homogeneous representative
+by a unit multiplies its gradient by the square
+of that unit. Thus the condition descends to
+the projective point.
+
+Every point of $E(\mathbb Z/p^l)$ has the same
+number of lifts contributing to $\mathcal A_{p,k}$.
+Hence
+\begin{equation}\label{eq:conormal-character}
+\boxed{
+\widehat\nu_{p,k}(p^{-l}u)=
+\frac{
+\#\{P\in E(\mathbb Z/p^l):
+\nabla F(P)\cdot u\equiv0\pmod{p^l}\}
+}{
+\#E(\mathbb Z/p^l)
+}.}
+\end{equation}
+
+In particular the answer has stabilized at level $2l$.
+
+Let $P_l$ be uniform on $E(\mathbb Z/p^l)$,
+and let $\lambda_l$ be independently uniform
+on $\mathbb Z/p^l$.
+Character orthogonality shows that
+\eqref{eq:conormal-character} is precisely
+the characteristic function of
+\[
+\lambda_l\nabla F(P_l)\pmod{p^l}.
+\]
+
+Thus the reduction of $\nu_{p,k}$ modulo $p^l$
+is, for every $k\ge2l$, exactly the law
+\begin{equation}\label{eq:finite-conormal-law}
+\boxed{
+(\lambda_l,P_l)\longmapsto
+\lambda_l\nabla F(P_l)\pmod{p^l}.}
+\end{equation}
+
+In particular, for
+$v\in(\mathbb Z/p^l)^3$,
+\[
+\nu_{p,k}(v+p^l\mathbb Z_p^3)
+=
+\frac{
+\#\{(P,\lambda):
+\lambda\nabla F(P)\equiv v\pmod{p^l}\}
+}{
+p^l\#E(\mathbb Z/p^l)
+}.
+\]
+Here $P$ and $\lambda$ range over
+$E(\mathbb Z/p^l)$ and $\mathbb Z/p^l$.
+
+\subsection{The central positive spectral limit}
+
+Let $\mathcal U_{p,k}\subset\mathbb Q_p^3$
+be the union of the cosets
+\[
+p^{-k}a+\mathbb Z_p^3,
+\qquad a\in\mathcal A_{p,k}.
+\]
+These denominator shells are pairwise disjoint.
+
+For real $w>1$, define the $L^2$ function
+\[
+f_{p,w}=
+\mathbf1_{\mathbb Z_p^3}
++\sum_{k\ge1}p^{-kw}\mathbf1_{\mathcal U_{p,k}}.
+\]
+Its Fourier transform is supported on
+$\mathbb Z_p^3$.
+
+Put $r_w=p^{2-2w}$ and define the positive
+finite measure
+\[
+d\mu_{p,w}(\xi)=
+(1-r_w)|\widehat f_{p,w}(\xi)|^2\,d\xi.
+\]
+
+Disjointness of the physical shells and
+Plancherel give
+\[
+\|\widehat f_{p,w}\|_2^2
+=
+1+\sum_{k\ge1}p^{-2kw}T_{p,k}
+=
+1+c_p\frac{r_w}{1-r_w}.
+\]
+Therefore
+\begin{equation}\label{eq:conormal-mass}
+\mu_{p,w}(\mathbb Z_p^3)
+=1-r_w+c_pr_w
+\longrightarrow c_p.
+\end{equation}
+
+Fix a character of conductor at most $p^l$.
+Cross-correlations between distinct denominator
+shells vanish once their largest denominator
+exceeds $p^l$.
+The remaining cross-correlations and the finitely
+many low shells contribute zero after multiplication
+by $1-r_w$.
+
+For $k\ge2l$, the normalized diagonal-shell
+characteristic function is exactly
+\eqref{eq:conormal-character}.
+The geometric tail of the diagonal-shell masses
+tends to $c_p$.
+
+It follows that every finite-level characteristic
+function converges to
+$c_p$ times the characteristic function of
+$\lambda\nabla F(P)$, where
+\[
+\lambda\sim\operatorname{Haar}_{\mathbb Z_p},
+\qquad
+P\sim\operatorname{Haar}_{E(\mathbb Q_p)}
+\]
+are independent probability variables.
+
+As $\mathbb Z_p^3$ is compact, finite-level
+Fourier convergence and \eqref{eq:conormal-mass}
+prove weak convergence:
+\begin{equation}\label{eq:conormal-limit}
+\boxed{
+\mu_{p,w}\ \xrightarrow[w\downarrow1]{\rm weak}\
+c_p\,(\lambda\nabla F(P))_*
+(d\lambda\,dP).}
+\end{equation}
+
+The scalar mass is
+\begin{equation}\label{eq:hasse-mass}
+\boxed{
+c_p=
+\left(1-\frac1p\right)
+\frac{\#E(\mathbb F_p)}p
+=
+(1-p^{-1})L_p(E,1)^{-1}.}
+\end{equation}
+
+Changing a primitive homogeneous representative
+of $P$ multiplies $\nabla F(P)$ by a
+$p$-adic unit square. This does not change
+the law of $\lambda\nabla F(P)$.
+
+We analyze the product of the resulting local probability laws below.
+
+\subsection{Tangent support}
+
+Let $\gamma:E\to(\mathbb P^2)^\vee$ be
+the Gauss map
+\[
+\gamma(P)=[\nabla F(P)].
+\]
+Since $E$ is smooth and $p\ge5$, the
+gradient is primitive at every integral
+projective point.
+
+Write $\mu_p$ for the limiting measure in \eqref{eq:conormal-limit}. Its support is
+\[
+\{\lambda\nabla F(P):
+P\in E(\mathbb Q_p),\
+\lambda\in\mathbb Z_p\}.
+\]
+
+For a primitive rational integral frequency
+$v\in\mathbb Z^3$, this gives
+\begin{equation}\label{eq:rational-tangent}
+\boxed{
+v\in\operatorname{supp}\mu_p
+\quad\Longleftrightarrow\quad
+F^\vee(v)=0,}
+\end{equation}
+where $F^\vee$ defines the dual sextic.
+
+Indeed, the forward implication makes
+$v$ a tangent direction at a $p$-adic point,
+so $F^\vee(v)=0$ in $\mathbb Q_p$ and hence
+in $\mathbb Q$.
+
+Conversely, a rational tangent line to
+a smooth plane cubic has a unique geometric
+tangency point: two distinct tangency points
+would contribute intersection multiplicity
+at least four, exceeding the degree three.
+Galois invariance therefore makes its
+tangency point rational.
+Primitive integral lifts of this point and of its tangent direction give the same projective line over $\mathbb Q_p$. The proportionality factor between their primitive vectors is a unit.
+
+This includes flexes. At a flex the Gauss
+map ramifies, affecting deeper local masses,
+but not the support characterization.
+
+For a primitive $v$ and $l\ge1$,
+\[
+\mu_p(v+p^l\mathbb Z_p^3)
+=
+c_pp^{-l}
+\frac{
+\#\{P\in E(\mathbb Z/p^l):
+[\nabla F(P)]=[v]\}
+}{
+\#E(\mathbb Z/p^l)
+}.
+\]
+If $v$ is an actual tangent over $\mathbb Q_p$ whose tangency point reduces to a nonflex, the numerator is one. Indeed the Gauss map is injective on geometric points and is an immersion at that reduction, so a lift, when it exists, is unique modulo $p^l$.
+Hence
+\[
+\boxed{
+\mu_p(v+p^l\mathbb Z_p^3)
+=\frac{p-1}{p^{2l+1}}.}
+\]
+The factor $\#E(\mathbb F_p)$ cancels
+from this localized mass. The rational tangent lines themselves grow in number on the order of $(\log B)^{r/2}$ up to height $B$ when $r>0$, since \eqref{eq:chord-height} on the diagonal is $6\hat h(P)+O_E(1)$.
+
+\subsection{The Kummer splitting test}
+
+Let
+\[
+\Gamma=E(\mathbb Q),
+\]
+including its torsion subgroup, and fix
+a prime $\ell$.
+
+By the Mordell--Weil theorem, $\Gamma$
+is finitely generated. Thus
+\[
+K=\mathbb Q(E[\ell],\ell^{-1}\Gamma)
+\]
+is a finite Galois extension, where
+$\ell^{-1}\Gamma$ denotes the division
+points of a finite generating set,
+together with $E[\ell]$.
+
+Consider a prime $p\nmid\ell$ of good
+reduction which splits completely in $K$.
+
+All of $E[\ell]$ reduces to
+$E(\mathbb F_p)[\ell]$, giving
+\[
+E(\mathbb F_p)[\ell]\simeq
+(\mathbb Z/\ell)^2.
+\]
+Moreover, every $Q\in\Gamma$ has an
+$\ell$-division point defined over
+$\mathbb F_p$. Hence
+\[
+\operatorname{red}_p(\Gamma)
+\subseteq\ell E(\mathbb F_p).
+\]
+
+Consequently
+\begin{equation}\label{eq:kummer-index}
+\boxed{
+\#\ell E(\mathbb F_p)
+=\frac{\#E(\mathbb F_p)}{\ell^2}.}
+\end{equation}
+
+The Gauss map is injective on geometric
+points of a smooth plane cubic in
+characteristic $p\ge5$.
+Among its $n_p$ rational tangent
+directions, precisely $n_p/\ell^2$
+belong to
+\[
+\gamma(\ell E(\mathbb F_p)).
+\]
+
+Thus the conditional proportion is
+exactly
+\begin{equation}\label{eq:kummer-density}
+\boxed{
+\frac{\#\gamma(\ell E(\mathbb F_p))}
+{\#\gamma(E(\mathbb F_p))}
+=\ell^{-2}.}
+\end{equation}
+For comparison, the proportion among all points of the dual projective plane over $\mathbb F_p$ is
+\[
+\frac{n_p}{\ell^2(p^2+p+1)}.
+\]
+
+Every globally rational tangent direction
+satisfies these Kummer conditions at
+every completely split good prime.
+
+Let $\pi_K(X)$ count such primes up to $X$.
+Chebotarev gives
+\[
+\pi_K(X)\sim
+\frac1{[K:\mathbb Q]}\frac X{\log X}.
+\]
+Therefore the product of the exact
+conditional local proportions is
+\begin{equation}\label{eq:kummer-product}
+\boxed{
+\prod_{\substack{p\le X\\p\ {\rm split\ in}\ K}}
+\ell^{-2}
+=
+\exp\left(
+-\frac{2\log\ell}{[K:\mathbb Q]}
+\frac X{\log X}(1+o(1))
+\right).}
+\end{equation}
+
+Thus the closure of the rational tangent directions has measure zero for the product of the projectivized local Gauss probabilities. This remains true after conditioning on a unit scalar at every prime.
+
+To compare scales, for fixed integer
+$d\ge0$ put
+\[
+M_p^{(d)}=
+(1-p^{-1})^d\frac{n_p}{p}.
+\]
+Hasse's inequality $|a_p|\le2\sqrt p$
+gives
+\[
+\log M_p^{(d)}=O_d(p^{-1/2}).
+\]
+Consequently
+\begin{equation}\label{eq:mass-bound}
+\boxed{
+\exp(-C_d\sqrt X)
+\le
+\prod_{\substack{p\le X\\p\ {\rm good}}}
+M_p^{(d)}
+\le
+\exp(C_d\sqrt X)}
+\end{equation}
+for a suitable constant $C_d$.
+
+Combining \eqref{eq:kummer-product} and
+\eqref{eq:mass-bound}, the product of
+Kummer conditional densities times
+this Hasse-bounded scalar product is
+at most
+\[
+\exp\left(
+-\frac{2\log\ell}{[K:\mathbb Q]}
+\frac X{\log X}(1+o(1))
++O_d(\sqrt X)
+\right),
+\]
+which tends to zero.
+
+Nevertheless, the tangent direction
+$\gamma(O)$ is rational and belongs
+to every one of the Kummer-restricted
+local sets: $O=\ell O$ at every prime.
+
+The bound concerns the measure of congruence restrictions under
+independent sampling. A bound for the number of rational directions
+of a given height would require control of their correlations.
+
+\subsection{Correlating the reductions}
+
+For the product $G=\prod_{p\notin S}E(\mathbb F_p)$, let $H$ be
+the closure of the diagonal image of $\Gamma$. There is an explicit
+correlated probability measure. Choose a single coset $a$ uniformly
+in $\Gamma/n\Gamma$ for all primes, and independently choose $x$ with
+Haar probability on $G$. The law of $a+[n]x$ is Haar probability on
+$H+nG$. Indeed $[n]x$ is Haar on $nG$, and the image of
+$\Gamma/n\Gamma$ in $G/nG$ equals the image of $H$ there. This image
+is finite, and its cosets have equal weights.
+
+On any finite product $G_T$ of these groups the density with respect
+to uniform probability is therefore
+\[
+ \frac{|G_T[n]|}{|\operatorname{im}(\Gamma\to G_T/nG_T)|}
+ \,\mathbf1_{\operatorname{im}(\Gamma)+nG_T}.
+\]
+As $n=j!$, the closed subgroups $H+nG$ decrease to $H$.
+In fact a point outside $H$ is separated from it in a finite quotient
+of $G$, whose exponent divides $j!$ for all large $j$. On every
+finite quotient the Haar laws eventually agree with the image of Haar
+on $H$, proving weak convergence. Taking Gauss images gives the
+corresponding correlated law on projective tangent directions.
+Every map used at the base is a rational translate of multiplication
+on $E$. The correlation is supplied by the single global coset; the
+independent product in \eqref{eq:kummer-product} has no such choice.
+
+\subsection{What remains in the scalar normalization}
+
+The Gauss line $M=\gamma^*\mathcal O(-1)$ is $\mathcal O_E(-6O)$
+since the three partial derivatives are quadrics. For marked rational
+points $P_1,\ldots,P_d$, the rigidified degree-zero lines
+$t_{P_i}^*M\otimes M^{-1}$ represent $6P_i$ with the convention
+$t_P(Q)=Q+P$. Their nonzero fibres give torus extensions. Taking their
+fibre product over a common copy of $E$ gives an extension by
+$\mathbb G_m^d$. This is Bloch's construction for the corresponding
+lattice \cite{Bloch}. Its normalized count at a good prime is
+$c_{p,d}=(1-p^{-1})^d n_p/p$: every base point has a split torus
+torsor with $(p-1)^d$ rational points. The count is the same for
+dependent marks. For example, repeating a point produces a trivial
+line after changing the basis of the torus characters.
+
+There is a simple interpolation of this scalar:
+\[
+ \mathcal M_d^S(z)=\prod_{p\notin S}\bigl(1+(c_{p,d}-1)p^{-z}\bigr),
+ \qquad \Re z>1/2.
+\]
+Here $S$ contains the exceptional primes of the model. The factors
+are positive for real $z\ge0$. For fixed $d$, its continuation is
+\[
+ \mathcal M_d^S(z)=
+ \frac{U_d^S(z)}
+ {L^S(E,1+z)\zeta^S(1+z)^{d-1}\zeta^S(1+2z)},\qquad U_d^S(0)=1.
+\]
+Indeed divide each local factor by
+\[
+ (1-a_pp^{-1-z}+p^{-1-2z})(1-p^{-1-z})^{d-1}(1-p^{-1-2z}).
+\]
+The first-order trace terms agree and the two terms in $p^{-1-2z}$
+cancel in the denominator. Hasse's bound makes the quotient
+$1+O_{d,\delta}(p^{-3/2+3\delta})$ for large $p$ and $\Re z\ge-\delta$,
+with $0<\delta<1/6$. At $z=0$ each quotient is exactly one.
+Thus $\operatorname{ord}_{z=0}\mathcal M_d^S=d-a$, with
+$a=\operatorname{ord}_{s=1}L(E,s)$.
+
+Choosing a full independent set of $d=r$ marks makes the desired
+nonzero finite central limit equivalent to the BSD rank equality.
+The weak convergence above concerns probability measures. Multiplying
+them by any common scalar at a fixed real $z>1/2$ leaves the same
+scalar in the weak limit. Neither this convergence nor Bloch's
+compactness theorem for the full lattice gives a bound on that scalar
+as $z$ approaches zero. The finite-level Fourier law extends the local
+calculations of \cite[\S3]{CLT} in the squared norm; its global
+normalization remains the open step.
+
 \begin{thebibliography}{9}
 \bibitem{CLT}
 A.~Chambert-Loir and Y.~Tschinkel,
@@ -1708,5 +2212,10 @@ application to quadratic forms}, J. reine angew. Math. \textbf{481}
 \bibitem{DLMF}
 NIST Digital Library of Mathematical Functions,
 \href{https://dlmf.nist.gov/25.15}{Section 25.15, Dirichlet $L$-functions}.
+\bibitem{Bloch}
+S.~Bloch, \emph{A note on height pairings, Tamagawa numbers,
+and the Birch and Swinnerton-Dyer conjecture}, Invent. Math.
+\textbf{58} (1980), 65--76.
+\href{https://virtualmath1.stanford.edu/~conrad/BSDseminar/refs/BlochBSD.pdf}{Author's paper}.
 \end{thebibliography}
 \end{document}
