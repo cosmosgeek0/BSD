@@ -16,6 +16,8 @@ Item 453 is a separate candidate for specialists in integral representations. It
 
 ## Further working papers
 
+- **Matrix coset averages in the boundary model of the Steinberg representation.** Exact finite-level averages and the dependence on Smith invariants. [PDF](steinberg-coset-averages.pdf) · [LaTeX](steinberg-coset-averages.tex)
+
 - **Real origin fibres of modular parametrizations.** The note relates the central order to interior real crossings and gives degree bounds with a separate CM refinement. [PDF](real-origin-fibres.pdf) · [LaTeX](real-origin-fibres.tex)
 - **A certified four-zero disk for 234446.a1.** The interval proof counts four zeros with multiplicity in a disk of radius $10^{-57}$ about the centre. The individual central multiplicity remains two or four. [PDF](central-zero-disk.pdf) · [LaTeX](central-zero-disk.tex)
 

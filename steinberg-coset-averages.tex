@@ -1,0 +1,207 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Zp}{\mathbb Z_p}
+\newcommand{\Qp}{\mathbb Q_p}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\PP}{\mathbb P^1}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\cont}{\operatorname{cont}}
+\title{Matrix Coset Averages in the Boundary Model of the Steinberg Representation}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working draft for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+We compute the additive average of the projective action of all matrices
+in a fixed congruence coset of $M_2(\mathbb Z_p)$. At level $n$ the
+answer is a conditional average on one explicitly determined fibre of
+the finite projective line. For a primitive character of an unramified
+quadratic torus, the formula determines the integral ideal of
+differences of the output values in each Smith stratum. Passing from
+invertible to primitive singular centres removes exactly one factor
+of $\zeta-1$, where $\zeta$ generates the image of the character.
+The calculation applies also to cosets that contain singular matrices.
+\end{abstract}
+
+\section{The finite projective line and its coset average}
+
+Write $X_n=\mathbb P^1(\mathbb Z/p^n)$ for the primitive pairs modulo
+$p^n$ up to multiplication by a unit, where $n\ge1$.
+It has $(p+1)p^{n-1}$ elements. Write $X_0$ for a one-point set.
+Reduction defines maps $X_n\to X_j$ for $0\le j\le n$.
+For a function $f:X_n\to\mathbb C$, denote its average over the
+fibre above $x\in X_j$ by $M_j f(x)$. In particular $M_0 f$ is
+the average over the entire line and $M_n f=f$.
+
+The projective reduction map $\PP(\Qp)\to X_n$ makes $f$ a locally
+constant function on $\PP(\Qp)$. The quotient of these boundary
+functions by constants is the smooth Steinberg representation,
+with action $(\pi(g)f)(z)=f(g^{-1}z)$. We first compute the operator
+on functions, so that the constant term is explicit.
+
+Give $M_2(\Zp)$ additive Haar measure $dX$ of total mass one. For
+$a\in M_2(\Zp)$ define
+\[
+ (\mathcal C_{a,n}f)([z])
+ =p^{4n}\int_{a+p^nM_2(\Zp)} f([X^{-1}z])\,dX ,
+\]
+where $z\in\Zp^2$ is primitive. In an argument of $f$, square
+brackets on a nonzero vector denote the projective direction,
+reduced modulo $p^n$ after division by the common power of $p$.
+The locus $\det X=0$ has additive measure zero. The prefactor makes
+the measure on the specified coset a probability measure. In
+particular, $\mathcal C_{a,n}$ preserves constants.
+
+\begin{theorem}\label{avg}
+Let $v=\adj(a)z$ and put $h=\min(n,v_p(v_1),v_p(v_2))$, using
+$v_p(0)=+\infty$. Then
+\[
+ (\mathcal C_{a,n}f)([z])=
+ \begin{cases}
+ (M_{n-h} f)([p^{-h}v]\bmod p^{n-h}), & h<n,\\
+ M_0 f, &h=n .
+ \end{cases}
+\]
+In particular the output factors through $X_n$.
+\end{theorem}
+
+\begin{proof}
+In dimension two the adjugate is an invertible integral linear map
+of the four matrix entries. For $Y$ Haar-uniform on $M_2(\Zp)$,
+$\adj(Y)z$ is Haar-uniform on $\Zp^2$: the map is an additive
+surjection, since $z$ has a unit coordinate. For $X=a+p^n Y$ we have
+\[
+ [X^{-1}z]=[\adj(X)z],
+ \qquad \adj(X)z=\adj(a)z+p^n\adj(Y)z
+\]
+outside the singular locus.
+
+If $h<n$, division by $p^h$ leaves a uniform lift of one fixed
+primitive vector modulo $p^{n-h}$. Its projective reductions at
+level $n$ are uniform on the claimed fibre: a projective lift has
+exactly $p^h$ vector representatives extending that fixed vector.
+If $h=n$, division by $p^n$ leaves a Haar-uniform vector on
+$\Zp^2$. After projectivization its law is invariant under
+$\mathrm{GL}_2(\Zp)$, which is transitive on $X_n$.
+It is therefore uniform. The same argument shows that all quantities
+on the right depend only on $a\bmod p^n$ and $[z]\in X_n$.
+\end{proof}
+
+For $n\ge2$ call $f$ primitive at level $n$ if $M_{n-1}f=0$.
+Then $M_jf=0$ for every $j<n$. The formula becomes
+\begin{equation}\label{adj}
+ (\mathcal C_{a,n}f)([z])=
+ \begin{cases}
+ f([\adj(a)z]),&\adj(a)z\not\equiv0\pmod p,\\
+ 0,&\adj(a)z\equiv0\pmod p .
+ \end{cases}
+\end{equation}
+For example, for $a=\operatorname{diag}(1,p^d)$ with $1\le d<n$,
+the output on $[t:1]$ equals $f([p^dt:1])$. On the complementary
+chart with second coordinate divisible by $p$ it is zero. When
+$d\ge n$ this is the indicator of the affine chart multiplied by
+$f([0:1])$. This last identity is a coset average even with
+$a=\operatorname{diag}(1,0)$.
+
+\section{Integral content on the Smith strata}
+
+Let $p$ be odd, and identify $\Zp^2$ with the ring of integers
+$\OO_L$ in the unramified quadratic extension $L/\Qp$. Every
+primitive vector is then a unit of $\OO_L$. The group
+\[
+ T_n=(\OO_L/p^n\OO_L)^\times/(\mathbb Z/p^n)^\times
+\]
+acts simply transitively on $X_n$ by multiplication. Take $[1]$ as
+base point to identify the two sets. Let $\chi:T_n\to\mathbb C^\times$
+be a character of $p$-power order nontrivial on
+$\ker(T_n\to T_{n-1})$, with $n\ge2$. The function
+$f_\chi([t])=\chi(t)$ has zero average on every fibre to $X_{n-1}$
+by character orthogonality.
+
+Let $\zeta$ generate the image of $\chi$, fix a place of
+$\mathbb Q(\zeta)$ above $p$, and let $\OO$ be its local ring of
+integers. For an $\OO$-valued function $g$ define its content in
+the Steinberg quotient by
+\[
+ \cont([g])=(\,g(z)-g(z'):\ z,z'\in X_n\,)\subseteq \OO .
+\]
+Indeed, after fixing $z_0$, subtraction of $g(z_0)$ identifies
+$\OO^{X_n}/\OO\mathbf1$ with the free lattice of functions zero
+at $z_0$. This also defines fractional content for functions with
+values in the coefficient field.
+
+\begin{corollary}\label{ct}
+For the probability coset average we have
+\[
+ \cont([\mathcal C_{a,n} f_\chi])=
+ \begin{cases}
+  (\zeta-1),&\operatorname{rank}(a\bmod p)=2,\\
+  \OO,&\operatorname{rank}(a\bmod p)=1,\\
+  (0),&\operatorname{rank}(a\bmod p)=0.
+ \end{cases}
+\]
+Thus every primitive singular Smith stratum, including determinant
+zero modulo $p^n$, attains the unit ideal.
+\end{corollary}
+
+\begin{proof}
+An invertible centre permutes $X_n$ in \eqref{adj}. Its output
+therefore takes all powers of $\zeta$; the ideal of their differences
+is $(\zeta-1)$. For a rank-one centre, $\adj(a)\bmod p$ has
+one-dimensional kernel and one-dimensional image. On the residue
+direction of the kernel the output vanishes, and on every other
+residue direction it is a root of unity. The difference of a unit
+and zero is a unit. If $a\bmod p=0$ then also $\adj(a)\bmod p=0$,
+and the output vanishes everywhere by \eqref{adj}.
+\end{proof}
+
+For clarity about scaling, let $\Phi$ run over all integral test
+functions on $M_2(\mathbb Z/p^n)$. The additive operator
+\[
+ z\longmapsto \int_{M_2(\Zp)}\Phi(X)f_\chi([X^{-1}z])\,dX
+\]
+is a linear combination of the coset averages with common scalar
+$p^{-4n}$. Its coefficient differences generate the fractional
+ideal $p^{-4n}\OO$ by Corollary~\ref{ct}. Restricting the test
+functions to invertible centres gives $p^{-4n}(\zeta-1)\OO$.
+Integration here is first taken over the complex-valued character
+for each coset indicator. Formula~\eqref{adj} gives coefficient-field
+values, and the map extends linearly to integral tests.
+
+In the scaling used in the archived toric contraction, the last
+integral is multiplied by $p^{2-n}/(p+1)^2$. Hence its full
+content in that convention is
+\[
+ k_n\OO,\qquad k_n=\frac{p^{\,2-5n}}{(p+1)^2}.
+\]
+In particular, integral linear combinations of these tests cannot
+have a coefficient difference equal to $k_n/(\zeta-1)$.
+The proof concerns this explicitly normalized local operator;
+application to a global automorphic coefficient requires an
+independent identification of its test data and measures.
+
+\section*{Sources}
+The local non-split torus and Steinberg test-vector setting
+occurs in File--Martin--Pitale \cite{FMP} and Vatsal \cite{Vatsal}.
+The finite coset average and the content question arose in
+entries 363 and 394--398 of the archived BSD research record
+\cite{archive}. The adjugate argument gives a proof in the
+boundary model. Literature priority for this finite calculation
+remains to be assessed.
+
+\begin{thebibliography}{9}
+\bibitem{FMP} D.~File, K.~Martin, and A.~Pitale,
+\emph{Test vectors and central $L$-values for $\mathrm{GL}(2)$},
+\href{https://arxiv.org/abs/1310.1765}{arXiv:1310.1765}.
+\bibitem{Vatsal} V.~Vatsal,
+\emph{Test vectors for some ramified representations},
+\href{https://arxiv.org/abs/1806.07856}{arXiv:1806.07856}.
+\bibitem{archive} \emph{BSD research history},
+\href{https://github.com/cosmosgeek0/BSD/blob/64194dff2dd10ea2fcfa9bd78bc123876d98e1f4/bsd-research-history.zip}{numbered source archive}, entries 301, 363, 390, and 394--398.
+\end{thebibliography}
+\end{document}
