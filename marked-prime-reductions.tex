@@ -1,0 +1,224 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}\newcommand{\F}{\mathbb F}
+\newcommand{\ord}{\operatorname{ord}}\newcommand{\Sur}{\operatorname{Sur}}
+\title{Descent Indices from Prime Sums and Marked Reductions of Elliptic Curves}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper for specialist review}
+\setlength{\emergencystretch}{1em}
+\begin{document}\maketitle
+\begin{abstract}
+For an elliptic curve over $\Q$ without complex multiplication, the reduced denominator of a continued prime sum over primes split in a multiquadratic field recovers the field degree. For the two fields singled out by a rational two-isogeny and its dual, the product of these denominators determines the Mordell--Weil rank. We specify the analytic orders lost on taking denominators. We also give exact finite-field and Kummer counts for marked reductions, and recover signed Frobenius traces on a density-one set from five fixed auxiliary marked twists. The results combine standard descent, analytic continuation and reduction estimates.
+\end{abstract}
+
+\section{A central value for split primes}
+Write $N_p=p+1-a_p$ for the cardinality of the reduction of $E/\Q$ at a good prime. If $K/\Q$ is multiquadratic, including $K=\Q$, write $d=[K:\Q]$ and let $S$ include all bad and ramified primes. Define
+\[
+ D_K(z)=\sum_{\substack{p\notin S\\p\ {\rm splits\ completely\ in}\ K}}
+ \log p\,(N_p^{-z}-p^{-z}),\qquad \Re z>1/2.
+\]
+The difference converges absolutely there by Hasse's bound. Omitting other finitely many primes does not affect its continued value at zero. Write $a_\chi=\ord_{s=1}L(E^\chi,s)$ for the twists by characters of $\operatorname{Gal}(K/\Q)$, and put $a_K=\sum_\chi a_\chi$. This also equals the central order after base change to $K$, by Artin formalism.
+
+\begin{theorem}\label{split}
+If $E$ has no complex multiplication, $D_K$ has a continuation holomorphic at zero, with
+\[
+ D_K(0)=\frac{1-d^{-1}}2-\frac{a_K}{d},
+ \qquad 1-2D_K(0)=\frac{1+2a_K}{d}.
+\]
+In particular the reduced denominator of $1-2D_K(0)$ is exactly $d$.
+\end{theorem}
+\begin{proof}
+Insert a character $\chi(p)$ into the unrestricted sum and call the resulting function $D_\chi$. In the following sums $p\notin S$. Set
+\[
+ U_\chi(t)=\sum_p\chi(p)\log p\,p^{-1-t},\quad
+ V_\chi(t)=\sum_p\chi(p)(a_p^2-p)\log p\,p^{-2-t},\quad
+ A_\chi(z)=\sum_p\chi(p)a_p\log p\,p^{-1-z}.
+\]
+The logarithmic derivative of the incomplete Dirichlet $L$-function shows that $U_\chi$ has residue $\mathbf1_{\chi=1}$ at zero. The unitary symmetric-square representation attached to a non-CM elliptic newform is cuspidal \cite{GJ}. Its twist by $\chi$ is regular and nonvanishing on the line $\Re s=1$ \cite{JS}. Its first prime coefficient at $p$ is $\chi(p)(a_p^2-p)/p$. Removing powers $p^j$, $j\ge2$, from the logarithmic derivative therefore shows $V_\chi$ is regular at zero. These comparisons are first made in the domain of absolute convergence. The removed prime powers converge normally in a neighborhood of zero in the shifted parameter.
+
+For the elliptic logarithmic derivative the second-power coefficient is $\chi(p)^2(a_p^2-2p)=a_p^2-2p$. Higher powers converge normally for $\Re z>-1/6$. Thus, up to an error holomorphic near zero,
+\[
+ A_\chi(z)=-\frac{(L^S)'(E^\chi,1+z)}{L^S(E^\chi,1+z)}-V_1(2z)+U_1(2z).
+\]
+Its residue is $-a_\chi+1/2$. A Taylor expansion of $(1+(1-a_p)/p)^{-z}$ gives
+\[
+ D_\chi(z)=zA_\chi(z)-zU_\chi(z)
+ +\tfrac12z(z+1)(V_\chi(z)+U_\chi(z))+zH_\chi(z).
+\]
+Here $H_\chi$ is regular near zero: the cubic Taylor remainder is $O_C(|z|p^{-3/2-\Re z})$ on each compact parameter set $C$, and the omitted lower terms of the quadratic coefficient satisfy the same bound, before the factor $\log p$. It follows that $D_\chi(0)=-a_\chi+\tfrac12(1-\mathbf1_{\chi=1})$. Average over all $d$ characters. In the final fraction the numerator is odd, and $d$ is a power of two.
+\end{proof}
+
+\section{The fields selected by descent}
+Let $\phi:E'\to E$ be a rational isogeny of degree two with dual $\widehat\phi:E\to E'$. Let $K_\phi$ be the compositum of the fields of definition of the $\phi$-preimages of generators of $E(\Q)$, including its torsion. The kernel is rational of order two. Consequently the connecting homomorphism embeds $E(\Q)/\phi E'(\Q)$ in $\operatorname{Hom}(G_\Q,\F_2)$; its image cuts out $K_\phi$. In particular
+\[
+ D_\phi:=[K_\phi:\Q]=[E(\Q):\phi E'(\Q)].
+\]
+Equivalently, at every good odd unramified prime, complete splitting in this field means that every marked generator has reduction in $\phi E'(\F_p)$: geometric preimages form a two-element set, and Frobenius fixes a point exactly when the connecting character is zero. The same statements apply to $\widehat\phi$ \cite{Cremona}.
+
+\begin{theorem}
+Suppose $E$ is non-CM and admits a rational two-isogeny. For the prime sum on each target curve and its selected field as in Theorem~\ref{split}, let $h_\phi,h_{\widehat\phi}$ denote the positive reduced denominators of $1-2D_{K_\phi}(0)$ and $1-2D_{K_{\widehat\phi}}(0)$. Then
+\[
+ h_\phi h_{\widehat\phi}=2^{\operatorname{rank}E(\Q)+2}.
+\]
+\end{theorem}
+\begin{proof}
+The denominators are the two isogeny indices by Theorem~\ref{split}. The quotient map induced by $\phi$ gives a surjection
+$E'(\Q)/\widehat\phi E(\Q)\to\phi E'(\Q)/2E(\Q)$
+whose kernel has order $4/|E[2](\Q)|$. Indeed it is $E'[\phi]/\widehat\phi(E[2](\Q))$, and the kernel of $\widehat\phi$ on $E[2](\Q)$ has order two. Multiplication by the other index and the identity $|E(\Q)/2E(\Q)|=2^r|E[2](\Q)|$ give the assertion.
+\end{proof}
+A smaller marked subgroup replaces the connecting image by that of the subgroup. Conversely, if the two prime sets are kept fixed while the point counts are taken on another non-CM curve, Theorem~\ref{split} gives the same denominators. The odd numerators contain the central orders. Their removal explains the arithmetic content of this test, as well as its limitation for BSD.
+
+\section{Finite characters and marked division}
+For a fixed list $P_1,\ldots,P_t$, let $\Gamma_p$ be its image subgroup in $G_p=E(\F_p)$. For any $m\ge1$ let
+\[
+ X_m(p)=\#\Sur(G_p,\Z/m),\qquad
+ Y_m(p)=\#\Sur(G_p/\Gamma_p,\Z/m).
+\]
+In particular $\sum_m X_m(p)=|G_p|$ and $\sum_mY_m(p)=|G_p|/|\Gamma_p|$ because the characters of a finite abelian group are partitioned by their exact order.
+\begin{prop}
+If the rational points $P_i$ are independent modulo torsion, all $m$ supported outside a fixed finite set of primes satisfy
+\[
+ \lim_{X\to\infty}\frac{\sum_{p\le X}Y_m(p)}{\sum_{p\le X}X_m(p)}
+ =m^{-t},
+\]
+where bad primes and primes dividing $m$ are omitted. The same ratio holds under any condition on torsion Frobenius at level $m$ for which the denominator has positive mean.
+\end{prop}
+\begin{proof}
+The cyclic group generated by the tuple $P$ in $E^t$ is Zariski dense. Otherwise an elliptic quotient of the complementary abelian factor gives a nonzero endomorphism-linear relation among the coordinates, modulo torsion. In the CM case any such relation for rational coordinates and its complex conjugate yield a rational linear relation by expressing the coefficients in a rational basis of the imaginary quadratic endomorphism algebra. Independence excludes it. The adelic Kummer theorem for a dense cyclic group gives full translation group $E[m]^t$ over $\Q(E[m])$ outside a fixed finite set of primes \cite[Theorem 6.9 and Corollary 6.11]{CDJLZ}.
+
+For a fixed linear Frobenius $M$, let $T=E[m]$. The finite-field Kummer map identifies $G_p/mG_p$ with $T/(M-1)T$, by Lang's theorem. Each marked image is represented by its translation cocycle, uniformly and independently distributed over $T$ in the finite affine Galois group above $M$. Each surjection from $T/(M-1)T$ has kernel of index $m$. It therefore kills all the marked classes with probability $m^{-t}$. Summation over the surjections and Chebotarev prove the formula. The identity Frobenius supplies a positive denominator for the unrestricted ratio.
+\end{proof}
+At fixed $p$, the orders $m\le p^{1/2-\epsilon}$ account for $o(|G_p|)$ characters. Indeed $m$ divides the exponent of $G_p$ and $X_m(p)\le m^2$; there are $p^{o(1)}$ divisors of the exponent. The two different summations above therefore cannot be exchanged by a fixed-order cutoff.
+
+At level two, assume the linear Galois image is $S_3$, and the marks are independent in $E(\Q)/2E(\Q)$. In this case full translation holds without the large-prime qualification. For $V=E[2]$, $H^1(S_3,V)=0$ by inflation--restriction through the normal $C_3$ (whose invariants on $V$ vanish). The translation image over the torsion field is an $S_3$-submodule of $V^t$. A proper submodule has a nonzero equivariant map $V^t\to V$ killing it: $V^t$ is a direct sum of simple modules and $\operatorname{End}_{S_3}V=\F_2$. The resulting binary combination of marked Kummer classes restricts to zero and hence is zero globally, contrary to independence. Thus conditional on $M=1$ the simultaneous halving probability is $4^{-t}$.
+
+
+\paragraph{A fixed Frobenius and all its conjugates.}
+There is also an exact test allowing arbitrary relations among the marks. Fix a prime $\ell$ and choose compatible $\ell$-power division sequences of $k$ rational points $P_i$, with cocycles $b_i:G_\Q\to V_\ell E$. On $V_\ell E\oplus\Q_\ell^k$ let $g$ act by
+\[
+ (v,u)\longmapsto\left(gv+\sum_i u_i b_i(g),u\right).
+\]
+This is the rational Tate realization of the associated marked 1-motive \cite{Jossen}. At a good $p\ne\ell$, choose a Frobenius $F$. Since $\det(1-F|V_\ell E)=N_p\ne0$, each $u$ has a unique $F$-fixed lift $x_u$. The $u$ such that $g F g^{-1}$ fixes $x_u$ for every $g$ form a subspace of codimension $\operatorname{rank}\langle P_1,\ldots,P_k\rangle$. Indeed $g^{-1}x_u$ is then also an $F$-fixed lift of $u$, so it equals $x_u$. Global invariant lifting is equivalent to $\sum_i u_i[b_i]=0$. The injectivity of $E(\Q)\otimes\Q_\ell\to H^1(\Q,V_\ell E)$ follows from the Kummer sequence and finite generation. This use of all conjugate actions is stronger than knowledge of the characteristic polynomial of one $F$.
+
+\paragraph{Minimal tuples of localization primes.}
+Here is a residual variant measuring the full Selmer group. Fix an odd prime $\ell$ with $\operatorname{Gal}(\Q(E[\ell])/\Q)=\mathrm{GL}_2(\F_\ell)$. Write $d=\dim_{\F_\ell}\mathrm{Sel}_\ell(E/\Q)>0$. Among ordered $d$-tuples of distinct good primes $p_i\le X$, restricted to nonidentity unipotent Frobenius on $E[\ell]$ away from $\ell$, the limiting proportion for which localization
+\[
+ \mathrm{Sel}_\ell(E/\Q)\longrightarrow
+ \bigoplus_{i=1}^d E(\F_{p_i})/\ell E(\F_{p_i})
+\]
+is an isomorphism equals $\prod_{j=1}^d(1-\ell^{-j})$.
+
+Indeed the scalar $-1$ shows $H^1(\mathrm{GL}_2(\F_\ell),E[\ell])=0$: for a cocycle the action of a central element on cohomology is trivial, while $-1$ acts by negation. The joint translation module of any basis of $d$ independent Selmer cocycles is therefore $E[\ell]^d$ by the same submodule argument. At an unramified good prime localization is given by evaluating the cocycle on Frobenius modulo $(M-1)E[\ell]$. For every nonidentity unipotent $M$ this quotient is a line. Conditional on $M$, the row of $d$ coordinates is uniform. The isomorphism condition is invariant under independent scalings of the rows, so it is well defined on Frobenius conjugacy classes. Chebotarev with independent choices of the $d$ primes gives the probability that a uniform $d$-by-$d$ matrix over $\F_\ell$ is invertible. The excluded repeated-prime tuples have density zero.
+
+When the hypotheses for Sakamoto's primitive residual Kolyvagin system and his Kurihara-number criterion hold, the same proportion counts nonzero minimal-length witnesses in that admissible prime family \cite[Lemmas 4.4, 4.6]{Sakamoto}. Here one must have the residual primitivity used in Lemma 4.4 and restrict to its auxiliary primes. If localization is an isomorphism, Poitou--Tate duality for the self-dual classical conditions shows that relaxing at the tuple adds no classes. Each transverse condition is complementary to the unramified line, so imposing all of them leaves zero. Conversely vanishing of the transverse Selmer group forces the kernel of localization to vanish, hence gives an isomorphism by dimension. See also \cite[Thm.~1.10]{Kim}. This conclusion detects Selmer dimension including any Tate--Shafarevich contribution.
+
+\section{Cartier discrepancies attached to rational points}
+In an integral short Weierstrass model $y^2=f(x)=x^3+Ax+B$, let $\omega=dx/(2y)$, and let $P=(u,v)$ be nontorsion. The differential
+\[
+ \beta_P=\frac{y+v}{x-u}\,\omega
+\]
+has residues $1,-1$ at $P,O$. At all sufficiently large good $p$, the coordinates of $P$ are $p$-integral and $v\ne0\bmod p$. Write $\mathcal C$ for Cartier on differentials of the reduced curve. Then
+\[
+ \mathcal C(\omega)=a_p\omega,\qquad
+ \mathcal C(\beta_P)-\beta_P=c_p(P)\omega,\quad
+ c_p(P)=v\sum_{j\ge p}[x^j]f(x)^{(p-1)/2}u^{j-p}\quad\bmod p .
+\]
+To verify this, write $\beta_P=\tfrac12\,d\log(x-u)+v\,dx/(2y(x-u))$. In the second term take $y^{-p}$ outside Cartier as $y^{-1}$ and divide $f^{(p-1)/2}$ by $x-u$. The remainder is $v^{p-1}=1$. Cartier fixes $d\log(x-u)$; in the quotient polynomial only the $x^{p-1}$ coefficient contributes. Likewise the coefficient $[x^{p-1}]f^{(p-1)/2}$ gives the Hasse invariant, equal to $a_p\bmod p$ by the finite-field point count.
+
+\begin{prop}
+For $r>0$ independent rational marks $P_i$ and any fixed $t_i\in\Q$, let $S^\ast$ consist of primes where some $c_p(P_i)\ne t_i(a_p-1)\bmod p$, with finitely many exceptional primes discarded. With weights $w_p=\log p/(p-1)$ its upper weighted density satisfies
+\[
+ \limsup_{X\to\infty}\frac{\sum_{p\le X,\ p\in S^\ast}w_p}
+ {\sum_{p\le X}w_p}\ \ge \ \frac{r}{2(r+1)}.
+\]
+For CM curves the bound improves to $r/(2r+1)$.
+\end{prop}
+\begin{proof}
+We give the specialization of Tang's slope theorem \cite[\S5.1, Thm.~5.1.5]{Tang}. The rigidified degree-zero lines of divisor class $P_i-O$ define a fibre product $G$ of $\mathbb G_m$-extensions over $E$. The third-kind forms $\beta_{P_i}-t_i\omega$ give regular connections on the corresponding lines by removing their integral residue divisors in a local frame (or replacing all lines by their duals under the opposite convention). Such connections are the invariant lifts of the tangent line of $E$; see Katz's description via the universal extension \cite{Katz}. They specify a translation-invariant horizontal line in $\operatorname{Lie}G$. Its reduction is stable under $p$th powers precisely when all the line connections have zero $p$-curvature. Locally in rank one the latter is the Cartier condition $\mathcal C(\beta_{P_i}-t_i\omega)=\beta_{P_i}-t_i\omega$; changing frame adds a logarithmic differential, fixed by Cartier.
+
+The algebraic closure of the horizontal analytic one-parameter group projects onto $E$. If its connected toric part were proper, a nonzero integral character annihilating that toric part would give a pushout extension admitting an elliptic subgroup mapping isogenously to $E$. Pullback by that isogeny splits the extension, so its class is torsion. That contradicts independence of the $P_i$. Thus the closure has dimension $N=r+1$. The exponential uniformization on a line of a commutative algebraic group has complex order at most two in Tang's setup \cite[proof of Prop.~2.3.4 and note 20]{Tang}. His inequality for a dense nonalgebraic one-dimensional leaf is $1\le (N/(N-1))\rho\,\alpha$, where $\rho$ is the order and $\alpha$ the upper weighted density of unstable reductions. This proves the first assertion.
+
+In the CM case pass to the CM field and pull back each connection also by a nonreal endomorphism $\gamma$. The $2r$ classes $P_i,\gamma^\vee P_i$ are independent modulo torsion: subtract a putative integral relation from its conjugate and use that $\gamma^\vee-\bar\gamma^\vee$ is a nonzero isogeny. The pullback of a zero-curvature connection has zero curvature, so the enlarged system has exactly the same exceptional places outside a finite set. The local-degree weights over the CM field above each rational prime sum to its global degree. Apply the preceding inequality with $N=2r+1$.
+\end{proof}
+For non-CM curves this gives a weighted second-moment bound. If $A=r/(2r+2)$, Sato--Tate \cite{ST} and partial summation give upper weighted proportion at most $2u/\pi$ for $|a_p|/\sqrt p\le u$, $0\le u\le2$, since the density of $a_p/\sqrt p$ is at most $1/\pi$. On a subsequence realizing the upper density, integrate $2u(A-2u/\pi)_+$ to get
+\[
+ \limsup_X\frac{\sum_{p\le X,\ p\in S^\ast}w_p a_p^2/p}{\sum_{p\le X} w_p}
+ \ \ge\ \frac{\pi^2 A^3}{12}.
+\]
+The sign of the Frobenius trace has disappeared from this inequality.
+
+\section{Trace fibres and division witnesses}
+Let $E$ here be over a finite field $\F_q$. Let $I_d(P)$ denote the number of closed points of degree $d$ whose Frobenius orbit sums to $P\in E(\F_q)$; let $f_e(P)=\#\{Q\in E(\F_q):eQ=P\}$ and $N_j=\#E(\F_{q^j})$.
+\begin{prop}
+For every $d\ge1$,
+\[
+ dN_1 I_d(P)=\sum_{e\mid d}\mu(e)N_{d/e} f_e(P),
+ \qquad I_d(P)\ge I_d(O).
+\]
+\end{prop}
+\begin{proof}
+Trace from $E(\F_{q^j})$ is onto $E(\F_q)$: its defining endomorphism $1+\cdots+\mathrm{Fr}^{j-1}$ is an isogeny, and any preimage of a fixed point is fixed by $\mathrm{Fr}^j$. In the subfield of degree $d/e$, the degree-$d$ trace is $e$ times its degree-$d/e$ trace. M\"obius inversion gives the formula.
+
+Within a degree-$d$ trace fibre, count the union of the proper subfield loci of indices the prime divisors $\ell$ of $d$. Only primes with $P\in\ell E(\F_q)$ can occur. For these primes, any intersection indexed by a subset has the same size as for $O$: multiplication by the product of the distinct primes has $P$ in its image by primary decomposition of the finite abelian group. Inclusion--exclusion gives equality for this restricted union. The union inside the trace-zero fibre can additionally contain loci from the other primes. Both entire trace fibres have size $N_d/N_1$, proving the inequality.
+\end{proof}
+For $d=2$ this reads $2(I_2(P)-I_2(O))=f_2(O)-f_2(P)$. The number of distinct unordered split pairs of trace $P$ is $(N_1-f_2(P))/2$, giving $I_2(P)-(N_1-f_2(P))/2=a_q$ since $N_2/N_1=q+1+a_q$. More generally, the divisor M\"obius sum in any degree-$d$ class $P$ is
+$-[U^{d-1}](1-a_qU+qU^2)^{-1}$. Indeed Fourier-transform the group-ring divisor zeta series on $\operatorname{Pic}^0=E(\F_q)$. Its trivial character gives the usual curve zeta function and its nontrivial characters give $1$, since Riemann--Roch gives $(q^d-1)/(q-1)$ effective divisors in each degree-$d$ class. Inverting and Fourier-inverting gives the formula in each class.
+
+For an elliptic curve over $\Q$, put $W=\Q[E[2]]-\Q[[2]^{-1}P]$, a virtual permutation module. With every function omitting a common finite set of bad primes, the Euler-factor identity is
+\[
+ \exp\!\sum_{p,j\ge1}
+ \frac{2N_{p,j}\{I_{p^j,2}(P)-I_{p^j,2}(O)\}}{j p^{jz}}
+ =\frac{L(W,z)L(W,z-1)}{L(E\otimes W,z)}.
+\]
+Here $N_{p,j}=\#E(\F_{p^j})$ and $I_{p^j,2}$ uses $\F_{p^j}$ as base. In an absolute convergence half-plane the identity follows by taking logarithms: $2(I_2(P)-I_2(O))$ is the trace of Frobenius on $W$, and $N_{p,j}=1+p^j-\operatorname{tr}(\mathrm{Fr}_p^j|V_\ell E)$. The limit at $z=2$ sees the pole of the Artin zeta quotient $L(W,z-1)$, while the elliptic twist factors converge there. If the full $S_3$ hypothesis holds, $E[2]$ has two orbits and the halves of an indivisible rational point have one, giving a simple pole. For a tuple of $t$ points of binary span $k$, use instead the difference of the permutation modules of $E[2]^t$ and the joint halving torsor. The corresponding pole order is
+\[
+ o(t)-o(t-k),\qquad o(j)=\frac{4^j+3\cdot 2^j+2}{6}.
+\]
+Row operations over $\F_2$ and translations identify the torsor with $k$ independent halving fibres and $t-k$ copies of $E[2]$. Translation is transitive in the former coordinates. Burnside's formula gives $o(j)$ for the latter, using the identity, the three transpositions and the two elements of order three. This assertion concerns a pole away from the elliptic central point.
+
+\paragraph{Uniform finite-group sampling.}
+For a non-CM $E$ and $t\ge1$, the two Frobenius eigensets of the Kummer quotient $E^t/\{\pm1\}$ have sizes $N_+^t$ and $N_-^t$ before identifying signs, where $N_\pm=p+1\mp a_p$. The common branch points are $B_p=|E[2](\F_p)|^t$. Assign sign zero there. If all projective orbits are counted once the signed mean is
+\[
+ \mu_{p,t}=\frac{N_+^t-N_-^t}{N_+^t+N_-^t}
+ =-\frac{t a_p}{p+1}+O_t(p^{-3/2}).
+\]
+Indeed each nonbranch orbit has two geometric representatives and the common branch points appear in both counts. The prime series $\sum a_p\mu_{p,t}\log p\,p^{-s}$ therefore has residue $-t$ at $s=1$ by the same symmetric-square computation as in Theorem~\ref{split}. If instead a finite rational reduction group $\Gamma_p$ is sampled uniformly before taking the quotient, only the positive side and its branch locus occur; the mean is $1-(|\Gamma_p[2]|/|\Gamma_p|)^t$. For $t\ge2$ independent rational marks generating $\Gamma$, the branch correction times $a_p\log p\,p^{-s}$ is absolutely summable for $\Re s>1/2$. Indeed the next lemma and dyadic summation over $|\Gamma_p|$ give a bounded log-weighted sum of $|\Gamma_p|^{-t}$ for $t>2$ and an $O(\log X)$ bound for $t=2$ up to $p\le X$. Hasse's bound and a second dyadic summation in $p$ suffice. Consequently the latter sampling has residue $1/2-a_1$, where $a_1=\ord_{s=1}L(E,s)$. The difference of these two residues is $t+1/2-a_1$. Its construction uses both the dimension of the sampled product and the full unmarked prime sum.
+
+\section{Recovering the traces from five fixed twist points}
+\begin{lemma}\label{small}
+Suppose $Q_1,\ldots,Q_t\in E(K)$ are independent modulo torsion over a fixed number field. Then the rational primes below good places where the reduction subgroup has order at most $Y$ satisfy
+\[
+ \sum_{p}\log p\ll_{E,K,Q_1,\ldots,Q_t}(1+Y)^{1+2/t}.
+\]
+\end{lemma}
+\begin{proof}
+Two vectors in $\{0,\ldots,\lfloor Y^{1/t}\rfloor\}^t$ have the same reduction at any such place (enlarge the side by one if necessary). Each nonzero difference gives a nontorsion global point of canonical height $O((1+Y)^{2/t})$. At a place of good integral minimal model where this point reduces to $O$, the local denominator of its $x$-coordinate contributes at least $\log p$ to the unnormalized global height. Sum over $O(1+Y)$ differences and absorb the finitely many model exceptions. This is the denominator argument of Akbary and Murty \cite[proof of Proposition 1.2]{AM}, with residue norms bounded below by $p$.
+\end{proof}
+\begin{theorem}
+For every $E/\Q$ there are five independent quadratic squareclasses $D_i$ and fixed nontorsion points $Q_i\in E^{D_i}(\Q)$ with the following property. For every good unramified $p$ outside a set of logarithmic weight $O_E(X^{5/6})$ up to $X$, those marked reductions, their relative twist identifications and twist signs determine the signed trace $a_p$. The implied constant depends on the fixed choices.
+\end{theorem}
+\begin{proof}
+Write $E:y^2=f(x)$ in an integral short model. Choose integers $x_i$ so that $f(x_i)$ has odd valuation at a new prime, outside the discriminant and all earlier squareclasses. Indeed Schur's theorem gives infinitely many prime divisors of polynomial values; at a simple root modulo such a prime, all but one of its lifts modulo the square of the prime give valuation one. The progression allows arbitrarily large $x_i$. For $D_i$ the squareclass of $f(x_i)$, the corresponding point on $E$ over $\Q(\sqrt{D_i})$ has $x$-coordinate $x_i$. Northcott's theorem excludes torsion for all sufficiently large choices because its degree is at most two and $h(x)=2\hat h+O_E(1)$. Each new prime precludes relations with the preceding squareclasses.
+
+In the common multiquadratic field these points lie in distinct characters, so are independent modulo torsion. At a prime $p$ at least three twist signs agree. Fix a triple with that sign and one of its indices $j$. Transport the three points to $E^{D_j}$ over the fixed field generated by the square roots of $D_i/D_j$ for the triple; $p$ splits there. The identifications over $\F_p$ are determined up to changing signs of individual points, leaving the subgroup unchanged. Its order $M_p$ divides $p+1-\chi_{D_j}(p)a_p$. Whenever $M_p>4\sqrt p$, the Hasse interval contains just one possible multiple, giving the signed trace. Apply Lemma~\ref{small} to each of the ten triples with $Y=4\sqrt X$. The exception is $O(X^{5/6})$ as claimed. Consequently the traces determine the isogeny class and therefore the missing local factors by Chebotarev, semisimplicity and Faltings's theorem. This last determination is a uniqueness statement.
+\end{proof}
+The same reasoning at primes split in a fixed quadratic field $K$ uses $r$ rational independent marks and one independent anti-invariant point. The exception has logarithmic weight $O(X^{1/2+1/(r+1)})$. For $r>1$ it has density zero. If the twist by $K$ has analytic rank one, the split-prime sum $\sum a_p\log p\,p^{-s}$ has residue $-a_1/2$ at $s=1$: the two character prime traces in the proof of Theorem~\ref{split} have residues $1/2-a_1$ and $1/2-1$. Here $a_1$ is the analytic rank of the untwisted curve. The reduction bound for $t$ points gives absolute convergence of the omitted trace series only for $\Re s>1+1/t$. Choosing auxiliary twists reconstructs the trace even if the base group is finite.
+
+\begin{thebibliography}{9}
+\bibitem{GJ} S. Gelbart and H. Jacquet, \emph{A relation between automorphic representations of $\mathrm{GL}(2)$ and $\mathrm{GL}(3)$}, \href{https://doi.org/10.24033/asens.1355}{Ann. Sci. ENS 11 (1978), 471--542}.
+\bibitem{JS} H. Jacquet and J. Shalika, \emph{On Euler products and the classification of automorphic representations I}, Amer. J. Math. 103 (1981), 499--558.
+\bibitem{Cremona} J. Cremona, \emph{Higher descents on elliptic curves}, \href{https://johncremona.github.io/papers/d2.pdf}{two-isogeny descent formulas}.
+\bibitem{CDJLZ} P. Corvaja, J. Demeio, A. Javanpeykar, D. Lombardo and U. Zannier, \emph{On the distribution of rational points on ramified covers of abelian varieties}, \href{https://www.cambridge.org/core/journals/compositio-mathematica/article/on-the-distribution-of-rational-points-on-ramified-covers-of-abelian-varieties/775198D2DDCD37DC7E16DF3406EA70CB}{Section 6.2.2}.
+\bibitem{AM} A. Akbary and V. Kumar Murty, \emph{Reduction mod $p$ of subgroups of the Mordell--Weil group of an elliptic curve}, \href{https://www.cs.uleth.ca/~akbary/npr.pdf}{Proposition 1.2 and proof}.
+\bibitem{Jossen} P.~Jossen, \emph{Detecting linear dependence on an abelian variety via reduction maps}, \href{https://ems.press/journals/cmh/articles/11958}{Comment. Math. Helv.}
+\bibitem{Tang} Y.~Tang, \emph{Cycles in the de Rham cohomology of abelian varieties over number fields}, \href{https://arxiv.org/abs/1510.01357}{Theorem 5.1.5}.
+\bibitem{Katz} N.~Katz, \emph{Equidistribution questions for universal extensions}, \href{https://web.math.princeton.edu/~nmk/univextn.pdf}{sections on the universal extension}.
+\bibitem{ST} T.~Barnet-Lamb, D.~Geraghty, M.~Harris and R.~Taylor, \emph{A family of Calabi--Yau varieties and potential automorphy II}, \href{https://doi.org/10.2977/PRIMS/31}{Publ. RIMS 47 (2011)}.
+\bibitem{Sakamoto} R.~Sakamoto, \href{https://ems.press/content/serial-article-files/29299}{Documenta Mathematica 27 (2022), 1891--1922}, Section 4.
+\bibitem{Kim} C.-H.~Kim, \emph{The structure of Selmer groups and the Iwasawa main conjecture for elliptic curves}, \href{https://arxiv.org/abs/2203.12159}{arXiv:2203.12159}.
+\bibitem{Fal} G. Faltings, \emph{Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern}, Invent. Math. 73 (1983), 349--366.
+\end{thebibliography}
+\end{document}

@@ -12,9 +12,21 @@ Contact: [admin@cosmosgeek.org](mailto:admin@cosmosgeek.org)
 
 **Splitting genus-one torsors and rank growth.** Let $E$ be an elliptic curve over a totally real number field $K$, with irreducible $E[2]$. If a locally soluble torsor has exact period $2^k$ with $k\geq 1$, there is a tower of $k$ totally real quadratic extensions that splits it, with prescribed splitting at any finite set of finite places. The rank increases at every step. In the normal closure $L$, the bound is $\operatorname{rank} E(L)-\operatorname{rank} E(K)\geq 2^k-1$. This result concerns rank after base extension. [Paper (PDF)](torsor-splitting-rank-growth.pdf) · [LaTeX](torsor-splitting-rank-growth.tex) · [Authoring chat, Continue](https://chatgpt.com/c/6af068e6-a3b4-8320-b137-01d03fe069a1) · [Independent verification chat](https://chatgpt.com/c/6b013ebb-0434-83ec-a4be-08328f4ccb30)
 
-Item 453 is a separate candidate for specialists in integral representations. It asserts a sharp lower bound on the size of a lattice supporting a first cohomology class of order $p^4$. Its proof and relationship to published exponent bounds need specialist checking before a priority claim. [Adem’s paper](https://personal.math.ubc.ca/~adem/ZG-lattices.pdf) · [Original review conversation](https://chatgpt.com/c/6af068e6-a3b4-8320-b137-01d03fe069a1)
-
 ## Further working papers
+
+- **Quartic halving fields and rank growth.** Explicit trace-zero points in a quartic halving field and rank growth on rational specializations. [PDF](quartic-halving-rank-growth.pdf) · [LaTeX](quartic-halving-rank-growth.tex)
+
+- **Effective detection by reduction at finitely many primes.** Under a full Kummer-image hypothesis, a subgroup of rank r modulo a prime power is detected by r distinct good primes with an explicit size bound. [PDF](effective-kummer-detection.pdf) · [LaTeX](effective-kummer-detection.tex)
+
+- **Restriction and doubling over a quadratic extension.** Matching local two-Selmer structures and two nondegenerate pairings give a rank-stable restriction formula for the two-primary Tate–Shafarevich group. [PDF](quadratic-restriction-doubling.pdf) · [LaTeX](quadratic-restriction-doubling.tex)
+
+- **Anticyclotomic traces of the Tate theta function.** A local norm-compatible construction gives a nonzero limiting trace congruent to 162 modulo 243. [PDF](anticyclotomic-theta-traces.pdf) · [LaTeX](anticyclotomic-theta-traces.tex)
+
+- **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
+
+- **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
+
+- **A quartic governing character for a twist family.** An explicit quadratic character on a quartic field identifies the pairing sign and proves equidistribution under the stated local conditions. [PDF](quartic-governing-character.pdf) · [LaTeX](quartic-governing-character.tex)
 
 - **Prescribed quadratic traces on elliptic curves.** A genus-two construction realizes two prescribed traces under cyclic-isogeny hypotheses, with branch-degree, height and exceptional-set estimates. [PDF](prescribed-quadratic-traces.pdf) · [LaTeX](prescribed-quadratic-traces.tex)
 
@@ -30,7 +42,7 @@ Item 453 is a separate candidate for specialists in integral representations. It
 
 ## Drafts
 
-Of the six drafts below, the strongest candidate for external review on BSD-related analysis is the quadratic-character average. Its claimed contribution is the explicit factorization of the average indexed by values of a binary quartic. Counting rational points by their canonical heights is established mathematics. The source chat reports that the full interval certificate needed to apply the heat-sign result to curve 234446.a1 was not recovered. All six are internal working drafts. Priority has not been established. The general BSD rank equality remains open.
+Of the six drafts below, the strongest candidate for external review on BSD-related analysis is the quadratic-character average. Its claimed contribution is the explicit factorization of the average indexed by values of a binary quartic. Counting rational points by their canonical heights is established mathematics. The revised heat paper supplies a reproducible interval certificate for curve 234446.a1. These are public working drafts. Priority has not been established. The general BSD rank equality remains open.
 
 | Paper | Result | Files |
 | --- | --- | --- |
@@ -38,5 +50,5 @@ Of the six drafts below, the strongest candidate for external review on BSD-rela
 | Finite first moments detecting a mock plectic invariant | A finite weighted sum detects the Fornea–Gehrmann invariant under their hypotheses. | [PDF](finite-selmer-certificate.pdf) · [LaTeX](finite-selmer-certificate.tex) |
 | Congruence kernels of mod-two elliptic period characters | Membership in the Shimura subgroup characterizes which period characters have congruence kernel. | [PDF](modular-periods.pdf) · [LaTeX](modular-periods.tex) |
 | Rational-point height singularities and quadratic-character series | The height singularity records rational rank. Deleting every rational-square slope preserves the quadratic-character mean. | [PDF](height-and-quadratic-characters.pdf) · [LaTeX](height-and-quadratic-characters.tex) |
-| A global heat-sign inequality | Two sign changes give a positive integral formula. Its application to curve 234446.a1 assumes the sign-isolation hypothesis stated in the paper. | [PDF](heat-transform.pdf) · [LaTeX](heat-transform.tex) |
+| A global heat-sign inequality | An interval certificate proves the two sign changes and heat positivity on curve 234446.a1 whenever the absolute parameter is at least 2 × 10⁻⁵². | [PDF](heat-transform.pdf) · [LaTeX](heat-transform.tex) |
 | A central second derivative from primitive cyclotomic modular symbols | A weighted sum of modular symbols recovers the ordinary complex second derivative from characters of exact prime-power conductor. | [PDF](primitive-cyclotomic-symbols.pdf) · [LaTeX](primitive-cyclotomic-symbols.tex) |

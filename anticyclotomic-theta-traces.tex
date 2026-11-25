@@ -1,0 +1,147 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbf Z}\newcommand{\Q}{\mathbf Q}
+\newcommand{\cO}{\mathcal O}
+\title{A nonzero normalized trace of a Tate theta correction in an anticyclotomic tower}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+In the primitive anticyclotomic $\Z_3$-extension of $\Q_3(i)$ we construct norm-compatible principal units for which the normalized traces of the product correction in the Tate theta function converge to a limit of valuation four. Its residue is $162$ modulo $243$. A relative trace argument cancels the linear term and gives an effective bound on the remaining tail. The congruence also holds for the Tate parameter of an explicit elliptic curve over $\Q$.
+\end{abstract}
+
+\section{The correction and the tower}
+
+Let $p$ be an odd prime. Give all extensions of $\Q_p$ the valuation $v_p(p)=1$. For $q\in p\Z_p\setminus\{0\}$ and $u\in1+p\cO_M$ in a finite extension $M$ put
+\[
+ C_q(u)=\sum_{j\ge1}\log\left(\frac{(1-q^ju)(1-q^ju^{-1})}{(1-q^j)^2}\right)
+       =-\sum_{d\ge1}\frac{q^d}{d(1-q^d)}(u^d+u^{-d}-2).
+\]
+This is the logarithm of the product part of the Tate theta function \cite{tate} normalized at $u=1$; we take $C_q(1)=0$. Each product factor is $1-h_j(q)B(u)$, where
+\[
+ h_j(q)=q^j/(1-q^j)^2,\qquad B(u)=u+u^{-1}-2.
+\]
+The product logarithms and the displayed power series converge, since $B(u)=(u-1)^2/u\in p^2\cO_M$ and $v_p(q^d/d)\to\infty$. We consider just this local function. Applications to systems of global Heegner points would require a separate identification of the input units.
+
+Let $L/\Q_p$ be unramified quadratic. Local reciprocity identifies the Galois group of the primitive anticyclotomic tower $L_\infty/L$ with the pro-$p$ part of
+\[
+ L^\times/(\Q_p^\times\mu_{p^2-1}).
+\]
+The logarithm on principal units identifies this group with $\Z_p$. Write $[L_n:L]=p^n$ and choose a topological generator $\gamma$. Let $N_{n+1,n}t_{n+1}=t_n$ be a system of principal units with $t_0=1$. Define
+\[
+ u_n=(\gamma(t_n)/t_n)^{p^n},\qquad
+ R_n=p^{-n}\operatorname{Tr}_{L_n/L},\qquad A_n(q)=R_n(C_q(u_n)).
+\]
+
+\begin{theorem}\label{th:stability}
+For $c=v_p(q)$ the normalized traces converge in $\cO_L$ and satisfy
+\[
+ A_\infty(q)-A_n(q)\in p^{2n+c+2}\cO_L .
+\]
+\end{theorem}
+\begin{proof}
+A primitive character of order $p^j$ of the indicated quotient has conductor exponent $j+1$. Indeed $p^{-1}\log(1+p^e\cO_L)=p^{e-1}\cO_L$, and its image modulo the rational line has the same $p$-adic filtration. The tower is totally ramified. By the local conductor--discriminant formula, the different exponent of $L_n/L$ is
+\[
+ d_n=\sum_{j=1}^n\varphi(p^j)(j+1),\qquad
+ \frac{d_n}{p^n}=n+\frac{p-2}{p-1}(1-p^{-n}).
+\]
+We use the ordinary convention that the different ideal is $\mathfrak p_{L_n}^{d_n}$. Trace duality gives $\operatorname{Tr}_{L_n/L}(\cO_{L_n})=p^{\lfloor d_n/p^n\rfloor}\cO_L=p^n\cO_L$, so $R_n$ is integral. The relative different exponent is $d_{n+1}-p d_n=p^{n+1}+p-2$. Hence
+\[
+ \operatorname{Tr}_{L_{n+1}/L_n}(\cO_{L_{n+1}})=p\cO_{L_n}.
+\]
+For the standard trace and reciprocity formulas see \cite{serre}.
+
+Put $N=N_{n+1,n}$. Newton's identities applied to each integral $y$ and its powers $y,\ldots,y^{p-1}$ show that all intermediate coefficients of the relative characteristic polynomial of $y$ are divisible by $p$. The indices $1,\ldots,p-1$ are units. It follows that $Ny\equiv y^p\bmod p\cO_{L_{n+1}}$. In particular
+\[
+ r_n=t_{n+1}^p/t_n\in1+p\cO_{L_{n+1}},\qquad N r_n=1.
+\]
+Thus
+\[
+ u_{n+1}/u_n=(\gamma(r_n)/r_n)^{p^n}\in1+p^{n+1}\cO_{L_{n+1}},
+ \qquad \delta_n=\log(u_{n+1}/u_n),\quad \operatorname{Tr}_{L_{n+1}/L_n}\delta_n=0.
+\]
+The norm commutes with $\gamma$. Starting at $u_0=1$ proves $u_n\in1+p\cO_{L_n}$ for all $n$.
+
+Expand $C_q(u_n\exp\delta_n)$ in $\delta_n$. The coefficient of the linear term belongs to $L_n$, so its relative trace vanishes. The term of order $j\ge2$ from the $d$th summand has a factor
+\[
+ \frac{q^d d^{\,j-1}}{1-q^d}\frac{\delta_n^j}{j!}(u_n^d+(-1)^j u_n^{-d}).
+\]
+For $p$ odd and $j\ge2$, $v_p(j!)\le j-2$. Consequently every such term belongs to $p^{c+2n+2}\cO_{L_{n+1}}$, and the series converges there. Integral normalized trace and transitivity now show $A_{n+1}-A_n\in p^{2n+c+2}\cO_L$. Summing the increments proves the stated tail estimate.
+\end{proof}
+
+\section{An anticyclotomic system with a nonzero limit}
+
+Take $p=q=3$, $L=\Q_3(i)$, and $f(X)=X^3-3X+4$. Let $f(\alpha)=0$ and $\pi=\alpha+1$. Then $\pi$ satisfies $X^3-3X^2+6=0$, Eisenstein over $L$. The discriminant of $f$ is $(18i)^2$, so $L(\alpha)/L$ is cyclic cubic. The derivative of the Eisenstein polynomial at $\pi$ is $3\pi(\pi-2)$ and the different exponent is four. Over $\Q_3$ the cubic is irreducible and its discriminant is nonsquare, with unramified quadratic resolvent $L$. Thus the nontrivial involution of $L/\Q_3$ inverts the cyclic cubic Galois group. Under local reciprocity the corresponding character kills $\Q_3^\times$ and the prime-to-three roots of unity. This is the unique cubic quotient of the primitive anticyclotomic group, so $L(\alpha)=L_1$.
+
+Choose $\gamma$ lifting the generator given by
+\[
+ \gamma(\alpha)=\frac{-\alpha+i(-\alpha^2-2\alpha+2)}2.
+\]
+Substitution using $f(\alpha)=0$ gives $f(\gamma\alpha)=0$ and $\gamma\alpha\ne\alpha$. Set
+\[
+ t_1=\gamma(\pi)/\pi=\frac{1-i}{4}\alpha-\frac{1+i}{4}\alpha^2 .
+\]
+This unit has norm one and reduces to one since cubing is bijective on $\mathbb F_9^\times$. There is a compatible system with this $t_1$. For $m>1$, norm functoriality of local reciprocity maps $t_1$ trivially into $\operatorname{Gal}(L_m/L_1)$ because $N_{1,0}t_1=1$. Hence $t_1$ is a norm from $L_m$. All its norm preimages are units, and their residues are one because the relative degree is a power of three. Taking norms down to all the intervening fields solves every finite subsystem of the compatibility conditions. Compactness of the product of the principal-unit groups solves the full system.
+
+\begin{theorem}\label{th:example}
+For every such continuation of $t_1$ and every lift of the specified generator,
+\[
+ A_\infty(3)\equiv 162\pmod {243\cO_L}.
+\]
+\end{theorem}
+\begin{proof}
+The following table gives exact coefficients in the basis $1,\alpha,\alpha^2$. To reproduce it, reduce products by $\alpha^3=3\alpha-4$, substitute the displayed $\gamma(\alpha)$ for conjugation, and use $t_1^{-1}=\gamma(t_1)\gamma^2(t_1)$. Put $u_1=(\gamma(t_1)/t_1)^3$.
+\[
+\begin{array}{c|ccc}
+ &1&\alpha&\alpha^2\\ \hline
+ u_1 &(73-63i)/4&(33+81i)/8&(-15+63i)/8\\
+ u_1^{-1}&(16+9i)/4&(-12-27i)/16&(3-18i)/16
+\end{array}
+\]
+Here $R_1(a+b\alpha+c\alpha^2)=a+2c$ by the first two Newton sums. The two entries $R_1(u_1)$ and $R_1(u_1^{-1})$ are $29/2$ and $35/8$, giving $R_1(B(u_1))=135/8$.
+
+For $u\in1+3\cO_{L_1}$, $B(u)\in9\cO_{L_1}$. Modulo $243$ only the linear logarithm terms in the first two product factors contribute. Hence
+\[
+ C_3(u)\equiv-(3/4+9/64)B(u)=-\tfrac{57}{64}B(u)\pmod{243\cO_{L_1}} .
+\]
+Applying $R_1$ gives $A_1(3)\equiv-57\cdot135/512\equiv162\bmod243$. Theorem~\ref{th:stability} gives the same residue for the limit.
+\end{proof}
+
+\section{A Tate parameter from a rational elliptic curve}
+
+Consider the elliptic curve
+\[
+ E:\quad y^2+xy=x^3+(108/5183)x+3/5183.
+\]
+Direct calculation gives $c_4=-1/5183$, $c_6=1/5183$, $\Delta=-3/5183^3$, and $j=1/3$. At $3$ the displayed model is minimal; its special fibre $y(y+x)=x^3$ has a node with two rational tangent directions. It therefore has a Tate parameter $q_E\in3\Z_3$ of valuation one. Reversing $j(q)=q^{-1}+744+\cdots$ gives an integral series $q=\rho+744\rho^2+\rho^3\Z[[\rho]]$, $\rho=j^{-1}$. At $\rho=3$, it follows that $q_E\equiv3\bmod27$.
+
+For any $q'\equiv3\bmod27$, one has $h_j(q')-h_j(3)\in3^{j+2}\Z_3$ by factoring $q'^j-3^j$. Multiplying by $B(u)\in9\cO$ and taking logarithms shows $C_{q'}(u)-C_3(u)\in3^5\cO$ uniformly on $1+3\cO$. Thus the same unit system has
+\[
+ A_\infty(q_E)\equiv162\pmod{243\cO_L},\qquad v_3(A_\infty(q_E))=4.
+\]
+Exact norm compatibility alone consequently permits a nonzero limit for the local correction of this rational elliptic curve. The calculation leaves open the behavior of systems constrained by additional global arithmetic conditions.
+\section{A cyclotomic comparison}
+
+Take compatible $\zeta_n=\zeta_{3^{n+1}}$ and the fixed field
+$K_n=\Q_3(\zeta_n)^{\{\pm1\}}$, with $\gamma(\zeta_n)=\zeta_n^4$ on the full tower. The principal units
+\[
+ t_n=(1+\zeta_n)(1+\zeta_n^{-1})
+\]
+satisfy $t_0=1$ and $N_{K_{n+1}/K_n}t_{n+1}=t_n$, by the degree-three product formula for $1+\zeta_{n+1}$. The character of order $3^j$ on $\Z_3^\times/\{\pm1\}$ has conductor $j+1$. The differents, relative trace ideals and normalized trace bounds are therefore the same as in Theorem~\ref{th:stability}, whose proof applies to these units over $K_0=\Q_3$.
+
+There is an independent nonzero residue in this tower:
+\[
+ \lim_n 3^{-n}\operatorname{Tr}_{K_n/\Q_3} C_3(u_n)\equiv81\pmod {243}.
+\]
+For a short check in the first layer, calculate with $x=\zeta_9$ in
+$\Z[x]/(x^6+x^3+1)$. Write $t=2+x+x^8$ and let $\gamma$ substitute $x^4$ for $x$. Use $t^{-1}=\gamma(t)\gamma^2(t)$ to form $u=(\gamma(t)/t)^3$ and $u^{-1}=\gamma(u)\gamma^2(u)$. On the real subfield the normalized trace is $b_0-b_3/2$ for the reduced polynomial $\sum_{j=0}^5 b_jx^j$, by the cyclotomic Ramanujan sums. The coefficient pairs $(b_0,b_3)$ are $(2458,0)$ and $(8371,0)$ respectively. Thus $R_1(B(u))=10827$, and $-57\cdot10827/64\equiv81\bmod243$. The tail bound at $n=1$ finishes the calculation.
+\begin{thebibliography}{9}
+\bibitem{serre} J.-P. Serre, \emph{Local Fields}, Graduate Texts in Mathematics 67, Springer, 1979. Chapters III, VI, XIII--XV. \href{https://doi.org/10.1007/978-1-4757-5673-9}{Publisher's edition}.
+\bibitem{tate} J. Tate, \emph{A review of non-Archimedean elliptic functions}, in \emph{Elliptic Curves, Modular Forms, and Fermat's Last Theorem}, International Press, 1995, pp. 162--184.
+\end{thebibliography}
+\end{document}

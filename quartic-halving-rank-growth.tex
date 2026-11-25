@@ -1,0 +1,302 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\disc}{\operatorname{disc}}
+\newcommand{\rank}{\operatorname{rank}}
+\title{A trace-zero point in the field of a half of a rational point}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+For an elliptic family over the curve $Y^2=X^3+8$ we exhibit two
+independent rational sections and determine the rational function-field rank.
+Adjoining a half of the first section produces a quartic field. An explicit
+sum on the elliptic curve gives an additional nontorsion point of trace
+zero in that field and a copy of the three-dimensional standard
+representation in its normal closure. The construction specializes on
+infinitely many rational fibres with Galois group $S_4$. A double cover of
+the parameter curve gives a third rational section and a matching identity
+between the relevant $2$-descent classes.
+\end{abstract}
+
+\section{The family}
+
+Use the smooth projective parameter curve $D:Y^2=X^3+8$ and set
+\[
+ n=-3X/8,\qquad f(z)=z^3-nz+1/4,\qquad E_n:y^2=f(x).
+\]
+We restrict to finite parameters with $Y\ne0$. The cubic discriminant is
+$4n^3-27/16=-27Y^2/128$, and the $j$-invariant is nonconstant.
+Consider the two sections
+\[
+ P=(0,1/2),\qquad Q=((X-2)/4,Y/8).
+\]
+Let $D'$ be the smooth projective normalization obtained by adjoining
+$s$ with $X+2=3s^2$. On $D'$ there is a third section $U=(1/2,3s/4)$.
+
+\begin{theorem}\label{th:main}
+The rank of $E_n$ over $\Q(D)$ is two, and $P,Q$ are independent there.
+Over $\Q(D')$, the points $P,Q,U$ are independent. There are infinitely
+many rational parameters on $D'$ giving pairwise distinct $j$-invariants
+with the following properties. All three specialized rational points are
+independent. For any half $H$ of $P$, the field $K=\Q(H)$ is quartic
+with $S_4$ normal closure $L$, and there is an explicit nontorsion
+$S_H\in E_n(K)$ of trace zero. In particular,
+\[
+ \rank E_n(K)\ge\rank E_n(\Q)+1,\qquad
+ \rank E_n(L)\ge\rank E_n(\Q)+3.
+\]
+\end{theorem}
+
+Quartic rank growth for a fixed elliptic curve has been studied in
+families of $S_4$ extensions \cite{LOT}. Here the curve varies and the
+extension is prescribed by a marked half-point. The specialization
+argument gives infinitely many curves and makes no assertion about
+the number of distinct quartic fields. Section~\ref{sec:descent}
+gives an explicit relation on $2$-descent classes.
+
+\section{Rational sections and generic rank}
+
+At $T=(X,Y)=(1,3)$, the change of coordinates $(x,y)\mapsto(4x,8y)$
+gives the integral equation $y^2=x^3+6x+16$. At $s=1$ the three sections
+specialize to $(0,4),(-1,3),(2,6)$. Their doubles have respective
+$x$-coordinates $9/16,17/4,-7/4$. Nagell--Lutz shows that each
+specialization has infinite order. In particular the three sections are
+generically nontorsion. Their equations follow by substitution, using
+$f(1/2)=3(X+2)/16$. The involution $Y\mapsto-Y$ separates $Q$ from $P$.
+The squareclasses $X^3+8$ and $(X+2)/3$ are independent in
+$\overline{\Q}(X)^\times/\overline{\Q}(X)^{\times2}$, since their
+product has simple zeros at the roots of $X^2-2X+4$. Thus changing the
+signs of $s$ and $Y$ independently separates $P,Q,U$ into three
+different characters. This proves independence over the respective
+function fields.
+
+For the upper bound, pass first to $\overline{\Q}(X)$. At the three
+simple finite zeros of $X^3+8$ the fibre is $I_1$. At infinity, using
+the parameter $t=1/X$ and replacing $(x,y)$ by $(t^2x,t^3y)$ gives
+valuations $3,6,9$ for $a_4,a_6,\Delta$, respectively. The fibre is
+$III^*$. The resulting rational elliptic surface has Picard number $10$,
+so Shioda--Tate gives geometric Mordell--Weil rank $10-2-7=1$
+\cite{SS}. The quadratic twist by $X^3+8$ has the three fibres $I_1^*$
+and one $III$, by the quadratic twisting rules. Its fibre Euler numbers
+sum to $24$, so it is an elliptic K3 surface and has Picard number at
+most $20$. Its geometric Mordell--Weil rank is consequently at most
+$20-2-3\cdot5-1=2$.
+
+To determine the rational part of this twist, choose
+$\zeta^2+\zeta+1=0$. The three points
+\[
+ Q_j=\left(\frac{\zeta^jX-2\zeta^{-j}}4,\frac{Y}{8}\right),
+ \qquad j=0,1,2,
+\]
+all lie on one horizontal line, so they sum to zero. They belong to the
+anti-invariant part for the cover $D\to\mathbb P^1_X$, which identifies
+over $\Q$-coefficients with the twist just discussed. The order-three
+operator on sections taking $(x(X,Y),y(X,Y))$ to
+$(\zeta\,x(\zeta X,Y),y(\zeta X,Y))$ cycles these points. Their
+$\Q$-linear span in the group tensored with $\Q$ has dimension two:
+it is nonzero, and on a one-dimensional span the operator would be
+trivial, contradicting $Q_0+Q_1+Q_2=0$ and nontorsion. They therefore
+span the whole geometric anti-invariant part. Complex conjugation fixes
+$Q_0$ and exchanges $Q_1,Q_2$, and its fixed line is spanned by $Q_0$.
+The invariant part for $D\to\mathbb P^1_X$ already has rank one, generated
+up to finite index by $P$. This proves the claimed generic rank over
+$\Q(D)$.
+
+\section{The marked quartic and its extra point}
+
+The four tangent lines at the halves of $P$ pass through $-P$. Substitution
+of $y=tx-1/2$ gives $x(x^2-t^2x+t-n)=0$. The tangency equation and
+point are thus
+\[
+ t^4-4t+4n=0,\qquad H=(t^2/2,(t^3-1)/2).
+\]
+The tangent slope is recovered from $H$, so $K=\Q(t)$ on a smooth
+rational fibre. Let $\theta_i$ be the three roots of $f$ and choose
+$r_i^2=-\theta_i$ with $r_1r_2r_3=1/2$. The four signed sums
+$t=\sum_i r_i$ with this product are the four roots of the tangent
+equation. Indeed $\sum r_i^2=0$ and
+$(\sum_{i<j} r_i r_j)^2=-n+t$. The sums are distinct because $f$ is
+separable with nonzero roots. Each $r_i$ is half the sum of $t$ and
+the root obtained by negating the other two signs. This identifies the
+quartic splitting field with that of the signed triples. These are the
+usual square roots appearing in explicit halving \cite{BZ}.
+
+For the choice belonging to $H$, set
+\begin{equation}\label{eq:ri}
+ R_i=\left(-\frac{\theta_i}{2},\frac{9Y r_i}{32f'(\theta_i)}\right),
+ \qquad S_H=R_1+R_2+R_3.
+\end{equation}
+The second operation is elliptic-curve addition. For the equation in
+\eqref{eq:ri}, one may reduce both sides of
+\[
+ 1024 f'(\theta)^2 f(-\theta/2)=-81Y^2\theta
+\]
+modulo $\theta^3-n\theta+1/4$ and use $Y^2=8-512n^3/27$.
+The stabilizer of the signed sum $t$ permutes the three terms of
+\eqref{eq:ri}, so $S_H$ is defined over the marked quartic field.
+Summing $S_H$ over the four sign choices gives zero: each $R_i$ occurs
+twice with each sign.
+
+Here is an independent certificate of generic nontorsion of each $R_i$.
+On adjoining $r=r_i$ one has $n=r^4-1/(4r^2)$. At $r=1/2$ this
+gives $n=-15/16$, $X=5/2$ and $Y=\pm3\sqrt{42}/4$. The point $R_i$
+specializes to $(1/8,\pm3\sqrt{42}/32)$ on a smooth fibre. These
+values occur on each component in use: the nonconstant $r$ on the
+smooth projective parameter cover takes the value $1/2$, and either
+choice for $Y$ gives the same nontorsion test. On the quadratic twist
+by $d=42$, with the further coordinate scaling $(x,y)\mapsto(4x,8y)$,
+this becomes the rational point $(21,\pm1323)$ on
+\[
+ y^2=x^3+26460x+1185408 .
+\]
+Its double has $x=273/4$, so Nagell--Lutz proves nontorsion.
+Silverman's specialization theorem \cite{Silverman} applies on
+the finite parameter cover where the $R_i$ are defined. The
+canonical height of a nontorsion section grows with the base height,
+as the $j$-invariant is nonconstant. Points above rational base
+parameters have bounded degree, so Northcott's theorem leaves only
+finitely many exceptional specializations.
+
+Assume now that the tangent quartic has Galois group $S_4$. Its normal
+Klein four subgroup acts by the even sign changes. If $\sigma$ negates
+the two signs other than $r_i$, then $S_H+\sigma S_H=2R_i$. Consequently
+$S_H$ has infinite order whenever $R_i$ does. A nontorsion point of
+trace zero is independent of $E_n(\Q)$ in $E_n(K)\otimes\Q$. Moreover
+the four conjugates define a nonzero $S_4$-equivariant map from the
+permutation module to $E_n(L)\otimes\Q$ that kills the constant vector.
+The augmentation summand of this module is irreducible of dimension
+three. Its image therefore gives the claimed three-dimensional rank
+gain in the normal closure.
+
+\section{Infinitely many simultaneous specializations}
+
+The function $X+2$ has divisor $2[(-2,0)]-2[O]$ on $D$. It is not a
+square over $\overline{\Q}(D)$ since $[(-2,0)]-[O]$ is nonprincipal.
+Thus $D'\to D$ is a connected unramified double cover. Riemann--Hurwitz
+gives genus one, and $(1,3,1)$ supplies a rational point on $D'$.
+With a choice of origins the map differs from a rational isogeny by
+translation. The point $T=(1,3)$ has infinite order on $D$, as its
+double has $x=-7/4$. The dual isogeny then shows $D'(\Q)$ has positive
+rank.
+
+At $(X,Y)=(1,3)$ the tangent quartic is $g(t)=t^4-4t-3/2$.
+Modulo $5$ this has the single root $3$, and the complementary cubic
+is irreducible (it has no root and the root $3$ is simple).
+Modulo $19$ the quartic has no factor of degree one or two.
+For a short check, $t^{361}-t$ has residue
+$4t^3+13t^2+8t+7$ modulo $g$ at $19$; the Euclidean algorithm with $g$
+then gives successive nonzero remainders
+$5t^2+15t+3,14t+14,12$. The factorization types give a three-cycle
+and a four-cycle in the Galois group. A subgroup of $S_4$ containing
+both has order divisible by $12$ and contains an odd permutation,
+hence is $S_4$.
+
+On $D'(\Q_5)$ and $D'(\Q_{19})$ one may retain these congruences on open
+neighborhoods of $(1,3,1)$. The intersection with $D'(\Q)$ contains
+a coset of a finite-index subgroup: a sufficiently small open subgroup
+of each compact local elliptic group suffices after translation.
+This gives infinitely many rational parameters. Specialization preserves
+the independence of $P,Q,U$ outside finitely many of them
+\cite{Silverman}, and the preceding argument handles $R_i$. Both the map
+to the $X$-line and the $j$-map are nonconstant and have finite fibres.
+This finishes the proof of Theorem~\ref{th:main}.
+
+\section{The matching descent classes}\label{sec:descent}
+
+The third section on $D'$ can also be seen in the cubic algebra of the
+original family. Work over $k=\Q(D)$ with $B=k[\theta]=k[z]/f(z)$ and the
+canonical identifications of the two-torsion of quadratic twists.
+The Kummer class of $(x,y)$ on $E_n$ is represented by $x-\theta$
+in the norm-square kernel of $B^\times/B^{\times2}$. On the $d$-twist,
+a point mapped to $(x,y)$ over $k(\sqrt d)$ is represented by
+$d(x-\theta)$. These descriptions follow by splitting the exact sequence
+of the norm on the restriction of scalars of $\mu_2$ (the degree is
+odd) and using the Weil-pairing functions $x-\theta_i$.
+
+The single term $R$ of \eqref{eq:ri} over $B(\sqrt{-\theta})$ is
+anti-invariant under the sign change and hence gives a $B$-point on the
+$(-\theta)$-twist. Corestrict its Kummer class from $B$ to $k$.
+Under the preceding description, corestriction is the norm from
+$B\otimes_k B$ to $B$ in the first coordinate. A representative
+of the result is
+\begin{align*}
+\prod_i(-\theta_i)(-\theta_i/2-\theta)
+ &= -\frac{1}{32}\prod_i(\theta_i+2\theta)\\
+ &= -\frac{3}{32}\theta f'(\theta)
+ \ \equiv\ -6\theta f'(\theta)\pmod {B^{\times2}}.
+\end{align*}
+Here $-f(-2\theta)=3\theta f'(\theta)$.
+
+Put $d=3(X+2)$ and take the $d$-twist point corresponding to
+$(1/2,\sqrt d/4)$ on $E_n$. Using $n=\theta^2+1/(4\theta)$ yields
+the exact identity
+\[
+ (x_Q-\theta)d(1/2-\theta)=
+ (-6\theta f'(\theta))
+ \left(\frac{(\theta+1)(2\theta-1)}{3\theta}\right)^2 .
+\]
+Thus the corestriction just computed is the sum of the class of $Q$
+and this twist class. On $D'$ the latter becomes the class of $U$.
+This identity is at the level of $2$-descent. The point $S_H$ itself
+retains trace zero over the quartic field.
+
+\section{Central vanishing}
+
+The established analytic-rank-zero and analytic-rank-one theorems
+imply that rational rank at least two forces analytic rank at least
+two \cite{Clay}. Therefore the specializations in
+Theorem~\ref{th:main} have $L(E_n,1)=L'(E_n,1)=0$.
+With negative root number the order is at least three. No recurrence
+of either root number on the specified coset is used.
+
+The odd-prime part of the sign has a simple independent description.
+Write $X=A/B^2$ and $Y=C/B^3$ in lowest terms with $B>0$.
+An integral model has coefficients $a_4=6AB^2$ and $a_6=16B^6$.
+For $p\ge5$ dividing $C$, its $c_4$ is a unit and its discriminant
+vanishes mod $p$, since it is $-27\cdot 2^9 B^6 C^2$. The reduction
+is multiplicative, split precisely when $-c_6$ is a square mod $p$,
+or equivalently $(6/p)=1$. For $p\ge5$ dividing $B$, the integers
+$A,C$ are units at $p$. If $v_p(B)$ is even, the reduction is good
+after scaling. If it is odd, the curve is a ramified quadratic twist
+of a curve with good reduction: after scaling away the even part of
+$v_p(B)$ the valuations of $a_4,a_6,\Delta$ are $2,\ge3,6$.
+Its local sign is $(-1/p)$ by the local root-number formula
+\cite{Root}. All remaining primes $p\ge5$ are good. Hence, if $B'$
+is the positive part of $B$ prime to $6$, the global sign is
+\[
+ -w_2(E_n)w_3(E_n)
+ \left(\frac{-1}{B'}\right)
+ (-1)^{\#\{p\ge5:p\mid C,\ (6/p)=1\}},
+\]
+with the Jacobi symbol in the middle. Determining a central second
+derivative or proving exact analytic rank requires further input.
+
+\begin{thebibliography}{9}
+\bibitem{BZ} B.~M. Bekker and Y.~G. Zarhin,
+\emph{The divisibility by 2 of rational points on elliptic curves}.
+\href{https://arxiv.org/abs/1702.02255}{arXiv:1702.02255}.
+\bibitem{SS} M. Sch\"utt and T. Shioda, \emph{Elliptic surfaces},
+especially the discussions of quadratic twists and the Shioda--Tate formula.
+\href{https://arxiv.org/abs/0907.0298}{arXiv:0907.0298}.
+\bibitem{Silverman} J.~H. Silverman,
+\emph{Heights and the specialization map for families of abelian varieties},
+J. reine angew. Math. \textbf{342} (1983), 197--211.
+\href{https://doi.org/10.1515/crll.1983.342.197}{doi:10.1515/crll.1983.342.197}.
+\bibitem{LOT} R.~J. Lemke Oliver and F. Thorne,
+\emph{Rank growth of elliptic curves in nonabelian extensions}.
+\href{https://arxiv.org/abs/1810.04018}{arXiv:1810.04018}.
+\bibitem{Root} D. Rohrlich, \emph{Elliptic curves and the Weil--Deligne group},
+in \emph{Elliptic Curves and Related Topics}, CRM Proc. Lecture Notes
+\textbf{4} (1994), 125--157.
+\bibitem{Clay} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture}.
+\href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Clay problem description}.
+\end{thebibliography}
+\end{document}

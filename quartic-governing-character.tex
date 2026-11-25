@@ -1,0 +1,619 @@
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\Q}{\mathrm Q}
+\newcommand{\F}{\mathrm F}
+\newcommand{\Z}{\mathrm Z}
+\newcommand{\Ocal}{\mathcal O}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Nm}{\operatorname{N}}
+\newcommand{\Frob}{\operatorname{Frob}}
+
+\title{An Explicit Quartic Ray Character
+and a Frobenius Sign}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working draft for specialist review}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We identify a quadratic character of a totally real
+quartic field with an explicit mod-$4$ coefficient
+functional. At primes having a unique degree-one
+factor, this character equals a Legendre symbol
+arising from a binary quartic covering of
+$y^2=x^3-28x+1$.
+The character also has a four-dimensional induced
+Artin representation. The result is independent
+of any analytic central-value conjecture. Its Galois closure has group
+$W(D_4)$. The two signs on eligible primes are equidistributed
+even after fixing a compatible cyclotomic residue class.
+\end{abstract}
+
+\section{The quartic field}
+
+Put
+\[
+P(U)=U^4+3U^3-6U^2-4U+1,
+\qquad L=\Q(u),\quad P(u)=0.
+\]
+Direct calculation gives
+\[
+\operatorname{disc}(P)=87781=41\cdot2141.
+\]
+Once irreducibility is verified below, squarefreeness gives
+\[
+\Ocal_L=\Z[u].
+\]
+
+The polynomial has four distinct real roots,
+in the intervals
+\[
+(-5,-4),\quad(-1,-2/3),\quad
+(0,1),\quad(1,2).
+\]
+Thus $L$ is totally real.
+
+Modulo $2$,
+\[
+P(U)\equiv U^4+U^3+1,
+\]
+which is irreducible over $\F_2$ (there is no linear or irreducible
+quadratic factor). This also establishes irreducibility over $\Q$.
+Therefore $2$ is inert in $L$ and
+\[
+\Ocal_L/2\Ocal_L\simeq\F_{16}.
+\]
+
+\begin{lemma}\label{lem:classnumber}
+The ordinary ideal class group of $L$ is trivial.
+\end{lemma}
+
+\begin{proof}
+The Minkowski bound is
+\[
+\frac{4!}{4^4}\sqrt{87781}<28.
+\]
+It suffices to check prime ideals of norm
+at most $27$.
+
+The prime $2$ is inert, so its prime ideal
+is $(2)$, of norm $16$.
+
+The degree-one prime ideals above
+$3,5,11,19,23$ are principal, as witnessed
+by
+\[
+\begin{array}{c|c|r}
+p&\alpha&\Nm_{L/\Q}(\alpha)\\ \hline
+3&1+u&-3\\
+5&1-u&-5\\
+11&u^2-3&-11\\
+19&1+2u&19\\
+23&2+u&-23
+\end{array}
+\]
+The degree-three prime above $3$ is also
+principal, being the complementary factor
+of $(3)$.
+
+Modulo $7$, the quartic factors into two
+irreducible quadratics, whose associated
+prime ideals have norm $49$.
+It is irreducible modulo $13$ and $17$,
+so no prime ideal of norm $13$ or $17$
+occurs.
+
+These are all prime ideals below the
+Minkowski bound. Hence every ideal class
+is principal.
+\end{proof}
+
+\section{The governing quadratic extension}
+
+Define
+\[
+d=u(3u+2)\in L^\times.
+\]
+Its norm is
+\[
+\Nm_{L/\Q}(d)=25.
+\]
+
+All four real embeddings of $d$ are positive.
+Indeed, every real root of $P$ lies either
+below $-2/3$ or above $0$, and
+\[
+x(3x+2)>0
+\]
+on those intervals.
+
+Modulo $5$ the polynomial has exactly
+one degree-one factor, at $u=1$.
+The element $d$ has valuation two at
+that prime, and valuation zero at every
+other prime above $5$.
+
+Because $\Nm(d)=25$, its valuation
+at every odd prime ideal of $L$ is even.
+Consequently the quadratic extension
+\[
+M=L(\sqrt d)
+\]
+is unramified at all odd finite primes.
+
+It is also unramified at infinity,
+since $d$ is totally positive.
+Its finite conductor therefore divides
+$4\Ocal_L$.
+
+Let
+\[
+\chi_d:G_L\longrightarrow\{\pm1\}
+\]
+be the associated quadratic character.
+
+\section{The exact dyadic character}
+
+Write
+\[
+\mathrm F=\Ocal_L/2\Ocal_L=\F_{16},
+\]
+and denote reduction modulo $2$
+by a bar.
+
+Because $u$ is a $2$-adic unit,
+\[
+\frac d{u^2}
+=3+\frac2u
+=1+2(1+u^{-1}).
+\]
+
+Set
+\[
+\beta=1+\bar u^{-1}\in\mathrm F.
+\]
+The identity
+\[
+\bar u^4+\bar u^3+1=0
+\]
+implies
+\[
+\bar u^{-1}=\bar u^3+\bar u^2,
+\]
+so
+\[
+\beta=1+\bar u^2+\bar u^3.
+\]
+
+Let $\alpha\in\Ocal_L$ be prime to $2$.
+Since $\mathrm F^\times$ has order $15$,
+\[
+\alpha^{15}\equiv1\pmod2.
+\]
+There is therefore a well-defined
+\[
+c(\alpha)=
+\frac{\alpha^{15}-1}{2}\pmod2
+\quad\in\mathrm F.
+\]
+
+Write
+\[
+c(\alpha)=c_0+c_1\bar u+c_2\bar u^2
++c_3\bar u^3,
+\qquad c_i\in\F_2,
+\]
+and define
+\[
+e(\alpha)=c_1\in\F_2.
+\]
+
+\begin{lemma}\label{lem:dyadic}
+For every $\alpha\in\Ocal_L$ prime to $2$,
+\[
+(d,\alpha)_2=(-1)^{e(\alpha)},
+\]
+where the Hilbert symbol is taken in
+the unique completion of $L$ above $2$.
+\end{lemma}
+
+\begin{proof}
+The local field $L_2/\Q_2$ is unramified
+of degree four.
+
+Its odd-order Teichmuller units have trivial
+quadratic Hilbert symbol against $d$.
+Writing the principal-unit component
+of $\alpha$ as $1+2a$, we have
+\[
+\overline a=c(\alpha),
+\]
+because raising to the fifteenth power
+kills the Teichmuller component and
+preserves the first principal-unit layer
+modulo $4$.
+
+Here is the local norm test. For the unit $b=1+u^{-1}$,
+$\sqrt{1+2b}-1$ is Eisenstein over $L_2$.
+Writing a unit in its quadratic integer ring as
+$x+y(\sqrt{1+2b}-1)$ gives norm $x^2-2xy-2b y^2$.
+A norm congruent to $1\bmod 2$ requires $x\equiv1\bmod2$.
+The congruence for $1+2a\bmod4$ becomes
+$\bar a=\bar y+\bar b\bar y^2$, soluble exactly when
+$\Tr(\bar b\bar a)=0$, by the trace-zero image of $z\mapsto z+z^2$.
+Conversely a solution lifts by Hensel's lemma to
+$-y-by^2=a$, giving the required norm with $x=1$.
+Thus
+\[
+(d,\alpha)_2
+=(-1)^{\Tr_{\mathrm F/\F_2}
+(\beta c(\alpha))}.
+\]
+
+A direct trace calculation in
+\[
+\mathrm F=\F_2[\bar u]/
+(\bar u^4+\bar u^3+1)
+\]
+gives
+\[
+\begin{array}{c|cccc}
+x&1&\bar u&\bar u^2&\bar u^3\\ \hline
+\Tr(\beta x)&0&1&0&0.
+\end{array}
+\]
+Therefore
+\[
+\Tr(\beta c(\alpha))=c_1=e(\alpha),
+\]
+which proves the assertion.
+\end{proof}
+
+The character is nontrivial on the
+first principal-unit layer, so its
+local conductor at $2$ is exactly $4$.
+
+\paragraph{Uniqueness.}
+The finite ray group modulo $4\Ocal_L$ is
+$(\Ocal_L/4)^\times/\operatorname{im}\Ocal_L^\times$ since the
+ordinary class number is one. Its numerator has order $240$.
+The units $-1,-u,-1-u+u^2,-1+2u^2$ have norms $1,1,-1,-1$.
+Adjoining their residues successively generates groups of orders
+$2,30,60,120$. These small computations can be reproduced by starting
+with $T=\{1\}$ and replacing it for each unit $g$ by
+$\{t g^i:t\in T,\ 0\le i<240\}$, reducing coefficients modulo
+four and powers of $u$ by $P$. The nontrivial dyadic character is
+trivial on global units by Hilbert reciprocity. Hence the finite
+ray group has order two and $M/L$ is its quadratic extension.
+
+\section{The Frobenius-sign theorem}
+
+Consider
+\[
+G_1(X,Z)=
+-16X^4-24X^3Z+24X^2Z^2
++8XZ^3-Z^4.
+\]
+The defining polynomials satisfy
+\[
+P(2X)=-G_1(X,1).
+\]
+
+Let $q$ be an odd rational prime such that
+\[
+q\nmid 5\cdot41\cdot2141
+\]
+and $P$ has factorization type $(1)(3)$
+modulo $q$.
+
+Let $u_q\in\F_q$ be its unique root,
+and put
+\[
+r_q=u_q/2.
+\]
+Then $r_q$ is the unique root of
+$G_1(X,1)$ modulo $q$.
+
+The corresponding degree-one prime ideal is
+\[
+\mathfrak q=(q,u-u_q).
+\]
+
+By Lemma~\ref{lem:classnumber}, choose
+$\alpha_q\in\Ocal_L$ such that
+\[
+(\alpha_q)=\mathfrak q.
+\]
+Necessarily
+\[
+\Nm(\alpha_q)=\pm q.
+\]
+
+Define the Fisher-type quadratic sign
+\[
+\tau_q=
+\left(\frac{r_q(3r_q+1)}q\right).
+\]
+The Legendre argument is nonzero for
+the primes under consideration.
+
+\begin{theorem}\label{thm:governing}
+For every such prime $q$,
+\[
+\boxed{
+\tau_q=(-1)^{e(\alpha_q)}.
+}
+\]
+The exponent is independent of the
+choice of generator $\alpha_q$.
+\end{theorem}
+
+\begin{proof}
+Since $u_q=2r_q$,
+\[
+u_q(3u_q+2)
+=4r_q(3r_q+1).
+\]
+Hence
+\[
+\tau_q=
+\left(\frac{d\bmod\mathfrak q}{q}\right).
+\]
+
+Because $q$ is unramified in $M/L$,
+the local norm-residue symbol at
+$\mathfrak q$ is
+\[
+(d,\alpha_q)_{\mathfrak q}=\tau_q.
+\]
+
+At every other odd finite place,
+$\alpha_q$ is a unit and $d$ has even
+valuation. The corresponding local
+Hilbert symbol is therefore $1$.
+
+At every real place, $d>0$, so the
+Hilbert symbol is again $1$.
+
+Hilbert reciprocity now gives
+\[
+1=\prod_v(d,\alpha_q)_v
+=(d,\alpha_q)_2\,\tau_q.
+\]
+By Lemma~\ref{lem:dyadic},
+\[
+(d,\alpha_q)_2=(-1)^{e(\alpha_q)}.
+\]
+Since both values are signs, the
+claimed identity follows.
+
+For generator independence, suppose
+$\alpha'_q=\varepsilon\alpha_q$
+with $\varepsilon\in\Ocal_L^\times$.
+
+Hilbert reciprocity applied to
+$(d,\varepsilon)$ gives
+\[
+(d,\varepsilon)_2=1,
+\]
+because all its other local symbols
+are trivial.
+
+Lemma~\ref{lem:dyadic} implies
+$e(\varepsilon)=0$.
+The map $e$ is additive on odd units:
+\[
+e(\alpha\beta)
+=e(\alpha)+e(\beta)\pmod2,
+\]
+as follows by multiplying their
+fifteenth powers modulo $4$.
+
+Therefore
+\[
+e(\alpha'_q)=e(\alpha_q).
+\]
+\end{proof}
+
+\section{The induced Artin trace}
+
+Let
+\[
+\rho_d=
+\operatorname{Ind}_{G_L}^{G_\Q}\chi_d.
+\]
+This is a four-dimensional Artin
+representation of $G_\Q$.
+
+At a prime $q$ of quartic Frobenius
+cycle type $(1)(3)$, Frobenius permutes
+the four induced cosets with exactly
+one fixed point.
+
+The three-cycle contributes zero to
+the trace. The fixed coset contributes
+the local character at the unique
+degree-one prime.
+
+Consequently
+\begin{equation}\label{eq:artin-trace}
+\boxed{
+\operatorname{Tr}
+\rho_d(\Frob_q)
+=
+\chi_d(\Frob_{\mathfrak q})
+=\tau_q=(-1)^{e(\alpha_q)}.
+}
+\end{equation}
+
+Thus the quartic-root sign is a
+conjugacy-invariant Artin trace.
+
+\section{Two exact controls and density}
+
+At $q=23$, the unique quartic root is
+$u_{23}=-2$, with generator
+\[
+\alpha_{23}=-2-u,\qquad
+\Nm(\alpha_{23})=-23.
+\]
+Direct calculation modulo $4$ gives
+\[
+\alpha_{23}^{15}
+\equiv3+2u^2+2u^3\pmod4.
+\]
+Hence $e(\alpha_{23})=0$ and
+\[
+\tau_{23}=+1.
+\]
+
+At $q=31$, the unique quartic root is
+$u_{31}=6$, with generator
+\[
+\alpha_{31}=-3-2u+3u^2,\qquad
+\Nm(\alpha_{31})=31.
+\]
+Here
+\[
+\alpha_{31}^{15}
+\equiv1+2u+2u^2+2u^3\pmod4.
+\]
+Thus $e(\alpha_{31})=1$ and
+\[
+\tau_{31}=-1.
+\]
+
+Both primes satisfy
+\[
+q\equiv7\pmod8,\qquad
+\left(\frac{-q}{41}\right)
+=\left(\frac{-q}{2141}\right)=1.
+\]
+
+Let $\widetilde M$ be the Galois
+closure of $M/\Q$, and put
+\[
+H=\widetilde M\,
+\Q(\zeta_{8\cdot41\cdot2141}).
+\]
+
+The extension $H/\Q$ is finite Galois.
+Both $23$ and $31$ are unramified in $H$.
+
+The indicated splitting conditions
+and the sign in
+\eqref{eq:artin-trace}
+are constant on Frobenius conjugacy
+classes in $\operatorname{Gal}(H/\Q)$.
+
+Chebotarev therefore gives
+positive-density sets of primes
+satisfying the displayed local
+conditions and having, respectively,
+\[
+\tau_q=+1
+\quad\text{and}\quad
+\tau_q=-1.
+\]
+
+\section{The full sign group and the two densities}
+
+Let $V_0=\{e\in\F_2^4:\sum e_i=0\}$. The Galois group of $P$ is
+$S_4$: its Frobenius permutations at $2$ and $23$ contain respectively
+a four-cycle and a three-cycle. The order of the group is divisible
+by $12$ and the unique index-two subgroup of $S_4$ contains no
+four-cycle. Since $\prod_i d(u_i)=25$ we may choose the four square
+roots with product $5$. Thus the Galois group of $\widetilde M$ embeds
+in the even signed permutation group $V_0\rtimes S_4$. Modulo $277$
+the roots $u_i$ are $5,71,229,246$, with signs of $d(u_i)$ equal to
+$+,+,-,-$, respectively. This prime divides neither $2\cdot 5$ nor the
+quartic discriminant. Its Frobenius over the identity permutation is
+a two-coordinate flip. Conjugating supplies every such flip, and
+they span $V_0$. The embedded group thus has order $8\cdot24=192$
+and is the whole $W(D_4)$.
+
+The commutators of $S_4$ with $V_0$ span $V_0$ (for instance
+the difference of the pair vectors $e_i+e_j,e_i+e_k$ is $e_j+e_k$).
+The maximal abelian subfield of $\widetilde M$ is therefore
+$\Q(\sqrt{87781})$. It is contained in $\Q(\zeta_B)$ for
+$B=8\cdot41\cdot2141$, since $87781$ is a positive fundamental
+discriminant dividing $B$. The compositum has order $96\varphi(B)$.
+Fix a unit residue class modulo $B$ acting trivially on this
+discriminant field. Among the $96$ compatible lifts lie eight
+quartic three-cycles with eight sign vectors apiece. For each of
+these three-cycles exactly four sign vectors have each value at the
+fixed root. Consequently the natural density among all primes of
+each joint class (specified residue, quartic type $(1)(3)$ and
+specified sign) is
+\[
+ \frac{32}{96\varphi(B)}=\frac1{1\,027\,200}.
+\]
+In particular this applies to the class of $31$ modulo $B$.
+
+Let $z=(1,1,1,1)\in V_0$ be the central flip. Over characteristic
+zero the restriction of any representation to $V_0$ decomposes
+into characters, indexed by subsets of $\{1,2,3,4\}$ up to complement.
+The $S_4$-orbits of these characters have sizes $1,3,4$.
+Exactly the four singleton characters are negative on $z$, so any
+representation on which $z$ acts nontrivially has dimension at
+least four. The signed permutation representation realizes equality.
+
+There is a complementary finite-field obstruction. Consider a
+finite compositum $J$ of cyclotomic fields and fields cut out by
+two-dimensional representations over finite fields of characteristic
+two. The Sylow two-subgroups of each $\operatorname{GL}_2(\F_{2^f})$
+are abelian (upper unitriangular), and the same holds for subgroups
+of their product with an abelian group and for their quotients.
+But $W(D_4)$ has a nonabelian Sylow two-subgroup, as a double
+transposition does not commute with every pair flip. Thus
+$\widetilde M$ is not contained in $J$. Every nontrivial normal
+subgroup of $W(D_4)$ contains $z$: if its intersection with $V_0$
+is nontrivial it contains $z$ or a pair flip and hence all pair
+flips; if the intersection is trivial the subgroup centralizes
+$V_0$, whose $S_4$-action is faithful, so the subgroup is trivial.
+Enlarge $J$ by $\Q(\zeta_B)$. In the compositum one can therefore
+change a lift of the Frobenius of $31$ by $(z,1)$ while fixing its
+$J$-component. Chebotarev gives positive-density sets of primes
+with opposite signs but the same Frobenius conjugacy class on $J$.
+
+Finally the kernel of $W(D_4)\to S_4/V_4=S_3$ is
+$V_0\rtimes V_4$, where $V_4$ is the normal Klein four group.
+The commutators $v+\sigma v$ for $\sigma\in V_4$ and $v\in V_0$
+belong to $\{0,z\}$. The action of $V_4$ on $V_0$ is faithful and
+its fixed subspace is $\langle z\rangle$. Thus the center and the
+derived subgroup both equal $\langle z\rangle$, and the quotient
+by it is elementary abelian of order $16$. This gives an extraspecial
+group of order $32$, of plus type as $V_0$ is elementary abelian of
+order $8$.
+
+\section{Relation to descent and scope}
+
+For $q\equiv7\bmod 8$ with $(-q/41)=(-q/2141)=1$ and quartic type
+$(1)(3)$, the separate binary-quartic calculation in the
+\href{https://github.com/cosmosgeek0/BSD/blob/main/fisher-twist-rank-zero.pdf}{prime-twist manuscript}
+identifies this sign with the Cassels--Tate pairing of its two
+specified classes. The ray digit and Artin trace here describe the
+arithmetic sign. The conjectural congruence
+$I_q\equiv12e(\alpha_q)\bmod24$ for the corresponding normalized
+central value remains open for the full family.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{Fisher} T.~Fisher, \emph{On binary quartics and the Cassels--Tate pairing},
+Res. Number Theory \textbf{8} (2022), article 74.
+\href{https://doi.org/10.1007/s40993-022-00376-z}{Publisher's paper}.
+\bibitem{Smith} A.~Smith, \emph{Governing fields and statistics for
+4-Selmer groups and 8-class groups},
+\href{https://arxiv.org/abs/1607.07860}{arXiv:1607.07860}.
+\end{thebibliography}
+\end{document}
+

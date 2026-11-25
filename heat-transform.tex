@@ -4,7 +4,7 @@
 
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 
 \title{A Global Heat-Sign Inequality for the
 Conductor-234446 Elliptic Curve}
@@ -14,35 +14,24 @@ Conductor-234446 Elliptic Curve}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{hypothesis}{Hypothesis}
+
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We study a Gaussian heat deformation of the completed
-complex $L$-function of the elliptic curve
-$E=[1,-1,0,-79,289]$, of conductor $234446$.
-Assuming an explicitly stated two-sign-change certificate
-for its weight-two newform along the positive imaginary
-axis, we prove that a second-order constant-coefficient
-differential operator applied to the heat transform is
-strictly positive for every real heat parameter.
-All derivatives of this positive transform are positive.
-
-We obtain an exact decomposition of the original heat
-transform into a strictly positive integral and a single
-homogeneous term proportional to $\Lambda_E''(1)$.
-The decomposition yields a complete classification of
-its real zeros, including multiplicities, and identifies
-the missing second complex derivative as the sole
-undetermined scalar.
-
-The general analytic theorem is proved unconditionally.
-Its specialization to the stated elliptic curve is
-conditional on the explicit sign certificate, whose
-interval-arithmetic verification is not reproduced here.
-No Birch--Swinnerton-Dyer equality is assumed or proved.
+For the elliptic curve $y^2+xy=x^3-x^2-79x+289$ we certify exactly two
+sign changes of its weight-two newform on the positive half of the
+Fricke-symmetric imaginary axis. A second-order differential operator
+turns the Gaussian heat transform $H$ into a strictly positive function
+with strictly positive derivatives. The sole undetermined coefficient
+in the resulting inhomogeneous equation is the ordinary complex
+$\Lambda_E''(1)$. The zero-count theorem and certified moment bounds
+show that $H(\lambda)>0$ for $|\lambda|\ge2\cdot10^{-52}$.
+We also prove positivity of a continuum of hyperbolic-secant averages,
+give an exact martingale marginal test and exclude a positive dilation
+law between same-conductor forms. The sign or vanishing of
+$\Lambda_E''(1)$ remains open.
 \end{abstract}
 
 \section{The modular heat transform}
@@ -356,9 +345,7 @@ e^{\lambda t^2}
 \end{equation}
 for every $\lambda\ne0$.
 
-Thus the positive remainder is not a
-numerical observation: it follows from the
-certified sign geometry and strict convexity.
+Thus strict convexity and the sign geometry give the positive remainder.
 
 \section{The complete real-zero dichotomy}
 
@@ -448,65 +435,74 @@ The two-zero bound proves uniqueness
 and simplicity in both cases.
 \end{proof}
 
-\section{Conditional specialization to 234446.a1}
+\section{Isolation of the two sign changes}
 
-We now state precisely the computational
-input required for the elliptic curve.
+Put $P(q)=\sum_{n\ge1}a_nq^{n-1}$, so the sign of $g(t)$ is the
+sign of $P(e^{-\alpha e^t})$. The following certificate covers
+$0\le q\le0.988$. The upper endpoint exceeds $e^{-\alpha}>0.944$.
 
-Let
+\begin{proposition}\label{hyp:sign}
+$P$ has precisely two roots in this interval. They are simple, one
+in $(0.423,0.424)$ and one in $(0.943,0.944)$.
+\end{proposition}
+\begin{proof}
+Use $M=3200$ and $P_M(q)=\sum_{n=1}^{M}a_nq^{n-1}$.
+For $0\le q\le u=0.988$, Deligne's bound $|a_n|\le d(n)\sqrt n\le2n$
+gives
 \[
-P(q)=\frac{f_E(q)}q
-=\sum_{n\ge1}a_nq^{n-1},
+ |P-P_M|\le \frac{2u^M(M+1-Mu)}{(1-u)^2}.
 \]
-where
+For $P'-P'_M$ use the derivative at $u$ of the positive-coefficient
+majorant on the right, as a function of $u$. Both bounds are below
+$10^{-5}$. The table records the minimum lower endpoint over the
+accepted subintervals, rounded down.
 \[
-q_0=\exp\left(-\frac{2\pi}{\sqrt{234446}}\right)
-<0.988.
+\begin{array}{cclrr}
+1000q_{\rm left}&1000q_{\rm right}&\text{quantity}&
+\#\text{ intervals}&\text{lower bound}\\ \hline
+0&423&P_M&4&0.00077\\
+423&424&-P'_M&1&4.05\\
+424&943&-P_M&17&0.000046\\
+943&944&P'_M&1&169.4\\
+944&988&P_M&4&0.080
+\end{array}
 \]
+The signs on either side of each derivative interval are opposite.
+Monotonicity gives precisely one simple root on each.
+\end{proof}
 
-\begin{hypothesis}[Exact sign certificate]
-\label{hyp:sign}
-The function $P(q)$ has exactly two
-simple roots on $0<q\le q_0$.
-They lie in
-\[
-r_-\in(0.423,0.424),\qquad
-r_+\in(0.943,0.944),
-\]
-and there are no other roots on this interval.
-\end{hypothesis}
+Here are integer instructions to reproduce the table. For odd primes
+$p\le M$ use $a_p=-\sum_{x\bmod p}(\frac{4x^3-3x^2-316x+1156}{p})$;
+$a_2=-1$. If $n=pm$ is composite, take the least prime factor $p$ and
+$a_n=a_pa_m-p\,a_{m/p}$ when $p\mid m$, $p\nmid N$, and $a_n=a_pa_m$
+otherwise. Start at $a_1=1$. For the general Weierstrass coefficients
+$[a_1',a_2',a_3',a_4',a_6']$ used below the quadratic-character argument
+is $(a_1'x+a_3')^2+4(x^3+a_2'x^2+a_4'x+a_6')$; at 2 use $2$ minus the
+number of affine solutions modulo 2.
 
-This is a finite, checkable hypothesis.
-For example, with
-\[
-P_M(q)=\sum_{n=1}^{M}a_nq^{n-1},
-\qquad M=3200,
-\]
-the standard coefficient bound
-$|a_n|\le d(n)\sqrt n\le2n$ gives
-\[
-|P(q)-P_M(q)|
-\le
-\frac{2q_*^M((M+1)-Mq_*)}{(1-q_*)^2},
-\qquad 0\le q\le q_*=0.988.
-\]
-Derivative tails admit analogous explicit
-geometric-series bounds.
-
-Outward interval Horner evaluation and
-root-isolation inequalities for $P_M$,
-combined with these tails, would establish
-Hypothesis \ref{hyp:sign}. The complete
-interval certificate is not included
-in this paper. Accordingly, all statements
-below using it are explicitly conditional.
+For the polynomial interval step use the following pseudocode.
+All arrays contain coefficients in ascending order. Variables $L,U,l,h$
+represent endpoints with common denominator $D$.
+\begin{verbatim}
+Horner(c,l,h,D):
+    L,U = 0,0
+    for z in reverse(c):
+        L = z*D + floor(L*(l if L>=0 else h)/D)
+        U = z*D + ceil (U*(h if U>=0 else l)/D)
+    return [L,U]
+\end{verbatim}
+Use $D=10^{22}$. For each input interval apply Horner to the signed
+polynomial indicated in the table (equivalently negate the returned
+interval as necessary). Accept when the lower bound exceeds $10^{-5}$.
+Otherwise subdivide at $\lfloor(l+h)/2\rfloor$. No floating-point
+rounding enters this certificate.
 
 Because
 \[
 q(t)=e^{-\alpha e^t}
 \]
 decreases strictly from $q_0$ to $0$,
-Hypothesis \ref{hyp:sign} gives two
+Proposition~\ref{hyp:sign} gives two
 simple zeros
 \[
 t_1=
@@ -523,13 +519,12 @@ exactly
 g(t):\qquad +,\ -,\ +.
 \]
 
-We separately retain the exact central-value
-input
+The exact central value is
 \begin{equation}
 L(E,1)=0.
 \label{eq:Ecentral}
 \end{equation}
-This also follows from the four independent rational generators recorded for this curve and the analytic-rank-zero theorem stated by Wiles \cite{lmfdb,wiles}.
+This follows from the four independent rational generators recorded for this curve and the analytic-rank-zero theorem stated by Wiles \cite{lmfdb,wiles}.
 It implies
 \[
 \Lambda_E(1)=\Lambda_E'(1)=0
@@ -538,8 +533,7 @@ by the functional equation.
 
 \begin{corollary}[Curve-specific global inequality]
 \label{cor:curve}
-Assume Hypothesis \ref{hyp:sign} and
-\eqref{eq:Ecentral}. Put
+Put
 $x_j=t_j^2$. Then, for every real $\lambda$,
 \begin{equation}
 \boxed{
@@ -590,7 +584,7 @@ exact order four at $s=1$.
 \end{corollary}
 
 \begin{proof}
-Hypothesis \ref{hyp:sign} gives
+Proposition~\ref{hyp:sign} gives
 \eqref{eq:signpattern}. Equation
 \eqref{eq:Ecentral} gives $H(0)=0$.
 Theorems \ref{thm:positive},
@@ -606,6 +600,378 @@ in $\Lambda_E$ are analytic and nonzero
 at $s=1$, the complex $L$-function
 has exact order four.
 \end{proof}
+
+\section{A global bound on possible negative heat}
+
+Use the even Fricke extension of $g$ to $\mathbb R$. Write
+$\delta=H'(0)$ and $M_j=\int_{\mathbb R} t^jg(t)\,dt$.
+In particular $\delta=M_2$ and $H''(0)=M_4$. We obtain
+\begin{equation}\label{eq:micromom}
+|\delta|<8\cdot10^{-49},\qquad 16541<M_4<16542.
+\end{equation}
+We give the details because a small value and an exact zero have
+different implications for the rank.
+
+Take $h=1/25$, $J=250$, and $M=10000$. For $j=2,4$ the finite sums
+\[
+D_j=2h\sum_{i=1}^J (ih)^j e^{ih}
+        \sum_{n=1}^M a_n\exp(-\alpha n e^{ih})
+\]
+lie in $(-1.216,-1.215)10^{-60}$ and $(16541.5867,16541.5869)$,
+respectively. Here $i$ is an integer index. For the infinite trapezoid
+rule use $\eta=\pi/4$. On the lines $t\pm i\eta$,
+\[
+ |g(t\pm i\eta)|\le 2e^{-|t|}/(\alpha\cos\eta)^2.
+\]
+Indeed $|a_n|\le2n$ and $\sum n e^{-ny}=(2\sinh(y/2))^{-2}\le y^{-2}$;
+Fricke symmetry covers $t<0$. The strip bound for the trapezoidal
+rule follows by shifting the Fourier integral to the two boundary lines
+and summing its nonzero frequencies \cite{TW}.
+For $j=2$ the error is bounded by
+\[
+\frac{8(2+\eta^2)}{\alpha^2\cos^2\eta\,[\exp(2\pi\eta/h)-1]}
+<6.56\cdot10^{-49}.
+\]
+For $j=4$ replace $2+\eta^2$ by $24+4\eta^2+\eta^4$.
+At each positive mesh node, with $q=e^{-\alpha e^{ih}}$,
+the omitted Fourier contribution is bounded by
+\[
+4h(ih)^j e^{ih}q^{M+1}
+       \frac{M+1-Mq}{(1-q)^2}.
+\]
+The sums of these bounds are below $5\cdot10^{-57}$ and
+$8\cdot10^{-60}$ respectively. Beyond $ih=10$ use
+$|g(t)|\le 2e^t e^{-\alpha e^t}/(1-e^{-\alpha e^t})^2$.
+For all moments through degree 24 the sum over the omitted nodes
+is below $10^{-80}$ (bound consecutive terms using
+$\exp(-(e^h-1)\alpha e^{10})$). These inequalities prove
+\eqref{eq:micromom}.
+
+For reproducibility, $D_j$ can be evaluated by the integer Horner
+algorithm above with $D=10^{90}$: at each node enclose $e^{ih}$ and
+$q$ between neighboring grid multiples, apply Horner to
+$(a_1,\ldots,a_M)$, multiply outwards by $q\,e^{ih}$, then sum using
+the exact rational weight $2h(ih)^j$. In forming the exponential
+arguments and tail bounds use at least 100 significant decimal digits
+with outward rounding. For $\pi$ one may use
+$16\arctan(1/5)-4\arctan(1/239)$ and the alternating series,
+and bound $\sqrt N$ by squaring rational endpoints.
+
+\begin{corollary}
+For real $|\lambda|\ge2\cdot10^{-52}$ one has $H(\lambda)>0$.
+For every real $\lambda$ one has $H(\lambda)>-2.1\cdot10^{-101}$.
+\end{corollary}
+\begin{proof}
+For $|\lambda|\le \alpha e^2/8$, Taylor's theorem gives
+\[
+ |H(\lambda)-\lambda\delta-\tfrac12 M_4\lambda^2|
+ \le 1920\alpha^{-2}|\lambda|^3.
+\]
+Indeed $\exp(|\lambda|t^2)\le\exp(\alpha e^t/2)$ for $t\ge0$;
+$|g(t)|\exp(\alpha e^t/2)\le8e^{-t}/\alpha^2$ by the coefficient
+majorant. Integrating $t^6$ against this bound gives the stated
+constant. At $\lambda=\pm 2\cdot10^{-52}$ \eqref{eq:micromom}
+makes the quadratic term exceed the linear and error terms.
+Theorem~\ref{thm:zeros} then implies positivity outside this interval:
+in either simple-zero case the negative values form a single interval
+adjacent to zero. Inside, completing the square bounds $H$ below by
+$-\delta^2/(2M_4)$ minus the cubic error, giving the second claim.
+\end{proof}
+
+\section{Positive test measures and their limits}
+
+Write $d\mu(x)=g(\sqrt x)dx/\sqrt x$, with $x=t^2$, and denote its
+two sign-change points by $a=x_1$, $b=x_2$. For $K\ge0$ put
+\[
+ P_0(K)=\int(K-x)_+\,d\mu(x),\qquad C_0(K)=\int(x-K)_+\,d\mu(x).
+\]
+Then $C_0-P_0=\delta$. The first function is positive on $(0,a]$,
+concave on $[a,b]$, and $C_0(K)>0$ for $K\ge b$. Also $C_0(K)\to0$.
+Consequently $P_0(K)<0$ for some $K$ exactly when $\delta>0$.
+Taylor's integral formula and Laplace transformation give
+\[
+ H(\lambda)=\lambda\delta+
+       \lambda^2\int_0^\infty e^{\lambda K}C_0(K)\,dK,\qquad
+ H(-u)=u^2\int_0^\infty e^{-uK}P_0(K)\,dK\quad(u>0).
+\]
+In particular $H(-u)/u^2$ is completely monotone if $\delta=0$.
+For this curve $C_0(64)>9\cdot10^{-16}$ by the interval calculation
+below. It follows from concavity and the monotonicity of $C_0$ beyond
+$b$ that every $K\in(0,64]$ has $P_0(K)>0$.
+
+A nonnegative exponential mixture $\phi(x)=\int e^{\lambda x}d\nu(\lambda)$
+gives a valid test: whenever the integrals are absolutely convergent,
+$\int\phi\,d\mu=\int H\,d\nu$. Nonconstant polynomials cannot be
+such mixtures on $[0,\infty)$: at an interior point the even derivative
+of order above the polynomial degree forces $\nu$ to be supported at zero.
+The rational test $\phi(x)=x/(x+3)^2$ has an inverse Laplace density
+$(1-3u)e^{-3u}$ of both signs. Cutting this density off at $u=1/3$
+produces an admissible test
+$\phi_+(x)=(x+3e^{-(x+3)/3})/(x+3)^2$.
+
+Here are outward enclosures on the actual curve, with the original heat
+parameter throughout:
+\[
+\begin{array}{ll}
+-4.40<\int \phi\,d\mu<-4.35,&2.84<\int\phi_+\,d\mu<2.91,\\
+2.27<\int (10+x)^{-1}d\mu<2.32,&
+50.48<\int (1+x)^{-1}d\mu<50.65,\\
+43.57<\int e^{-\sqrt x}d\mu<43.73,&-39.32<\Lambda_E(1+2i)<-38.77,\\
+55.68<H(-1/4)<55.88,&49844<H(1/4)<50061,\\
+-70.35<H(0)-2H(-1)+H(-2)<-70.00.&
+\end{array}
+\]
+For example $(1+x)^{-1}=\int_0^\infty e^{-u}e^{-ux}\,du$ and
+$e^{-\sqrt x}=\int_0^\infty e^{-ux-u^{-1}/4}\,du/(2\sqrt\pi u^{3/2})$.
+The discrete difference uses weights of both signs. The negative
+critical-line value is also insufficient: $\mu=\delta_0-2\delta_1+\delta_2$
+has $H(\lambda)=(e^\lambda-1)^2$ while its cosine transform at frequency
+$2\pi$ equals $\cos(2\pi\sqrt2)-1<0$. Gaussian Fourier inversion
+specifically gives the centered averages
+\[
+H(-u)=(4\pi u)^{-1/2}\int_{\mathbb R}e^{-y^2/(4u)}\Lambda_E(1+iy)\,dy.
+\]
+
+\paragraph{Interval integrations.}
+Split $[0,9]$ into intervals of length $1/2000$.
+On each $[l,h]$ enclose $q$ between $\exp(-\alpha e^h)$ and
+$\exp(-\alpha e^l)$; enclose $g$ by interval products
+$[e^l,e^h]\,[q]\,P_{3200}([q])$ with the polynomial truncation
+bound in Proposition~\ref{hyp:sign} evaluated at the local upper
+endpoint. Multiply by the interval extension of each displayed
+weight and sum twice the interval lengths times these products.
+Use outward grid $10^{-38}$ in Horner and at least 100 decimal
+digits for other elementary bounds. A shorter coefficient sum of
+length $L=\min(3200,\max(12,\lfloor72/(\alpha e^l)\rfloor+2))$
+gives the same enclosures if the corresponding tail is added at each
+step. For the cosine use the midpoint value with error $1/2000$
+by Lipschitz continuity in its argument $2t$.
+For $C_0(64)$ integrate $(t^2-64)g(t)$ on $[8,9]$; the remaining
+tail is positive. For the absolute first moment and a uniform bound
+the same grid gives
+\[
+-108.06<\int_{\mathbb R}|t|g(t)\,dt<-106.79,\qquad \sup|g|<45.01.
+\]
+The absolute tails of the integrals beyond 9 are below $10^{-23}$:
+there $t^2/4\le\alpha e^t/3$ and $1+t^2\le\alpha e^t$; use the
+Fourier majorant above, allowing also the factor $e^{t^2/4}$.
+This also bounds $\sup_{t>9}|g(t)|$.
+
+\paragraph{Comparison at conductor 4069.}
+For the curve $y^2+y=x^3-4x$ of conductor $4069$, the same integral
+procedure, now with $h=1/500$ and $M=2000$, gives
+$-3.46<H(-1/4)<-3.37$. Thus a negative heat value can occur for an actual
+elliptic newform. For the rank-four target the positive central-sign
+information is much stronger than an analogy of root numbers.
+
+\paragraph{A family of Gamma averages.}
+For $p,k>0$ set $I_p(k)=\int_{\mathbb R}\mathrm{sech}^p(kt)g(t)\,dt$.
+The product for $\cosh$ \cite{DLMF} identifies
+$\mathrm{sech}^p(k\sqrt x)$ as $\mathbb E e^{-Sx}$, with $S$ the
+sum of independent Gamma variables of shape $p$ and scales
+$k^2/(\pi^2(j+1/2)^2)$, $j\ge0$. Their means sum to $pk^2/2$.
+Consequently $I_p(k)=\mathbb E H(-S)$. If $\delta\le0$, strict convexity
+and the negative secant slope of the kernel give $I_p(k)>0$ for every
+$p,k$. Conversely $I_p(k)=-(p/2)\delta k^2+O_p(k^4)$ as $k\downarrow0$.
+Thus a negative member exists exactly when $\delta>0$.
+
+For this curve a negative witness in that family would require $k<2/3$.
+Indeed let $K_k(v)=\int e^{-v(\cosh(kt)-1)}g(t)\,dt$ for $v\ge0$.
+It begins at zero with right derivative $-\Lambda_E(1+k)<0$ when
+$k\ge2/3$, by the absolutely convergent elliptic Euler product, and
+is positive for sufficiently large $v$ by localization at $t=0$.
+The pushforward measure under $\cosh(kt)-1$ retains the two sign changes.
+Three vanishing Laplace moments at distinct $v\ge0$ are impossible:
+an element of the span of the three exponentials vanishing at the two
+sign-change points has the sign profile of the measure, up to a global
+sign. The two zeros are simple by the two-zero bound for three
+exponentials, obtained by Rolle's theorem after division by the first
+exponential. Thus $K_k$ has a single positive zero, changing from
+negative to positive there. Next,
+\[
+ \Gamma(p)I_p(k)=\int_0^\infty v^{p-1}e^{-v}K_k(v)\,dv.
+\]
+Increasing $p$ from $p_0$ multiplies the kernel by the increasing factor
+$v^{p-p_0}$, so positivity at $p_0$ implies positivity at every $p>p_0$.
+For small positive $p$, $I_p(k)=-p\int\log\cosh(kt)\,g(t)\,dt+O_k(p^2)$.
+The integral here is at most
+\[
+ -106.79k+\frac{45.01\pi^2}{12k}<0\qquad(k\ge2/3),
+\]
+by $\log\cosh y=|y|-\log 2+\log(1+e^{-2|y|})$ and
+$\int_0^\infty\log(1+e^{-v})\,dv=\pi^2/12$.
+This proves $I_p(k)>0$ for all such $k$ and every $p>0$.
+
+\paragraph{Two-branch transport.}
+Write $\mu=L\nu_L-M\nu_M+R\nu_R$ as positive lobe masses times
+probabilities, with $L+R=M$. Let $\ell,m,r$ be the three means.
+For $a<x<b$ the probability kernel
+\[
+ K(x,dy)=\frac{r-x}{r-\ell}\nu_L(dy)
+          +\frac{x-\ell}{r-\ell}\nu_R(dy)
+\]
+has mean $x$. Its marginal after integration against $M\nu_M$
+is $(L+\delta/(r-\ell))\nu_L+(R-\delta/(r-\ell))\nu_R$,
+since $\delta=L\ell+Rr-Mm$. Thus a martingale with the specified
+two marginals exists exactly when $\delta=0$: this kernel supplies
+sufficiency, and equality of means supplies necessity. For real
+$\lambda$, Jensen's inequality gives the exact decomposition
+\[
+ H(\lambda)=J(\lambda)+\frac{\delta}{r-\ell}
+   \left[\int e^{\lambda y}\,d\nu_R-\int e^{\lambda y}\,d\nu_L\right],
+ \qquad J(\lambda)=M\int\!\left[\int e^{\lambda y}K(x,dy)-e^{\lambda x}\right]d\nu_M\ge0 .
+\]
+More restrictive axis shifts have a concrete limitation. A symmetric
+shift from $t$ to $t\pm d$ with the mean of the squares fixed must give
+$t-d$ weight $1/2+d/(4t)$. If $|t-d|<t_1$ on $(t_1,t_2)$, then
+$t+d<2t_2+t_1$, so the rightmost unbounded lobe cannot be its marginal.
+Similarly any fixed nonnegative weights on maps $t\mapsto\pm t+d_j$
+preserving the squared barycenter for an interval must have
+$\sum_j w_jd_j^2=0$ by comparing constant terms.
+
+\section{Dilation and Hecke tests}
+
+The two Fricke-odd comparison curves of the same conductor used here have
+Weierstrass coefficients
+\[
+ A=[1,1,0,-696,6784],\qquad C=[1,1,1,-949,-7845].
+\]
+Use $g_A,g_C$ with the same $\alpha$ as $g_E$ and put
+$J_\theta=(1-\theta)g_C+\theta g_A$, $k_\theta=-J_\theta'$.
+Suppose a positive finite scale law gives
+\[
+ g_E(t)=\int_{(0,\infty)} k_\theta(t/a)\,d\sigma(a).
+\]
+We require absolute integrability for any moment interchange below.
+For $n\ge2$ write
+\[
+ s_n(\theta)=
+ \frac{\int_{\mathbb R} t^{2n}g_E(t)\,dt}
+ {2n\int_{\mathbb R}t^{2n-1}J_\theta(t)\,dt}
+\]
+when the denominator is nonzero. Integration by parts and $t=au$ give
+$s_n(\theta)=\int a^{2n+1}d\sigma$. Thus for every polynomial $p(X)=\sum c_i X^i$
+one must have
+\[
+ \sum_{i,j}c_ic_j s_{2+i+j}(\theta)
+  =\int a^5p(a^2)^2\,d\sigma(a)\ge0 .
+\]
+For $\theta=1/2$ and $(c_0,\ldots,c_5)=(-106,2507,-14415,31506,-29488,10000)$,
+direct interval evaluation gives the left side in $(-3.680,-3.678)$.
+This excludes the half-mixture, including laws with continuous or singular
+support satisfying the moment bounds.
+
+To reproduce the calculation use the coefficient algorithm in
+Proposition~\ref{hyp:sign} for each of the three curves, with $M=6500$,
+$h=1/40$, $J=400$, and integer interval denominator $10^{60}$.
+Calculate the moments of orders $2n$ and $2n-1$, $2\le n\le12$,
+by the same doubled half-axis quadrature as in \eqref{eq:micromom};
+the parity of $t^{2n-1}J_\theta(t)$ is even. Include the absolute
+Fourier tail at every node before forming the intervals. In the strip
+error bound use $\eta=0.8$ and the numerator
+$8e^\eta j!/(\alpha^2\cos^2\eta)$ for moment order $j$, since
+$\int_0^\infty(t+\eta)^j e^{-t}dt\le e^\eta j!$.
+The strip error and omitted nodes together are below $10^{-39}$ at each
+of these orders. Interval division gives
+$0.61482<s_2(1/2)<0.61484$ and the stated separating quadratic form.
+The Gram test uses moments starting with order four, so no sign of
+the unknown second derivative enters.
+
+For $\theta=3/4$ a different obstruction survives. Fourier evaluation gives
+\[
+ -60<g_E''(0)<-59,\qquad
+ -86<g_A'''(0)<-85,\qquad48<g_C'''(0)<50.
+\]
+For $g_E''(0)$ evaluate
+$\sum a_ne^{-\alpha n}(1-3\alpha n+(\alpha n)^2)$;
+for order three use $1-7z+6z^2-z^3$, $z=\alpha n$.
+The same $M=6500$ with tail bounded by the sum of the absolute monomials
+times $2n e^{-\alpha n}$ suffices. Thus $k_{3/4}''(0)>0$. Boundedness of
+$k_{3/4}''$ would permit differentiation under any scale law with
+$\int a^{-2}d\sigma<\infty$, contradicting the sign of $g_E''(0)$.
+
+The inverse-moment requirement is material. For any even real-analytic
+rapidly decreasing $k$ with $k(0)>0$ and $k''(0)>0$, extend its Mellin
+transform from positive arguments to $-2<z<0$ by
+\[
+ K(z)=\frac{k(0)}{z}+\int_0^1t^{z-1}(k(t)-k(0))\,dt
+                       +\int_1^\infty t^{z-1}k(t)\,dt .
+\]
+The limits at $-2$ from the right and at 0 from the left are $+\infty$
+and $-\infty$. Pick a zero $-\beta$, $0<\beta<2$. Substitution in
+$\int_0^1 k(t/a)a^{\beta-1}da$ gives, near zero,
+$k(0)/\beta-k''(0)t^2/(2(2-\beta))+O(t^4)$.
+The full even power series converges there by termwise integration of
+the analytic germ after the Mellin constant is canceled. This positive
+scale law reverses the sign of the curvature. Existence for the actual
+three-quarter mixture with infinite inverse-square moment remains open.
+
+For scales in $(0,1]$ there is an exact completion criterion. Put
+$r_m=s_{m+2}$. The Hausdorff conditions $(-1)^j\Delta^j r_m\ge0$
+for all $j,m\ge0$ give a unique representing measure $\nu$ on $[0,1]$.
+To reconstruct a finite $\sigma$ one additionally requires
+$\nu(\{0\})=0$ and $\int x^{-5/2}d\nu(x)<\infty$, since $\nu$ is the
+pushforward of $a^5d\sigma$ under $x=a^2$. Whenever the indicated
+moments exist and all ratios are defined this reconstructs their
+scale representation. In this modular setting both comparator first
+central derivatives vanish (rank three and the rank-one theorem
+\cite{lmfdbcomp,wiles}). The corresponding two entire heat transforms
+then agree from degree two onwards and vanish at zero. Their affine
+difference tends to zero on the negative half-axis by dominated
+convergence, since bounded scales admit a common integrable
+majorant using rapid decay. Thus their first derivatives must agree.
+Equivalently, the ratio of the Mellin transforms of $g_E$ and $k_\theta$
+for real $z>0$ must extend to a completely monotone function with finite
+right limit at zero. Writing $a=e^{-u}$ gives necessity and the
+Laplace representation theorem and Mellin uniqueness give sufficiency
+for a finite measure supported on $(0,1]$.
+
+A nonnegative \emph{pointwise} multiplier $g_E=w(t)k_\theta(t)$
+with finite $w$ would require $k_\theta$ to change sign at both target
+zeros. For the general linear combination $g_C+\rho g_A$ the two
+required values of $\rho$ lie in $(-0.209,-0.206)$ and
+$(-0.382,-0.379)$, respectively. To check this, bracket the roots
+in $q$ by $(0.9430879943,0.9430879945)$ and
+$(0.4239562330,0.4239562333)$ using the same signed endpoint test;
+evaluate $g_X'(t)/(e^tq)=\sum a_nq^{n-1}+
+\log(q)\sum n a_nq^{n-1}$ through $n=1200$ with the corresponding
+geometric derivative tails. The intervals are disjoint and $g_A'$
+itself is nonzero at both roots. A different proposed positive transfer
+also fails immediately: if $H(0)=0$ is a positive mixture of
+$K_j(\lambda-b)$, where every $K_j$ is positive off zero and vanishes
+at zero, all the shift measures must be supported at $b=0$.
+
+Finally let
+\[
+ J_d(\lambda)=\int_{\mathbb R} e^{\lambda t^2}g(t+d)\,dt .
+\]
+For $d=\log13$ or $\log35$ one has $t_1<d<t_2$. Gaussian localization
+then makes $J_d(-u)<0<H(-u)$ for large $u$. The two signs already occur in a single Hecke orbit:
+$a_{13}=-6$ while $a_{35}=a_5a_7=20$. The diagonal terms of these
+Hecke operators give the displayed translated integrals; the other
+terms must be retained before multiplying $H$ by the eigenvalue.
+For every $d$, translation and parity give exactly
+\[
+ J_d'(0)=H'(0),\qquad
+ J_d''(0)=H''(0)+6d^2H'(0).
+\]
+The shifted fourth moment therefore determines the missing coefficient
+only if an independent signed comparison is available.
+
+A similar centering issue occurs on removing the completed factors.
+With $\ell=\log(1/\alpha)-\gamma$ one has
+\[
+ \Lambda_E^{(4)}(1)=\alpha^{-1}
+ \{L_E^{(4)}(1)+(\pi^2-6\ell^2)L_E''(1)\}.
+\]
+This follows by expanding the gamma and conductor factors and using
+the even functional equation and the two known central vanishings.
+For an even-sign twist with nonzero central value its analogous
+second derivative contains
+$\alpha_D^{-1}(\pi^2/6-\ell_D^2)L(E^D,1)$ in addition to
+$\alpha_D^{-1}L''(E^D,1)$, with $\alpha_D=2\pi/\sqrt{N_D}$ and
+$\ell_D=\log(1/\alpha_D)-\gamma$. Its contribution to the linear
+heat term need not be small.
 
 \section{Scope of the result}
 
@@ -637,17 +1003,20 @@ global positive-forcing representation,
 by themselves, do not establish the
 missing second complex zero.
 
-The contribution of this note is the
-explicit strictly positive differential
-transform, its exact integral solution,
-and the complete real-zero classification.
+The sign certificate, zero classification and finite arithmetic enclosures
+above localize any possible negative heat interval. The positive-measure
+and scale tests specify several mechanisms within which this question can
+be decided or excluded.
 An additional arithmetic or automorphic
 identity eliminating the surviving
 homogeneous term would be required to
 deduce analytic rank four for the curve.
 
 \begin{thebibliography}{9}
-\bibitem{lmfdb} The LMFDB Collaboration, \emph{Elliptic curve 234446.a1}, \url{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}.
-\bibitem{wiles} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture}, Clay Mathematics Institute, \url{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}.
+\bibitem{lmfdb} The LMFDB Collaboration, \emph{Elliptic curve 234446.a1}, \href{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}{Curve record}.
+\bibitem{wiles} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture}, Clay Mathematics Institute, \href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Official problem description}.
+\bibitem{lmfdbcomp} The LMFDB Collaboration, \emph{Elliptic curves of conductor 234446}, \href{https://www.lmfdb.org/EllipticCurve/Q/234446/}{Conductor table}.
+\bibitem{TW} L. N. Trefethen and J. A. C. Weideman, \emph{The exponentially convergent trapezoidal rule}, SIAM Review 56 (2014), 385--458. \href{https://doi.org/10.1137/130932132}{doi:10.1137/130932132}.
+\bibitem{DLMF} NIST Digital Library of Mathematical Functions, \emph{Infinite products and partial fractions}, \url{https://dlmf.nist.gov/4.36}.
 \end{thebibliography}
 \end{document}

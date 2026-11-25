@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Sha}{\mathrm{Sha}}
+\newcommand{\Sel}{\operatorname{Sel}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\cor}{\operatorname{cor}}
+\newcommand{\rk}{\operatorname{rank}}
+\title{Restriction and Doubling of Two-Primary Tate--Shafarevich Groups in a Quadratic Extension}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper}
+\begin{document}
+\maketitle
+\begin{abstract}
+Consider an elliptic curve and a quadratic twist having identical local
+two-Selmer conditions. Suppose the twist's Cassels--Tate pairing and its
+sum with the original pairing are both nondegenerate on the common
+two-Selmer group. If the splitting field of the twist has no rational
+two-torsion on the curve, its Mordell--Weil rank stays fixed and the image
+of the original two-primary Tate--Shafarevich group under restriction
+is exactly twice the new group. In the finite case, each nontrivial
+cyclic elementary divisor doubles in order. A complementary kernel
+for the twist recovers the original group of rational points modulo two.
+\end{abstract}
+
+\section{The quadratic step}
+Let $K$ be a number field, $D/K$ a quadratic extension, and
+$\chi$ its character. Let $E/K$ be an elliptic curve and $E^\chi$
+the quadratic twist. Identify $E^\chi[2]$ with $E[2]$. Over $D$ we fix
+a twisting isomorphism $E^\chi_D\simeq E_D$ whose conjugate is its negative.
+For a place $v$ of $K$, the local conditions below are the Kummer images
+of $E(K_v)/2E(K_v)$ and $E^\chi(K_v)/2E^\chi(K_v)$ in $H^1(K_v,E[2])$.
+For a field $F$ write $\Sha(E/F)$ for the kernel of localization on
+$H^1(F,E)$. A pairing on a two-Selmer group means the pullback of the
+Cassels--Tate pairing on $\Sha[2]$, with values in
+$\tfrac12\mathbb Z/\mathbb Z$.
+
+\begin{theorem}\label{main}
+Assume $E(D)[2]=0$ and that the two local conditions coincide at every
+place of $K$. Write $S$ for the common global two-Selmer group and
+$C,C_\chi$ for the two pairings on $S$. Assume that $C_\chi$ and
+$C+C_\chi$ are both nondegenerate. Put
+\[
+ A=\Sha(E/K)[2^\infty],\quad B=\Sha(E/D)[2^\infty],\quad
+ T=\Sha(E^\chi/K)[2^\infty].
+\]
+Then
+\begin{align*}
+ \rk E^\chi(K)&=0,&\rk E(D)&=\rk E(K),\\
+ \res:\Sel_2(E/K)&\xrightarrow{\sim}\Sel_2(E/D),&
+ B[2]&=\res A[2].
+\end{align*}
+Furthermore $\res:A\to B$ is injective and
+\[
+                         \res A=2B.
+\]
+These conclusions hold for groups with nonzero divisible subgroups as well.
+\end{theorem}
+
+\begin{proof}
+The kernel of $S\to T[2]$ is $E^\chi(K)/2E^\chi(K)$. It lies in the
+radical of $C_\chi$, so it is zero. Since $E^\chi(K)[2]=0$,
+finite generation gives $\rk E^\chi(K)=0$. If $T$ had an element of
+order four, its double would be a nonzero element of $T[2]$ orthogonal
+to all of $T[2]$ by bilinearity. Hence $T=T[2]$. The decomposition of
+$E(D)\otimes\mathbb Q$ into the eigenspaces for
+$\sigma\in\operatorname{Gal}(D/K)$ now gives $\rk E(D)=\rk E(K)$.
+
+Kramer's theorem identifies the radical of the sum pairing on the
+intersection of the two Selmer groups with $\cor\Sel_2(E/D)$
+\cite[Thm.~2]{Kramer}, \cite[Thm.~8.4 and Rem.~8.5]{MS}.
+In particular, corestriction is zero. For completeness, the
+augmentation sequence of the group ring of $\operatorname{Gal}(D/K)$
+over $\mathbb F_2$, tensored with $E[2]$, has maps inducing restriction
+and corestriction under Shapiro's isomorphism. Its cohomology sequence
+is exact at $H^1(D,E[2])$. The inverse image under local restriction
+of the Kummer condition over $D_w$ is the sum of the two local
+conditions over $K_v$ \cite[Lemmas~2--3]{Kramer};
+see also \cite[Rem.~4.4 and Lem.~4.6]{MP}. Under our hypotheses this
+sum equals the condition defining $S$. Consequently every class of
+$\Sel_2(E/D)$ comes from $S$. Inflation--restriction gives injectivity
+of $\res$ on $H^1(K,E[2])$ because $E(D)[2]=0$.
+
+There is an injection $E(K)/2E(K)\to E(D)/2E(D)$. Indeed, for $P=2Q$
+with $P\in E(K)$, $Q\in E(D)$, one has $2(\sigma Q-Q)=0$, so $Q\in E(K)$.
+Both groups have the same dimension over $\mathbb F_2$ by rank stability
+and the two-torsion hypothesis. Comparing the Kummer sequences therefore
+identifies $A[2]$ with $B[2]$ by restriction.
+
+To see injectivity on $A$, note that $E(D)_{\rm tors}$ has odd order,
+so its positive-degree cohomology for $\operatorname{Gal}(D/K)$ vanishes.
+The action on $E(D)/E(D)_{\rm tors}$ is trivial by rank stability,
+and $H^1$ of a finite group acting trivially on a free abelian group
+is zero. Thus $H^1(D/K,E(D))=0$, and inflation--restriction gives
+the asserted injectivity on $A$.
+
+For $b\in B$, ordinary and twisted corestriction give respectively
+\[
+ (1+\sigma)b=\res\cor b,\qquad
+ (1-\sigma)b=\res_\chi\cor_\chi b.
+\]
+The first lies in $\res A$ and the second lies in $B[2]$ because
+$\cor_\chi b\in T$ has exponent two. Since $B[2]=\res A[2]$, adding
+the two expressions proves $2B\subseteq\res A$.
+
+Conversely, for $y\in B[2]$ one has $\cor y=0$ because $y=\res x$ for
+some $x\in A[2]$. Adjointness of restriction and corestriction under
+the pairing \cite[Cor.~4.9]{MS} makes $\res A$ orthogonal to $B[2]$.
+We justify $B[2]^\perp=2B$. The Cassels--Tate pairing induces a perfect
+pairing on the finite group $B/B_{\rm div}$: the kernel on $B$ is the
+maximal divisible subgroup and $B$ has finite corank and finite $B[2]$.
+The image of $B[2]$ in that quotient is the full subgroup killed by
+two because multiplication by two on $B_{\rm div}$ is surjective. For
+a finite group with a perfect pairing, the annihilator of this subgroup
+is the image of multiplication by two, by duality. Its preimage in $B$
+is $2B$, as $B_{\rm div}\subseteq2B$. This proves the reverse inclusion.
+\end{proof}
+
+\section{Consequences for a given extension or tower}
+\begin{corollary}
+If $A=\bigoplus_{j=1}^{s}\mathbb Z/2^{e_j}\mathbb Z$ is finite with
+$e_j\ge1$, then
+\[
+ B\simeq\bigoplus_{j=1}^{s}\mathbb Z/2^{e_j+1}\mathbb Z.
+\]
+In a tower of $h$ successive quadratic extensions each satisfying
+Theorem~\ref{main}, the exponents become $e_j+h$.
+\end{corollary}
+\begin{proof}
+$2B\simeq A$ and $B[2]\simeq A[2]$ are finite, so $B$ is finite.
+The elementary divisors of $2B$ determine those of $B$ larger than two.
+Their number already accounts for all $s$ dimensions of $B[2]$.
+Iterate the one-step statement.
+\end{proof}
+
+\begin{corollary}
+There is a natural isomorphism, using the common two-torsion and the
+fixed twisting identification over $D$,
+\[
+ \ker\bigl(T[2]\xrightarrow{\res_\chi}B[2]\bigr)
+                  \simeq E(K)/2E(K).
+\]
+\end{corollary}
+\begin{proof}
+The first part of the proof of Theorem~\ref{main} identifies
+$T[2]$ with the whole of $S$. After restriction to $D$, passage to
+$B[2]$ is the projection from $\Sel_2(E/D)$ onto $B[2]$. Its kernel
+is $E(D)/2E(D)$, already identified with $E(K)/2E(K)$.
+\end{proof}
+
+\section{Prescription of pairings}
+The hypotheses specify the pair of local structures and both global
+pairings for the given extension. Their linear-algebraic compatibility
+can be checked without choosing a twist. In an even-dimensional
+$\mathbb F_2$-space $S$ of dimension at least four, every alternating
+form $C$ admits an alternating form $P$ for which $P$ and $P+C$ are
+nondegenerate. If $\operatorname{rank} C=2h\ge4$, identify a symplectic
+complement to its radical with $\mathbb F_{2^h}^2$ equipped with
+$\operatorname{Tr}(xy'-x'y)$. For $a\notin\{0,1\}$ the form with
+scalar $a$ inside the trace and its sum with $C$ are nondegenerate
+there. Give the even-dimensional radical any nondegenerate alternating
+form. If $C$ has rank two, pair a symplectic plane with two independent
+radical directions by the off-diagonal identity matrix, and use a
+symplectic form on the remaining radical. The off-diagonal block keeps
+both forms invertible, since its bottom-right block is zero. For $C=0$
+one nondegenerate alternating form suffices.
+
+Realizing a chosen $P$ arithmetically requires a separate twist-prescription
+theorem. Morgan's published theorem \cite[Thm.~5.8]{Morgan} concerns
+principally polarized abelian varieties with standing hypotheses including
+dimension at least two. The consequences here apply to elliptic curves
+for quadratic steps where the local and nondegeneracy hypotheses have
+been established. Existence of such towers for every curve, and
+consequences for the complex order of $L(E/K,s)$, remain separate issues.
+
+\begin{thebibliography}{9}
+\bibitem{Kramer} K.~Kramer, \emph{Arithmetic of elliptic curves upon quadratic
+extension}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{264} (1981), 121--135.
+\href{https://doi.org/10.1090/S0002-9947-1981-0597871-8}{Published article}.
+\bibitem{MP} A.~Morgan and R.~Paterson, \emph{On $2$-Selmer groups of twists
+after quadratic extension}, J.\ Lond.\ Math.\ Soc.
+\href{https://doi.org/10.1112/jlms.12533}{Published article}.
+\bibitem{MS} A.~Morgan and A.~Smith, \emph{Field change for the Cassels--Tate
+pairing and applications to class groups}, Res.\ Number Theory (2024).
+\href{https://doi.org/10.1007/s40993-024-00545-2}{Published article}.
+\bibitem{Morgan} A.~Morgan, \emph{Hasse principle for Kummer varieties in the
+case of generic $2$-torsion}, Proc.\ Lond.\ Math.\ Soc.
+\href{https://doi.org/10.1112/plms.70066}{Published article}.
+\end{thebibliography}
+\end{document}

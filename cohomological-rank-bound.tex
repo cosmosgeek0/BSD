@@ -1,0 +1,449 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{1em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\operatorname{aug}}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\len}{\operatorname{length}}
+\newcommand{\Ph}[1]{\Phi_{p^{#1}}}
+\title{Integral annihilators and the rank of a lattice with torsion cohomology}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a finite abelian $p$-group $G$, an element of order $p^4$ in $H^1(G,M)$
+forces $\rk M-\rk M^G\ge p^4-1$ for every finite free $\Z_p$-lattice
+$M$. We prove the bound by constructing an integral annihilator of
+augmentation $p^3$ for every smaller invariant-free rational representation.
+A cyclic augmentation lattice attains equality. We also give a feasibility
+criterion for simultaneous elementary divisors of cyclic-group cohomology
+with prescribed rational character multiplicities. In arithmetic the bound
+applies to a Weil--Ch\^atelet class split by an abelian $p$-extension.
+\end{abstract}
+
+\section{The annihilator}
+Fix a prime $p$. For an element $g$ in a group ring write
+$N_q(g)=1+g+\cdots+g^{q-1}$ and
+$\Ph{j}(g)=N_p(g^{p^{j-1}})$. For a subgroup $U$ let
+$N_U=\sum_{u\in U}u$. A \emph{type of order $p^j$} means the Galois
+orbit of a character of image order $p^j$. Over $\Q_p$ its irreducible
+representation has dimension $p^{j-1}(p-1)$, since $\Ph{j}(X)$ is
+irreducible. Killing one character from each occurring type kills the
+entire rational representation.
+
+\begin{theorem}\label{thm:main}
+Let $m\in\{2,3,4\}$. If $G$ is a finite abelian $p$-group and
+$V$ is a $\Q_p[G]$-representation with $V^G=0$ and
+$\dim V<p^m-1$, there is $f\in\Z_p[G]$ satisfying
+$fV=0$ and $\aug(f)=p^{m-1}$.
+\end{theorem}
+
+We denote this assertion by $A_m$. In the zero representation a scalar
+suffices. One order-$p^m$ constituent leaves a complement of dimension
+less than $p^{m-1}-1$. There can be at most one such constituent, counted
+with multiplicity, and none of higher order. Choose $g$ on which the
+character has order $p^m$. Multiplication by $\Ph{m}(g)$ treats this
+constituent after applying $A_{m-1}$ to the complement. When $m=2$ the
+complement has dimension below $p-1$ and hence is zero.
+
+We record the reduction used in the other cases. Inflate the representation
+to $(C_{p^{m-1}})^h$ for some $h\ge m-1$, and put $k=m-1$.
+Annihilators push forward under the quotient map with augmentation preserved.
+The dimension bound permits at most $p+\cdots+p^{m-1}$ distinct
+order-$p$ types. In the dual of $\F_p^h$, fewer than
+$1+p+\cdots+p^k$ specified projective points can be avoided by a
+subspace of codimension $k$. Indeed, grow a disjoint subspace by one
+dimension at a time. Before the final extension the quotient has at
+least $1+p+\cdots+p^k$ projective directions, and each specified point
+excludes at most one. Taking the annihilator of the resulting subspace
+gives a $k$-plane on which every specified character is nontrivial.
+
+There are at most $1+p+\cdots+p^{m-2}<p^{m-1}$ higher types.
+For an order-$p^j$ character whose primitive defining linear form
+vanishes modulo $p$ on this plane, a random lift of each basis vector
+lands in its kernel with probability $p^{-(j-1)}$. The $k$ lifts are
+independent. A union bound therefore gives a lift on which no type is
+trivial as a character of the whole subgroup. The lifted basis
+generates $(C_{p^{m-1}})^k$. Its annihilator works in the ambient group
+ring. We may hence work on this homocyclic subgroup whenever no
+order-$p^m$ constituent occurs.
+
+\section{The first two cases}
+For $A_2$ with no order-$p^2$ constituent there are at most $p$
+order-$p$ types. At most $p$ proper linear hyperplanes cannot cover
+a nonzero finite vector space over $\F_p$, as they all contain zero.
+Choose $g$ outside their kernels and take $\Ph{1}(g)$.
+
+For $A_3$ the preceding reductions leave $G=(C_{p^2})^2$.
+Let $a,b$ count distinct types of orders $p,p^2$. Then
+$a\le p+1$ and $a+pb\le p^2+p$. If $a=0$, use $N_{pG}$,
+with augmentation $p^2$; if $b=0$, take $\Ph{1}(x)\Ph{1}(y)$
+for a basis. The case $b=p+1$ requires $a=0$.
+
+If $1\le b<p$, choose a basis vector $x$ primitive on all high types
+(i.e. its character values have order $p^2$), and extend it by $y$.
+Normalize representatives so their $x$-values equal
+$\zeta=\zeta_{p^2}$; their $y$-values $\alpha_i$ are distinct.
+Set $O=\Z_p[\zeta]$ and $\pi=\zeta-1$. On dividing $T^n$ by
+$\prod_i(T-(\alpha_i-1))$, the coefficient of $T^i$ in the remainder
+lies in $\pi^{n-i}O$ for $i<b$ and $n\ge b$. This follows inductively
+from the elementary symmetric coefficients. The coefficients of
+$\Ph{1}(1+T)$ below degree $p-1$ are divisible by $p$, and the
+remainder of $T^{p-1}$ is divisible by $\pi$. Thus an integral
+polynomial in $Y$ takes values $-\Ph{1}(\alpha_i)/\pi$ at $Y=\alpha_i$.
+Lift its coefficients from $O$ through $X\mapsto\zeta$, obtaining $A$.
+The element
+\[
+ \Ph{1}(x)\Ph{1}(y)+(x^p-1)A(x,y)
+\]
+annihilates the indicated high types since $\Ph{1}(\zeta)=(\zeta^p-1)/\pi$.
+It also annihilates every low type and has augmentation $p^2$.
+
+When $b=p$, $a\le p$. Take a nonzero reduced vector $v$ outside the
+low kernels. A high type reducing trivially on $v$ forbids one affine
+line among the lifts $g=g_0+ph$, $h\in\F_p^2$. If these lines fail to
+cover, $N_{p^2}(g)$ suffices. A cover by exactly $p$ affine lines
+requires all of them to be parallel and distinct. Thus every high
+type has the same reduced kernel $L$, and $v\in L$. If any allowed
+$v$ is outside $L$, use that vector. Otherwise the low types are exactly
+the $p$ types with kernels different from $L$. Choose basis vectors with
+$y$ reducing into $L$ nontrivially and $x$ outside it. Then
+$\Ph{2}(x)\Ph{1}(y)$ works. This proves $A_3$.
+
+\section{An interpolation in rank three}
+\begin{lemma}\label{lem:interp}
+In $(C_{p^2})^3$ with basis $x,y,z$, let fewer than $p^2$ selected high
+types be primitive on $x$. There is an annihilator of augmentation $p^3$
+for these types, all nontrivial order-$p$ types and any further types
+taking a nontrivial order-$p$ value on $x$.
+\end{lemma}
+\begin{proof}
+Normalize the selected $x$-values to $\zeta_{p^2}$. The joint
+$O=\Z_p[\zeta_{p^2}]$-evaluation algebra $B$ generated by $y,z$ in
+$O^{b_0}$ has rank $b_0$, the number of selected types. Over the
+fraction field, interpolation at distinct pairs of values separates the
+coordinates. Put $\pi=\zeta_{p^2}-1$. The quotient
+$D=B/(\pi,y^p-1,z^p-1)$ has dimension at most $b_0<p^2$ over $\F_p$.
+It is a quotient of $\F_p[S,T]/(S^p,T^p)$ via $S=y-1$, $T=z-1$.
+Any nonzero ideal in this local ring contains its one-dimensional socle
+generated by $S^{p-1}T^{p-1}$: take the last nonzero power of the maximal
+ideal acting on the given ideal. Therefore $\Ph{1}(y)\Ph{1}(z)$ vanishes
+in $D$. Lifting the membership identity to the group ring yields
+\[
+ \Ph{1}(x)\big[\Ph{1}(y)\Ph{1}(z)
+ -(x-1)A_0-(y^p-1)A_1-(z^p-1)A_2\big].
+\]
+It has the required zeros and augmentation. If $b_0=0$ take the product
+of the three cyclotomic factors.
+\end{proof}
+
+Consider $A_4$ first for groups of exponent at most $p^2$. We may
+restrict to $(C_{p^2})^3$. Indeed the preceding $k=3$ avoidance
+argument applies after inflation at exponent $p^2$; there are at most
+$p^2+p+1<p^3$ high types. On this rank-three group let $a,b$ count
+low and high types. Put $P=p^2+p+1$. The budgets are
+$a\le P$ and $a+pb\le p^3+p^2+p$.
+
+For a uniformly chosen nonzero vector mod $p$, the expected number $c$
+of high reduced kernels containing it is $b(p+1)/P$. For $b<p^2$
+choose $c<p$ and lift the vector $x$ to avoid the at most $p-1$ affine
+hyperplanes which would give trivial values. The bad types then have
+nontrivial order-$p$ values on $x$. Apply Lemma~\ref{lem:interp} to
+the other $b-c$ types.
+
+For $b=p^2+j\ge p^2$, the case $a=0$ is handled by $N_{pG}$.
+Otherwise $j\le p$, and averaging gives $c\le p$.
+If $c\le j$, the multiplicity-free low and bad support has dimension
+$(p-1)(a+pc)\le(p-1)(p^2+p)<p^3-1$. Use $A_3$ on that support and
+multiply by $\Ph{2}(x)$ to kill the good types. If $c>j$ then
+$b-c<p^2$, so Lemma~\ref{lem:interp} applies after avoiding trivial
+values on the $c$ bad types. The only remaining possibility is
+$c=p>j$ with a cover by $p$ parallel affine hyperplanes. These $p$
+bad types share a reduced functional up to a scalar, say $\alpha$.
+Condition instead on $\alpha(x)\ne0$. Each other high kernel contains
+at most proportion $1/p$ of these choices, giving mean
+$(b-p)/p=p-1+j/p<p$. We return to one of the earlier cases.
+
+\section{Two integral lemmas}
+\begin{lemma}\label{lem:norm}
+Let $P_0=(C_p)^h$, $h\ge1$, $n=p^h$, and let $D$ be a finite module
+over $R=(\Z/p^2)[P_0]$. If
+$\len_{\Z_p}D<n$ and $\dim_{\F_p}pD<p^{h-1}$, then $N_{P_0}D=0$.
+\end{lemma}
+\begin{proof}
+Put $A=\F_p[P_0]=\F_p[T_1,\ldots,T_h]/(T_1^p,\ldots,T_h^p)$, where
+$T_i=g_i-1$ for a basis of $P_0$. Suppose multiplication by $f\in A$
+has rank less than $p^{h-1}$. If the first nonzero homogeneous part
+had degree $d\le p-1$, choose a leading monomial $T^e$ in that part.
+Its multiples by $T^b$ with $0\le b_i<p-e_i$ give independent multiples
+of $f$, by their distinct leading terms in the associated graded ring.
+Their number is $\prod_i(p-e_i)\ge p^{h-1}(p-d)$ (concentrating
+the exponents in one variable minimizes the product). Thus $f$ lies
+in the $p$th power of the augmentation ideal.
+
+Now take $F\in\Z_p[P_0]$ with augmentation of valuation one and
+reduction of multiplication rank less than $p^{h-1}$. In its $T$-basis
+expansion, coefficients of degrees below $p$ are divisible by $p$.
+At any character of $P_0$ every nonconstant term has
+$(\zeta_p-1)$-valuation strictly greater than $p-1$, whereas the constant
+term has valuation exactly $p-1$. Consequently every character value
+of $F$ has $p$-valuation one. Multiplication by $F$ has determinant
+of valuation $n$ by the character decomposition. If its Smith
+exponents are $a_i$, its image in $R$ has length
+$\sum_i\max(2-a_i,0)\ge 2n-\sum_i a_i=n$.
+
+Suppose $N_{P_0}d\ne0$ and replace $D$ by $Rd$. In characteristic $p$,
+a vector on which the norm is nonzero generates a free rank-one copy
+of $A$, since every nonzero ideal of $A$ contains the norm (the
+socle). Hence $N_{P_0}$ kills $pD$ and $N_{P_0}d$ has order $p$.
+Choose a functional $\lambda:D\to\Z/p^2$ with
+$\lambda(N_{P_0}d)=p$; this follows by decomposing the underlying
+abelian group into cyclic factors. The contragredient dual $D^*$
+embeds into $R$ by $\lambda\mapsto f=\sum_g\lambda(gd)g$,
+since the $gd$ generate $D$. This map is equivariant, and
+$\aug(f)=p$. The rank of multiplication by $f$ modulo $p$ is
+$\dim_{\F_p}pRf\le\dim_{\F_p}pD^*=\dim_{\F_p}pD<p^{h-1}$.
+For the equality, multiplication by $p$ identifies $R/pR$ with $pR$.
+The determinant bound applied to a lift of $f$ gives $\len(Rf)\ge n$,
+contrary to $\len D^*=\len D<n$.
+\end{proof}
+
+\begin{lemma}\label{lem:high}
+In $G=(C_{p^3})^3$ let $c$ distinct order-$p^3$ types be specified,
+where $1\le c<p$. For any $u,v\in G$, either of the elements
+\[
+ f_0=N_{p^2}(v)N_p(u),\qquad f_0=N_{p^2}(v)N_p(u^p)
+\]
+can be altered by an augmentation-zero correction that kills all $c$
+types and leaves unchanged its values on every type of order at most $p^2$.
+\end{lemma}
+\begin{proof}
+Choose $x$ primitive on every specified type and normalize $x$ to
+$\zeta=\zeta_{p^3}$. Let $B\subset O^c$ be the joint evaluation
+algebra, with $O=\Z_p[\zeta]$ and $\pi=\zeta-1$. In $B$ put
+$I=(u-1,v-1)B$. Its coordinates lie in $\pi O$. For $a\in I$,
+Cayley--Hamilton for the diagonal coordinates gives
+$a^c\in\sum_{j=1}^c\pi^j I^{c-j}$. Polarization applies as $c!$ is
+invertible and yields the same containment for $I^c$. Induction gives
+\[
+ I^d\subseteq\sum_{i=0}^{c-1}\pi^{d-i}I^i
+ \subseteq\pi^{d-c+1} B\qquad(d\ge c-1).
+\]
+Modulo $p$ each product in the assertion consists of its top monomial
+in $u-1,v-1$, of degree respectively $p^2+p-2$ and $2p^2-p-1$.
+Both degrees satisfy $d-c+1\ge p^2$. As $v_\pi(p)=p^2(p-1)$,
+$f_0\in\pi^{p^2}B=(\zeta^{p^2}-1)B$. Lift the quotient to
+$A\in\Z_p[G]$ and use $f_0-(x^{p^2}-1)A$.
+\end{proof}
+
+\section{The highest remaining character types}
+It remains to prove $A_4$ for $(C_{p^3})^3$ with at least one
+order-$p^3$ type. Let $C$ count those constituents with multiplicity,
+$c$ their distinct types, and let $a,b$ count distinct types of orders
+$p,p^2$. Then
+\[
+ a+pb+p^2C\le p^3+p^2+p,\qquad C\le p+1.
+\]
+If $C=p$, the entire lower complement has dimension below $p^3-1$.
+Choose $x$ primitive on the high types; multiply an $A_3$ annihilator
+by $\Ph{3}(x)$. If $C=p+1$, the lower complement has dimension below
+$p^2-1$. Two vectors, drawn independently modulo $p$, simultaneously
+miss a fixed reduced kernel in the sense that at least one is outside,
+except with probability $1/p^2$. Since $(p+1)/p^2<1$, two suffice for
+all high types. Use the product of the two $\Ph{3}$ factors and an
+$A_2$ annihilator. We can now assume $1\le c\le C<p$.
+
+If $a<P=p^2+p+1$, some missing low type $\alpha$ has fewer than $p^2$
+middle types whose reduced functionals are proportional to $\alpha$.
+Otherwise, putting $t=P-a\ge1$, we would have
+$a+pb+p^2C\ge P+(p^3-1)t+p^2C>p^3+p^2+p$.
+All present low types are nontrivial on $\ker\alpha$.
+In $G/p^2G$ lift a basis of this plane: each of the fewer than $p^2$
+obstructing middle types forbids proportion $p^{-2}$ of the pairs of
+lifts. The resulting subgroup $H=(C_{p^2})^2$ has no fixed vector on
+the lower part, whose dimension is below $|H|-1$. Consequently some
+nontrivial rational $H$-type $\psi$ is absent: the direct sum of one
+copy of each nontrivial rational type has dimension $|H|-1$.
+
+Write $K_0=\ker\psi$ and let $g$ generate $H/K_0$. If $\psi$ has
+order $p^j$, then $N_{K_0}N_{p^{j-1}}(g)$ has augmentation $p^3$.
+Its Fourier support consists of the trivial type and the type of
+$\psi$: the norm first forces triviality on $K_0$, and the geometric
+sum kills the remaining nontrivial lower orders. An adapted basis
+$u,v$ yields $N_{p^2}(v)N_p(u)$ when $j=2$ and
+$N_{p^2}(v)N_p(u^p)$ when $j=1$. Lift $u,v$ to $G$ and apply
+Lemma~\ref{lem:high} to kill all high types.
+
+Finally suppose $a=P$. Then $b\le p(p-C)-1\le p(p-c)-1$.
+The complement $\Omega$ of the high kernel planes in $G/pG$ has size
+at least $(p-c)p^2$. Each middle kernel contains at most $p^2$ points
+of $\Omega$, so some $x_0\in\Omega$ lies in at most $p-1$ middle
+kernels. Lift it to $x$ to avoid their trivial-value hyperplanes. The
+bad middle types then take nontrivial order-$p$ values on $x$ and the
+other $b_0$ middle types take primitive order-$p^2$ values. All high
+types are primitive on $x$. Complete $x$ to a basis $x,y,z$.
+
+Evaluate jointly on the $b_0$ good middle types and the $c$ high
+types, normalizing $x$ to the respective primitive roots. The image
+$B$ of $\Z_p[G]$ is a full lattice in
+$O_2^{b_0}\times O_3^c$ for $O_j=\Z_p[\zeta_{p^j}]$, by rational
+semisimplicity. Multiplication by $x-1$ has determinant valuation
+$b_0+c$. Thus $\bar B=B/(x-1)B$ has length $b_0+c<p^2$.
+Let $B_2$ be the middle projection and $J$ its kernel. Since $x-1$
+is injective on $B_2$, we have an exact sequence
+\[
+ 0\longrightarrow J/(x-1)J\longrightarrow\bar B
+ \longrightarrow B_2/(x-1)B_2\longrightarrow0.
+\]
+Both ends are killed by $p$, since their respective cyclotomic
+polynomials evaluate to $p$ at $1$. The first term has length $c$ by
+the determinant on the high coordinates. Hence $p^2\bar B=0$ and
+$\dim_{\F_p}p\bar B\le c<p$.
+
+The quotient $D=B/(x-1,y^p-1,z^p-1)$ is a module over
+$(\Z/p^2)[(C_p)^2]$, of length less than $p^2$ with
+$\dim_{\F_p}pD<p$. Lemma~\ref{lem:norm} gives
+$\Ph{1}(y)\Ph{1}(z)=0$ in $D$. Lift this identity exactly as in
+Lemma~\ref{lem:interp}, with $x-1$ replacing $\pi$. The bracket there
+kills the good middle and high types, and $\Ph{1}(x)$ kills the bad
+middle types. On a nontrivial low type with $x=1$, at least one of
+$\Ph{1}(y),\Ph{1}(z)$ vanishes and all correction terms vanish.
+The element has augmentation $p^3$, completing Theorem~\ref{thm:main}.
+
+\section{Cohomological and arithmetic consequences}
+\begin{corollary}
+If $M$ is a finite free $\Z_p$-module with an action of a finite
+abelian $p$-group $G$ and $H^1(G,M)$ contains an element of order
+$p^4$, then $\rk M-\rk M^G\ge p^4-1$. The bound is attained.
+\end{corollary}
+\begin{proof}
+Let $M_0=\ker(N_G:M\to M)$. Its rationalization has no invariants,
+and its rank is the asserted rank difference. Since $N_GM$ is a
+trivial torsion-free module, the map $H^1(G,M_0)\to H^1(G,M)$ is
+surjective. A cocycle $z$ on an abelian group satisfies
+$(h-1)z(g)=(g-1)z(h)$; hence $h$ acts trivially on its cohomology
+class. Every group-ring element acts on $H^1$ by its augmentation.
+If the moving rank were smaller than $p^4-1$, Theorem~\ref{thm:main}
+would give an integral element killing $M_0$ and acting by $p^3$ on
+$H^1$. This contradicts the assumed order. For $G=C_{p^4}$ take the
+augmentation ideal in $\Z_p[G]$. It has no invariants and rank
+$p^4-1$. The regular-module augmentation sequence gives
+$H^1=\Z_p/p^4\Z_p$.
+\end{proof}
+
+If $F/k$ is a finite abelian $p$-extension of number fields, $E/k$ is
+elliptic and $E(F)[p]=0$, the same bound applies to any order-$p^4$
+Weil--Ch\^atelet class split by $F$. Indeed inflation--restriction
+identifies the kernel of restriction with $H^1(G,E(F))$.
+Prime-to-$p$ point torsion has vanishing higher cohomology by averaging.
+Completion of the free lattice at $p$ preserves this $p$-primary
+cohomology (use the finite-group cochain complex and flatness).
+The resulting moving rank is $\rk E(F)-\rk E(k)$. More generally,
+if the $p$-primary point torsion has exponent dividing $p^b$, the kernel
+of passage to the free lattice has exponent dividing $p^b$, so a class
+of order $p^{b+4}$ split by $F$ gives the same bound.
+
+\section{Cyclic lattices with prescribed multiplicities}
+Let $G=\langle s\rangle=C_{p^n}$, $L=\ker N_G$ in $M$, and write
+\[
+ L\otimes\Q_p=\bigoplus_{j=1}^n\Q_p(\zeta_{p^j})^{c_j}.
+\]
+For $A=\bigoplus_i\Z/p^{a_i}$ with $a_i\ge1$, a necessary condition for
+$A\hookrightarrow H^1(G,M)$ is, for every $J\subseteq\{1,\ldots,n\}$,
+\begin{equation}\label{eq:flow}
+ \sum_i(a_i-|J|)_+\ \le\sum_{j\notin J}c_j .
+\end{equation}
+These inequalities are sufficient for some invariant-free lattice of
+the specified rational type.
+
+Indeed $H^1(G,M)=L/(s-1)M$ is a quotient of $C=L/(s-1)L$. Intersect
+$L$ with the rational constituents indexed by $J$ to obtain a saturated
+$L_J$. Taking $(s-1)$-coinvariants preserves the resulting short exact
+sequence since the quotient has no fixed vector. The image of
+$(L_J)_G$ in $C$ is killed by $p^{|J|}$: the polynomial
+$\prod_{j\in J}\Ph{j}(X)$ annihilates $L_J$ and takes this value at $1$.
+Multiplication by $p^{|J|}$ therefore induces a surjection
+$(L/L_J)_G\twoheadrightarrow p^{|J|}C$. The source has order
+$p^{\sum_{j\notin J}c_j}$ by the determinant of $s-1$. This bounds the
+order of $p^{|J|}A$ and proves \eqref{eq:flow}.
+
+Conversely assign row $i$ to $a_i$ distinct levels, with column
+capacities $c_j$. The integral max-flow theorem gives such an
+assignment exactly under \eqref{eq:flow}: take source-to-row
+capacities $a_i$, row-to-level capacities one, and level-to-sink
+capacities $c_j$. For levels $J$ on the sink side of a cut,
+minimizing over the row placements gives cut capacity
+$\sum_i\min(a_i,|J|)+\sum_{j\notin J}c_j$.
+For the levels $S_i$ assigned to row $i$, use
+$\Z_p[X]/(\prod_{j\in S_i}\Ph{j}(X))$ with $s=X$. Its coinvariants
+are cyclic of order $p^{a_i}$. Fill unused column capacity by
+individual cyclotomic lattices. This realizes $A$ as a subgroup of $H^1$.
+
+In particular $\rk L\ge\sum_i(p^{a_i}-1)$: each row costs at least
+$\sum_{j=1}^{a_i}\varphi(p^j)=p^{a_i}-1$. Using the first $a_i$
+levels for each row attains equality at the level of integral lattices.
+This numerical cyclic bound is due to Edixhoven
+\cite[Lemma 4.5, Remark 4.6 and Corollary 4.7]{Ed}; see also
+Bosch--Xarles \cite[Proposition 5.11]{BX}. The cut criterion keeps the
+individual multiplicities as input. For a cyclic $p$-extension and
+$E(F)[p]=0$ the same inflation--restriction argument bounds the rank
+gain when several independent classes split simultaneously.
+
+\paragraph{A restriction-of-scalars check on integral splitting.}
+Rational rank jumps do not in general determine the integral lattice.
+For an odd $p$, take a $\Z_p$-extension $F_\infty/F$ with first
+degree-$p$ layer $L$, and an elliptic curve $D/F$ of positive rank.
+Put $B=\operatorname{Res}_{L/F}(D_L)$ and $r=\rk D(L)>0$. Then
+$B(F)=D(L)$ and $B(L)\simeq D(L)^p$. In the coordinates coming from
+$L\otimes_F L=\prod_{g\in G}L$, the action is
+$(s x)_g=s(x_{s^{-1}g})$. Replacing $x_g$ by $g^{-1}x_g$ leaves only
+the permutation of factors. Thus
+\[
+ T_p(B(L)\otimes\Q_p/\Z_p)\simeq\Z_p[C_p]^r .
+\]
+The integral direct sum asserted in the display of Proposition 3.8 of
+the cited version of \cite{Lim} instead gives
+$(\Z_p\oplus\Z_p[\zeta_p])^r$, as the multiplicities there are
+$e_0=e_1=r$. The regular module has zero $H^1$, whereas the displayed
+direct sum has $H^1=(\F_p)^r$. Evaluation at $1$ and $\zeta_p$
+identifies the regular lattice with the pairs whose residues agree
+modulo $\zeta_p-1$; the index is $p$ per summand. Both rationalized
+representations are the same.
+
+\section{Context}
+Edixhoven's cyclic bound bears on a question of Xarles on noncyclic
+lattice cohomology. Theorem~\ref{thm:main} treats one order-$p^4$
+class for abelian groups of arbitrary $p$-power order. Adem's results
+on maximal cohomological exponent \cite{Adem} concern the case of
+exponent $|G|$, which can exceed $p^4$. Establishing literature priority
+for the exact noncyclic statement requires further specialist comparison.
+The arithmetic corollary concerns growth in the splitting field and
+makes no comparison with the complex analytic rank.
+
+\begin{thebibliography}{9}
+\bibitem{Ed} B. Edixhoven, \emph{On the prime-to-$p$ part of the
+groups of connected components of N\'eron models}, Compositio Math.
+\textbf{97} (1995), 29--49.
+\href{https://www.numdam.org/item/CM_1995__97_1-2_29_0/}{Article}.
+\bibitem{BX} S. Bosch and X. Xarles,
+\emph{Component groups of N\'eron models via rigid uniformization},
+Math. Ann. \textbf{306} (1996), 459--486.
+\href{https://mat.uab.es/~xarles/components.pdf}{Article}.
+\bibitem{Adem} A. Adem, \emph{Cohomological exponents of
+$\mathbb ZG$-lattices}, J. Pure Appl. Algebra (1989).
+\href{https://doi.org/10.1016/0022-4049(89)90048-0}{Article}.
+\bibitem{Lim} M. F. Lim, \emph{On fine Mordell--Weil groups over
+$\mathbb Z_p$-extensions of an imaginary quadratic field},
+\href{https://arxiv.org/pdf/2308.04096v3}{arXiv:2308.04096v3},
+Proposition~3.8.
+\end{thebibliography}
+\end{document}
