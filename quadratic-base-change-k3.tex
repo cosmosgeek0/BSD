@@ -1,0 +1,265 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\title{Ranks of Two Elliptic K3 Surfaces Obtained by Quadratic Base Change}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working draft for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+We compute the Mordell--Weil groups up to rank for two explicit K3 surfaces
+arising from the rational elliptic surface $y^2=x^3-28x+t^2-48$.
+Each has geometric rank four, and exactly three of these directions are
+defined over the rational function field with rational constants.
+Counting fibres in two finite extensions of a single residue field
+gives the Picard-rank upper bound in each case. Over the compositum of
+the two quadratic function fields the rational rank is at least four,
+and a positive-rank parameter curve supplies infinitely many rational
+specializations with four independent points.
+\end{abstract}
+
+\section{Surfaces and sections}
+Let $E_t/\Q(t)$ denote the elliptic curve in the abstract. For
+$d=48,33$ write
+\[
+ t=(s+d/s)/2,\qquad v=(s-d/s)/2,\qquad t^2-v^2=d,
+\]
+and let $S_d$ be the relatively minimal elliptic surface with this
+generic fibre over the $s$-line.
+
+\begin{theorem}
+For $d=48,33$ the geometric Picard number of $S_d$ is $18$, and
+\[
+ \operatorname{rank} E_t(\overline{\Q}(s))=4,\qquad
+ \operatorname{rank} E_t(\Q(s))=3 .
+\]
+The fourth direction is defined over $\Q(\sqrt7)$ for $d=48$ and
+over $\Q(\sqrt{37})$ for $d=33$. The two surfaces have good
+reduction at $31$ and $41$, respectively. Over the corresponding
+finite field function fields the arithmetic and analytic ranks
+are both four.
+\end{theorem}
+
+The original surface is rational: the coordinates $a=y-t$ and $x$
+give a birational parametrization since $a(y+t)=x^3-28x-48$.
+The discriminant is $16(87808-27(t^2-48)^2)$, with four simple
+zeros. Its finite singular fibres have type $I_1$ and its fibre at
+infinity has type $IV^*$. Thus Shioda--Tate gives geometric rank
+$10-2-6=2$ over the original $t$-line \cite{SS}.
+
+Write $P=(-2,t)$ and $Q=(-4,t)$. To exhibit two more directions,
+set $x_0=0$ for $d=48$ and $x_0=-5$ for $d=33$. The roots
+of $x^3-28x+d-48$ are $x_0$ and $x_\pm$, where
+\[
+ (x_+,x_-)=(2\sqrt7,-2\sqrt7)
+ \quad\hbox{or}\quad ((5+\sqrt{37})/2,(5-\sqrt{37})/2)
+\]
+respectively. Put $R=(x_0,v)$ and $D=(x_+,v)-(x_-,v)$ using the
+elliptic group law. Under $s\mapsto d/s$, $P,Q$ are invariant
+and $R,D$ anti-invariant. The conjugation on the constant quadratic
+field fixes $P,Q,R$ and sends $D$ to $-D$.
+
+Here are finite checks for independence. At $t=7$ the specialized
+curve $E_7$ has equation $y^2=x^3-28x+1$. Taking $s=8$ for
+$d=48$ yields $v=1$. For $P,Q,R$ the images after reduction and
+multiplication by $\#E_7(\F_\ell)/5$ have the following discrete
+logarithms in a cyclic group of order five:
+\[
+\begin{array}{c|r|c|ccc}
+\ell & \#E_7(\F_\ell)&\text{generator}&P&Q&R\\\hline
+19&25&(3,18)&1&2&1\\
+71&75&(59,10)&0&1&2\\
+83&90&(63,23)&1&0&3
+\end{array}
+\]
+These entries may be verified by the chord and tangent law in
+$\F_\ell$; the orders are obtained by counting $1+\chi(x^3-28x+1)$
+and adding the point at infinity. The determinant of the three rows
+is $6$. The specialization has no rational $5$-torsion, since
+$\#E_7(\F_7)=12$. Thus the three points, and in particular $P,Q$,
+are independent. Indeed any relation up to torsion, chosen primitive
+after passing to the free quotient, would give a relation modulo five.
+The reduction at $19$ also distinguishes $(x_+,1)$ and $(x_-,1)$
+at a prime of $\Q(\sqrt7)$ above $19$. Geometric torsion on the
+surface injects into the component group of a $IV^*$ fibre in
+characteristic zero: the formal group and the additive identity
+component have trivial torsion. A torsion $D$ would consequently have
+order dividing three, whereas its image at $19$ is nonzero in a
+group of order $25$.
+
+For $d=33$ use $s=11$, so $t=7,v=4$. Both $11$ and $47$ split in
+$\Q(\sqrt{37})$; the good reductions have orders $11$ and $52$.
+The prime-to-residue-characteristic torsion injection at these two
+primes excludes every torsion prime. Thus both $(-5,4)$ and the
+difference of the distinct specialized conjugate points are nontorsion.
+Together with the two involutions this proves independence of all four
+sections over the geometric constant field in both cases.
+
+\section{Fibres and specialization}
+The double cover branches over $t^2=d$, away from the singular fibres.
+It gives eight $I_1$ fibres and two $IV^*$ fibres, at zero and infinity.
+The elliptic surface with section over $\mathbb P^1$ has
+$\chi(\mathcal O)=24/12=2$ and is a K3 surface by the canonical
+bundle formula \cite{SS}. The trivial lattice has rank $14$.
+
+We give some detail on good reduction, since a count of smooth
+specializations of the generic curve alone would not justify the
+Picard bound. In the two residue characteristics in the theorem,
+$27(t^2-48)^2-87808$ has simple roots and is nonzero at $t^2=d$.
+This follows by differentiating and testing $t=0$, $t^2=48$ and
+$t^2=d$ modulo the stated prime. The nodal fibres there have smooth
+total space. The integral minimal equation at each of the two ends
+has the form
+\[
+ y^2=x^3+z^4(Ax+B(z)),\qquad A=-28,\quad B(0)=b^2\ne0,
+\]
+with $b=d/2$ or $1/2$, both units. The same resolution works over
+the local integers and their residue field. After blowing up the
+origin, its $z$-chart is $Y^2=zX^3+z^3AX+z^2B(z)$. The other
+nonempty exceptional chart is smooth, and only its $z$-chart origin
+requires a second blowup. The latter's $z$-chart has $V=\pm b$
+on its exceptional divisor. In the $X$-chart the equation is
+\[
+ V^2=Z^2B(XZ)+X^2 Z(1+AZ^2).
+\]
+Only its origin is singular. In the completed local chart factor the
+difference of squares using the unit square root of $B(XZ)$. With
+$U_\pm=V\pm Z\sqrt{B(XZ)}$ it becomes
+$U_+U_-=X^2 h(U_+-U_-)$ for a unit $h$.
+Replacing the two coordinates by $U_++X^2h,U_--X^2h$
+gives product $-X^4h^2$. This is a split $A_3$ singularity
+formally equivalent to $uv=X^4$. Successive blowups of the singular
+sections resolve it in both characteristics. The coordinate changes
+have invertible linear part and all denominators used are units.
+This supplies compatible smooth proper models. The fibre components
+are split (equivalently the leading coefficient $B(0)$ is a unit
+square in Tate's $IV^*$ test).
+
+Specialization of divisor classes in a smooth proper family is
+injective on the geometric N\'eron--Severi group tensored with
+$\Q$, by the cycle class injection and smooth proper base change.
+Thus the trivial lattice and independent section classes give
+eighteen independent directions also after reduction. All these
+directions are defined over the stated residue field since
+$(7/31)=(37/41)=1$.
+
+\section{A finite Frobenius certificate}
+For $q=p^j$ in the table below and $u\ne0$ in $\F_q$, put
+$t_u=(u+d/u)/2$ and
+\[
+ S_q=-\!\sum_{u\in\F_q^\times}\sum_{x\in\F_q}
+       \chi_q(x^3-28x+t_u^2-48),\qquad \chi_q(0)=0 .
+\]
+The raw character sum counts a projective nodal fibre correctly as
+well. Each split $IV^*$ fibre has $7q+1$ points: its seven rational
+components form a tree. Therefore $\#S_d(\F_q)=q^2+1+14q-S_q$.
+The trace formula for a K3 surface gives the trace $14q-S_q$ on
+$H^2$. Subtracting the eighteen known directions gives trace
+$-S_q-4q$ on their four-dimensional orthogonal complement $W$.
+The trivial lattice together with the nondegenerate Mordell--Weil
+height pairing makes the known subspace nondegenerate.
+
+\[
+\begin{array}{r|r|r|r|r|r}
+d&p&S_p&S_{p^2}&\operatorname{tr}(W)&\operatorname{tr}(\mathrm{Fr}_p^2|W)\\\hline
+48&31&-124&-3720&0&-124\\
+33&41&-184&-5320&20&-1404
+\end{array}
+\]
+Here is reproducible pseudocode. For $j=2$ use
+$\F_p[z]/(z^2-3)$; $3$ is a nonsquare at both primes.
+\begin{verbatim}
+K := field with p^j elements as specified
+chi := array indexed by K, initially -1
+for x in K: chi[x*x] := 1
+chi[0] := 0
+H,T := zero integer arrays indexed by K
+for x in K: H[x^3 - 28*x] += 1
+for u in K, u != 0: T[((u + d/u)/2)^2 - 48] += 1
+S := -sum(H[a]*T[b]*chi[a+b] for a,b in K)
+\end{verbatim}
+
+By Poincar\'e duality, if the constant term of the monic Frobenius
+polynomial of $W$ is $-p^4$, the middle coefficient must vanish.
+The middle coefficients given by Newton's identities are $62$ and
+$902$, respectively. The reciprocal polynomials are therefore
+\[
+ X^4+62X^2+31^4,\qquad
+ X^4-20X^3+902X^2-33620X+41^4 .
+\]
+A further geometric divisor would supply an eigenvalue $p\zeta$
+with $\zeta$ a root of unity. In the first polynomial this gives
+$\zeta^2+\zeta^{-2}=-2/31$, which is not an algebraic integer.
+In the second, $h=\zeta+\zeta^{-1}$ satisfies
+$1681h^2-820h-2460=0$. If $h$ has degree two its trace is $20/41$;
+if rational it must be one of $-2,-1,0,1,2$, none a root.
+This proves the Picard upper bound over both geometric residue fields
+and hence in characteristic zero. Shioda--Tate now gives geometric
+rank four. The four exhibited directions span over $\Q$, with
+constant-field conjugation negating exactly $D$, proving the rational
+rank statement. Over each residue field all four directions are
+rational. The Tate theorem for elliptic K3 surfaces and its
+rank equivalence with BSD for the generic fibre over the finite
+function field give analytic rank four there \cite{ASD,Ulmer}.
+
+\section{Four independent points after both base changes}
+Over $\Q(t,\sqrt{t^2-48},\sqrt{t^2-33})$, the four rational
+sections with $x=-2,-4,0,-5$ are independent: the two radical signs
+are distinct characters over $\Q(t)$, and the first two sections
+remain independent. This conclusion is a lower bound. The remaining
+quadratic-character component, associated to $(t^2-48)(t^2-33)$,
+has not been computed.
+
+For a concrete specialization let $t=817/56$,
+$v=719/56$, and $w=751/56$, so $v^2=t^2-48$, $w^2=t^2-33$.
+On the specialized curve the four sections have coordinates
+$(-2,t),(-4,t),(0,v),(-5,w)$. The rows below give their multiples by
+$\#E(\F_\ell)/5$, expressed relative to the first nonzero image:
+\[
+\begin{array}{r|r|rrrr}
+\ell&\#E(\F_\ell)&-2&-4&0&-5\\\hline
+103&105&1&4&2&2\\
+197&190&1&2&4&1\\
+227&235&1&2&4&3\\
+257&280&1&0&0&4
+\end{array}
+\]
+The determinant is $-24$. The reduction at $13$ has order sixteen, so
+there is no rational $5$-torsion. The table proves rank at least four.
+
+Finally, writing $u=t-v$ makes the second square condition
+$Y^2=u^4-36u^2+2304$, $Y=2uw$. This curve is birational to
+\[
+ B:\ Z^2=(X-36)(X-96)(X+96),\qquad
+ X=2(Y+u^2),\quad Z=2u(X-36).
+\]
+The inverse has $u=Z/(2(X-36))$ and $Y=X/2-u^2$.
+The point $T=(256,3520)$ has double $(100,224)$ giving $t=817/56$.
+At good primes $7$ and $13$, $B$ has respectively eight and twelve
+points and $T$ reduces to points of orders four and three. If
+torsion, its order would divide four by prime-to-residue-characteristic
+injectivity, a contradiction. The multiples $(2+kM)T$ with $M$ a
+multiple of the orders of $B$ modulo the four tabulated primes and
+modulo $13$ reproduce the reductions of $2T$ at these good places.
+The inverse formula is integral there at $2T$: its denominators
+are units at the five listed odd primes.
+Exclude finitely many poles. The table and torsion exclusion persist.
+The maps to $t$ and to $j(E_t)$ are nonconstant, so infinitely many
+distinct $j$-invariants occur.
+
+\begin{thebibliography}{9}
+\bibitem{SS} M. Sch\"utt and T. Shioda,
+\emph{Elliptic surfaces}, \href{https://arxiv.org/abs/0907.0298}{arXiv:0907.0298}.
+\bibitem{ASD} M. Artin and H. P. F. Swinnerton-Dyer,
+\emph{The Shafarevich--Tate conjecture for pencils of elliptic curves on K3 surfaces},
+Invent. Math. \textbf{20} (1973), 249--266.
+\bibitem{Ulmer} D. Ulmer, \emph{Curves and Jacobians over function fields},
+\href{https://math.arizona.edu/~ulmer/research/papers/2014b.pdf}{author's manuscript}.
+\end{thebibliography}
+\end{document}

@@ -16,6 +16,8 @@ Item 453 is a separate candidate for specialists in integral representations. It
 
 ## Further working papers
 
+- **Ranks of two elliptic K3 surfaces obtained by quadratic base change.** Geometric rank four, rank three over the rational function field with rational constants, and infinitely many specializations with four independent points. [PDF](quadratic-base-change-k3.pdf) · [LaTeX](quadratic-base-change-k3.tex)
+
 - **Matrix coset averages in the boundary model of the Steinberg representation.** Exact finite-level averages and the dependence on Smith invariants. [PDF](steinberg-coset-averages.pdf) · [LaTeX](steinberg-coset-averages.tex)
 
 - **Real origin fibres of modular parametrizations.** The note relates the central order to interior real crossings and gives degree bounds with a separate CM refinement. [PDF](real-origin-fibres.pdf) · [LaTeX](real-origin-fibres.tex)
