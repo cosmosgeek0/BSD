@@ -1,4 +1,4 @@
-# BSD research archive
+# BSD
 
 Contact: [admin@cosmosgeek.org](mailto:admin@cosmosgeek.org)
 
