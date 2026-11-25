@@ -16,9 +16,12 @@ Item 453 is a separate candidate for specialists in integral representations. It
 
 ## Further working papers
 
+- **Translated periods and integral Hecke congruences at conductor 234446.** Positive translated periods coexist with a changing-sign Laplace density. The three-eigenform integral Hecke lattice has index four. [PDF](translated-periods-234446.pdf) · [LaTeX](translated-periods-234446.tex)
+- **Marked elliptic covers.** The paper combines a genus-two marking, its Kummer parity, a nodal Selmer comparison and a sharp visibility dimension under large residual image. [PDF](marked-elliptic-covers.pdf) · [LaTeX](marked-elliptic-covers.tex)
+
 - **Ranks of two elliptic K3 surfaces obtained by quadratic base change.** Geometric rank four, rank three over the rational function field with rational constants, and infinitely many specializations with four independent points. [PDF](quadratic-base-change-k3.pdf) · [LaTeX](quadratic-base-change-k3.tex)
 
-- **Matrix coset averages in the boundary model of the Steinberg representation.** Exact finite-level averages and the dependence on Smith invariants. [PDF](steinberg-coset-averages.pdf) · [LaTeX](steinberg-coset-averages.tex)
+- **Matrix coset averages in the boundary model of the Steinberg representation.** Exact finite-level averages, dependence on Smith invariants, and an all-conductor compact inert integral for the specified test function. [PDF](steinberg-coset-averages.pdf) · [LaTeX](steinberg-coset-averages.tex)
 
 - **Real origin fibres of modular parametrizations.** The note relates the central order to interior real crossings and gives degree bounds with a separate CM refinement. [PDF](real-origin-fibres.pdf) · [LaTeX](real-origin-fibres.tex)
 - **A certified four-zero disk for 234446.a1.** The interval proof counts four zeros with multiplicity in a disk of radius $10^{-57}$ about the centre. The individual central multiplicity remains two or four. [PDF](central-zero-disk.pdf) · [LaTeX](central-zero-disk.tex)

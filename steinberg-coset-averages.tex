@@ -26,6 +26,8 @@ differences of the output values in each Smith stratum. Passing from
 invertible to primitive singular centres removes exactly one factor
 of $\zeta-1$, where $\zeta$ generates the image of the character.
 The calculation applies also to cosets that contain singular matrices.
+A second theorem evaluates a compact ramified character integral appearing
+in an inert Klingen calculation by cancellation on valuation annuli.
 \end{abstract}
 
 \section{The finite projective line and its coset average}
@@ -185,6 +187,104 @@ The proof concerns this explicitly normalized local operator;
 application to a global automorphic coefficient requires an
 independent identification of its test data and measures.
 
+\section{A compact integral at inert conductor}
+\label{sec:integral}
+
+A second computation from the same record (entries 306--309)
+concerns a scalar obtained by comparing two values of a Steinberg
+boundary vector. We give the scalar integral explicitly so that its
+character and measure conventions are fixed. It occurs after the
+change to compact variables in the calculation of an inert Klingen
+intertwiner in the setting of Skinner--Urban \cite{SU}.
+
+Let $L/\Qp$ be unramified quadratic, $p$ odd, and take a trace-zero
+unit $w$ such that $\OO_L=\Zp+\Zp w$. Write $\overline{\cdot}$ for
+conjugation. Normalize additive Haar measures on $\OO_L$ and $\Zp$
+to have mass one, and put $|p|_L=p^{-2}$. Fix $n\ge2$ and a
+finite-order character $\chi:L^\times\to\mathbb C^\times$ trivial
+on $\Qp^\times$, of conductor $p^n$. Here this means $\chi$ is
+trivial on $1+p^n\OO_L$ and nontrivial on $1+p^{n-1}\OO_L$.
+For $A,B\in\OO_L$ define $R,d\in\Zp$ by
+$A\bar B=R+dw$, and put $a=v_L(A)$, $b=v_L(B)$ with
+$v_L(p)=1$. The sets where $AB=0$ may be omitted.
+
+\begin{theorem}
+For $\Re z>1/2$ let
+\begin{align*}
+ I_n(z)={}&
+ \int_{p^n\OO_L}\int_{\OO_L}\int_{\Zp}
+       |s-dw|_L^{z-3/2}\chi(s-dw)\\[-1mm]
+ &\qquad {}\cdot
+ \bigl(1-\mathbf1_{p^{2a}\Zp}(s+R)
+          -\mathbf1_{p^{2b+1}\Zp}(s-R)\bigr)\,ds\,dB\,dA.
+\end{align*}
+Then
+\[
+ I_n(z)=p^{-2n}\,\frac{1-p^{-1}}{1-p^{-2z}} .
+\]
+In particular the meromorphic continuation at $z=1/2$ equals $p^{-2n}$.
+\end{theorem}
+
+\begin{proof}
+Write $\sigma=\Re z$. For fixed $A$ of valuation $a$,
+$A\bar B$ is uniform in $p^a\OO_L$, so $d$ is uniform in
+$p^a\Zp$. On $v_p(s)=j<a$ the absolute-value contribution after
+$s$-integration is $(1-p^{-1})p^{(2-2\sigma)j}$. On
+$s\in p^a\Zp$, $(s,d)$ fills a two-dimensional ball and the
+absolute integral is
+\[
+ p^{(2-2\sigma)a}\int_{\OO_L}|x|_L^{\sigma-3/2}\,dx .
+\]
+The last integral converges for $\sigma>1/2$. Summation over $a$
+with masses $(1-p^{-2})p^{-2a}$ proves absolute convergence
+in the claimed half-plane and justifies changing the order of
+integration.
+
+We first show that both indicator terms integrate to zero.
+For the first one fix $A$, use $T=A\bar B$ uniform in $p^a\OO_L$
+and set $h=s+R$. On its support $h\in p^{2a}\Zp$, the new
+variables run independently through $h\in p^{2a}\Zp$ and
+$T\in p^a\OO_L$. Since $s-dw=h-T$, the integral in $T$ is
+the radial weight times $\chi$ on the whole ball $p^a\OO_L$,
+and vanishes by unit-character orthogonality.
+
+For the second term fix $B$. Now $T=A\bar B$ is uniform in
+$p^{n+b}\OO_L$. With $h=s-R\in p^{2b+1}\Zp$, one has
+$s-dw=h+\bar T$. For $v_p(h)\ge n+b$ integration in $T$ again
+covers a whole ball. Otherwise $2b+1\le j=v_p(h)<n+b$, and
+$h+\bar T$ is $h$ times a uniform element of $1+p^{n+b-j}\OO_L$.
+Here $1\le n+b-j<n$. On this group the absolute value is constant
+and $\chi$ is nontrivial. Its mean is zero. On groups of principal
+units the additive and multiplicative probability measures agree
+under the affine parametrization because multiplication by a unit
+preserves additive Haar measure.
+
+It remains to integrate the term with coefficient one. For fixed $A$,
+integration on $s\in p^a\Zp$ gives zero by the two-dimensional
+unit-character cancellation above. For fixed $s$ of valuation
+$j<a$, the factorization $s-dw=s(1-(d/s)w)$ removes $\chi(s)$.
+The remaining character has mean one if $a-j\ge n$, and zero if
+$1\le a-j<n$. To see the latter assertion, any element of
+$1+p^{a-j}\OO_L$ has a unique expression $r(1+tw)$ with
+$r\in1+p^{a-j}\Zp$, $t\in p^{a-j}\Zp$. The Jacobian in these
+two coordinates is a unit. Since $\chi(r)=1$, averaging in $t$
+has the same effect as averaging $\chi$ on the full group.
+
+The surviving annuli have $0\le j\le a-n$. Their sum is
+\[
+ (1-p^{-2})(1-p^{-1})
+ \sum_{j\ge0}p^{(2-2z)j}
+          \sum_{a\ge n+j}p^{-2a}
+ =p^{-2n}(1-p^{-1})\sum_{j\ge0}p^{-2zj},
+\]
+as asserted.
+\end{proof}
+
+The displayed scalar uses the unshifted $A$-ball and its stated Haar
+measures. Other compact cosets of an intertwining section involve their own
+support and vector calculations. The value at $1/2$ here comes from
+continuation of the evaluated function.
+
 \section*{Sources}
 The local non-split torus and Steinberg test-vector setting
 occurs in File--Martin--Pitale \cite{FMP} and Vatsal \cite{Vatsal}.
@@ -201,7 +301,11 @@ remains to be assessed.
 \bibitem{Vatsal} V.~Vatsal,
 \emph{Test vectors for some ramified representations},
 \href{https://arxiv.org/abs/1806.07856}{arXiv:1806.07856}.
+\bibitem{SU} C.~Skinner and E.~Urban,
+\emph{The Iwasawa main conjectures for $\mathrm{GL}_2$},
+\href{https://www.math.columbia.edu/~urban/eurp/MC.pdf}{authors' paper},
+especially Section~9 on local Klingen data.
 \bibitem{archive} \emph{BSD research history},
-\href{https://github.com/cosmosgeek0/BSD/blob/64194dff2dd10ea2fcfa9bd78bc123876d98e1f4/bsd-research-history.zip}{numbered source archive}, entries 301, 363, 390, and 394--398.
+\href{https://github.com/cosmosgeek0/BSD/blob/64194dff2dd10ea2fcfa9bd78bc123876d98e1f4/bsd-research-history.zip}{numbered source archive}, entries 301, 306--309, 363, 390, and 394--398.
 \end{thebibliography}
 \end{document}

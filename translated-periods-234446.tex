@@ -1,0 +1,880 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{proposition}{Proposition}
+\title{Translated periods and integral Hecke congruences at conductor 234446}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working draft for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the rank-four elliptic curve of conductor 234446, we study two
+ways of recovering its second complex central derivative. On adjoining
+the two rank-three newforms at the same conductor, the Fourier-integral
+lattice contains the normalized eigenform lattice with index four. We
+compute its Hecke action and the associated genus-two gluings. A
+Dirichlet-series transfer converges on compact sets but fails an
+absolute second-moment bound.
+A translated logarithmic period \(P\) satisfies \(2\pi P(0)=L''(E,1)\).
+All real translates \(P(s)\) for \(s\ge1\) are positive, while their
+inverse Laplace density changes sign infinitely often. We give a signed
+reconstruction of the endpoint and compute a closed modular-symbol
+period for the quadratic character of conductor three. The central order
+on the rank-four curve remains undetermined by these identities.
+\end{abstract}
+
+\section{A fixed-level transfer at conductor 234446}
+\label{sec:234446-transfer}
+
+\subsection{Models and analytic hypotheses}
+
+Put \(N=234446=2\cdot117223\), and consider the elliptic curves
+\[
+\begin{aligned}
+E &: [1,-1,0,-79,289],\\
+A &: [1,1,0,-696,6784],\\
+C &: [1,1,1,-949,-7845].
+\end{aligned}
+\]
+Cremona's current curve and optimality tables \cite{Cremona} list these
+models as the sole members of isogeny classes \(a,b,c\) at this level,
+with Mordell--Weil ranks \(4,3,3\), trivial rational torsion, and Manin
+constant one. We distinguish them by their equations.
+Let \(f_E,f_A,f_C\in S_2(\Gamma_0(N))\) denote the normalized
+rational newforms. For \(p=3,11\), count points using the quadratic character of
+\(4x^3+b_2x^2+2b_4x+b_6\). At \(117223\) use the Legendre symbols of
+\(-c_6\), and at \(2\) count directly on each reduction. This gives
+\[
+\begin{array}{c|rrrr}
+ &a_2&a_3&a_{11}&a_{117223}\\ \hline
+E&-1&-3&-6& 1\\
+A&-1&-1&-4&-1\\
+C& 1&-1&-6& 1
+\end{array}
+\]
+and hence global root numbers \(+1,-1,-1\), respectively.
+
+Write
+\[
+\Lambda_F(s)=
+ \left(\frac{\sqrt N}{2\pi}\right)^s
+ \Gamma(s)L(F,s),\qquad
+g_F(t)=e^t f_F(ie^t/\sqrt N).
+\]
+The functional equations imply that \(g_E\) is even and
+\(g_A,g_C\) are odd. With the standard weight-two Fricke
+normalization,
+\[
+W_Nf_E=-f_E,\qquad W_Nf_A=f_A,\qquad W_Nf_C=f_C.
+\]
+By the analytic-rank-zero-and-one theorems of
+Gross--Zagier--Kolyvagin \cite{GZK}, the established algebraic ranks imply
+\[
+\operatorname{ord}_{s=1}L(E,s)\ge2,\qquad
+\operatorname{ord}_{s=1}L(A,s),
+\operatorname{ord}_{s=1}L(C,s)\ge3.
+\]
+For \(M_j(g)=\int_{\mathbb R}t^jg(t)\,dt\), Mellin transformation gives
+\(M_j(g_F)=\Lambda_F^{(j)}(1)\). Consequently
+\[
+M_2(g_A')=M_2(g_C')=0,\qquad
+M_2(g_A/t)=M_2(g_C/t)=0.
+\]
+The congruence and the correspondences below test transfer of these moment identities to the even kernel of \(E\).
+
+\subsection{Exact cubic congruences}
+
+For a Weierstrass model
+\(y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6\),
+put \(u=4x\). Its nonidentity \(2\)-torsion points are
+parametrized by the roots of
+\[
+F(u)=u^3+b_2u^2+8b_4u+16b_6,
+\]
+where
+\(b_2=a_1^2+4a_2\),
+\(b_4=a_1a_3+2a_4\), and
+\(b_6=a_3^2+4a_6\).
+
+For the three models this yields
+\[
+\begin{aligned}
+F_E(u)&=u^3-3u^2-1264u+18496,\\
+F_A(u)&=u^3+5u^2-11136u+434176,\\
+F_C(u)&=u^3+5u^2-15176u-502064.
+\end{aligned}
+\]
+
+\begin{proposition}
+There are Galois-equivariant isomorphisms
+\(E[2]\simeq A[2]\simeq C[2]\), explicitly induced on
+the nonzero \(2\)-torsion coordinates by
+\[
+\boxed{
+\begin{aligned}
+F_A(864-20u-u^2)&\equiv0\pmod{F_E(u)},\\
+F_C(860-16u-u^2)&\equiv0\pmod{F_E(u)}.
+\end{aligned}}
+\]
+\end{proposition}
+
+\begin{proof}
+The two identities follow by polynomial division over
+\(\mathbb Z[u]\). Irreducibility and separability can be checked
+without a discriminant calculation. Modulo \(3\), the cubics are
+\[
+\begin{aligned}
+\overline F_E&=u^3+2u+1,\\
+\overline F_A&=u^3+2u^2+1,\\
+\overline F_C&=u^3+2u^2+u+1.
+\end{aligned}
+\]
+Their value triples at \(u=0,1,2\) are, respectively,
+\[
+(1,1,1),\qquad(1,1,2),\qquad(1,2,1).
+\]
+None has a root in \(\mathbb F_3\), so all three cubics
+are irreducible over \(\mathbb Q\). In characteristic zero
+they therefore have three distinct roots.
+
+Let \(\alpha\) be a root of \(F_E\).
+The displayed substitutions produce roots of the two other
+irreducible cubics in \(\mathbb Q(\alpha)\).
+Each resulting root has degree three over \(\mathbb Q\);
+hence the substitutions induce isomorphisms of cubic fields.
+Applying the three embeddings shows that they biject
+the respective root sets, with no collapsed roots, and
+commute with Galois. Including the identity point gives
+the asserted isomorphisms of \(2\)-torsion Galois modules.
+\end{proof}
+
+At good primes these isomorphisms give congruent Frobenius
+traces modulo \(2\). At the two multiplicative primes all
+three local eigenvalues are \(\pm1\), so their reductions
+also agree. The Euler recurrences and multiplicativity
+therefore yield
+\[
+f_E\equiv f_A\equiv f_C\pmod2
+\]
+coefficientwise, including the bad Euler factors. The traces at 3 already differ modulo 4, so
+the displayed identifications of two-torsion do not lift to
+identifications of four-torsion.
+
+\subsection{The saturated Fourier lattice and its Hecke action}
+
+Define integral cusp forms
+\[
+h_A=\frac{f_E-f_A}{2},\qquad
+h_C=\frac{f_E-f_C}{2},
+\]
+and let
+\[
+\mathcal V=\mathbb Q f_E+\mathbb Q f_A+\mathbb Q f_C,\qquad
+\mathcal L=\mathbb Zf_A+\mathbb Zh_A+\mathbb Zh_C.
+\]
+
+\begin{proposition}
+The lattice \(\mathcal L\) is precisely
+\[
+\mathcal V\cap\mathbb Z[[q]],
+\]
+and the sublattice generated by the three normalized
+eigenforms has index \(4\) in \(\mathcal L\).
+\end{proposition}
+
+\begin{proof}
+All three displayed generators have integral Fourier
+coefficients. Their \(q^1,q^3,q^{11}\) coefficient matrix is
+\[
+\begin{pmatrix}
+1&0&0\\
+-1&-1&-1\\
+-4&-1&0
+\end{pmatrix},
+\qquad \det=-1.
+\]
+Thus any rational combination with integral Fourier
+coefficients has integral coordinates in this basis,
+proving saturation.
+
+Since
+\[
+f_E=f_A+2h_A,\qquad
+f_C=f_A+2h_A-2h_C,
+\]
+the change-of-basis determinant between the normalized
+eigenform lattice and \(\mathcal L\) has absolute value \(4\).
+\end{proof}
+
+In the ordered basis \((f_A,h_A,h_C)\), the exact matrices
+are
+\[
+T_3=
+\begin{pmatrix}
+-1&-1&-1\\
+0&-3&-2\\
+0&0&-1
+\end{pmatrix},\qquad
+T_{11}=
+\begin{pmatrix}
+-4&-1&0\\
+0&-6&0\\
+0&0&-6
+\end{pmatrix},
+\]
+and
+\[
+W_N=
+\begin{pmatrix}
+1&-1&-1\\
+0&-1&-2\\
+0&0&1
+\end{pmatrix}.
+\]
+These follow immediately from the eigenvalues in the
+preceding coefficient table and the definitions of
+\(h_A,h_C\). In particular,
+\[
+\overline{T_3}=\overline{W_N}=
+\begin{pmatrix}
+1&1&1\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+\quad\text{over }\mathbb F_2.
+\]
+The integral reduction is therefore not a direct sum
+of three independently split eigenlines.
+
+Over \(\mathbb Q\), however, \(T_3\) has eigenvalue
+\(-3\) on \(f_E\) and \(-1\) on both \(f_A,f_C\).
+The spectral projector onto the \(E\)-eigenline is
+\[
+\boxed{e_E=-\frac{T_3+1}{2}.}
+\]
+It is not integral on \(\mathcal L\), since
+\[
+e_E(h_A)=e_E(h_C)=\frac{f_E}{2}
+\notin\mathcal L.
+\]
+The exact integral identities
+\[
+(T_3+1)h_A=(T_3+1)h_C=-f_E
+\]
+therefore transfer the mixed congruence vectors to
+\(f_E\), but do not transfer \(f_A\) or \(f_C\):
+\[
+(T_3+1)f_A=(T_3+1)f_C=0.
+\]
+The mixed vectors already contain the unknown
+\(f_E\)-component. This is the first failed step in a
+characteristic-zero transfer of the annihilated
+rank-three moments. Any characteristic-zero Hecke-equivariant homomorphism from either of the other eigenlines to the \(E\)-line vanishes, by the \(T_3\)-eigenvalue.
+
+\subsection{Genus-two Jacobians from gluing}
+
+Let \(F\) denote either \(A\) or \(C\), and let
+\(\phi_F:E[2]\to F[2]\) be the corresponding explicit
+Galois-module isomorphism. Define
+\[
+\Gamma_F=\{(P,\phi_F(P)):P\in E[2]\},
+\qquad
+J_F=(E\times F)/\Gamma_F,
+\]
+with quotient isogeny \(\pi_F:E\times F\to J_F\).
+
+Every isomorphism between the two symplectic
+\(\mathbb F_2\)-spaces is anti-symplectic at level \(2\).
+Thus \(\Gamma_F\) is maximal isotropic.
+
+The curves \(E\) and \(F\) are not geometrically
+isogenous. Indeed, at the good prime \(3\),
+\(a_3(E)=-3\) gives supersingular reduction, whereas
+\(a_3(F)=-1\) gives ordinary reduction. These reduction
+types are invariant under geometric isogeny.
+
+Howe--Lepr\'evost--Poonen, Proposition 3, therefore
+applies: each principally polarized \(J_F\) is the
+Jacobian of a smooth genus-two curve over \(\mathbb Q\).
+See \cite[Proposition~3]{HLP}.
+
+Write \(\lambda_E,\lambda_F\) for the canonical elliptic
+principal polarizations and \(\lambda_{J_F}\) for the
+descended principal polarization. Then
+\[
+\boxed{
+\deg\pi_F=4,\qquad
+\pi_F^*\lambda_{J_F}
+=2(\lambda_E\oplus\lambda_F).
+}
+\]
+Equivalently, the polarization adjoint satisfies
+\(\pi_F^\dagger\pi_F=[2]\).
+
+Consequently,
+\[
+\operatorname{rank}J_F(\mathbb Q)=4+3=7.
+\]
+Let
+\[
+I_F=
+\left[
+J_F(\mathbb Q)/J_F(\mathbb Q)_{\rm tors}:
+\pi_F((E\times F)(\mathbb Q))
+\ \bmod J_F(\mathbb Q)_{\rm tors}
+\right].
+\]
+This index is finite. The adjoint identity shows that
+its cokernel is killed by \(2\), so \(I_F\) is a power
+of \(2\). By functoriality of canonical heights, the
+height pairing on the image of the product point
+lattice is twice the product pairing. Hence
+\[
+\boxed{
+\operatorname{Reg}(J_F)=
+\frac{2^7\operatorname{Reg}(E)
+                 \operatorname{Reg}(F)}
+     {I_F^2}.
+}
+\]
+This holds separately for \(J_A\) and \(J_C\), with
+their actual respective Mordell--Weil indices.
+
+At the infinite place the isogeny similarly enlarges
+the product period lattice by the graph of the
+\(2\)-torsion identification:
+\[
+\Lambda_E\oplus\Lambda_F
+\subset\Lambda_{J_F}
+\subset\tfrac12(\Lambda_E\oplus\Lambda_F),
+\qquad
+[\Lambda_{J_F}:\Lambda_E\oplus\Lambda_F]=4,
+\]
+under compatible complex uniformizations.
+Thus integral half-periods are genuinely mixed,
+while rational cohomology still splits:
+\[
+H^1(J_F,\mathbb Q)
+\simeq H^1(E,\mathbb Q)\oplus H^1(F,\mathbb Q).
+\]
+Since \(\operatorname{Hom}_{\overline{\mathbb Q}}(E,F)=0\),
+algebraic correspondences cannot provide a nonzero
+off-diagonal transfer between the elliptic factors.
+
+\subsection{Consequence for the second derivative}
+
+Isogeny invariance gives
+\[
+L(J_F,s)=L(E,s)L(F,s).
+\]
+For the corresponding completed functions, the
+established lower bounds on vanishing imply the exact
+identity
+\[
+\boxed{
+\Lambda_{J_F}^{(5)}(1)
+=10\,\Lambda_E''(1)\Lambda_F'''(1).
+}
+\]
+If \(\Lambda_F'''(1)\ne0\), this identifies the
+vanishing of the original second derivative with
+fifth-derivative vanishing on \(J_F\). That
+nonvanishing condition is additional to the proven
+algebraic rank-three statement.
+
+The regulator formula, integral Hecke extension and
+glued period lattices do not themselves force the
+fifth derivative to vanish. The fifth derivative of the glued Jacobian remains undetermined by this calculation.
+
+\section{Transfer by the ratio of two Dirichlet series}
+For the pair \(E,A\) write
+\[
+L(E,s)/L(A,s)=\sum_{m\ge1} b_m m^{-s}\qquad(\Re s>3/2).
+\]
+Both Dirichlet series and the reciprocal Euler product converge
+absolutely there. Put \(h_m(t)=g_A(t+\log m)-g_A(t-\log m)\).
+Then
+\begin{equation}\label{eq:ratio}
+g_E(t)=\sum_{m\ge1}\frac{b_m}{2m}h_m(t),\qquad
+\int_{\mathbb R}t^2h_m(t)\,dt=-4\log(m)\Lambda_A'(1)=0 .
+\end{equation}
+Indeed \(a_n(E)=\sum_{m\mid n}b_ma_{n/m}(A)\).
+Substitution into the exponentially convergent newform expansion gives
+\(g_E(t)=\sum_m(b_m/m)g_A(t+\log m)\). Average this with its reflection
+at \(-t\), using the opposite parities of the kernels. The series
+converge absolutely and uniformly for \(t\) in a compact interval:
+the translated terms decay exponentially in \(m\) there. Translation
+in the moment integral gives the second identity.
+
+\begin{proposition}
+For this pair,
+\[
+\sum_m\frac{|b_m|}{2m}\int_{\mathbb R}t^2|h_m(t)|\,dt=\infty .
+\]
+\end{proposition}
+\begin{proof}
+As \(a=\log m\to\infty\), the integral divided by \(a^2\) tends to
+\(2\int|g_A|\). On each of the two windows \(|t\mp a|\le R\), the
+other translate tends uniformly to zero and \(t^2/a^2\to1\).
+Letting \(R\to\infty\) gives the lower bound. The triangle inequality
+and rapid decay give the matching upper bound.
+At a good prime \(p\), \(b_p=a_p(E)-a_p(A)\), and point counts give
+\(a_5(E)=-4,\ a_5(A)=-2\). The Frobenius class of \(5\) in the
+compositum of the two \(3\)-division fields consequently supplies, by
+Chebotarev, a positive-density set of primes with \(b_p\not\equiv0
+\bmod3\). Partial summation shows that the sum of
+\((\log p)^2/p\) over that set diverges.
+\end{proof}
+The second moments of finite partial sums in \eqref{eq:ratio} all
+vanish. Compact convergence supplies \(\Lambda_E''(1)\) if one first
+takes the limit of integrals over bounded intervals and only afterwards
+enlarges the interval. Termwise integration would require additional
+signed tail control.
+
+For comparison, if \(L(A,s)\) has exact analytic order three, the
+completed functional equations give an odd quotient and
+\[
+\operatorname*{Res}_{u=0}\frac{L(E,1+u)}{L(A,1+u)}
+=\frac{3L''(E,1)}{L'''(A,1)}.
+\]
+At \(q=117223\) the bad-prime quotient is \((1+q^{-s})/(1-q^{-s})\),
+a unit at the center. The Atkin--Lehner projector \((1-W_q)/2\)
+separates \(f_E\) from \(f_A\) with Petersson norm one. It gives no
+bound for the reciprocal of the displayed residue.
+
+\section{The translated logarithmic period}
+Write \(F(y)=f_E(iy)\), and use the principal logarithm in
+\[
+P(s)=\operatorname{Re}\int_0^\infty F(y)
+        [\log(\sqrt N(s+iy))]^2\,dy,\qquad s\ge0 .
+\]
+Both the kernel and its derivatives decay exponentially at infinity.
+The Fricke relation \(F(1/(Ny))=Ny^2F(y)\) gives flatness to every
+order at zero. These bounds justify differentiation from the right
+at the endpoint and the exchanges of absolutely convergent integrals
+below.
+\paragraph{Mellin normalization.}
+For
+\[
+ \Lambda_E(w)=
+ \left(\frac{\sqrt N}{2\pi}\right)^w
+ \Gamma(w)L(E,w),
+\]
+Mellin transformation gives
+\[
+ \Lambda_E(w)=N^{w/2}
+       \int_0^\infty F(y)y^{w-1}\,dy.
+\]
+At \(s=0\),
+\[
+ \operatorname{Re}\log^2(i\sqrt N y)
+ =\log^2(\sqrt N y)-\frac{\pi^2}{4}.
+\]
+Since
+\(\int_0^\infty F(y)\,dy=L(E,1)/(2\pi)=0\),
+differentiation of the Mellin integral and the central vanishing yield
+\[
+ \boxed{\displaystyle
+ P(0)=\frac{\Lambda_E''(1)}{\sqrt N}
+     =\frac{L''(E,1)}{2\pi}.}
+\]
+
+
+\paragraph{Uniform positivity away from zero.}
+Define
+\[
+ A_2=\int_0^\infty y^2F(y)\,dy
+     =\frac{2L(E,3)}{(2\pi)^3},
+ \qquad
+ A_{4,\mathrm{abs}}=\int_0^\infty y^4|F(y)|\,dy.
+\]
+For \(s\ge1\), put \(B=\log(s\sqrt N)\), \(t=y/s\).
+The exact identity
+\[
+ \operatorname{Re}\log^2(\sqrt N(s+iy))
+ =\left(B+\frac12\log(1+t^2)\right)^2
+       -\arctan^2t
+\]
+has expansion \(B^2+(B-1)t^2+R_B(t)\), where
+\[
+ R_B(t)=B\{\log(1+t^2)-t^2\}
+       +t^2-\arctan^2t
+       +\frac14\log^2(1+t^2).
+\]
+For \(t\ge0\), elementary integration gives
+\[
+ 0\le t^2-\log(1+t^2)\le\tfrac12t^4,
+ \quad
+ 0\le t^2-\arctan^2t\le\tfrac23t^4,
+ \quad
+ \log^2(1+t^2)\le t^4.
+\]
+Since \(B>0\),
+\[
+ |R_B(t)|\le
+ \left(\frac B2+\frac{11}{12}\right)t^4.
+\]
+The \(B^2\) term integrates to zero by the central vanishing. Therefore
+\[
+ \boxed{\displaystyle
+ \left|P(s)-\frac{(B-1)A_2}{s^2}\right|
+ \le\frac{(B/2+11/12)A_{4,\mathrm{abs}}}{s^4}.}
+\]
+
+Euler products give explicit bounds. The Euler factors and
+\(|a_n|\le d(n)\sqrt n\) imply
+\[
+ A_2\ge\frac{2}{(2\pi)^3}
+       \left(\frac{\zeta(5)}{\zeta(5/2)}\right)^2
+       >0.0048,
+\]
+\[
+ A_{4,\mathrm{abs}}
+ \le\frac{24}{(2\pi)^5}\zeta(9/2)^2
+       <0.0028.
+\]
+For the first inequality, at every good prime the Euler
+factor is bounded below by
+\((1+\ell^{-5/2})^{-2}\); the multiplicative bad-prime
+factors satisfy the same lower bound. For the second,
+integrate the absolutely majorized Fourier series termwise.
+For example,
+\[
+ \zeta(5)>1.036,\quad
+ \zeta(5/2)<1.342,\quad
+ \zeta(9/2)<1.055
+\]
+suffice. These rational bounds follow by finite summation and
+\[
+ \sum_{n>J}n^{-\sigma}
+ \le \frac{J^{1-\sigma}}{\sigma-1}
+ \qquad(\sigma>1).
+\]
+
+Let \(B_1=\log\sqrt N\), so \(6.18<B_1<6.19\).
+The preceding three estimates give
+\[
+ P(1)>
+ 5.18(0.0048)
+ -\left(\frac{6.19}{2}+\frac{11}{12}\right)(0.0028)
+ >0.0136.
+\]
+Moreover,
+\[
+ \frac{B/2+11/12}{B-1}
+\]
+is strictly decreasing for \(B>1\).
+Since \(B\ge B_1\) and \(s^{-2}\le1\), the remainder bound proves
+\[
+ \boxed{P(s)>0\quad\text{for every real }s\ge1.}
+\]
+It also gives the asymptotic
+\[
+ P(s)=\frac{A_2}{s^2}
+       \{\log(s\sqrt N)-1\}
+       +O\left(\frac{\log s}{s^4}\right),
+ \qquad s\longrightarrow+\infty.
+\]
+In particular \(P(n)>0\) for every positive integer \(n\),
+but \(P(n)\to0\). These nonzero values cannot all belong
+to one fixed discrete additive subgroup of \(\mathbb R\).
+
+\paragraph{The endpoint derivative.}
+Differentiating the defining integral from the right at zero gives
+\[
+ P'(0)=\pi\int_0^\infty\frac{F(y)}y\,dy.
+\]
+The positive functional equation
+\(\Lambda_E(w)=\Lambda_E(2-w)\) now yields
+\[
+ \boxed{\displaystyle
+ P'(0)=\pi\Lambda_E(0)
+       =\frac{N}{4\pi}L(E,2)>0.}
+\]
+The Euler-product estimate
+\[
+ L(E,2)\ge
+ \left(\frac{\zeta(3)}{\zeta(3/2)}\right)^2
+\]
+gives the conservative explicit bound \(P'(0)>3900\).
+Thus \(P(0)=0\), if true, is perfectly compatible with
+strict positivity immediately to its right. No continuity
+or one-sided positivity argument proves \(P(0)\ne0\).
+
+\paragraph{Exact inverse Laplace density.}
+Define the cosine transform
+\[
+ B_E(x)=\int_0^\infty F(y)\cos(xy)\,dy.
+\]
+The Laplace identity, for \(\operatorname{Re}z>0\),
+\[
+ \int_0^\infty e^{-zx}(-\log x-\gamma)\,dx
+       =\frac{\log z}{z},
+\]
+where \(\gamma\) denotes Euler's constant, gives
+\[
+ P'(s)=-2\int_0^\infty e^{-sx}
+       [\log(x/\sqrt N)+\gamma]B_E(x)\,dx.
+\]
+Integrating from \(s\) to infinity, using the large-translate asymptotic, proves
+\[
+ \boxed{\displaystyle
+ P(s)=\int_0^\infty e^{-sx}W(x)\,dx,\qquad
+ W(x)=\frac{2}{x}
+       [\log(x/\sqrt N)+\gamma]B_E(x).}
+\]
+This also holds at \(s=0\). Because
+\(\int F=0\), Taylor expansion at \(x=0\) gives
+\[
+ B_E(x)=-\frac{A_2x^2}{2}+O(x^4),
+ \qquad W(x)=O(x|\log x|).
+\]
+At infinity \(W\) decreases rapidly, so \(W\in L^1(0,\infty)\).
+There is no missing boundary mass at \(x=0\).
+
+\paragraph{Infinitely many sign changes.}
+By the Fricke relation, the even extension
+\(\widetilde F(y)=F(|y|)\), with
+\(\widetilde F(0)=0\), is Schwartz and flat at the origin.
+Its Fourier transform is \(2B_E(x)\).
+Fourier inversion and differentiation therefore imply
+\[
+ \boxed{\displaystyle
+ \int_0^\infty x^{2j}B_E(x)\,dx=0
+ \quad(j=0,1,2,\ldots).}
+\]
+The function \(B_E\) is not identically zero, since
+\(B_E''(0)=-A_2<0\).
+
+If \(B_E\) had finitely many sign changes, a polynomial
+\(Q(x^2)\), with one simple root at each sign-change
+location, could be assigned a global sign so that
+\(Q(x^2)B_E(x)\ge0\) everywhere and is positive on an
+open interval. Its integral would be positive. Expanding
+\(Q\) would contradict the even-moment identities. Hence \(B_E\) has infinitely
+many sign changes, necessarily at unbounded \(x\).
+The logarithmic factor in the density has only one positive zero,
+so \(W\) also changes sign infinitely often.
+
+By uniqueness of Laplace transforms \cite{Widder} of finite signed
+measures and Bernstein's characterization of completely
+monotone functions, \(P\) is not completely monotone on
+any half-line \(s>s_0\ge0\). Indeed, complete monotonicity
+there would give a nonnegative representing measure for
+\(P(s_0+\cdot)\), whereas its unique representing measure
+is \(e^{-s_0x}W(x)\,dx\), which changes sign.
+
+\paragraph{Finite-dimensional translation obstruction.}
+There cannot be a finite-dimensional complex vector
+space \(V\), a fixed \(T\in\operatorname{End}(V)\),
+\(v\in V\), and \(\ell\in V^\vee\) satisfying
+\[
+ P(n)=\ell(T^nv)\qquad(n\ge1).
+\]
+Such a representation imposes a linear recurrence by Cayley--Hamilton.
+Its generating function \(H(z)=\sum_{n\ge1}P(n)z^n\) would be rational.
+The large-translate estimate gives
+\[
+ \sum_{n\ge1}P(n)<\infty,\qquad
+ \sum_{n\ge1}nP(n)=\infty.
+\]
+Consequently \(H(r)\) has a finite limit as \(r\uparrow1\),
+while \(H'(r)\to+\infty\). A rational function with a finite
+limit at \(1\) has a removable singularity there and a
+finite derivative, a contradiction. Thus a fixed
+finite-dimensional linear translate orbit cannot encode
+these raw periods. This statement does not exclude a
+different arithmetic extension or a nonhorizontal
+motivic construction.
+
+\paragraph{Signed binomial reconstruction and Hausdorff
+differences.}
+For \(M\ge1\), define
+\[
+ S_M=\sum_{n=1}^M(-1)^{n+1}\binom MnP(n).
+\]
+The Laplace representation gives the exact identities
+\[
+ S_M=\int_0^\infty
+       [1-(1-e^{-x})^M]W(x)\,dx,
+\]
+\[
+ P(0)-S_M=
+       \int_0^\infty(1-e^{-x})^M W(x)\,dx.
+\]
+Dominated convergence, using \(W\in L^1\), yields
+\[
+ \boxed{\displaystyle
+ P(0)=\lim_{M\to\infty}
+       \sum_{n=1}^M(-1)^{n+1}\binom MnP(n).}
+\]
+Thus the positive-index periods determine \(P(0)\),
+but only through a signed reconstruction whose error
+has no prescribed sign.
+
+With \(\Delta P(n)=P(n+1)-P(n)\), we also have
+\[
+ (-1)^k\Delta^kP(n)=
+ \int_0^\infty e^{-nx}(1-e^{-x})^kW(x)\,dx.
+\]
+These expressions cannot all be nonnegative for
+\(n\ge1,\ k\ge0\). Otherwise, pushing the finite signed
+measure \(e^{-x}W(x)\,dx\) forward under \(t=e^{-x}\)
+would give a measure with nonnegative integrals against
+every \(t^j(1-t)^k\). Approximation by Bernstein
+polynomials would force that measure to be nonnegative,
+contrary to the sign changes of \(W\).
+
+Nevertheless, for every \emph{fixed} \(k\), the small-\(x\) expansion and
+Laplace asymptotics give
+\[
+ (-1)^k\Delta^kP(n)
+ \sim\frac{A_2(k+1)!}{n^{k+2}}\log n>0
+ \qquad(n\to\infty).
+\]
+Thus each fixed finite-difference order eventually appears
+positive, while the complete Hausdorff inequalities fail.
+
+
+\paragraph{A smooth model with zero endpoint.}
+The constraints above admit a Fricke-symmetric example with a vanishing
+second central moment. Take a nonnegative even \(C^\infty\) function
+\(h\) of integral one supported in \([-1/100,1/100]\), put
+\(a=8/3\), and define
+\[
+G(t)=27\{3h(t)-2h(t-a)-2h(t+a)
+               +\tfrac12 h(t-2a)+\tfrac12 h(t+2a)\}.
+\]
+Its bilateral Laplace transform is
+\(54\widehat h(u)(\cosh(au)-1)^2\), where
+\(\widehat h(u)=\int h(t)e^{ut}dt\).
+Set \(F_*(y)=e^{-t}G(t)\) for \(t=\log(\sqrt N y)\). Evenness gives
+the same Fricke identity, and its completed Mellin transform
+\(N^{(1+u)/2}\int_0^\infty F_*(y)y^u\,dy\) has exact order four.
+The corresponding \(P_*(0)\) is zero. Its quadratic and absolute
+fourth ordinary moments satisfy
+\[
+ A_{2,*}\ge \frac{54(\cosh(2a)-1)^2}{N^{3/2}}>0.0050,\qquad
+ A_{4,\mathrm{abs},*}
+ \le\frac{27e^{0.04}(3+4\cosh(4a)+\cosh(8a))}{N^{5/2}}
+ <0.00098.
+\]
+These follow by integrating the five translates; the absolute bound
+uses the triangle inequality. The remainder estimate for \(P\) thus
+gives \(P_*(s)>0\) for \(s\ge1\). This example tests the analytic
+conditions only. It makes no assertion about Hecke eigenforms.
+
+\section{A closed quadratic-twist period}
+Let \(\chi(n)=(\frac{n}{3})\) and \(\omega_f=2\pi i f_E(z)\,dz\).
+The normalized period of the cycle from \(2/3\) to \(1/3\) is
+\[
+\int_{2/3}^{1/3}\omega_f=i\sqrt3\,L(E\otimes\chi,1)
+                         =16i\Omega^-,
+\]
+where \(i\Omega^-\) is the primitive purely imaginary period of
+\(dx/(2y+x)\). The difference of boundary values of
+\(\sum a_n e^{2\pi inz}/n\) gives the quadratic Gauss sum, using Abel
+limits. Both cusps represent \(0\) at level \(N\), since \(3\nmid N\).
+Cremona's optimality and Manin entry is \(1,1\) for the displayed
+curve \cite{Cremona}. Its positive discriminant gives a rectangular
+period lattice, so the quotient by \(i\Omega^-\) is an integer.
+
+The twist has conductor \(9N\) and root number \(+1\), since
+\(\chi(-N)=+1\). Put \(c=2\pi/(3\sqrt N)\). The Fricke-split Mellin
+formula \cite[Ch.~II, Prop.~2.11.2]{Book} gives
+\[
+ L(E\otimes\chi,1)=2\sum_{n\ge1}\frac{a_n\chi(n)}n e^{-cn}.
+\]
+Use \(a_2=-1\); at the good odd primes \(p\le5000\) use
+\(a_p=-\sum_{x\bmod p}(\frac{4x^3-3x^2-316x+1156}{p})\).
+Extend by the Hecke recurrences and multiplicativity. The sum up to 5000
+lies in \((7.395855,7.395858)\); the absolute tail is at most
+\(4e^{-5001c}/(1-e^{-c})<0.00000038\) by \(|a_n|\le2n\).
+
+Here are integer data sufficient to repeat the enclosure. Use
+\(B=10^{25}\) and start with integer endpoints \(B,B\). Generate
+successive bounds on \(Be^{-cn}\) by multiplying the previous endpoints by
+\[
+9956838327389655378430842/B,\quad
+9956838327392406092287538/B,
+\]
+respectively, rounding out to integers. These bound \(e^{-c}\) by
+the degree-seven and degree-six Taylor polynomials, using
+\(3.1415926535<\pi<3.1415926537\) and bracketing \(\sqrt N\) to
+width \(10^{-10}\). Multiply by \(2a_n\chi(n)/(nB)\), reverse the
+endpoints when negative, and sum the intervals.
+
+For roots \(e_1>e_2>e_3\) of \(4x^3-3x^2-316x+1156\), the
+elliptic period formula gives
+\[
+ \Omega^-=\frac{\pi}
+ {\operatorname{AGM}(\sqrt{e_1-e_3},\sqrt{e_2-e_3})}.
+\]
+Bisect the intervals \((5.74,5.75),(5.02,5.03),(-10.02,-10.01)\)
+to width \(10^{-10}\). Five arithmetic and geometric mean steps,
+bounding the limit between the final two means, give
+\(0.80062<\Omega^-<0.80063\).
+The resulting integer lies strictly between \(15.99\) and \(16.01\).
+
+Quadratic base change to \(\mathbb Q(\sqrt{-3})\) therefore multiplies
+the second central derivative by \(16\Omega^-/\sqrt3\), by the product
+factorization and the two initial vanishings of \(L(E,s)\).
+
+\section{A four-zero contour calculation}
+For an even holomorphic function \(H\) assume that inside
+\(|u|=R\) its zeros, with multiplicity, are \(0,0,\alpha,-\alpha\)
+and that it has no boundary zero. Write \(\beta=\alpha^2\), allowing
+\(\alpha=0\), and define the positively oriented integrals
+\[
+ M=\frac1{2\pi i}\oint u^2H'(u)/H(u)\,du,\qquad
+ J_j=\frac1{2\pi i}\oint u^{2j+1}/H(u)\,du\quad(j=0,1).
+\]
+Then
+\[
+ M=2\beta,\qquad H''(0)=-\frac{M}{J_1-\beta J_0}.
+\]
+In fact \(H(u)=u^2(u^2-\beta)h(u^2)\) with \(h\) zero-free.
+For \(k=1/h\), residues give \(J_1=k(\beta)\) and
+\(J_0=(k(\beta)-k(0))/\beta\), interpreted as \(k'(0)\) if
+\(\beta=0\). The denominator of the displayed expression is \(k(0)\).
+For \(\alpha\ne0\), every bounded holomorphic weight \(\varphi\)
+in the disc satisfying \(\varphi(0)=1\), \(\varphi(\pm\alpha)=0\)
+obeys \(\|\varphi\|_\infty\ge R^2/|\beta|\).
+Division by the two Blaschke factors proves the inequality, since their
+product at zero has modulus \(|\beta|/R^2\). Normalizing that
+product to one at zero attains equality. The stability cost is
+therefore exact. Application to a particular disc for
+\(\Lambda_E(1+u)\) requires a certified zero count on that disc.
+
+\paragraph{Arithmetic lower bounds require an archimedean comparison.}
+Finite congruence evidence for a regulator in another completion cannot
+supply such a lower bound on its own. For instance
+\(U(X)=X^4-X^3-X^2-X+1\) is irreducible modulo \(2\) (the fifth
+cyclotomic polynomial there). Writing \(z=X+1/X\) gives
+\(U(X)/X^2=z^2-z-3\). The smaller root \(z=(1-\sqrt{13})/2\)
+is in \((-2,2)\), so one complex embedding of a root \(\alpha\)
+satisfies \(\log|\alpha|=0\).
+At \(17\), the simple root \(10\bmod17\) lifts to \(61\bmod289\),
+and \(61^{16}\equiv1+6\cdot17\bmod289\).
+In that embedding \(\log_{17}(\alpha^{16})/17\equiv6\bmod17\).
+This verifies the directional limitation of a single congruence,
+without addressing possible special comparisons for the elliptic
+curve.
+
+\begin{thebibliography}{9}
+\bibitem{Cremona} J. E. Cremona, \emph{Elliptic curve data},
+\href{https://github.com/JohnCremona/ecdata/blob/master/allcurves/allcurves.230000-239999}{curve and rank data}
+and \href{https://github.com/JohnCremona/ecdata/blob/master/opt_man/opt_man.230000-239999}{optimality and Manin constants}, rows for conductor 234446.
+\bibitem{GZK} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture},
+\href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Clay problem description}. See the results of Gross--Zagier and Kolyvagin on analytic ranks zero and one.
+\bibitem{HLP} E. W. Howe, F. Lepr\'evost and B. Poonen,
+\emph{Large torsion subgroups of split Jacobians of curves of genus two or three}, Forum Math. \textbf{12} (2000), 315--364,
+\href{https://math.mit.edu/~poonen/papers/large.pdf}{Prop.~3}.
+\bibitem{Book} J. E. Cremona, \emph{Algorithms for Modular Elliptic Curves},
+\href{https://johncremona.github.io/book/fulltext/chapter2.pdf}{Chapter~II}.
+\bibitem{Widder} D. V. Widder, \emph{The Laplace Transform}, Princeton University Press, 1941.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,247 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}\newcommand{\Sha}{\mathrm{Sha}}
+\title{Marked elliptic curves, point-isolating covers, and isotypic visibility}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+A rational point $P=(x,y)$ on $Y^2=f(X)$ with $y\ne0$ can be isolated,
+together with its inverse, on infinitely many genus-two covers whose
+Jacobian has the same complex analytic rank as the original curve.
+At primes of transposition type, a trace congruence detects whether $P$
+is twice a point after reduction. We compare this smooth construction to
+pinching pairs of rational points, which removes one complex order per
+node. Finally we give a dimension obstruction for killing an order-$p$
+torsor inside a geometrically isotypic abelian variety. Under a large
+residual-image hypothesis the least possible dimension is exactly $p$.
+\end{abstract}
+\section{A cover that singles out a pair of points}
+Let $f(X)=X^3+aX+b$ be separable and $E:Y^2=f(X)$. Fix
+$P=(x,y)\in E(\Q)$ with $y\ne0$. For $d\in\Q^\times$ write
+\[
+ H_d: v^2=f(x-du^2),\qquad A_d:w^2=d(x-X)f(X).
+\]
+We take smooth projective models, choosing $(x,0)$ as origin on $A_d$.
+\begin{theorem}\label{th:cover}
+For infinitely many squareclasses of $d$ one has simultaneously
+\[
+ H_d(\Q)=\{(0,y),(0,-y)\},\qquad L(A_d,1)\ne0.
+\]
+For these $d$ the two points map to $\pm P$ on $E$ and
+$\operatorname{ord}_{s=1}L(\operatorname{Jac}H_d,s)
+=\operatorname{ord}_{s=1}L(E,s)$.
+\end{theorem}
+\begin{proof}
+The sextic has six distinct geometric roots, since $f(x)\ne0$.
+The involutions $(u,v)\mapsto(-u,v)$ and $(u,v)\mapsto(-u,-v)$
+give degree-two quotients $E$ and $A_d$, via
+$(X,Y)=(x-du^2,v)$ and $(X,w)=(x-du^2,duv)$ respectively. The
+pullbacks of the two invariant differentials span the independent
+$u\,du/v$ and $du/v$ lines. They induce a $\Q$-isogeny
+$\operatorname{Jac}H_d\sim E\times A_d$.
+
+The curves $A_d$ are the quadratic twists of the fixed elliptic
+curve $A_1$. Infinitely many have nonzero central value
+\cite{OS} and hence Mordell--Weil rank zero by the rank-zero
+theorem for modular elliptic curves \cite{Wiles}. With finitely
+many squareclasses excepted their rational torsion is contained
+in $A_d[2]$. Indeed over $\Q(\sqrt d)$ a torsion point maps to a
+torsion point on $A_1$ of degree at most two. There are only finitely
+many such points by the height comparison and Northcott's theorem;
+each point of order greater than two can be anti-invariant for at most
+one quadratic character. The two-torsion consists of the four branch
+points, namely $(x,0)$ and $(e,0)$ for roots $e$ of $f$. A rational
+preimage of $(e,0)$ requires $e\in\Q$ and $d$ in the squareclass of
+$x-e$. The two points at infinity on the sextic are rational only
+if $-d^3$ is a square. Excluding these finitely many classes leaves
+only $u=0$ and proves the assertions by the isogeny factorization.
+\end{proof}
+
+\begin{proposition}\label{th:bit}
+Outside finitely many odd primes, if $f$ has exactly one root modulo
+$p$ then
+\[
+ \frac{a_p(A_d)-a_p(E)}2\equiv
+ \mathbf1_{\overline P\notin 2E(\F_p)}\pmod2 .
+\]
+\end{proposition}
+\begin{proof}
+Write $e$ for the rational root and $e',e''$ for its conjugates.
+For a cubic with unique rational root $e$, the standard two-isogeny
+descent map is $P\mapsto X(P)-e$ modulo squares, with value
+$f'(e)$ at $(e,0)$. Its kernel is the image of the dual isogeny.
+Over $\F_p$ the isogenous curves have the same order and the dual
+kernel has size two, so that image has index two and equals $2E(\F_p)$.
+In particular, the unique nonzero rational point of order two is
+divisible by two exactly when $f'(e)$ is square, equivalently when
+$4\mid\#E(\F_p)$.
+
+Set $c=-df(x)$. In the coordinates $Z=c/(X-x)$ and
+$W=cw/(X-x)^2$, the companion has a monic cubic with roots
+$z_i=c/(e_i-x)$. Its corresponding derivative at $z_e$ is
+\[
+ (z_e-z_{e'})(z_e-z_{e''})
+ =\frac{c^2 f'(e)}{(e-x)^2(e'-x)(e''-x)}.
+\]
+Since $(e'-x)(e''-x)=f(x)/(x-e)$ and $f(x)=y^2$, its squareclass
+is $f'(e)(x-e)$. Thus divisibility by four of the two group orders
+differs exactly when $x-e$ is nonsquare. Both orders are even; taking
+their difference and using $a_p=p+1-\#E(\F_p)$ proves the formula.
+\end{proof}
+The bit is unchanged when either curve is quadratically twisted at a
+good unramified prime of this type: changing the sign of an even trace
+leaves it unchanged modulo four. In particular one may choose a
+rank-zero twist of each curve separately by the same nonvanishing
+theorem. The bits measure the original marked class, but do not force
+a central derivative to vanish.
+
+\section{The finite-field norm and its exact average}
+Suppose $E[2]$ has full $S_3$ Galois image. Fix $d$ independent
+classes of rational points modulo twice $E(\Q)$, represented by
+$P_i$. Given a good odd prime, let $F$ denote its Frobenius endomorphism,
+$D=E(\F_{p^2})$, $A=E(\F_p)$ and $B=\ker(1+F)$ on $D$.
+Both $1+F$ and $1-F$ are surjective on geometric points; a solution
+to $(1+F)Y=a\in A$ or $(1-F)Y=b\in B$ lies in $D$. Their maps
+induce natural isomorphisms
+\[
+ A/2A \ \xleftarrow{\ 1+F\ }\ D/(A+B)
+   \ \xrightarrow{\ 1-F\ }\ B/2B .
+\]
+For example $(1+F)(A+B)=2A$ and its kernel on $D$ is $B$.
+Write $\overline P_i^-$ for the resulting classes in $B/2B$.
+
+\begin{proposition}
+The prime mean of $\#((B/2B)/\langle\overline P_1^-,\ldots,
+\overline P_d^-\rangle)$ is $1+2^{-d}$. At transposition primes the
+bits of Proposition~\ref{th:bit} realize each length-$d$ binary pattern.
+\end{proposition}
+\begin{proof}
+Put $V=E[2]$ and $K=\Q(V)$. Since $V^{C_3}=0$ and
+$H^1(C_3,V)=0$, inflation--restriction gives $H^1(S_3,V)=0$.
+Thus restriction of the $d$ classes to $G_K$ is independent. The
+image of their joint homomorphism is an $S_3$-submodule of $V^d$.
+The latter is semisimple and $\operatorname{End}_{S_3}V=\F_2$, so a
+proper image would yield a nonzero linear combination restricting
+to zero. It follows that the translations in the joint division
+extension fill $V^d$. For a fixed linear Frobenius $g$, the reductions
+in $V/(g-1)V\simeq E(\F_p)/2E(\F_p)$ are therefore independently
+uniform under the finite-group Chebotarev average. If this quotient has
+dimension $h$, the expected cardinality after dividing by the $d$
+classes is $1+(2^h-1)2^{-d}$: count dual characters vanishing on them.
+The mean of $2^h-1$ over $S_3$ is one, by transitivity on
+$V\setminus\{0\}$. The event in the second assertion is invariant
+under conjugation and has positive density by the same calculation.
+See also the general localization method in \cite[\S3]{MR}.
+\end{proof}
+
+\section{Pinching rational pairs}
+Given $k$ nontorsion rational marks $P_i$ independent modulo torsion,
+choose pairwise disjoint $\Q$-rational pairs $(A_i,B_i)$ on $E$
+with $B_i-A_i=P_i$; multiples of one point avoid any finite set of
+forbidden choices. Identify each pair to make a split node on a
+proper curve $C$ with normalization $E$. The normalization sequence
+for \'etale cohomology gives
+\[
+ 0\longrightarrow\Q_\ell^k\longrightarrow H^1(C_{\overline\Q},\Q_\ell)
+ \longrightarrow H^1(E_{\overline\Q},\Q_\ell)\longrightarrow0.
+\]
+This also follows at good places by counting points over each finite
+residue-field extension. Hence outside a fixed finite bad set
+$L^S(H^1(C),s)=\zeta^S(s)^k L^S(E,s)$ and the central order drops by
+exactly $k$. The dual homology extension
+$0\to V_p E\to W\to\Q_p^k\to0$ is the realization of
+$[\mathbb Z^k\to E]$ sending the $i$th node generator to $P_i$,
+up to choices of orientation. This is the usual normalization
+description of the homological Picard 1-motive \cite{Deligne}.
+The connecting map sends the standard basis to their Kummer classes.
+
+For a good prime $p$ the induced finite Selmer group is
+\[
+ H^1_f(\Q,W)=H^1_f(\Q,V_pE)/\langle\kappa(P_i)\rangle .
+\]
+Indeed $H^1_f(\Q,\Q_p)=0$ by class field theory: a finite class for
+the trivial representation is everywhere unramified. A global lift in
+$H^1(\Q,V_pE)$ of a finite class of $W$ is locally finite. Away from
+$p$ the extension splits since $E(\Q_l)\otimes\Q_p$ in the rational
+Kummer sense vanishes for $l\ne p$; at $p$ the extension is crystalline
+and splits after tensoring with $B_{\rm cris}$ as Galois modules.
+The latter follows from the crystalline comparison isomorphisms and
+exactness of $D_{\rm cris}$ on crystalline representations. These
+splittings give the required injectivity on the cohomology tests
+defining $H^1_f$ \cite[\S3]{BK}. The kernel on global lifts is exactly
+the connecting image. Repeating a mark adds another pole to the
+analytic product but leaves this image unchanged.
+
+For one node, its generalized Jacobian is an extension of $E$ by
+$\mathbb G_m$ with extension class $\pm P\in E^\vee(\Q)$. A lift
+of the modular quotient $h:J_0(N)\to E$ would split the pulled-back
+extension, so $h^\vee P$ would be zero. Since $hh^\vee$ is a nonzero
+integral multiple of the identity (using the Jacobian polarization),
+this is impossible even up to isogeny for nontorsion $P$.
+
+\section{The dimension needed to kill an isotypic torsor}
+Call an order-$p$ class $\alpha\in\Sha(E/\Q)$ visible in $B$ with
+respect to an embedding $i:E\hookrightarrow B$ if it maps to zero
+in $H^1(\Q,B)$.
+\begin{theorem}
+Assume $E$ is non-CM, $p\ge5$, and the image on $E[p]$ contains
+$\mathrm{SL}_2(\F_p)$. If $\alpha\in\Sha(E/\Q)$ has exact order $p$,
+the smallest possible $\dim B$ among such visibility embeddings with
+$B_{\overline\Q}$ isogenous to a power of $E$ is $p$.
+\end{theorem}
+\begin{proof}
+For an embedding into $B$ of dimension $g<p$ put
+$M=\operatorname{Hom}_{\overline\Q}(E,B)$. It is free of rank $g$ by
+the isotypic and non-CM hypotheses. Its finite Galois image fixes the
+primitive vector $i$; divisibility of $i$ by $n>1$ would place $E[n]$
+in the kernel. An element of order $p$ in this image would have a
+nontrivial rational constituent of dimension $p-1$ as well as the
+fixed line, which is impossible. By Cauchy's theorem the field $K$
+defining all the maps has degree prime to $p$. Over $K$ the image on
+$E[p]$ still contains $\mathrm{SL}_2(\F_p)$, since this group is
+generated by elements of order $p$ and the quotient of images has
+order prime to $p$.
+
+Extend $i=f_1$ to a $\mathbb Z$-basis of $M$. The evaluation map
+$\varphi:E^g\to B$, $(x_j)\mapsto\sum f_j(x_j)$, is an isogeny.
+Its kernel contains no $p$-torsion. Otherwise its submodule of $E[p]^g$
+would contain a simple copy of $E[p]$, embedded by a vector of scalars
+in $\F_p$ by absolute irreducibility. Integral lifts of those scalars
+give a nontrivial modulo-$p$ linear combination of the $f_j$ killing
+$E[p]$. Such a map factors through $[p]$, contradicting the choice of
+basis in $M$. Thus the isogeny's degree $d$ is prime to $p$. Composing
+the inverse isogeny cleared by $d$ with projection to the first
+coordinate gives a map $r_K:B\to E$ over $K$ with $r_Ki=[d]$.
+Summing its Galois conjugates gives a map over $\Q$ with composite
+$[K:\Q]d$, a $p$-adic unit. The map on $p$-primary Weil--Ch\^atelet
+classes is consequently injective.
+
+Conversely the period--index equality for locally soluble genus-one
+torsors over number fields yields a rational divisor class of degree
+$p$ represented by an actual divisor. Riemann--Roch gives a rational
+effective representative. Each closed point in its support has degree
+divisible by $p$, so the representative is one closed point of degree
+$p$. Its residue field $L$ splits $\alpha$. Under the diagonal
+$E\to\operatorname{Res}_{L/\Q}E_L$ the induced map on $H^1$ is
+restriction by Shapiro's lemma. This is the visibility construction
+of Agashe--Stein \cite[Prop.~2.4]{AS}; the target has dimension $p$.
+\end{proof}
+The lower bound concerns geometrically isotypic targets and the stated
+residual representation. General visibility allows other isogeny factors.
+\begin{thebibliography}{9}\raggedright
+\bibitem{OS} K. Ono and C. Skinner, \emph{Non-vanishing of quadratic twists
+of modular $L$-functions}, \href{https://uva.theopenscholar.com/files/ken-ono/files/037.pdf}{authors' paper}.
+\bibitem{Wiles} A. Wiles, \emph{The Birch and Swinnerton-Dyer conjecture},
+\href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Clay description}.
+\bibitem{MR} B. Mazur and K. Rubin, \emph{Ranks of twists of elliptic curves
+and Hilbert's tenth problem}, \href{https://arxiv.org/abs/0904.3709}{arXiv:0904.3709}.
+\bibitem{Deligne} P. Deligne, \emph{Th\'eorie de Hodge III},
+\href{https://doi.org/10.1007/BF02685881}{paper}.
+\bibitem{BK} S. Bloch and K. Kato, \emph{$L$-functions and Tamagawa
+numbers of motives}, \href{https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf}{paper}.
+\bibitem{AS} A. Agashe and W. Stein, \emph{Visibility of Shafarevich--Tate
+groups of abelian varieties}, \href{https://wstein.org/papers/visibility_of_sha/jnt_version.pdf}{paper}.
+\end{thebibliography}\end{document}
