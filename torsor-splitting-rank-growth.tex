@@ -1,0 +1,433 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\Sha}{\mathop{\mathrm{Sha}}\nolimits}
+\title{Splitting Genus-One Torsors and Rank Growth in Quadratic Towers}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}}
+\date{Working draft for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $E$ be an elliptic curve over a totally real number field $K$ with
+irreducible two-torsion. A locally soluble torsor of period $2^k$ can
+be split in a tower of $k$ totally real quadratic extensions, with
+splitting prescribed at finitely many places. The differences between
+conjugates of its splitting point generate the full rational augmentation
+representation in the Mordell--Weil group of the normal closure. In
+particular the rank increases at every step, and the gain in the normal
+closure is at least $2^k-1$.
+\end{abstract}
+\medskip
+\noindent\textbf{Theorem.}
+Let $K$ be a totally real number field, and let
+$E/K$ be an elliptic curve such that $E[2]$ is an
+irreducible $\mathbb F_2[G_K]$-module. Suppose
+\[
+\alpha\in\Sha(E/K)
+\]
+has exact order $m=2^k$, with $k\ge1$.
+
+For any prescribed finite set $S$ of finite places
+of $K$, there exist a tower
+\[
+K=F_0\subset F_1\subset\cdots\subset F_k=F,
+\qquad [F_i:F_{i-1}]=2,
+\]
+and a point $x$ on the $\alpha$-torsor over $F$,
+with the following properties.
+
+\begin{enumerate}
+\item Every $F_i$ is totally real, and all places
+above $S$ split completely at every step.
+
+\item The restriction of $\alpha$ to $F_i$ has
+exact order $2^{k-i}$.
+
+\item The normal closure $L/K$ of $F/K$ is a
+totally real Galois $2$-extension and
+$E(L)[2]=0$.
+
+\item If $G=\operatorname{Gal}(L/K)$ and
+$H=\operatorname{Gal}(L/F)$, there is an injective
+$\mathbb Q[G]$-homomorphism
+\[
+\mathbb Q[G/H]_{\mathrm{aug}}
+\hookrightarrow E(L)\otimes\mathbb Q.
+\]
+Here the augmentation representation is the
+kernel of the degree map on $\mathbb Q[G/H]$.
+
+\item The ranks satisfy
+\[
+\operatorname{rank}E(F_i)
+-\operatorname{rank}E(F_{i-1})\ge1
+\quad(1\le i\le k)
+\]
+and
+\[
+\operatorname{rank}E(L)-\operatorname{rank}E(K)
+\ge2^k-1.
+\]
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Proof.}
+
+\emph{Splitting an order-two multiple.}
+Assume inductively that
+\[
+\alpha_i=\operatorname{res}_{F_i/K}(\alpha)
+\]
+has exact order $2^r$, where $r=k-i\ge1$.
+Put
+\[
+\beta_i=2^{r-1}\alpha_i.
+\]
+Then $\beta_i$ has exact order two and belongs
+to $\Sha(E/F_i)$.
+
+Let $C_i/F_i$ represent $\beta_i$. By the
+Cassels--Lichtenbaum period--index theorem
+\cite[Theorem 2.7(ii)]{FisherVisibility}, its
+index is two.
+
+For completeness, the obstruction to representing
+an $F_i$-rational geometric divisor class by an
+actual $F_i$-rational line bundle lies in
+$\operatorname{Br}(F_i)$. Since $C_i$ has a point
+over every completion, this obstruction is locally
+zero. The Brauer--Hasse--Noether injection makes
+it globally zero. Thus $C_i$ possesses a line
+bundle $\mathcal L_i$ of degree two.
+
+Riemann--Roch gives $h^0(C_i,\mathcal L_i)=2$.
+A degree-two line bundle on a genus-one curve is
+base-point-free, so it defines a degree-two map
+\[
+f_i:C_i\longrightarrow\mathbb P^1_{F_i}.
+\]
+
+At any completion $F_{i,v}$, local solubility
+gives a point of $C_i(F_{i,v})$. Since the branch
+locus is finite and the set of local points is
+infinite, we may choose a point away from it.
+
+Its image under $f_i$ has a fibre consisting
+of two distinct local points. By the real
+implicit-function theorem or nonarchimedean
+Hensel lifting, there is an open neighborhood
+of that image whose fibres split into two
+distinct $F_{i,v}$-points.
+
+Apply weak approximation on $\mathbb P^1(F_i)$
+to choose $t_i$ in these neighborhoods at every
+real place and at every place above $S$, avoiding
+the branch locus.
+
+The fibre $f_i^{-1}(t_i)$ is a reduced scheme
+of degree two. It cannot contain an
+$F_i$-rational point, since $\beta_i\ne0$.
+It is therefore the spectrum of a quadratic
+field extension
+\[
+F_{i+1}/F_i.
+\]
+
+This extension is totally real and splits at
+every specified finite place. It supplies a
+point of $C_i$, so
+\[
+\operatorname{res}_{F_{i+1}/F_i}(\beta_i)=0.
+\]
+Consequently $\alpha_{i+1}$ has order at most
+$2^{r-1}$.
+
+On the other hand, restriction--corestriction
+gives
+\[
+\operatorname{cor}_{F_{i+1}/F_i}(\alpha_{i+1})
+=2\alpha_i,
+\]
+whose order is exactly $2^{r-1}$. Hence
+\[
+\operatorname{ord}(\alpha_{i+1})=2^{r-1}.
+\]
+
+Induction constructs the asserted tower.
+At $i=k$, the class $\alpha_k$ is zero.
+Therefore the original $\alpha$-torsor $C$
+has an $F$-rational point $x$.
+
+\medskip
+\emph{The normal closure and its two-torsion.}
+Let $L_i$ be the normal closure of $F_i/K$.
+Inductively, $L_{i-1}/K$ has $2$-group Galois
+group. Every conjugate of $F_i/F_{i-1}$ becomes
+an extension of degree at most two after base
+change to $L_{i-1}$.
+
+Their compositum $L_i$ therefore has elementary
+abelian $2$-group Galois group over $L_{i-1}$.
+Thus $\operatorname{Gal}(L_i/K)$ is a $2$-group.
+All conjugates of the totally real field $F_i$
+are real, so $L_i$ is totally real.
+
+In particular $L=L_k$ has the asserted
+properties.
+
+Since $E[2]$ is irreducible over $\mathbb F_2$,
+the image of $G_K$ in
+\[
+\operatorname{GL}_2(\mathbb F_2)\simeq S_3
+\]
+is either $C_3$ or $S_3$.
+
+The image of $G_L$ is normal and has index a
+power of two in this image. It must therefore
+contain the subgroup $C_3$.
+
+A nonidentity element of $C_3$ fixes no
+nonzero vector in $\mathbb F_2^2$. Hence
+\[
+E(L)[2]=0.
+\]
+In particular, every torsion point of $E(L)$
+has odd order.
+
+\medskip
+\emph{The augmentation representation.}
+The period of $C/K$ is $m$.
+If $x$ were defined over an intermediate field
+$F'/K$ of degree less than $m$, then
+restriction--corestriction would give
+\[
+[F':K]\alpha=0,
+\]
+contradicting the exact order $m$.
+Thus $K(x)=F$.
+
+Write
+\[
+X=G/H,\qquad |X|=m.
+\]
+The conjugates $x_g=gx$, indexed by $X$, are
+distinct and form one transitive $G$-set.
+
+Let
+\[
+I_X=\ker\left(\mathbb Z[X]
+\xrightarrow{\deg}\mathbb Z\right).
+\]
+
+The canonical identification
+$\operatorname{Pic}^0(C_L)=E(L)$ gives a
+$G$-equivariant homomorphism
+\[
+\Phi:I_X\longrightarrow E(L)/E(L)_{\rm tors},
+\]
+defined by
+\[
+\Phi\left(\sum_{g\in X}a_ge_g\right)
+=
+\left[\sum_{g\in X}a_g[x_g]\right]
+\bmod E(L)_{\rm tors}.
+\]
+Every divisor in this formula has degree zero.
+
+We prove that $\Phi$ is injective.
+
+Suppose its kernel $J$ is nonzero.
+The group $E(L)/E(L)_{\rm tors}$ is
+torsion-free. Therefore $J$ is saturated in
+$I_X$. Since $I_X$ itself is saturated in
+$\mathbb Z[X]$, the composite inclusion gives
+\[
+J/2J\hookrightarrow
+\mathbb F_2[X].
+\]
+
+The left side is a nonzero
+$\mathbb F_2[G]$-module. Every nonzero module
+over a finite $2$-group in characteristic two
+has nonzero invariants: the augmentation ideal
+of $\mathbb F_2[G]$ is nilpotent, and its
+highest nonzero action on the module produces
+a nonzero vector annihilated by that ideal.
+
+Hence $(J/2J)^G\ne0$.
+
+Because $G$ acts transitively on $X$,
+\[
+\mathbb F_2[X]^G
+=
+\mathbb F_2\left(\sum_{g\in X}e_g\right).
+\]
+
+It follows that $J$ contains an element
+\[
+z=\sum_{g\in X}(1+2a_g)e_g.
+\]
+Since $z\in I_X$,
+\[
+m+2\sum_g a_g=0,
+\qquad
+\sum_g a_g=-m/2.
+\]
+
+Define the divisors
+\[
+D=\sum_g[x_g],
+\qquad
+A=-\sum_g a_g[x_g].
+\]
+Their degrees are $m$ and $m/2$, respectively.
+
+The divisor $D$ is defined over $K$.
+Because $z\in\ker\Phi$, the degree-zero
+class
+\[
+T=[D-2A]\in E(L)
+\]
+is torsion.
+
+Every torsion point of $E(L)$ has odd order.
+Multiplication by two is consequently an
+automorphism of the finite torsion subgroup.
+Choose $S\in E(L)_{\rm tors}$ with $2S=T$.
+
+Now put
+\[
+B=[A]+S\in\operatorname{Pic}^{m/2}(C_L)(L).
+\]
+Then
+\[
+2B=[D].
+\]
+
+For every $g\in G$,
+\[
+2(gB-B)=g[D]-[D]=0.
+\]
+Since $E(L)[2]=0$, we have $gB=B$.
+
+Thus $B$ descends to a $K$-rational point
+of the degree-$m/2$ Picard \emph{scheme}:
+\[
+B\in\operatorname{Pic}^{m/2}_{C/K}(K).
+\]
+
+This distinction is essential. We do not
+claim that $B$ necessarily lifts to an actual
+$K$-rational divisor. The period is defined
+using $K$-rational geometric divisor classes,
+so a rational point of this Picard scheme is
+exactly what is needed.
+
+The existence of $B$ contradicts the
+period $m$ of $C$.
+
+Therefore $\ker\Phi=0$, and tensoring with
+$\mathbb Q$ proves
+\[
+\mathbb Q[X]_{\rm aug}
+\hookrightarrow
+E(L)\otimes\mathbb Q.
+\]
+
+\medskip
+\emph{Rank at each step.}
+Put
+\[
+H_i=\operatorname{Gal}(L/F_i),
+\qquad
+o_i=\#(H_i\backslash X).
+\]
+
+For a permutation representation,
+\[
+\dim_{\mathbb Q}
+\left(\mathbb Q[X]_{\rm aug}\right)^{H_i}
+=o_i-1.
+\]
+
+Because $H_i$ is a normal subgroup of index
+two in $H_{i-1}$, each $H_{i-1}$-orbit on $X$
+either remains one orbit or splits into two
+$H_i$-orbits.
+
+The distinguished orbit containing $H\in X$
+necessarily splits: it is identified with
+$H_{i-1}/H$, and $H\subseteq H_i$.
+
+Consequently
+\[
+o_i-o_{i-1}\ge1.
+\]
+
+By Maschke's theorem, the injection proved
+above splits as a map of rational
+$G$-representations. Its complementary
+representation can only gain invariant
+vectors as $H_{i-1}$ is replaced by $H_i$.
+
+Using Galois descent,
+\[
+\begin{aligned}
+\operatorname{rank}E(F_i)
+-\operatorname{rank}E(F_{i-1})
+&\ge o_i-o_{i-1}\\
+&\ge1.
+\end{aligned}
+\]
+
+Finally, $G$ has one orbit on $X$, whereas
+the trivial subgroup has $m$ orbits. Therefore
+\[
+\operatorname{rank}E(L)
+-\operatorname{rank}E(K)\ge m-1.
+\]
+This completes the proof.
+\hfill$\square$
+
+\medskip
+\noindent\textbf{Scope and literature comparison.}
+Cassels--Lichtenbaum supplies the period--index
+input \cite{FisherVisibility}. Radi\v{c}evi\'c
+studies degree-period capitulation with
+discriminant bounds in a different setting
+\cite{Radicevic}. Rank growth over nonabelian
+extensions is studied by Mazur and Rubin
+\cite{MazurRubin}. These references do not,
+by themselves, establish that the full
+augmentation statement above is new.
+
+The rank gain concerns $E$ after extending its ground field. The original
+central order of $L(E/K,s)$ is a separate question.
+
+\begin{thebibliography}{9}
+
+\bibitem{FisherVisibility}
+T.~Fisher,
+\emph{Visibility of Tate--Shafarevich Groups},
+Warwick lecture notes (2008),
+Theorem~2.7(ii).
+\url{https://www.dpmms.cam.ac.uk/~taf1000/papers/visibility.pdf}
+
+\bibitem{Radicevic}
+L.~Radi\v{c}evi\'c,
+\emph{Capitulation Discriminants of Genus One Curves},
+arXiv:2212.00838 (2022).
+\url{https://arxiv.org/abs/2212.00838}
+
+\bibitem{MazurRubin}
+B.~Mazur and K.~Rubin,
+\emph{Growth of Selmer Rank in Nonabelian Extensions
+of Number Fields},
+arXiv:math/0703363.
+\url{https://arxiv.org/abs/math/0703363}
+
+\end{thebibliography}
+
+\end{document}
