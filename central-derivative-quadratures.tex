@@ -1,0 +1,581 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,geometry,hyperref}
+\geometry{margin=1in}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Q}{\mathbf Q}\newcommand{\R}{\mathbf R}\newcommand{\Z}{\mathbf Z}
+\newcommand{\C}{\mathbf C}\newcommand{\eps}{\varepsilon}\newcommand{\dd}{\mathrm d}
+\newcommand{\e}{\mathrm e}\newcommand{\im}{\operatorname{Im}}\newcommand{\re}{\operatorname{Re}}
+\newcommand{\dist}{\operatorname{dist}}\newcommand{\av}{\operatorname{Av}}
+\newcommand{\ord}{\operatorname{ord}}\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\FF}{\mathbf F}\newcommand{\A}{\mathcal A}\newcommand{\Lfun}{\mathcal L}
+\allowdisplaybreaks
+\title{Cyclotomic logarithms, Kummer traces and modular-symbol quadrature for a second central derivative}
+\author{\small\texttt{admin@cosmosgeek.org}\\[-1pt]\small\texttt{b321014@iiit-bh.ac.in}}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a weight-two elliptic newform whose central value and first derivative vanish,
+we give a finite sum at squarefree modular-symbol conductor \(bq\). Its logarithms
+are those of global cyclotomic units. We compute its first finite-dilation
+correction, including both \(L(f,3)\) and \(L'(f,3)\). A second construction
+uses Weil functions of two independent rational points. Along an explicit choice of
+scales, a single complex embedding and a normalized average over Kummer
+translations both recover the central second derivative. Under a two-prime
+Kurihara unit hypothesis, a third test gives bounded integral weights
+with prescribed residues and the same normalized real limit. A control
+on the same elliptic curve retains a unit residue while tending to zero.
+The proofs use a
+modular-symbol distribution estimate, two beta integrals and the finite
+multiplication formulas for the logarithm and cotangent.
+\end{abstract}
+
+\section{The squarefree modular-symbol formula}
+Let \(E/\Q\) have conductor \(N\), with normalized newform
+\(f(z)=\sum_{n\ge1}a_n\e^{2\pi inz}\). Write \(L(s)=L(E,s)\), in the
+normalization with center \(1\). Set
+\[
+ F(z)=\sum_{n\ge1}\frac{a_n}{n}\e^{2\pi inz}
+     =2\pi i\int_{i\infty}^{z}f(w)\,\dd w .
+\]
+At rational cusps use the limiting Eichler integral. Fix positive real period
+scales \(\Omega_+,\Omega_-\), and put
+\(s_+(x)=\re F(x)/\Omega_+\), \(s_-(x)=\im F(x)/\Omega_-\).
+Thus a purely imaginary minus period has been replaced by its positive
+magnitude. The choice of scales appears identically on the two sides of
+every formula. Throughout assume \(L(1)=L'(1)=0\). Write
+\(d(x)=2|\sin\pi x|\), \(\|x\|=\dist(x,\Z)\), and
+\(\zeta_h=\exp(2\pi i/h)\).
+
+Fix a prime \(b\nmid N\). Let \(n=b^j\), \(q\ne b\) a prime prime to \(N\),
+\(L_0=bq,\ M=nL_0\) and \(H=\lceil q^{1/8}\rceil\).
+For \(r=0,1\) define
+\[
+ S_r(n,q)=\frac1M
+ \sum_{\substack{0\le a<M,\ (a,L_0)=1\\ \|a/M\|\ge 1/(nH)}}
+ s_+(a/L_0)\,\frac{\log^r d(a/M)}{d(a/M)} .
+\]
+\begin{theorem}\label{th:main}
+Uniformly for \(q\ge n^{40}\), as \(n=b^j\to\infty\),
+\begin{align}
+ S_0(n,q)&=-\frac{1-b^{-1}}{24\pi\Omega_+n^2}L(3)+O_{E,b,\Omega_+}(n^{-4}),\label{eq:zero}\\
+ S_1(n,q)&=\frac{1-b^{-1}}{\pi\Omega_+}
+ \left\{\frac{L''(1)}{2}+
+ \frac{(\gamma+\log n)L(3)-L'(3)}{24n^2}\right\}
+ +O_{E,b,\Omega_+}\bigl(n^{-4}(1+\log n)\bigr).\label{eq:one}
+\end{align}
+Here \(\gamma\) is Euler's constant. For each summand \(|1-\zeta_M^a|=d(a/M)\)
+is a global algebraic unit.
+\end{theorem}
+The arguments \(\zeta_M^a\) here have order \(M\), since \(n=b^j\).
+The identity \(\Phi_M(1)=1\) for \(M\) divisible by two distinct primes
+gives the unit assertion, first for \(1-\zeta_M^a\), then for its absolute
+value by squaring. Equation \eqref{eq:one} implies eventual nonvanishing
+of \(S_1\) even when \(L''(1)=0\), since \(L(3)>0\) by the Euler product.
+The distinction matters when using a nonzero finite sum to test a limiting value.
+
+\section{Distribution and endpoints}
+For \(\im z\ge0\) let \(J(z)=\sum a_n\e^{2\pi inz}/(2\pi i n^2)\).
+The series converges absolutely and uniformly, by the bound
+\(|a_n|\le d_n\sqrt n\) with \(d_n\) the divisor function.
+Let \(G_\pm(x)\) be the corresponding real or imaginary part of
+\(J(x)-J(0)\), divided by \(\Omega_\pm\). These continuous periodic
+functions vanish at every integer. Write the distributions with these
+primitives as \(\dd G_\pm\), and their dilates (formal densities
+\(s_\pm(nx)\)) as \(\nu_{\pm,n}=\dd(G_\pm(nx)/n)\).
+For smooth periodic tests the latter can equivalently be computed by its
+Fourier series, using Abel limits. For a piecewise smooth test with a
+cutoff we use integration by parts against the continuous primitive.
+
+\begin{lemma}\label{lem:dist}
+At fixed \(N\), on all intervals the normalized sum of the cusp symbols
+\(s_\pm(a/h)\) differs from the increment of \(G_\pm\) by
+\(O_{E,\Omega_\pm,\eps}(h^{-1/4+\eps})\). Near any integer,
+\(G_\pm(x)=O_{E,\Omega_\pm}(\|x\|^2)\). In addition,
+\(|s_\pm(a/h)|=O_{E,\Omega_\pm}(\log(2h))\).
+\end{lemma}
+\begin{proof}
+The first assertion is Theorem 1.2 of Diamantis, Hoffstein, K{\i}ral and
+Lee \cite{DHKL}, with fixed level and their imaginary symbol divided by
+\(i\) for the minus sign. Endpoint conventions affect at most two atoms.
+For the atom estimate, a continued-fraction path to a reduced cusp of
+denominator at most \(h\) uses \(O(\log(2h))\) unimodular edges. The
+integrals on these edges range over finitely many values since
+\(\Gamma_0(N)\) has finite index. For the second assertion write
+\(W_Nz=-1/(Nz)\). The Fricke identity gives
+\(F(z)=F(0)+\lambda F(W_Nz)\) with \(\lambda=\pm1\).
+In our normalization \(F(0)=L(1)=0\). An antiderivative of \(F(W_Nz)\)
+based at zero is
+\[
+ Nz^2 J(W_Nz)-2N\int_0^z wJ(W_Nw)\,\dd w.
+\]
+Differentiation verifies this in the upper half-plane. It extends
+continuously to the boundary and is \(O(|z|^2)\) there, since \(J\)
+is bounded. Its product with \(\lambda\) is \(J(z)-J(0)\).
+\end{proof}
+
+Here and below the normalized sum for a level \(h\) means \(h^{-1}\sum\).
+For a periodic piecewise smooth test \(K\), the discrete sum at \(nh\)
+with symbols \(s_\pm(a/h)\) pairs the level-\(h\) samples with
+\[
+ {\cal R}_nK(y)=\frac1n\sum_{l=0}^{n-1}K((y+l)/n).
+\]
+The same folding holds for \(\nu_{\pm,n}\).
+The circular variation satisfies \(\operatorname{Var}({\cal R}_nK)
+\le\operatorname{Var}(K)/n\) by splitting \([0,1]\) into \(n\) pieces.
+The sup norm is bounded by the variation plus the absolute mean of \(K\).
+Consequently partial summation gives error
+\begin{equation}\label{eq:fold}
+ O_{E,\Omega_\pm,\eps}\bigl(h^{-1/4+\eps}
+      [\operatorname{Var}(K)/n+|\textstyle\int_0^1 K|]\bigr).
+\end{equation}
+This estimate also holds for an explicitly specified inclusion of a cutoff
+endpoint by the interval version of Lemma~\ref{lem:dist}.
+
+\section{Two Mellin kernels}
+Write \(\langle\nu,K\rangle\) for the distribution pairing.
+For \(\re t\) large first define
+\[
+ I_n^+(t)=n^t\langle\nu_{+,n},d^{\,t-1}\rangle,\qquad
+ I_n^-(t)=n^t\langle\nu_{-,n},\cot(\pi x)d(x)^t\rangle .
+\]
+Both pairings extend holomorphically to \(\re t>-1\) by integration
+by parts at the endpoints, using Lemma~\ref{lem:dist} at fixed \(n\).
+For example there the primitive is \(O(n x^2)\) and the differentiated
+kernel is \(O_t(x^{\re t-2})\).
+
+\begin{lemma}\label{lem:gamma}
+On a fixed sufficiently small disk about zero, as identities of holomorphic
+germs with locally uniform, differentiable remainders,
+\begin{align}
+ \Omega_+ I_n^+(t)&=C_+(t)\left[L(1+t)
+ +\frac{t^3-t}{24 n^2}L(3+t)+O(t n^{-4})\right],\label{eq:plus}\\
+ \Omega_- I_n^-(t)&=C_-(t)L(1+t)+O(n^{-2}),\label{eq:minus}\\
+ C_+(t)&=\Gamma(t)\cos(\pi t/2)/\pi,\qquad
+ C_-(t)=2\Gamma(1+t)\sin(\pi t/2)/(\pi t).\nonumber
+\end{align}
+\end{lemma}
+\begin{proof}
+The cosine coefficient of \(d^{\,t-1}\) at positive frequency \(l\),
+with convention \(\int_0^1 K(x)\cos(2\pi lx)\,\dd x\), is
+\[
+ C_+(t)\frac{\Gamma(l+(1-t)/2)}{\Gamma(l+(1+t)/2)}.
+\]
+Indeed the beta integral at \(l=0\) gives the value there, and integration
+by parts gives the ratio \((l+(1-t)/2)/(l+(1+t)/2)\) of consecutive
+coefficients. The sine coefficient of \(\cot(\pi x)d^t\) is
+\[
+ C_-(t)\,l\frac{\Gamma(l-t/2)}{\Gamma(l+1+t/2)} .
+\]
+This follows by integrating \((d^t)'/(\pi t)\) against \(\sin(2\pi lx)\)
+and applying the preceding cosine formula with exponent \(t\).
+Multiply the coefficients at \(l=kn\) by \(n^t a_k/k\) and sum.
+The ratio asymptotic in the even case, after removing \(l^{-t}\), is
+\(1+(t^3-t)/(24l^2)+O(t l^{-4})\).
+This follows by subtracting the two Stirling series for \(\log\Gamma\).
+The complementary gamma arguments eliminate odd inverse powers, and
+the residual term vanishes at \(t=0\); uniformity on a slightly larger
+disk gives the factor \(t\). The odd ratio with its prefactor \(l\)
+is \(l^{-t}(1+O_t(l^{-2}))\) by the same argument.
+After subtraction the coefficient series converge normally near zero.
+Starting from \(\re t\) large, continuation through the half-plane
+\(\re t>-1/4\), with removable exceptional coefficient formulas read
+by limits, proves \eqref{eq:plus} and \eqref{eq:minus}. Here finitely
+many low frequencies may always be taken out of the Stirling expansion.
+The pole of \(C_+\) at zero cancels under the vanishing hypotheses.
+\end{proof}
+
+To justify the passage to the finite squarefree sums uniformly, cut the
+kernels off at \(\|x\|=1/(nH)\). For either of the shapes
+\(d^{-1}\log^r d\) or \(\cot(\pi x)\log^r d\), \(0\le r\le2\),
+the cut kernel has variation \(O_r(nH(1+\log(nH))^r)\) and absolute
+integral \(O_r((1+\log(nH))^{r+1})\). On the removed intervals,
+integration by parts and the bound \(O(n\|x\|^2)\) for the primitive
+give \(O_r(H^{-1}(1+\log(nH))^r)\), including boundary terms.
+Apply \eqref{eq:fold} at \(h=bq\) and at \(h=q\). Terms with \(b\mid a\) are
+exactly \(1/b\) times the latter sum with the same dilation and cutoff.
+The remaining terms with \(q\mid a,\ b\nmid a\) have symbols at level
+\(b\); their normalized absolute contribution is
+\(O_{E,b,r}((1+\log(n bq))^{r+1}/q)\) by the harmonic sum on the
+\(nb\)-grid, with the origin omitted. These statements continue to
+hold for general positive integers \(n\) if the sieve condition is
+written \((a,bq)=1\).
+In particular the discretization and sieve errors together, apart from
+the multiplier \(1-b^{-1}\), are bounded by
+\begin{equation}\label{eq:disc}
+ O_{E,b,\Omega_\pm,r,\eps}\bigl(q^{-1/8+\eps}(1+\log(n bq))^{r+1}\bigr).
+\end{equation}
+For \(q\ge n^{40}\) this is \(O(n^{-4})\) with a sufficiently small
+fixed \(\eps>0\), including every displayed logarithm. Finally expand
+\(C_+(t)=(1/t-\gamma+O(t))/\pi\). The logarithm used here is \(\log d\),
+so subtract \((\log n) I_n^+(0)\) from \(I_n^{+\,\prime}(0)\).
+This proves Theorem~\ref{th:main}. Likewise, \eqref{eq:minus} and
+\(C_-(0)=1\) give
+\begin{equation}\label{eq:odd}
+ \langle\nu_{-,n},\cot(\pi x)\log^2 d(x)\rangle
+ =\frac{L''(1)}{\Omega_-}
+ +O_{E,\Omega_-}\bigl(n^{-2}(1+\log n)^2\bigr).
+\end{equation}
+
+\section{A finite trace from rational points}
+We give the precise algebraic hypotheses before passing to a family of
+traces. Fix a real Weierstrass uniformization \(\C/\Lambda\simeq E(\C)\)
+using a rational invariant differential. Take \(P_1,P_2,A\in E(\Q)^0\),
+where the superscript denotes the real identity component, and assume
+\(A,A+P_i\ne O\). Use real elliptic logarithms \(u_i,z_A\) for these
+points \(P_i,A\). Choose a primitive purely imaginary period \(\omega\);
+\(\eta_\omega=\zeta(z+\omega)-\zeta(z)\) is its quasi-period.
+Here \(\zeta(z)\) is the Weierstrass zeta function. Put
+\begin{equation}\label{eq:phase}
+ Z_i=\exp\!\bigl(2\eta_\omega u_i
+        -2\omega[\zeta(z_A+u_i)-\zeta(z_A)]\bigr).
+\end{equation}
+These are unit complex numbers. The product formulas below only use
+their displayed values and make no independence assumption about them.
+
+Let \(m\) be an odd prime and \(T=k\omega/m\pmod\Lambda\) with \(m\nmid k\).
+Use a Weil function \(f_T\) with divisor \(m([T]-[O])\), and \(g_T\) with
+divisor \([m]^*([T]-[O])\). Both exist over \(K_m=\Q(E[m])\).
+Indeed their divisors are rational and principal over the algebraic closure;
+the latter assertion follows from the elliptic group law, and descent
+of the one-dimensional space gives rational functions over \(K_m\).
+Then \(g_T^m/(f_T\circ[m])\) is constant. Choose real lifts \(B,R_i\)
+under \([m]\) of \(A,P_i\) respectively. Put
+\[
+ h_i(T)=g_T(B+R_i)/g_T(B),\qquad v_i=h_i(T)/\overline{h_i(T)} .
+\]
+Choose admissible \(m,k\) so these evaluations have no zero or pole
+(for nonzero real \(A,A+P_i\) and nonreal \(T\) this is automatic).
+By choice of real lifts, complex conjugation replaces \(T\) by \(-T\)
+in the evaluation ratio. Thus the \(v_i\) are algebraic and have
+absolute value one. In a finite Galois extension containing the data,
+over \(K_m\), translation of a lift by \(S\in E[m]\) multiplies \(g_T\)
+by the Weil character \(e_m(S,T)\), up to a simultaneous inversion
+convention. The translations of \(B\) cancel, leaving
+\begin{equation}\label{eq:weil}
+ \sigma(v_i)/v_i=e_m(\sigma R_i-R_i,T)^2,\qquad
+ v_i^m=\frac{f_T(A+P_i)/f_T(A)}{f_{-T}(A+P_i)/f_{-T}(A)} .
+\end{equation}
+Changing the root \(v_i\) within \(\mu_m v_i\) preserves both identities.
+For Weil functions and the translation convention see \cite{Weil}.
+
+\begin{proposition}\label{prop:trace}
+Fix \(L'\) divisible by \(L_0=bq\), put \(M=mL'\), and fix the embedding
+in \(\C\). In an average over the finite Galois group fixing
+\(K_m(\zeta_M)\), suppose the joint character in \eqref{eq:weil} has image
+\(\mu_m^2\). For \(a\) with \(\zeta_{L'}^a v_i^m\ne1\),
+\begin{equation}\label{eq:trace}
+ \av_\sigma\prod_{i=1}^2\log|1-\zeta_M^a\sigma(v_i)|
+ =m^{-2}\prod_{i=1}^2\log|1-\zeta_{L'}^a v_i^m|.
+\end{equation}
+Repeating one mark gives instead the average of the squares, which differs
+from the square of its average by the variance over \(\mu_m\).
+\end{proposition}
+\begin{proof}
+Uniformity on the joint image gives independence of the two coordinates.
+For each coordinate take absolute values and logarithms in
+\(\prod_{\xi\in\mu_m}(1-z\xi)=1-z^m\). With a repeated coordinate
+the variance identity is the usual identity for the second moment.
+\end{proof}
+For non-CM \(E/\Q\) and independent \(P_1,P_2\) modulo torsion the
+surjectivity hypothesis holds for every sufficiently large prime \(m\),
+including after adjoining \(\zeta_M\).
+Here are the details. For large \(m\) the residual image is
+\(\mathrm{GL}_2(\mathbf F_m)\) by Serre \cite{Serre}, and the two
+point classes are independent modulo \(m\) by finite generation.
+Write \(V=E[m]\). Over \(K_m\) the Kummer image in \(V^2\) is a
+\(\mathrm{GL}_2\)-submodule. A proper such submodule is killed by a
+nonzero \(\mathbf F_m\)-linear combination \(V^2\to V\), since \(V^2\)
+is semisimple and \(\operatorname{End}_{\mathrm{GL}_2}(V)=\mathbf F_m\).
+The corresponding Kummer class would then be inflated from
+\(H^1(\mathrm{GL}_2,V)=0\). This vanishing follows by applying the
+cocycle identity to the central scalar \(2I\). This proves full image.
+The intersection of the division extension of the marks with
+\(K_m(\zeta_M)\) over \(K_m\) gives a quotient of \(V^2\) on which
+the linear Galois group acts trivially, by abelianity of the cyclotomic
+extension over \(\Q\). The scalar \(2I\) forces this quotient to vanish.
+The Weil character for nonzero \(T\), squared at an odd prime, maps
+\(V\) onto \(\mu_m\), proving the claim.
+
+\section{Simultaneous convergence in a complex embedding and in the trace}
+\begin{theorem}\label{th:phase}
+Let \(E\) be non-CM and retain the order-of-vanishing hypothesis. For two
+independent \(P_i\) as above there are integers \(k\to\infty\), primes
+\(m\asymp k^3,\ q\asymp k^{1/2}\), and a power \(D\asymp k^{1/8}\)
+of the fixed prime \(b\). Put \(L'=D bq,\ M=mL',\ H=\lceil q^{1/8}\rceil\).
+There are choices of the roots in \eqref{eq:weil} for which
+\begin{equation}\label{eq:tor}
+ {\cal T}(v_1,v_2)=\frac1M
+ \sum_{\substack{0\le a<M,\ (a,bq)=1\\ \|a/L'\|\ge 1/(DH)}}
+ s_-(a/(bq))\cot(\pi a/M)
+   \prod_{i=1}^2\log|1-\zeta_M^a v_i|
+\end{equation}
+and \(m^2\av_\sigma{\cal T}(\sigma v_1,\sigma v_2)\) both tend to
+\((1-b^{-1})L''(1)/\Omega_-\).
+Only \((a,bq)=1\) is imposed, so multiples of \(m\) are retained.
+\end{theorem}
+\begin{proof}
+In the fixed uniformization a representative of \(f_T(z)\), up to a
+scalar, is
+\[
+ \left(\frac{\sigma(z-k\omega/m)}{\sigma(z)}\right)^m
+          \exp(k\eta_\omega z).
+\]
+It has the required divisor. Its periodicity follows from the sigma
+quasi-periods and the Legendre relation. Using \(\sigma'/\sigma=\zeta\),
+expansion of the logarithm of the ratios at \(z_A+u_i,z_A\) gives
+\begin{equation}\label{eq:sigma}
+ v_i^m=Z_i^k\exp(O_{E,A,P_i}(k^3/m^2)).
+\end{equation}
+Indeed subtracting the expansions at \(\pm k\omega/m\) leaves
+the linear term in \eqref{eq:phase} and a cubic remainder. This describes the
+third-kind differential behind the construction: \(\dd\log f_T\) has
+simple poles of residues \(m,-m\) at \(T,O\); exponentiating its integral
+from \(A\) to \(A+P_i\) gives the ratio in \eqref{eq:weil}.
+
+Simultaneous Dirichlet approximation gives unbounded \(k\) with
+\(\max_i|Z_i^k-1|\ll k^{-1/2}\). If the approximating integers stay
+bounded along an unbounded approximation sequence, a common power is
+exactly one and all its multiples work. Choose \(m\in[k^3,2k^3]\) and
+\(q\in[k^{1/2},2k^{1/2}]\) prime by Bertrand's theorem, and choose the
+largest power of \(b\) at most \(k^{1/8}\) for \(D\).
+Finitely many forbidden primes are immaterial.
+By \eqref{eq:sigma} the argument of each \(v_i^m\) can be chosen \(O(k^{-1/2})\).
+Choose the corresponding \(m\)-th root in \eqref{eq:weil}. Then
+\(|v_i-1|\ll k^{-1/2}/m\).
+
+In the sum \eqref{eq:tor}, \(\|x\|\ge1/(mDH)\) for \(x=a/M\); on the corresponding
+base grid, \(y=a/L'\) satisfies \(\|y\|\ge1/(DH)\). At either scale
+the perturbation of the argument inside a logarithm is at most a constant
+times \(k^{-1/2}DH\) relative to \(|1-\exp(2\pi ix)|\) or
+\(|1-\exp(2\pi iy)|\), respectively. This quantity tends to zero
+by a power of \(k\). The resulting change per logarithm is
+\(O(k^{-1/2}DH)\); the other logarithm is \(O(\log(2M))\).
+The normalized sum of absolute cotangents on the punctured grid is
+\(O(\log(2M))\), and Lemma~\ref{lem:dist} bounds the symbols by
+\(O(\log(2L_0))\). These estimates justify replacing the marks by \(1\)
+in the chosen embedding and their powers by \(1\) on the base grid,
+with errors \(o(1)\).
+
+For the trace apply \eqref{eq:trace}. Each remaining factor, cutoff and modular symbol
+is constant upon replacing \(a\) by \(a+hL'\), \(0\le h<m\).
+The cotangent identity
+\(\sum_{h=0}^{m-1}\cot(\pi(y+h)/m)=m\cot(\pi y)\)
+therefore gives exactly the analogous base sum of modulus \(L'\),
+with logarithm factors \(v_i^m\) and normalization \(1/L'\), after
+multiplication of the trace by \(m^2\). The replacement just proved
+turns the base sum into the plain odd quadrature at dilation \(D\).
+Equations \eqref{eq:disc} and \eqref{eq:odd} give its limit.
+
+For the chosen top embedding first consider the plain quadrature with
+the single cutoff \(\|x\|\ge1/(mDH)\). This is \eqref{eq:disc}--\eqref{eq:odd} at dilation
+\(mD\), and all logarithms of the scales are \(O(\log k)\). The actual
+cutoff additionally removes intervals of radius \(1/(mDH)\) around
+\(h/m,\ 1\le h<m\). In each such interval the cotangent is bounded
+by \(O(m/\min(h,m-h))\). There are at most \(2L'/(DH)+2\)
+grid points per interval and their logarithms are \(O(\log M)\).
+Their total normalized contribution is
+\(O((1/(DH)+1/L')\log^4(2M))=o(1)\).
+This completes both limits.
+\end{proof}
+
+The same primes and torsion levels admit an additional comparison. Evaluate
+\eqref{eq:weil} at the step \((k+1)\omega/m\) without changing other parameters.
+The ratio of the two \(m\)-th powers in \eqref{eq:sigma} tends to \(Z_i\).
+This is an embedding-dependent invariant of the displayed period
+construction. The independence used in \eqref{eq:trace} comes instead from the Galois
+image of the marked points. Neither finite-level independence nor equality
+of the two limits determines whether \(L''(1)\) vanishes.
+
+\subsection{A neighboring torsion direction}
+For the algebraic Weierstrass invariants used here the unrotated phases
+satisfy a stronger property. For every nonzero integer vector $(j_1,j_2)$,
+the product $Z_1^{j_1}Z_2^{j_2}$ is transcendental. Indeed the zeta
+addition theorem shows that
+\[
+ \zeta(z_A+u_i)-\zeta(z_A)-\zeta(u_i)\in\overline{\Q}.
+\]
+The addition term is a rational function of the algebraic Weierstrass
+coordinates, with the duplication formula used when the two points
+coincide. The hypotheses exclude a zero sum. Likewise, for
+$u=j_1u_1+j_2u_2$ we have
+$\zeta(u)-j_1\zeta(u_1)-j_2\zeta(u_2)\in\overline{\Q}$, by repeated
+addition and oddness. In making the additions one first treats
+multiples of each point and then adds the two resulting points;
+independence eliminates zero intermediate sums. The point represented
+by $u$ is algebraic and nontorsion. Consequently the product in
+question is the inverse square of
+\[
+ \exp(\omega\zeta(u)-\eta_\omega u+\beta\omega)
+\]
+for an algebraic $\beta$. This number is transcendental by
+Waldschmidt \cite[Thm.~7.2.1]{Wal}; the primitive imaginary period
+satisfies $\omega/2\notin\Lambda$. In particular both phases differ
+from one. Multiplicative independence here is not a statement about
+algebraic independence of the phases.
+
+One can observe the phase distinction in a second trace. In the
+logarithms of \eqref{eq:tor} multiply every $v_i$ by the rational
+scalar $\rho=1-M^{-1}$. For the aligned step the two limits already
+proved are unchanged. Indeed $1-\rho^m\le1/L'$, so the added relative
+perturbation at the cutoff on the lower mesh is $O(DH/L')=o(1)$
+by a power of $k$, and the top mesh gives the same bound. Now replace
+$k\omega/m$ by $(k+1)\omega/m$. On the same sequence the normalized
+trace tends to zero.
+
+To verify this, let $w_i=\rho^m v_i^m$ for the neighboring step.
+Equation~\eqref{eq:sigma} gives $w_i\to Z_i$. Put
+$B(y)=\prod_i\log|1-e^{2\pi iy}w_i|$ and $c=B(0)$.
+The exact finite trace and cotangent folding reduce its normalized
+value to the unit-filtered lower mesh with test $\cot(\pi y)B(y)$.
+The term $c\cot(\pi y)$ tends to zero by the unlogged odd Mellin
+formula at $t=0$ (its central term is proportional to $L(1)=0$,
+and its finite-dilation error tends to zero); $c$ is bounded.
+The function
+$H_0(y)=(B(y)-B(0))\cot(\pi y)$ extends periodically across zero
+and has bounded $C^1$ norm on a fixed arc there, as both $Z_i\ne1$.
+On the complement its sup norm and variation are
+$O_Z(\log^2 L')$. For each logarithm this follows by monotonicity
+on the two semicircles relative to its peak and
+$1-|w_i|\asymp1/L'$. Pairing $H_0$ with the distribution whose
+primitive is $G_-(Dy)/D$ therefore costs $O_Z(\log^2 L'/D)$.
+The mesh errors at levels $bq$ and $q$ are
+$O_{E,Z,\epsilon}(q^{-1/4+\epsilon}\log^2L')$ by
+\eqref{eq:fold}; multiples of $b$ are subtracted by exact folding,
+and the remaining multiples of $q$ contribute
+$O_{E,b,Z}(\log^2 L'/q)$ since their symbols have denominator at
+most $b$. On the deleted endpoint interval $H_0$ is bounded and
+the loss is $O((1/(DH)+1/L')\log(2L_0))$. Every error tends to zero.
+The vanishing neighboring trace distinguishes torsion directions
+when the aligned primitive derivative is nonzero. The limits may
+both be zero.
+
+\section{A real test with prescribed Kurihara residues}
+For the final application we use $\Omega=\Omega_+$ and $m(x)=s_+(x)$, retaining the plus-symbol normalization above. The level and dilation variables in this section are independent of those in the previous construction.
+Let $E/\Q$ have conductor $N$, and let $f(z)=\sum_{j\ge1}a_j e^{2\pi i jz}$ be its normalized newform. Fix $p\ge5$ and a positive real period $\Omega$ such that
+\[
+ m(x)=\frac{2\pi}{\Omega}\Re\left(i\int_{i\infty}^{x} f(z)\,dz\right)\in\Z_{(p)}
+ \qquad(x\in\Q).
+\]
+This is a normalization condition on the plus modular-symbol lattice; the witness and the target use the same period. Assume $L(E,1)=0$ and root number $+1$. Then $L'(E,1)=0$. Choose distinct good primes $\ell_1,\ell_2\nmid pN$ with $\ell_i\equiv1$ and $a_{\ell_i}\equiv2\bmod p$. Put $n=\ell_1\ell_2$, $U_d=(\Z/d\Z)^\times$. Choose logarithms $\lambda_i:U_{\ell_i}\to\FF_p$ mapping the chosen generators to 1. Assume
+\[
+ w_0(b)=\lambda_1(b)\lambda_2(b),\qquad
+ \delta=\sum_{b\in U_n}w_0(b)m(b/n)\ne0\quad\text{in }\FF_p.
+\]
+A nonzero value modulo a higher power of $p$ alone need not satisfy this condition. The discrete rank theorem has separate Selmer hypotheses \cite{Kim}. The companion note \cite{previous} treats the full-support finite-order central values. Our concern is the real limit on the base elliptic curve.
+
+Take primes $q\nmid nNp$ satisfying
+\begin{equation}\label{qcond}
+ q\equiv1\bmod np,\qquad a_q\not\equiv2\bmod p .
+\end{equation}
+For the limiting statements we assume that these primes are infinite. A sufficient condition is that the residual image on $E[p]$ contains $\mathrm{SL}_2(\FF_p)$. Its commutator then contains this perfect subgroup, so $-I$ fixes the intersection of the division field with $\Q(\zeta_{np})$. Chebotarev applied to the compatible pair $(-I,1)$ gives positive density, since $-2\ne2\bmod p$.
+
+\subsection{The Fricke kernel}
+For a smooth periodic real even function $K$, put
+\[
+ \A_M(K)=\frac1M\sum_{a=0}^{M-1}m(a/M)K(a/M).
+\]
+Theorem 1.2 of \cite{DHKL}, followed by Stieltjes integration by parts, gives for $(M,N)=1$
+\begin{align*}
+ \A_M(K)&=\Lfun(K)+O_{f,\Omega,\epsilon}
+       \big(M^{-1/4+\epsilon}(\|K\|_\infty+\|K'\|_1)\big),\\
+ \Lfun(K)&=\frac1\Omega\sum_{j\ge1}\frac{a_j}{j}
+       \int_0^1K(x)\cos(2\pi jx)\,dx .
+\end{align*}
+Indeed the limiting cumulative function is $(2\pi\Omega)^{-1}\sum_{j\ge1}a_j\sin(2\pi jx)/j^2$. This series converges absolutely, and the proof in \cite{DHKL} gives the displayed error uniformly in the endpoint (the translated cutoff phases have modulus one). The duplicated endpoint in their cumulative sum contributes zero since $m(0)=0$. In particular $\Lfun(\cos(2\pi j\cdot))=a_j/(2j\Omega)$.
+
+An explicit real analytic test is
+\[
+ K_F(x)=8\pi\sum_{j\ge1}j\,\cos(2\pi jx)
+       \int_{1/\sqrt N}^{\infty}e^{-2\pi jy}\log^2(\sqrt N y)\,dy .
+\]
+Every differentiated Fourier series converges uniformly on the real axis. The Mellin transform and the two lower vanishing derivatives give $L''(E,1)=2\pi\int_0^\infty f(iy)\log^2(\sqrt N y)\,dy$. The Fricke formula $f(i/(Ny))=Ny^2 f(iy)$ makes the latter integral twice its portion on $y\ge1/\sqrt N$. Hence $\Lfun(K_F)=L''(E,1)/\Omega$.
+
+\subsection{Rounded quadratures}
+For $M=nq$, set $w_M(a)=w_0(a\bmod n)$ on $U_M$ and zero elsewhere. In the residue class $w_M(a)\bmod p$, choose the nearest integer $k_a$ to $MK(a/M)$, breaking ties downward. Define
+\[
+ \mathcal R_M(K)=M^{-2}\sum_{a=0}^{M-1}k_a m(a/M).
+\]
+\begin{theorem}
+For every fixed smooth real even $K$ and $q$ as in \eqref{qcond}, the rational number $\mathcal R_M(K)$ is a $p$-unit with residue $M^{-2}(a_q-2)\delta$. Along this set of primes it converges over $\mathbb R$ to $\Lfun(K)$. In particular $K_F$ gives the second central derivative divided by $\Omega$.
+\end{theorem}
+\begin{proof}
+The one-prime Hecke norm relation \cite[\S3]{KN} gives for $b\in U_n$
+\[
+ \sum_{\substack{a\in U_{nq}\\a\equiv b\bmod n}}m(a/(nq))
+       =a_qm(b/n)-m(qb/n)-m(q^{-1}b/n).
+\]
+The complete additive fiber gives $a_qm(b/n)-m(qb/n)$, and omitting the unique numerator divisible by $q$ subtracts $m(q^{-1}b/n)$, with inverse taken modulo $n$. Condition \eqref{qcond} reduces this to $(a_q-2)m(b/n)$. Reducing the integers $k_a$ gives the claimed residue. The continued fraction for a reduced fraction of denominator at most $M$ gives $O(\log(2M))$ unimodular segments. Their modular integrals take finitely many values since $\Gamma_0(N)$ has finite index in $\mathrm{SL}_2(\Z)$. Hence $|m(a/M)|\ll_{f,\Omega}\log(2M)$ and
+\[
+ |\mathcal R_M(K)-\A_M(K)|\ll_{f,\Omega}p\log(2M)/M .
+\]
+The fixed-denominator estimate finishes the proof.
+\end{proof}
+
+\paragraph{Bounded integer weights.}
+One can avoid scaling the kernel by $M$. In increasing order of $0\le a<M$, let $k^-_a,k^+_a$ be the adjacent integers in the required residue class bracketing $K(a/M)$ (use the common value when it is already in the class). Choose one of them, $j_a$, so that $(j_a-K(a/M))m(a/M)$ has sign opposite the running error, allowing zero and choosing either sign if the previous error was zero. Write $D_b=\sum_{a<b}(j_a-K(a/M))m(a/M)$. Each possible step has magnitude at most $p|m(a/M)|$; by the choice of its sign, $|D_{a+1}|\le\max(|D_a|,p|m(a/M)|)$. Thus
+\[
+ |j_a|\le\|K\|_\infty+p,\qquad
+ \max_{b\le M}|D_b|\ll_{E,\Omega}p\log(2M).
+\]
+The rational sum $M^{-1}\sum_{a<M}j_a m(a/M)$ consequently has real limit $\Lfun(K)$ with the same error bound and has nonzero residue $M^{-1}(a_q-2)\delta\bmod p$. Its reduced denominator is $O_{f,\Omega}(M)$. Indeed each normalized unimodular segment is a difference of two of the rational $p$-integral cusp symbols. There are only finitely many such segment values, so one fixed integer prime to $p$ clears all their denominators and those of every $m(a/M)$. The prefix bound is deterministic and does not require statistical independence of the symbols.
+
+\subsection{Two zero-limit controls}
+Choose a fixed integer lift $W$ of $w_0$ on $U_n$. The very same norm relation gives the exact identity
+\[
+ \frac1{nq}\sum_{a\in U_{nq}}W(a\bmod n)m(a/(nq))
+       =\frac{a_q-2}{nq}\sum_{b\in U_n}W(b)m(b/n).
+\]
+Its left side is a rational $p$-unit at every admissible prime and is $O_{E,n,W}(q^{-1/2})$ by Hasse. In particular, it tends to zero without any rounding.
+
+For an analytic control put $\ell=\ell_1$ and take
+\[
+ K_0(x)=a_\ell\cos(2\pi x)-\ell\cos(2\pi\ell x).
+\]
+Then $\Lfun(K_0)=0$. Nevertheless $\A_M(K_0)$ is nonzero and is a unit at some prime over $p$ of $\Q(\zeta_M)$. We prove this stronger assertion to distinguish the role of rounding from the arithmetic of the original modular-symbol sum.
+
+Choose any order-$p$ character $\chi$ of $U_n$ nontrivial on both coordinates. In the group algebra of the quotient $C_p^2$, put $X_i=\sigma_i-1$ for the chosen generators. The projected theta element $\Theta_n=\sum_{b\in U_n}m(b/n)[b]$ satisfies
+\[
+ \Theta_n\equiv\delta X_1X_2\pmod{(p,(X_1,X_2)^3)}.
+\]
+The mixed coefficient is the defining moment. Specializing either variable to zero multiplies the smaller one-prime theta element by $a_{\ell_i}-\tau-\tau^{-1}$, where $\tau$ is the class of $\ell_i$ in the other factor. The multiplier has augmentation order at least two modulo $p$, while the one-prime element has zero augmentation by the same norm relation at level one and $m(0)=0$. This kills both pure terms. Since $X_i^p=0\bmod p$, no relations occur in degrees below three. Evaluating at $\bar\chi$ gives, with $v_p(p)=1$,
+\[
+ v_p(T_\chi)=2/(p-1),\qquad T_\chi=\sum_{b\in U_n}\bar\chi(b)m(b/n).
+\]
+Each $X_i$ evaluates to a unit multiple of $\zeta_p-1$, and $p$ has order $p-1>2$ in this uniformizer. See also \cite{previous}.
+
+Write $\sigma_u(\zeta_M)=\zeta_M^u$ and $\tau(\chi)=\sum_{u\in U_n}\chi(u)e^{2\pi i u/n}$. The scalar character coefficients below are in the compositum with $\Q(\zeta_p)$. Then
+\[
+ \sum_{u\in U_M}\chi(u)\sigma_u\big(M\A_M(K_0)\big)
+                =a_\ell\tau(\chi)(1+q-a_q)T_\chi .
+\]
+Indeed the $\ell$th frequency is killed by primitivity of $\chi$ at $\ell$. For the first frequency the $n$-Gauss factor is $\tau(\chi)\bar\chi(a)\chi(q)$ for $(a,n)=1$ and zero otherwise. The $q$-factor is $-1$ when $q\nmid a$ and $q-1$ when $q\mid a$. The cosine gives the same result as the positive exponential because $\chi$ is even. Equation \eqref{qcond} and the norm relation yield the displayed identity. Here $a_\ell$, $\tau(\chi)$ and $1+q-a_q$ are all units at $p$ (the squared complex norm of the Gauss sum is $n$, prime to $p$). Every conjugate of $M\A_M(K_0)$ lies in the $p$-integral part of a field unramified at $p$. If all had positive valuation they would all have valuation at least one, contrary to the right-hand side's valuation $2/(p-1)$. This proves the assertion at some place above $p$; it gives no lower bound at the distinguished real embedding.
+
+Thus both the rational control and the analytic control converge to zero on the same curve. Inferring $L''(E,1)\ne0$ would require an estimate specific to $K_F$ beyond the residue calculation and the real quadrature error.
+
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{DHKL} N. Diamantis, J. Hoffstein, E. M. K{\i}ral and M. Lee,
+\emph{Additive twists and a conjecture by Mazur, Rubin and Stein},
+J. Number Theory, Theorem 1.2.
+\href{https://doi.org/10.1016/j.jnt.2019.11.016}{doi:10.1016/j.jnt.2019.11.016}.
+\bibitem{Weil} A. Enge, \emph{Bilinear pairings on elliptic curves},
+Enseign. Math. 61 (2015), 211--243, \S3.
+\href{https://ems.press/content/serial-article-files/44297?nt=1}{Publisher's full text}.
+\bibitem{Serre} J.-P. Serre, \emph{Propri\'et\'es galoisiennes des points
+d'ordre fini des courbes elliptiques}, Invent. Math. 15 (1972), 259--331.
+\href{https://doi.org/10.1007/BF01405086}{doi:10.1007/BF01405086}.
+\bibitem{KN} D. Kriz and A. C. Nordentoft, \emph{Horizontal $p$-adic $L$-functions}, \S3. \href{https://arxiv.org/abs/2310.20678}{Preprint}.
+\bibitem{Kim} C.-H. Kim, \emph{The refined Tamagawa number conjectures for $\mathrm{GL}_2$}, Corollary 1.5 and Conjecture 1.6. \href{https://arxiv.org/abs/2505.09121}{Preprint}.
+\bibitem{previous} \emph{A Kurihara witness and the leading values of all full-support twists}, public project manuscript. \href{https://github.com/cosmosgeek0/BSD/blob/main/kurihara-full-support-twists.tex}{Source}.
+
+\bibitem{Wal} M. Waldschmidt, \emph{Transcendence methods}, Queen's Papers in
+Pure and Applied Mathematics 52 (1979), \S7.2, Theorem~7.2.1.
+\href{https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/QueensPaper52.pdf}{Author's text}.
+\end{thebibliography}
+\end{document}
+

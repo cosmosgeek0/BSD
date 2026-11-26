@@ -419,6 +419,273 @@ identifies the regular lattice with the pairs whose residues agree
 modulo $\zeta_p-1$; the index is $p$ per summand. Both rationalized
 representations are the same.
 
+\section{Cubic correspondences on cyclic norm kernels}\label{sec:norm-exterior}
+Let $F/K$ be cyclic of degree $d$, with $G=\langle\gamma\rangle$,
+and let $E/K$ be a non-CM elliptic curve over a number field. Set
+$A=\ker(\operatorname{Res}_{F/K}E_F\to E)$ and $X=A^3$.
+Over $F$ the norm is addition on $E^d$ and its kernel is connected.
+There are no nonzero $K$-homomorphisms $A\to E$: over $F$ these are
+coordinate vectors in $\Z^G/\Z\mathbf1$, and invariance would give
+$\gamma v-v=c\mathbf1$, hence $dc=0$ and $v$ constant. Similarly
+$\operatorname{Hom}_K(E,A)=0$. There is nevertheless a cohomological
+quotient in degree three.
+
+Over $F$ let $r_g:E\to A$ be the vector $+t$ at $g$, $-t$ at
+$\gamma g$, and zero elsewhere. Put
+$h_g(t,s)=(r_g(t),r_g(t),r_g(s))$ and $q(t,s)=s$. Summing the cycles
+$(h_g,q)_*[E^2]$ descends an integral correspondence $Z$ on $X\times E$
+of codimension $3\dim A-1$. Its operation on cycles is
+$\sum_g q_*h_g^*:\mathrm{CH}^2(X)\to\mathrm{CH}^1(E)$.
+On the summand with degree one in each of the three factors its
+cohomological action is the alternating pairing in the first two
+elliptic slots and the identity in the last, with coefficient
+\[
+ f(a,b,c)=\sum_g(a_g-a_{\gamma g})(b_g-b_{\gamma g})(c_g-c_{\gamma g}).
+\]
+Here the coordinates belong to $Q_G=\Z_p[G]/\Z_p N_G$, where
+$N_G=\sum_g g$; the differences make the formula independent of lifts.
+For $d\ge4$ the common vector $a=b=c=(1,1,-2,0,\dots,0)$ gives $18$.
+Thus for $p\ge5$, $d=p^n$, the map
+\[
+ Z:H^3_{\mathrm{et}}(X_{\overline K},\Z_p)(2)\longrightarrow
+ T_p E
+\]
+is surjective on the underlying lattices.
+
+\begin{theorem}
+For $p\ge5$, $d=p^n$ and the correspondence above, the scalars $c$
+such that $Z\circ j=c\,\mathrm{id}$ for an integral
+$G_K$-equivariant map $j:T_pE\to H^3_{\mathrm{et}}(X_{\overline K},\Z_p)(2)$
+are exactly $d\Z_p$.
+\end{theorem}
+\begin{proof}
+Write $U=H^1_{\mathrm{et}}(E_{\overline K},\Z_p)$ and
+$H=\bigwedge^3(U\otimes Q_G^3)(2)$. The auxiliary $G$-action on $H$
+acts only on the three $Q_G$ factors of the direct sum $Q_G^3$.
+For every $\Z_p$-free $G$-lattice $L$, the sequence
+\[
+ 0\longrightarrow L\longrightarrow\Z_p[G]\otimes L
+ \longrightarrow Q_G\otimes L\longrightarrow0
+\]
+has induced middle term with its diagonal action. Thus Tate cohomology
+shifts by one under tensoring with $Q_G$, and
+$\widehat H^0(G,Q_G^{\otimes3})=\widehat H^3(G,\Z_p)=0$.
+As $6$ is a unit, $H$ is an auxiliary $G$-equivariant summand of a sum of
+such tensors. In particular $H^G=N_G H$. Surjectivity gives
+$Z(H^G)=dT_pE$.
+
+For an arithmetic $j$ as in the theorem, restriction to $G_F$ makes
+$j\otimes\Q_p$ equivariant for the elliptic linear action of
+$\mathrm{GL}_2$, by the non-CM open image theorem over the number
+field $F$ \cite{Lombardo}. The Tate twists are powers of its
+determinant. Comparing the full $G_K$-action with this elliptic
+action leaves the auxiliary action fixing the image of $j$ integrally.
+This proves necessity.
+
+For sufficiency choose a symplectic basis $e_1,e_2$ of $U$ with its
+determinant twist understood. Take $a,b,c$ equal to the vector used
+above in three distinct $Q_G$-slots. The natural determinant insertion
+\[
+ u\longmapsto
+ (e_1\otimes a)\wedge(e_2\otimes b)\wedge(u\otimes c)
+ -(e_2\otimes a)\wedge(e_1\otimes b)\wedge(u\otimes c)
+\]
+has composite $36\,\mathrm{id}$, up to the orientation of the
+symplectic basis; using the determinant tensor makes the map
+$\mathrm{GL}_2$-equivariant with the indicated twists. Divide by its
+unit scalar, then sum its auxiliary $G$-translates. The result is
+$G_K$-equivariant and has composite $d\,\mathrm{id}$.
+\end{proof}
+
+The point images distinguish two types of decomposable cycles.
+On a homologically trivial rational linear combination of products
+of $K$-defined divisors, $Z_*$ is zero. In fact, for any fixed divisor
+$D$ the correspondence sends $L\mapsto D\cdot L$ for
+$L\in\operatorname{Pic}^0(X)$ to a pointed Picard morphism
+$\operatorname{Pic}^0(X)\to E$. Such a morphism vanishes by the
+homomorphism calculation above and a $K$-polarization. Decomposing
+divisors into symmetric and algebraically trivial parts leaves
+a homologically trivial inversion-invariant cycle. Its image lies in
+$\operatorname{Pic}^0(E)$ and is killed by two since $Z$ commutes
+with inversion.
+
+In contrast, the images of corestrictions of products $D\cdot L$
+with $D$ a divisor over $F$ and $L\in\operatorname{Pic}^0(X_F)(F)$
+generate exactly $\operatorname{Norm}_{F/K}E(F)$, integrally, when
+$d\ge3$. One inclusion is functoriality of corestriction. For its
+reverse, index coordinates cyclically by $0,\dots,d-1$. Let
+$D$ be pulled back from $[0_E]$ by the zeroth coordinate on the
+first $A$-factor and $L$ from $[P]-[0_E]$ by coordinate one on
+the third $A$-factor. Then
+$Z_*(D\cdot L)=-P$ over $F$: the coefficient of $P$ is
+$\sum_g(\delta_{g,0}-\delta_{\gamma g,0})^2
+(\delta_{g,1}-\delta_{\gamma g,1})=-1$.
+Corestriction realizes every norm.
+
+\subsection*{An exterior-power boundary}
+The cubic norm-vanishing proof uses the invertibility of $3!$.
+For $G=C_{p^2}$ and $A_j=\bigwedge^j Q_G$, every prime $p\ge7$ satisfies
+\[
+ \frac{|\widehat H^0(G,A_{3p})|}{|\widehat H^1(G,A_{3p})|}
+ =p^{(p^2-6p-1)/6}>1 .
+\]
+Indeed put $P_j=\bigwedge^j\Z_p[G]$. Wedging with the primitive
+vector $N_G$ gives $0\to A_{j-1}\to P_j\to A_j\to0$.
+The wedge basis of $P_j$ permutes up to signs; an odd order stabilizer
+has trivial sign, hence the orbit lattices are induced trivial lattices.
+For $0<j<p^2$ the only nonfree subsets are unions of cosets of the
+unique subgroup of order $p$. There are
+$m_{kp}=\binom pk/p$ nonfree orbits at $j=kp$, and none elsewhere.
+By Shapiro, the logarithmic Herbrand quotient $h_j$ of $A_j$ satisfies
+$h_j=m_j-h_{j-1}$ with $h_0=2$. This gives $h_p=-1$,
+$h_{2p}=(p+1)/2$, and the asserted $h_{3p}$.
+
+At the first boundary $j=p$, $\widehat H^0(C_{p^n},\bigwedge^p Q_G)=0$.
+Indeed for $j<p$ all $P_j$ are free, so the connecting maps give
+$\widehat H^0(G,A_{p-1})\simeq H^{p-1}(G,\Z_p)=\Z/p^n$.
+At degree $p$ the single exceptional orbit consists of the cosets of
+$H=C_p$. Its Shapiro coordinate is computed by restriction to $H$
+and projection of the group ring to the basis indices in $H$. This
+projection carries $N_G$ to $N_H$ and commutes with the wedge
+sequences. In the lower-degree connecting maps it induces restriction
+$H^{p-1}(G,\Z_p)\to H^{p-1}(H,\Z_p)$, which is surjective (the
+degree-two character generator restricts to a generator, hence so
+does its power). On $H$ the final wedge with $N_H$ is an isomorphism
+from $\bigwedge^{p-1}Q_H$ to $\bigwedge^p\Z_p[H]$. Thus the map to
+$\widehat H^0(G,P_p)=\Z/p$ is onto and the claim follows. The argument
+also gives $\widehat H^1(G,A_p)=\Z/p^{n-1}$, with the zero group
+understood at $n=1$.
+
+The large quotient at $3p$ concerns a whole exterior power. The
+elliptic multiplicity in an odd degree can have a different quotient.
+Let $G=C_{p^2}$, $B=Q_G^m$, let $U_0$ be the rank-two standard lattice,
+and set
+\[
+ L=\operatorname{Hom}_{\mathrm{GL}_2}
+ (U_0\det^{k-1},\ \bigwedge^{2k-1}(U_0\otimes B)).
+\]
+The integral Hom is a full lattice in its rationalization. The
+Herbrand quotient is unchanged by passing between full lattices,
+since finite modules have quotient one. With $c_1,c_2$ the traces on
+$L_{\Q_p}$ of $\gamma^p,\gamma$, its base-$p$ logarithm is
+$(c_1+(2p-1)c_2)/p$. Indeed the trivial, order-$p$ and order-$p^2$
+rational character types have logarithmic quotients $2,-1,-1$.
+To compute each trace write $e_j$ for the exterior characters of $B$.
+Subtracting two adjacent $\mathrm{GL}_2$-weights gives
+$c=e_ke_{k-1}-e_{k+1}e_{k-2}$. The generating functions at the two
+group elements are $(1+t^p)^{mp}/(1+t)^m$ and
+$(1+t^{p^2})^m/(1+t)^m$. For $p=7,m=3,2k-1=21$, they give
+$c_1=-9278,c_2=-143$, hence a quotient of $7^{-1591}$.
+This ratio alone does not determine the norm cokernel in the elliptic
+multiplicity.
+
+\section{A mixed cyclic cohomology class}
+\label{sec:mixed-heegner-lattice}
+Let $p$ be odd and $G=G_1\times G_2$ with
+$G_i=\langle\sigma_i\rangle$ of order $q_i$, a positive power
+of $p$. Put $R_i=\mathbb Z_p[G_i]$, $N_i=\sum_{g\in G_i} g$,
+$B_i=R_i/(N_i)$, and $R=R_1\otimes_{\mathbb Z_p}R_2$.
+Let $M$ be a finite free $\mathbb Z_p$-lattice with $G$-action
+and put $A=M^G$. Suppose $y_0\in A$, $y_i\in M^{G_{3-i}}$,
+and $y_{12}\in M$ satisfy
+\[
+ N_i y_i=a_i y_0,\qquad N_1 y_{12}=a_1y_2,\qquad
+ N_2 y_{12}=a_2y_1,\qquad a_i=q_i b_i,\ \ b_i\in\mathbb Z_p .
+\]
+These are, in particular, the usual two-prime Heegner norm relations
+after taking prime-to-$p$ traces, when the resulting fields have the
+displayed Galois groups and divisibility holds. For the Euler-system
+relations see \href{https://www.math.mcgill.ca/darmon/pub/Articles/Research/04.Kolyvagin-descent/paper.pdf}{Bertolini and Darmon, \emph{Kolyvagin's descent and Mordell--Weil groups over ring class fields}}.
+
+Set $z_i=y_i-b_i y_0$ and
+$z_{12}=y_{12}-b_2y_1-b_1y_2+b_1b_2y_0$.
+Then $N_i z_i=0$ and $N_i z_{12}=0$ for both $i$.
+Assume, over $\overline{\mathbb Q}_p$, that $z_i$ has nonzero
+projection to each nontrivial character of the $i$th axis, and
+$z_{12}$ to every character nontrivial on both factors. The generated
+lattice therefore has the integral description
+\[
+ H=A+R_1z_1+R_2z_2+Rz_{12}
+ \simeq A\oplus B_1\oplus B_2
+ \oplus (B_1\otimes_{\mathbb Z_p} B_2).
+\]
+Indeed the norm relations define surjections from the indicated
+summands. Their domains are torsion-free, and the projections give
+rational injectivity on disjoint supports. If every nontrivial
+ambient eigenspace has dimension one, $H$ has finite index in $M$.
+
+Let $g=\gcd(q_1,q_2)$. The mixed summand
+$B=B_1\otimes_{\mathbb Z_p} B_2$ has
+\[
+ H^1(G,B)\simeq\mathbb Z/g.
+\]
+Indeed $B^{G_1}=0$; restriction gives
+$H^1(G,B)\simeq H^1(G_1,B)^{G_2}=(B_2/q_1B_2)^{G_2}$.
+Multiplication by $q_1$ on $B_2$ and $B_2^{G_2}=0$ identify the
+last invariants with $H^1(G_2,B_2)[q_1]$. The cyclic cohomology
+formula gives $H^1(G_2,B_2)=\mathbb Z/q_2$.
+For $D_i=\sum_{j=1}^{q_i-1}j\sigma_i^j$, the rational coboundary
+of $D_1D_2z_{12}/g$ is an integral cocycle, by
+$(\sigma_i-1)D_i=q_i-N_i$. Its class has order $g$: in each $B_i$,
+$D_i$ has a coefficient $-1$ when $\sigma_i^{q_i-1}$ is eliminated
+by $N_i=0$, so $D_1D_2z_{12}$ is primitive in the mixed summand,
+which has zero rational invariants. In particular
+$H^1(G,H)\simeq\mathbb Z/q_1\oplus\mathbb Z/q_2\oplus\mathbb Z/g$.
+
+The map to the ambient cohomology can lose two independent directions.
+For an integral model take $q_1=q_2=q$, $M=\ker(R\to\mathbb Z_p)$
+under augmentation, and $u_i=\sigma_i-1$. Set
+\[
+ z_1=N_2u_1,\qquad z_2=N_1u_2,\qquad z_{12}=u_1u_2 .
+\]
+Here all the indicated character projections and multiplicities hold.
+The augmentation sequence identifies $H^1(G,M)$ with
+$\mathbb Z/q^2$, generated by the coboundary of $1\in R$.
+The axis generators map to the coboundaries of $N_2,N_1$,
+each congruent to $q$ times the generator. For the mixed summand
+\[
+ D_1D_2u_1u_2/q=q-N_1-N_2+N_1N_2/q.
+\]
+The final term is invariant. The image of the mixed generator
+thus equals $-q$. With these generator conventions the map is
+$(a,b,c)\mapsto q(a+b-c)\bmod q^2$. This example concerns integral
+$G$-lattices. In the arithmetic application one must determine which
+classes survive in $H^1(G,E(F)\otimes\mathbb Z_p)$, and check local
+solubility separately before drawing conclusions about the Tate--Shafarevich group.
+
+
+\section{An elementary torsion bound for a bounded abelianization}
+\label{sec:bounded-abelianization}
+Let $E/\mathbb Q$ be an elliptic curve and $L/\mathbb Q$ a possibly
+infinite Galois extension for which the abelianization of
+$\operatorname{Gal}(L/\mathbb Q)$ is annihilated by $e\ge1$.
+For each good rational prime $q$ put $N_q=\#E(\mathbb F_{q^e})$.
+The prime-to-$q$ torsion in $E(L)$ is finite and its order divides
+$N_q(q^e-1)^2$.
+
+Indeed let $\ell\ne q$ and put $H=E(L)[\ell^n]$, of elementary
+divisors $\ell^a,\ell^b$ with $a\ge b\ge0$. Then $\ell^b H$ is
+cyclic and characteristic. The Galois action on it factors
+through an abelian quotient, so arithmetic Frobenius at $q$ to
+the $e$th power fixes it. Reduction at $q$ embeds this cyclic
+subgroup in $E(\mathbb F_{q^e})$, whence $\ell^{a-b}\mid N_q$.
+Smith normal form in $E[\ell^n]$ also shows $E[\ell^b]\subset H$.
+The Weil pairing gives $\mu_{\ell^b}\subset L$. Applying the same
+Frobenius argument to this abelian representation gives
+$\ell^b\mid q^e-1$. These estimates bound $|H|=\ell^{a+b}$
+by divisibility uniformly in $n$, and permit only primes $\ell$
+dividing $N_q(q^e-1)$. This proves the assertion. A second good
+reduction prime supplies a finite bound on the remaining $q$-primary
+torsion as well.
+
+When $e=2$, the Galois group of $\mathbb Q(\mu_{\ell^b})/\mathbb Q$
+has exponent at most two, so necessarily $\ell^b\mid24$.
+Accordingly one may use $24^2 N_q$ in the divisibility bound for
+prime-to-$q$ torsion. This is a direct elliptic calculation;
+it is also motivated by the general torsion-finiteness question for
+fields with bounded-exponent abelianization; see \href{https://arxiv.org/abs/2610.16760}{Steklov, \emph{Galois coinvariants and fundamental groups of arithmetic schemes}}.
+
+
 \section{Context}
 Edixhoven's cyclic bound bears on a question of Xarles on noncyclic
 lattice cohomology. Theorem~\ref{thm:main} treats one order-$p^4$
@@ -445,5 +712,6 @@ $\mathbb ZG$-lattices}, J. Pure Appl. Algebra (1989).
 $\mathbb Z_p$-extensions of an imaginary quadratic field},
 \href{https://arxiv.org/pdf/2308.04096v3}{arXiv:2308.04096v3},
 Proposition~3.8.
+\bibitem{Lombardo} D. Lombardo, \emph{Bounds for Serre's open image theorem for elliptic curves over number fields}. \href{https://arxiv.org/abs/1403.3813}{arXiv:1403.3813}.
 \end{thebibliography}
 \end{document}

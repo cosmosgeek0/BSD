@@ -138,6 +138,82 @@ Their overlap gives the stated summand. A free $\OO$-summand contributes
 zero. In particular the image can be nonzero for a module supported
 on a single scalar graph even when its free quotient has trivial image.
 
+\subsection{A first-order cut with nonsaturated product image}
+Let $D=\OO/\pi^N$ and $A=D[\eta]/(\eta^2)$.
+For a finite $A$-module $X$, set $X_0=X/\eta X$ and
+$\Delta X=X[\eta]/\eta X$, naturally a submodule of $X_0$.
+The periodic free resolution of $D$ over $A$ identifies
+$\Delta X=\operatorname{Tor}_1^A(D,X)$.
+
+Let $0\to J\to C\to M\to0$ be exact over $A$, with
+$\Fitt_D^0(C_0)=0$ and $\len J_0\le a$. Assume $T\subseteq\Delta M$
+and $M_0/T$ cyclic, killed by $\pi^{2a}$. Such a $T$ is supplied
+by actual tame coordinates when the scalar character has unit tangent
+at every retained tame place. Writing $H=\im(\Delta C\to\Delta M)$
+gives
+\[
+ N\le\len C_0\le \min(N,2a)+\len J_0+\len H-\len(\Delta M/T)
+ \le 3a+\len\Delta C .
+\]
+Indeed the kernel of $J_0\to C_0$ identifies with $\Delta M/H$ by
+the Tor exact sequence. Substitution in
+$\len C_0=\len M_0+\len J_0-\len(\Delta M/H)$ proves the bound.
+
+Equality can coexist with a wholly invisible product in the critical
+fibre. Put $N=3a$, $r=\pi^a$, $C=(A/r^2)e_1\oplus(A/r)e_2$,
+$v=r e_1+e_2$, $J=A\eta v$ and $M=C/J$. Then $\Delta C=0$ since
+$C$ is induced from $D$, $J_0$ has length $a$, and its image in $C_0$
+is zero. The kernel of multiplication by $\eta$ on the constant
+part of $M$ is $Dv$, so $\Delta M=Dv$ has length $a$ and $M_0/\Delta M$
+is cyclic of length $2a$. Here $\len C_0=3a$. This is an example of
+the coefficient estimate, and does not require a Galois realization.
+
+\subsection{Length and exponent with two local rows}
+Suppose a finite cut has two local relations. Let
+$0\le m_i\le n$, $D=\OO/\pi^n$, and write
+\[
+ R(m;b,w)=\left(\bigoplus_{i=1}^s\OO/\pi^{m_i}\right)/(D b+D w),
+ \qquad T_b=\sum_i D b_i e_i \subset R(m;b,w).
+\]
+A concrete source of this presentation is a scalar global
+degree-one complex with one free coordinate $u$ and tame coordinates
+$t_i$ of respective annihilators $d_i$, and a local map with rows
+$\sum_i b_i t_i$, $u$, $\sum_i w_i t_i$. At precision $n$ put
+$m_i=\min(n,v_\pi(d_i))$. The strict local functor in a finite module
+$M$ consists of $u=0$ and the maps $R(m;b,w)\to M$.
+For a universal quotient $U$ of $R(m;b,w)$ the obstruction
+$\mathrm{Hom}_D(U,D)\to D^s$, given by the coordinates of the
+$b_i e_i$, has image dual to the image of $T_b$ in $U$.
+This uses exact duality over the principal Artin ring $D$.
+A given arithmetic class must supply both rows and the stated quotient.
+
+Write $v(0)=+\infty$. Put $S_0=\sum_i m_i$ and let $L(m;b,w)$ be
+the minimum of the following numbers, omitting empty families:
+\[
+ \begin{gathered}
+ S_0,\quad S_0-m_i+v(b_i),\quad S_0-m_i+v(w_i),\\
+ S_0-m_i-m_j+v(b_iw_j-b_jw_i)\quad (i<j).
+ \end{gathered}
+\]
+These are precisely the valuations of the possibly nonzero maximal
+minors of the presentation $[\operatorname{diag}(\pi^{m_i})\mid b\mid w]$.
+Smith reduction therefore gives $\len R(m;b,w)=L(m;b,w)$. To kill
+$T_b$ add the individual columns $b_i e_i$. The $b$ column is then
+redundant and the diagonal exponents become $k_i=\min(m_i,v(b_i))$.
+Hence
+\[
+ \len T_b=L(m;b,w)-\sum_i k_i+
+       \max\bigl(\{0\}\cup\{k_i-v(w_i):1\le i\le s\}\bigr).
+\]
+There is an equally explicit annihilator. Let $L=L(m;b,w)$ and let
+$L_{-i}$ use the same formula with coordinate $i$ deleted. Adjoining
+only $b_i e_i$ gives maximal minors of minimum valuation
+$\min(L,v(b_i)+L_{-i})$ by expansion along that column. The cyclic
+submodule $D b_i e_i$ thus has length $(L-v(b_i)-L_{-i})_+$. The
+least $h\ge0$ such that $\pi^h T_b=0$ is the maximum of these lengths
+(or zero for the empty set). This gives separate bounds for length and
+annihilator even when the local slopes $b_i$ are nonunits.
+
 \section{Three coefficient corners}
 Consider a three-block matrix order over a commutative local ring $A$;
 let $P,Q,C$ denote its $(1,2),(2,3),(1,3)$ corners. Use the convention
@@ -184,6 +260,106 @@ Thus $U_P\simeq U_Q\simeq\OO/(\pi^a)$ and
 $U_C=C/IC\simeq(\OO/(\pi^{2a}))^2$. The Fitting ideal is zero
 over $D$, and $\pi^{2a}U_C=0$, but $N=4a$. Replacing the length
 hypothesis by the exponent hypothesis in the preceding bound fails.
+
+\section{An integral monodromy example on a polarized local surface}
+\label{sec:local-polarized-surface}
+The position of a monodromy line relative to a specified block
+decomposition matters even on the Tate module of a principally
+polarized abelian surface. The following construction realizes the
+full loss of primitivity in its projection, at arbitrary depth.
+
+\paragraph{Construction.}
+Fix $p=37$ and $N\ge1$. By Dirichlet's theorem choose a prime
+$\ell>3$ with $\ell\equiv2+p^N\bmod p^{N+1}$ and $\ell\ne p$.
+The ordinary case of
+\href{https://www.numdam.org/articles/10.24033/asens.1183/}{Waterhouse,
+\emph{Abelian varieties over finite fields}, Theorem 4.1}
+gives an elliptic curve over $\mathbb F_\ell$ of trace $3$:
+$|3|<2\sqrt\ell$ and $(3,\ell)=1$. Lift a nonsingular Weierstrass
+model to obtain a good reduction curve $E_0/\mathbb Q_\ell$.
+The roots $z,z'$ of $X^2-3X+\ell$ belong to $\mathbb Z_p$ and
+are congruent to $2,1$ respectively, by Hensel's lemma. Since
+$(1-z)(1-z')=\ell-2$ and $zz'=\ell$,
+\[
+ v_p(z'-1)=v_p(z-\ell)=N.
+\]
+The two integral Frobenius projectors on $T_p E_0$ split it into
+its eigenlines; the alternating pairing pairs these lines perfectly.
+
+Set $h=p^N$, and let $E_T/\mathbb Q_\ell$ be the Tate curve with
+parameter $\ell^{h^2}$. In coordinates $1,4$ for $E_0$ and
+$2,3$ for $E_T$, the product $A_0=E_0\times E_T$ has an integral
+basis of $T=T_pA_0$ in which arithmetic Frobenius and a generator
+of the pro-$p$ tame inertia image act by
+\[
+ F_0=\operatorname{diag}(z,\ell,1,z'),\qquad \tau_0=1+h^2E_{23}.
+\]
+Here $E_{ij}$ are matrix units. These formulas follow from the
+Tate uniformization, taking a Frobenius lift fixing compatible
+$p$-power roots of $\ell$. Choose the dual basis signs and inertia
+generator so the alternating form has
+$J_{14}=1$, $J_{23}=-1$, $J_{32}=1$, $J_{41}=-1$ and other
+entries zero. We fix a generator of $\mathbb Z_p(1)$ in writing
+this matrix.
+
+Let $U=1+h^{-1}(E_{12}+E_{34})$. Then $U^tJU=J$.
+On $UT$ the two matrices become $F=U^{-1}F_0U$ and
+$\tau=U^{-1}\tau_0U$, with
+\[
+ F_{12}=(z-\ell)/h,\qquad F_{34}=(1-z')/h,\qquad
+ \tau-1=h^2E_{23}-hE_{13}+hE_{24}-E_{14}.
+\]
+The unlisted entries of $F$ agree with $F_0$.
+Both displayed off-diagonal Frobenius entries are units. The matrices
+are integral invertible, so $UT$ is stable; wild and prime-to-$p$
+tame inertia act trivially.
+
+\paragraph{Polarization descent.}
+Write $M=hU$. We have $h^2T\subset MT\subset T$ as $M$ and
+$h^2 M^{-1}$ are integral, and $M^tJM=h^2J$.
+Thus $D=MT/h^2T$ is a Galois-stable isotropic subgroup of
+$A_0[h^2]$ of size $h^4$, the square root of the order of $A_0[h^2]$.
+The quotient $\phi:A_0\to B=A_0/D$ has a principal polarization
+pulling back to $h^2$ times the product polarization, by maximal
+isotropy and polarization descent
+(\href{https://www.jmilne.org/math/xnotes/AVs.pdf}{Milne,
+\emph{Abelian Varieties}, Proposition 16.8}).
+Under the rational Tate-module isomorphism the lattice of $B$ is
+$h^{-2}MT=h^{-1}UT$. Rescaling by $h$ gives exactly the lattice
+$UT$ and the alternating form $J$. Semistability and toric rank are
+unchanged under isogeny; $B$ is semistable of toric rank one.
+
+\paragraph{Integral position and block multiplication.}
+On $T_pB$, written in this basis, we have
+\[
+ \tau-1=v w,\qquad v=(-1,h,0,0)^t,\quad w=(0,0,h,1).
+\]
+Both $v$ and $w$ are primitive, so the integral monodromy image is
+the saturated line $\mathbb Z_p v$. Its projection to coordinates
+$2,3$ is $h\mathbb Z_p e_2$. For reference, in the unramified
+quadratic extension of $\mathbb Q_\ell$ the two forward adjacent
+entries of $F^2$ are $(z^2-\ell^2)/h$ and $(1-z'^2)/h$.
+They remain units since $p>2$ and $z\equiv\ell\not\equiv0\bmod p$.
+
+This gives a direct check in a specified ambient matrix order.
+Partition the coordinates into blocks $1\,|\,2\,|\,1$. In the order
+with integral diagonal and upper blocks and lower blocks divisible
+by $h$, the ideal generated by products around nontrivial block
+cycles is $(h)$: each such cycle has a lower block, and
+$E_{14}\cdot hE_{41}=hE_{11}$. Projecting each of the adjacent
+entries of $F^2$ to its indicated single matrix coordinate and
+inserting the middle matrix unit $E_{23}$ gives
+\[
+    ((F^2)_{12}E_{12})\,E_{23}\,((F^2)_{34}E_{34})
+      =(F^2)_{12}(F^2)_{34}E_{14}.
+\]
+Its upper-right coefficient is a unit even modulo the block-cycle
+ideal. The middle coordinate projection of the saturated monodromy
+line therefore has arbitrarily large index in its saturation, while
+this product generates the entire outer coordinate modulo $p^N$.
+The order here is an explicitly chosen ambient order for a local
+Galois action. No identification of that order with a global Hecke
+algebra is used.
 
 \section{A source pairing and a central relation kernel}
 There is also no bound on the following central relation loss from
@@ -439,6 +615,39 @@ $\beta_h-\beta_k+\alpha_k>J$. Every entry is divisible by $p^J$.
 Sending $v$ to $1$ and $w$ to $0$ now gives the desired functional.
 No effective bound for $h_0$ follows from this compactness argument.
 
+There is also an explicit limitation when the target precision varies
+with $h$. Write $F=K_h^{\mu_{p-1}}$, $M=p^h$ and normalize
+$v_F(p)=M$. Fourier inversion, or the defining sums, shows the row
+coefficients lie in $F$. The automorphism $\sigma$ induced by
+$\zeta\mapsto\zeta^{1+p}$ on those coefficients sends $r_h$ to $T r_h$.
+Indeed on each primitive character stratum the change of additive
+exponent multiplies the Gauss row by $T$, and the projectors onto
+the strata are rational. Flat extension permits computing the two
+relations over $O_F$. Put $q=hM$, $b_F=M\beta_h$; their triangular
+basis there is $(t_F^{q-b_F},0)$ and $(-d,\beta)$ with
+$v_F(\beta)=b_F$, for a uniformizer $t_F$. The semilinear action fixes
+$v$ and sends $w$ to $w+v$. Applying $\sigma$ to the second relation
+and subtracting $(\sigma\beta/\beta)$ times that relation gives
+\[
+ (\sigma-1)(d/\beta)-1\ \in\ t_F^{q-2b_F}O_F.
+\]
+Its trace is $-M$. If $d_F$ is the different exponent, trace duality
+gives $\mathrm{Tr}(t_F^jO_F)=p^{\lfloor(j+d_F)/M\rfloor}\mathbb Z_p$:
+this follows by testing inclusion of $p^{-i}t_F^jO_F$ in the inverse
+different. Differentiating the cyclotomic polynomial and removing
+the tame top extension of degree $p-1$ gives
+$d_F=(h+1)M-1-(M-1)/(p-1)$. Hence
+\[
+ \beta_h\ge\frac h2-\frac{1-p^{-h}}{2(p-1)}.
+\]
+At full target precision $p^h$ the possible values of $v$ form the
+ideal of valuation $\beta_h$. Indeed $W_h$ is killed by $p^h$,
+its cyclic submodule generated by $v$ has normalized length
+$h-\beta_h$, and linear forms into $O_h/p^h$ on that submodule
+extend to $W_h$ by elementary-divisor duality over this principal
+Artin ring. Thus full group precision and fixed precision have
+different behavior even for one row.
+
 There is a sharp limit on using several outputs. The second row
 $r'_h=2e_h-r_h$ has the same primitive character valuations as $r_h$,
 the same augmentation and compatibility. The proof just given applies
@@ -447,6 +656,113 @@ $e_h$, since $2$ is a unit. As $x=x(1-e_h)$, its distinguished class
 $v$ vanishes. Every normalized first-order map on the joined lattice
 has zero speed. A local first-order map for a single output is
 insufficient to construct a simultaneous arithmetic lift.
+\section{Recovering an omitted character value by bounded Gauss averaging}
+\label{sec:arch-gauss-averaging}
+Let $\mathcal O$ be the ring of integers of a finite extension of
+$\mathbb Q_p$ and take $v_p(p)=1$. Say that a power series is bounded
+if its coefficients belong to $p^{-c}\mathcal O$ for one fixed $c$.
+For a $p$-power root of unity $\zeta$ the associated character on
+$\mathbb Z_p$ is $x\mapsto\zeta^x$.
+
+\paragraph{A boundary interpolation criterion.}
+Let $F(U,Z_1,\ldots,Z_d)$ and $G(Z_1,\ldots,Z_d)$ be bounded.
+For each $m\ge1$ consider tuples $z=(\zeta_1-1,\ldots,\zeta_d-1)$
+at which the successive orders $p^{n_i}$ are sufficiently large:
+$n_1>N_1(m)$, $n_2>N_2(m,n_1)$, and so on. Assume the following
+holds for \emph{all} such tuples and all nontrivial $\xi$ with
+$\xi^{p^m}=1$:
+\[
+ F(\xi-1,z)=\sum_{j=1}^h g_j(z)\xi^{c_j(z)},\qquad
+ G(z)=\sum_{j=1}^h g_j(z).
+\]
+Here $c_j(z)\in\mathbb Z_p$ may depend on $m,z$, but is constant
+as $\xi$ varies. The $g_j(z)$ belong to the valuation ring of the
+specialization after multiplication by a common $p^c$ independent
+of $m,z$. Then $F(0,Z)=G(Z)$.
+
+Indeed, the sum of $(\xi-1)^i$ over all $\xi^{p^m}=1$ is in
+$p^m\mathbb Z_p$, by binomial expansion and character orthogonality.
+The same estimate holds with loss at most $c$ for the sum of a
+bounded series, first for polynomials and then by convergence at the
+finite set of roots. The sums of the individual characters on the
+right are either zero or $p^m$. Subtracting the two full sums leaves
+only $F(0,z)-G(z)$; its valuation is at least $m-C$, with $C$ fixed.
+For a nonzero bounded one-variable series $h$ over a finite
+extension, Weierstrass preparation gives
+\[
+ \lim_{n\to\infty} v_p(h(\zeta_{p^n}-1))
+       =\inf_i v_p([T^i]h).
+\]
+In fact, for sufficiently large $n$ the distinguished polynomial
+of degree $e$ contributes $e/\varphi(p^n)$ to the valuation, since
+its other coefficients have positive valuation; the unit contributes
+zero. Apply this assertion successively to the last variable with
+earlier ones fixed, then to each coefficient as a function of the
+preceding variable. At a fixed $m$ all coefficients of
+$F(0,Z)-G(Z)$ have valuation at least $m-C$. Taking arbitrarily
+large $m$ gives the claim.
+
+\paragraph{Stable Gauss sums.}
+Let $H/\mathbb Q_p$ be unramified, write $O_H$ for its integers,
+and fix a conductor-zero trace additive character $\psi$.
+Use the convention
+\[
+ G(\lambda;p^N)=
+ \sum_{a\in(O_H/p^N)^\times}\lambda(a)\psi(-a/p^N).
+\]
+Suppose $\lambda$ has conductor exponent $N\ge2s$, $s\ge1$.
+The restriction of $\lambda$ to $1+p^{N-s}O_H$ has the form
+$\lambda(1+p^{N-s}b)=\psi(d_\lambda b/p^s)$ for a unit
+$d_\lambda$ modulo $p^s$, by the perfect additive trace pairing.
+For every $\nu$ of conductor exponent at most $s$,
+\[
+ G(\lambda\nu^{-1};p^N)=\nu(d_\lambda)^{-1}G(\lambda;p^N).
+\]
+To prove this, sum first over the translates of
+$1+p^{N-s}O_H$ modulo $p^N$. On the coset of $a$ the inner
+additive sum is zero unless $a=d_\lambda\bmod p^s$.
+All surviving cosets have the same $\nu(a)$. This gives a source
+of the character sums used in the criterion above.
+
+\paragraph{A ramified factor depending on the other characters.}
+Over $\mathbb Q_p$ with $p\ge11$, choose a primitive root $g$ modulo
+$p^6$, and write $[t]$ for the character with $[t](g)=
+\exp(2\pi i t/p^5)$ and $[t](p)=1$. Put $\mu_1=[p^4]$, $\mu_2=[1]$,
+$\chi=\mu_1\mu_2$. For $b=1,2$ take $\psi_1=[p^2]$,
+$\tau_1=[bp^3]$, $\tau_2=[p]$, and
+$\psi_2=\chi/\psi_1$, $\xi_i=\psi_i/\tau_i$. The conductor
+exponents of $\mu_1,\tau_1,\psi_1,\tau_2,\mu_2$ are $2,3,4,5,6$.
+At each occurrence write $G$ for the primitive Gauss sum at its
+character's conductor; twisting a character of conductor at least
+four by $\mu_1^{-1}$ preserves the conductor. Consider
+\[
+ R_b=\prod_{i=1}^2
+ \frac{G(\mu_1^{-1}\xi_i)G(\mu_2^{-1}\xi_i)}
+      {G(\xi_i)G(\chi^{-1}\xi_i)} .
+\]
+For a character $[p^{6-c}t]$ of conductor exponent $c\ge4$, the
+parameter $d_\lambda$ modulo $p^2$ is
+$t(\log_p(g)/p)^{-1}$. Here the logarithm is taken on the
+principal-unit part of $g$. This follows by writing
+$\log_p(1+p^{c-2}u)\equiv p^{c-2}u\bmod p^c$ and converting
+to the exponent of $g$. For $\xi_1,\xi_2,\mu_2^{-1}\xi_1,
+\mu_2^{-1}\xi_2$ the four normalized unit parameters $t$ modulo
+$p^2$ are respectively $1-bp,1-p,-1,-(1+p)$.
+The stable formula cancels the common logarithm factor and yields
+\[
+ R_b=\mu_1\left(\frac{1+p}{(1-bp)(1-p)}\right)
+    =\mu_1(1+(b+2)p).
+\]
+The two values differ by a primitive $p$th root of unity.
+In particular $R_b$ cannot be absorbed into a constant depending
+only on $\mu_1,\mu_2$ and their conductor data. This tests this
+particular four-character simplification on the generic ramified
+stratum. For the interpolation setting see
+\href{https://doi.org/10.1017/fms.2015.16}{Wan, Section 4.1.3,
+Propositions 68 and 69}. Any application to a global family also
+requires identification of the actual interpolated coefficient and
+its lattices.
+
 \paragraph{Provenance.} The three-corner calculation and its examples
 come from entries 296, 304 and 318 of the BSD research record. The graph
 calculation and source-pairing example come from the November 16--17

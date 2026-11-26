@@ -14,6 +14,8 @@
 
 ## Further working papers
 
+- **Central-derivative quadratures for elliptic modular forms.** The paper derives squarefree modular-symbol and Kummer-correlated formulas with explicit correction terms and gives a same-curve control for the bounded integer quadrature. [PDF](central-derivative-quadratures.pdf) · [LaTeX](central-derivative-quadratures.tex)
+
 - **Integral splittings in split and unitary rank-three compact models.** The paper derives the integral projector and its denominator in the split model, and the ten-orbit boundary and constant splitting in the inert model. [PDF](compact-section-splittings.pdf) · [LaTeX](compact-section-splittings.tex)
 
 - **Cyclic splitting fields, integral norms and Heegner derivatives.** The paper bounds the number of cyclic fields that can split a torsor under a rank-growth hypothesis, calculates the one-orbit integral norm index and gives conditional equality of relative ranks for a primitive Heegner derivative. [PDF](cyclic-splitting-fields.pdf) · [LaTeX](cyclic-splitting-fields.tex)
@@ -24,7 +26,7 @@
 
 - **Dihedral branch cycles.** Explicit covers, their branch cycles and arithmetic points recovered from the original geometry record. [PDF](dihedral-branch-cycles.pdf) · [LaTeX](dihedral-branch-cycles.tex)
 
-- **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
+- **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. The combined edition includes the all-character averaging calculation, ramification correction and a semistable abelian-surface example with unbounded projected monodromy index. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
 
 - **Modular-unit fibre heights and CM translates of central Mellin integrals.** Modular units control height pairings on fibres, while CM translates on a non-CM curve test the arithmetic content of central Mellin integrals. [PDF](modular-fibre-heights.pdf) · [LaTeX](modular-fibre-heights.tex)
 
@@ -45,7 +47,7 @@
 
 - **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. The final sections treat fixed-prime Heegner-height moments, split-prime sampling, covector orbit fields, and limits for local and global character weights. The final version treats both real and imaginary quadratic sampling and proves the orbit formula at composite modulus. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
 
-- **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
+- **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. The extension treats the cyclic exterior norm, simultaneous elementary divisors and the mixed two-prime cohomology calculation. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
 
 - **A quartic governing character for a twist family.** An explicit quadratic character on a quartic field identifies the pairing sign and proves equidistribution under the stated local conditions. The three explicit quartics are identified as halving fields of sums of rational points, with degree certificates. [PDF](quartic-governing-character.pdf) · [LaTeX](quartic-governing-character.tex)
 
