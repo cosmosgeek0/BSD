@@ -157,7 +157,104 @@ imaginary path $z_*$ is the only Fricke fixed point. The two cusps
 and at least $a-2$ other sign-changing points found above are disjoint
 from this orbit. Hence $\deg\phi\ge e\,h(-4N)+a$. For the CM description
 of Fricke fixed points see \cite[\S5]{Oz}.
-\begin{thebibliography}{9}
+
+\section*{Twisting the real path by a unitary character}
+This gives a control on a possible use of the real branches.
+Write $Y(y)=cX(\log(y\sqrt N))$. Then $Y'=-2\pi c f(iy)$,
+$Y(\infty)=0$ and $Y(0)=cL(E,1)$. On $\mathbb C/\Lambda_E$, a
+logarithm $u$ determines the flat unitary character of a period
+$\lambda$ given by $\exp(2\pi i\,\operatorname{Im}(\overline u\lambda)/
+\operatorname{area}(\mathbb C/\Lambda_E))$. Along the real path its
+transport has the form $\exp(aY(y))$. If the marked point is twice
+a rational point, it lies in the identity real component and admits
+a real logarithm, giving constant transport. For arbitrary $a$ the
+central integral is still determined by the endpoints:
+\[
+ \int_0^\infty f(iy)e^{aY(y)}\,dy
+   =\frac{e^{a cL(E,1)}-1}{2\pi c a},
+\]
+with the continuous value at $a=0$. This follows by one integration.
+When $L(E,1)=0$, set
+$J(s,a)=\int_0^\infty f(iy)y^{s-1}e^{aY(y)}\,dy$.
+A second integration by parts gives
+\[
+ \partial_a J(s,0)=
+ \frac{s-1}{4\pi c}\int_0^\infty Y(y)^2 y^{s-2}\,dy .
+\]
+The last integral is finite and strictly positive at $s=1$. Thus this
+first character coefficient has a simple central zero for every such
+curve. In particular its order is unchanged when the original newform
+has a higher-order central zero. For modular-symbol character
+deformation see \cite{PR}.
+
+\section*{Two exact readings of the analytic order}
+The fibre criterion above bounds the central order using a finite
+algebraic fibre. For comparison, consider two identities whose inputs
+are themselves $L$-functions. First take $w=+1$, $L(E,1)=0$, and let
+$\pi$ be the corresponding representation of $\mathrm{PGL}_2$ with
+unitary central parameter $1/2$. Schmidt's Saito--Kurokawa packet
+with empty exceptional set contains a cuspidal member $\Pi$ under
+precisely this vanishing hypothesis \cite[Thm.~3.1]{SK}. Its spin
+parameter is the sum of that of $\pi$ and $|\cdot|^{\pm1/2}$
+\cite[Prop.~5.5]{Gan}. With the unitary normalization
+$\Lambda_\pi(t)=\Lambda_E(t+1/2)$, where
+$\Lambda_E(s)=(\sqrt N/(2\pi))^s\Gamma(s)L(E,s)$, it follows that
+\[
+ \Lambda_{\rm spin}(\tfrac12+u,\Pi)
+ =\Lambda_E(1+u)Z(u)Z(1+u),\qquad
+ Z(t)=\pi^{-t/2}\Gamma(t/2)\zeta(t).
+\]
+The residues of $Z$ at $0$ and $1$ are $-1$ and $+1$. Thus
+\[
+ \Lambda_{\rm spin}(\tfrac12,\Pi)=-\tfrac12\Lambda_E''(1)
+   =-\frac{\sqrt N}{4\pi}L''(E,1).
+\]
+This is a specialization of the existing packet formula. The bare
+finite product has only one pole available to remove central order;
+the second comes from completion. The cuspidal member here need not be
+holomorphic. Its nonzero existence does not require $L''(E,1)\ne0$.
+In particular, existence of the representation supplies no test for
+the vanishing of this spin value.
+
+For the second identity, take an $S_3$ extension $D/\mathbb Q$, a
+cubic subfield $M$, and its quadratic subfield $K$. Put
+$F_J(t)=L(E/J,1+t)$, $a_J=\operatorname{ord}_{t=0}F_J(t)$ and use
+meromorphic germs. Artin formalism gives
+$F_D F_{\rm Q}^2=F_M^2F_K$: the permutation characters for
+$D,M,K$ are respectively the regular representation,
+$\mathbf1+\mathrm{std}$, and $\mathbf1+\mathrm{sgn}$. The relation
+implies both equality of orders and equality of initial coefficients.
+Consequently
+\[
+ \lim_{t\to0}\frac{F_D(t)F_{\rm Q}(6t)^2}
+ {F_M(2t)^2 F_K(3t)}
+ = 2^{2a_{\rm Q}-2a_M}3^{2a_{\rm Q}-a_K}.
+\]
+If $L(E\otimes\chi_K,1)\ne0$ the exponent of three is $a_{\rm Q}$.
+The relevant twist nonvanishing theorem is due to Friedberg and Hoffstein \cite{FH}. The displayed implication uses only an $S_3$ extension with the stated
+quadratic subfield.
+
+There is a restriction on interpreting the rescaled quotient as a
+new ordinary $L$-function. For finite $L$-functions with finitely many
+Euler factors omitted, take the quotient in the last display and remove
+its $F_D(t)$ factor. In the variable $s=1+t$ all remaining Euler
+substitutions are $s\mapsto1+k(s-1)$ with $k=2,3,6$. Thus every
+good linear Euler coefficient vanishes. At a prime $q$ splitting
+completely in $D$, the coefficient of $T^2$ with $T=q^{-s}$ equals
+$-6q a_q(E)$: the only contribution at that degree is from the inverse
+square of $F_M(2t)$, with three equal local factors. Infinitely many
+such $q$ have $a_q(E)\ne0$, by simultaneously splitting in the odd
+division field $\mathbb Q(E[\ell])$ for any fixed $\ell\ge3$; then
+$a_q(E)\equiv2\bmod\ell$. If an ordinary virtual finite-dimensional
+continuous $\ell$-adic representation had these local factors, its
+trace would vanish at almost all Frobenius classes, so its
+semisimplified virtual character would be zero by density and
+Brauer--Nesbitt. Its good local factors would then all be one, contrary
+to the quadratic coefficient. This obstruction concerns the proposed
+Euler realization and leaves the germ identity intact. For the
+ordinary Artin relations on elliptic $L$-functions and regulators see
+\cite{DD}.
+\begin{thebibliography}{9}\raggedright
 \bibitem{D} C. Delaunay, \emph{Critical and ramification points of the modular
 parametrization of an elliptic curve}, J. Th\'eor. Nombres Bordeaux
 \textbf{17} (2005), 109--124. \href{https://doi.org/10.5802/jtnb.480}{Paper}.
@@ -168,4 +265,16 @@ U. Zannier, \emph{On the distribution of rational points on ramified covers
 of abelian varieties}, \href{https://arxiv.org/abs/2011.12840}{arXiv:2011.12840}.
 \bibitem{Oz} E. \"Ozman, \emph{Points on quadratic twists of $X_0(N)$},
 \href{https://arxiv.org/abs/0911.4537}{arXiv:0911.4537}.
+\bibitem{PR} Y. Petridis and M. Risager, \emph{Arithmetic statistics of
+modular symbols}, \href{https://arxiv.org/abs/1703.09526}{arXiv:1703.09526}.
+\bibitem{SK} R. Schmidt, \emph{The Saito--Kurokawa lifting and functoriality},
+\href{https://www.math.uni-sb.de/ag/schulze/rschmidt/papers/skfunc.pdf}{paper}.
+\bibitem{Gan} W. T. Gan, \emph{The Saito--Kurokawa space of PGSp$_4$ and its transfer to inner forms},
+\href{https://math.nyu.edu/~tschinke/princeton/papers/.aim05/submitted/gan.pdf}{paper}.
+\bibitem{FH} S. Friedberg and J. Hoffstein, \emph{Nonvanishing theorems
+for automorphic $L$-functions on $\mathrm{GL}(2)$},
+\href{https://annals.math.princeton.edu/1995/142-2/p04}{paper}.
+\bibitem{DD} T. Dokchitser and V. Dokchitser,
+\emph{On the Birch--Swinnerton-Dyer quotients modulo squares},
+\href{https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p11-p.pdf}{paper}.
 \end{thebibliography}\end{document}

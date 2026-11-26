@@ -406,6 +406,124 @@ augmentation statement above is new.
 The rank gain concerns $E$ after extending its ground field. The original
 central order of $L(E/K,s)$ is a separate question.
 
+
+\appendix
+\section{Heights of representatives over splitting fields}
+\label{sec:heights}
+
+For an elliptic curve $E$ over a number field $k$ write
+$\|X\|^2=\widehat h(X)$ for the absolute N\'eron--Tate height,
+extended as a quadratic form on $E(F)\otimes_{\mathbb Z}\mathbb R$.
+For a positive integer $q$ let $\delta_{q,F}:E(F)/qE(F)\to
+H^1(F,E[q])$ be the Kummer map. The following estimate concerns the
+part of a representative perpendicular to $E(k)\otimes\mathbb R$.
+
+\medskip
+\noindent\textbf{Proposition A.1.}
+Let $q=p^m$ for a prime $p$, let $F/k$ be a finite Galois extension
+with $E(F)[p]=0$, and set $G=\operatorname{Gal}(F/k)$ and
+$e=|G|^{-1}\sum_{g\in G}g$. Suppose that $\kappa\in H^1(k,E[q])$
+restricts to $\delta_{q,F}(P)$ and that its image $\xi\in H^1(k,E)$
+has exact order $p^a>1$. Let $\mu>0$ be a lower bound for the height
+of every nontorsion point in $E(F)$. Then for every $Q\in E(F)$,
+\begin{equation}\label{eq:transverse-bound}
+ \frac{\|(1-e)(P-qQ)\|^2}{q^2}
+ \ \ge\ \frac{\mu}{2}(1-p^{-a}).
+\end{equation}
+
+\begin{proof}
+Put $P'=P-qQ$ and let $d$ be the size of the $G$-orbit of $P'$
+modulo $T=E(F)_{\rm tors}$. Take $K$ to be the fixed field of the
+stabilizer, so $[K:k]=d$. The integer $D=|T|$ is prime to $q$,
+and $DP'\in E(K)$. Restriction from $K$ to $F$ is injective on
+$H^1(K,E[q])$ by inflation--restriction and $E(F)[q]=0$. The classes
+$D\,\operatorname{res}_{K/k}\kappa$ and $\delta_{q,K}(DP')$ agree
+over $F$, hence over $K$. It follows that $D\,\operatorname{res}_{K/k}
+\xi=0$. Since $\xi$ is $p$-primary, $K$ splits $\xi$.
+Corestriction now gives $p^a\mid d$.
+
+The class of $P'$ in $E(F)/qE(F)$ is $G$-invariant by injectivity
+and equivariance of the Kummer map. Each $gP'-P'$ therefore equals
+$q$ times a point of $E(F)$. A fraction $1-1/d$ of these differences
+are nontorsion and have height at least $q^2\mu$. The action preserves
+the height pairing, and $e$ is orthogonal projection to the fixed
+space. Consequently
+\[
+ \frac1{|G|}\sum_{g\in G}\|gP'-P'\|^2
+ =2\|P'\|^2-2\langle eP',P'\rangle
+ =2\|(1-e)P'\|^2 .
+\]
+The two inequalities $d\ge p^a$ and
+$2\|(1-e)P'\|^2\ge(1-1/d)q^2\mu$ prove the proposition.
+\end{proof}
+
+\noindent\textbf{Proposition A.2.}
+Fix $\kappa$ and its nonzero image $\xi$ as above. Let
+$F_i/k$ be pairwise linearly disjoint finite Galois extensions,
+with $E(F_i)[p]=0$ and $\operatorname{res}_{F_i/k}\kappa
+=\delta_{q,F_i}(P_i)$. Assume a common lower bound $\mu>0$ for
+the heights of nontorsion points in all the $F_i$ and $F_iF_j$.
+Define
+\[
+ e_i=\frac1{|\operatorname{Gal}(F_i/k)|}
+        \sum_{g\in\operatorname{Gal}(F_i/k)}g,\qquad
+ u_i=(1-e_i)P_i,\qquad \beta_i=\|u_i\|^2/q^2.
+\]
+Put $\Lambda=E(k)/E(k)_{\rm tors}$, $V_0=\Lambda\otimes\mathbb R$,
+and let $x_i$ be the class of $e_iP_i/q$ in $V_0/\Lambda$. Then
+\begin{equation}\label{eq:torus-distance}
+ \operatorname{dist}(x_i,x_j)^2+\beta_i+\beta_j\ \ge\ \mu
+ \qquad (i\ne j).
+\end{equation}
+In particular, if $0\le\eta<\mu/2$, the number of $i$
+for which $\beta_i\le\eta$ is at most
+\[
+ \frac{2^r\sqrt{\operatorname{Reg}(E/k)}}
+ {v_r(\mu-2\eta)^{r/2}},
+ \qquad r=\operatorname{rank}E(k),
+\]
+where the regulator uses the given norm and $v_r$ is the Euclidean
+unit-ball volume. For $r=0$ this bound is one. Along any infinite
+sequence of such fields, $\liminf_i\beta_i\ge\mu/2$.
+
+\begin{proof}
+Over $F_iF_j$ both $P_i$ and $P_j$ represent the same Kummer class.
+Write $P_i-P_j=qR_{ij}$ for $R_{ij}\in E(F_iF_j)$. The vector
+$u_i$ is nonzero by Proposition~A.1. Averaging the pairing with $u_j$
+over $\operatorname{Gal}(F_iF_j/F_j)$ shows $u_i\perp u_j$,
+since this group restricts onto $\operatorname{Gal}(F_i/k)$ and
+fixes $u_j$. Both are orthogonal to $V_0$. For $Q\in E(k)$ the point
+$R_{ij}-Q$ is nontorsion since its component $(u_i-u_j)/q$ is nonzero.
+Therefore
+\[
+ \mu\le \|R_{ij}-Q\|^2
+ =\|(e_iP_i-e_jP_j)/q-Q\|^2+\beta_i+\beta_j.
+\]
+Minimization over $Q$ gives \eqref{eq:torus-distance}.
+
+If both $\beta_i,\beta_j\le\eta$, their torus distance is at least
+$\rho=\sqrt{\mu-2\eta}$. In positive rank each nonzero lattice
+vector has norm at least $\sqrt{\mu}\ge\rho$. Hence the
+\emph{open} balls of radius $\rho/2$ project injectively to the quotient and retain their Euclidean volume.
+Indeed, two points in one open
+ball have distance strictly less than $\rho$ in the covering space,
+so their difference cannot be a nonzero period. Distinct balls in
+the quotient have disjoint interiors. Their volumes are therefore
+at most the total covolume $\sqrt{\operatorname{Reg}(E/k)}$, giving
+the claimed bound. In rank zero the torus consists of one point,
+and \eqref{eq:torus-distance} directly excludes a second index with
+$\beta_i\le\eta$. Applying the bound for each $\eta<\mu/2$ gives
+the limit inferior.
+\end{proof}
+
+For a single number field $F$ the positive height minimum follows
+from the Mordell--Weil lattice. In an infinite family the common
+bound is a substantive hypothesis; Silverman supplies it when all
+fields lie in $k^{\rm ab}$ \cite{SilvermanHeight}. The argument
+allows all classes in the Weil--Ch\^atelet group, including locally
+soluble torsors. An upper height estimate for particular representatives
+would require separate arithmetic information.
+
 \begin{thebibliography}{9}
 
 \bibitem{FisherVisibility}
@@ -427,6 +545,11 @@ B.~Mazur and K.~Rubin,
 of Number Fields},
 arXiv:math/0703363.
 \url{https://arxiv.org/abs/math/0703363}
+
+\bibitem{SilvermanHeight}
+J. H. Silverman, \emph{A lower bound for the canonical height on
+elliptic curves over abelian extensions}, J. Number Theory 104
+(2004), 353--372. \url{https://arxiv.org/abs/math/0305041}
 
 \end{thebibliography}
 

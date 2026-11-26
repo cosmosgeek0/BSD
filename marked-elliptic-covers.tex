@@ -231,6 +231,62 @@ of Agashe--Stein \cite[Prop.~2.4]{AS}; the target has dimension $p$.
 \end{proof}
 The lower bound concerns geometrically isotypic targets and the stated
 residual representation. General visibility allows other isogeny factors.
+
+\section{Lattices marking a point and a torsor}
+There is also an exact minimum for the lattice part of a 1-motive.
+Let $C$ be an everywhere locally soluble torsor under $E/\Q$ of prime
+period $p$, let $\alpha=[C]$, and fix a nontorsion $P\in E(\Q)$.
+Write $G$ for the finite Galois image on $Y$ in notation for invariants. Consider a Galois lattice $Y$ and an equivariant homomorphism
+$j:Y\to E(\overline{\Q})$. Require that $P$ be in $j(Y^{G})$
+and $\alpha$ be in the image of $H^1(\Q,Y)\to H^1(\Q,E)$.
+This means that the complex $[Y\to E]$, with $Y$ in degree $-1$,
+quotients by the marked point in degree zero and kills the given
+torsor in degree one.
+
+\begin{proposition}
+The smallest rank of such a lattice is $p$. If $Y$ must be the
+degree-zero divisor lattice on a finite reduced puncture set on $C$
+and $j$ the divisor-class map, its smallest rank is $2p-1$.
+\end{proposition}
+\begin{proof}
+Let $G$ be the finite image of Galois on $Y$. Its kernel has no
+nonzero continuous homomorphism to the free discrete group $Y$,
+so $H^1(\Q,Y)=H^1(G,Y)$ is killed by $|G|$. Hence $p\mid|G|$.
+An element of order $p$ acts nontrivially on $Y\otimes\Q$ and contributes
+a cyclotomic constituent of dimension $p-1$. The invariant vector
+mapping to $P$ gives another dimension.
+
+As in the preceding proof, $C$ has a closed point of degree $p$;
+let $D$ be its geometric orbit. Put $I_D=\ker(\mathbb Z[D]\to
+\mathbb Z)$ with the degree map, and use the canonical map
+$I_D\to\operatorname{Pic}^0(C_{\overline\Q})=E(\overline\Q)$.
+By Shapiro's lemma $H^1(\Q,\mathbb Z[D])=0$, so the permutation
+sequence identifies $H^1(\Q,I_D)$ with $\mathbb Z/p$. A generator
+is represented, for $x\in D$, by $\sigma\mapsto\sigma x-x$.
+Its image is the torsor class up to sign. Taking $Y=I_D\oplus\mathbb Z$
+and mapping the last generator to $P$ gives rank $p$ and the required
+maps. In this construction the induced map
+$H^1(\Q,Y)\to H^1(\Q,E)$ is injective, so the corresponding
+degree-zero hypercohomology is exactly $E(\Q)/\mathbb Z P$.
+
+For any reduced puncture set, its invariant degree-zero divisor
+lattice has rank one less than the number of orbits. Every closed
+point of $C$ has degree divisible by $p$ by restriction--corestriction.
+Hence the rational mark requires at least two orbits, giving lattice
+rank at least $2p-1$. Let $[D]+P$ be the translated degree-$p$ class.
+Its Brauer obstruction vanishes locally because $C$ has points over
+every completion and therefore vanishes globally by the Brauer
+local-global theorem. Riemann--Roch gives an effective rational
+representative $D'$, which must itself be a single orbit of size $p$.
+It is distinct from $D$ because $P$ has infinite order. The union
+$D\cup D'$ gives rank $2p-1$; its invariant difference $D'-D$ maps
+to $P$, and the map $I_D\to I_{D\cup D'}$ gives the required
+cohomology image by functoriality.
+\end{proof}
+These two bounds use a specified torsor as input. Banwait, Caro and
+Chidambaram \cite{BCC} study categorical minimality for visualizing
+abelian varieties, a different minimality requirement.
+
 \begin{thebibliography}{9}\raggedright
 \bibitem{OS} K. Ono and C. Skinner, \emph{Non-vanishing of quadratic twists
 of modular $L$-functions}, \href{https://uva.theopenscholar.com/files/ken-ono/files/037.pdf}{authors' paper}.
@@ -244,4 +300,7 @@ and Hilbert's tenth problem}, \href{https://arxiv.org/abs/0904.3709}{arXiv:0904.
 numbers of motives}, \href{https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf}{paper}.
 \bibitem{AS} A. Agashe and W. Stein, \emph{Visibility of Shafarevich--Tate
 groups of abelian varieties}, \href{https://wstein.org/papers/visibility_of_sha/jnt_version.pdf}{paper}.
+\bibitem{BCC} B. S. Banwait, J. Caro and S. Chidambaram,
+\emph{On the Visibility category of the Shafarevich--Tate group},
+\href{https://arxiv.org/abs/2601.21519}{arXiv:2601.21519}.
 \end{thebibliography}\end{document}
