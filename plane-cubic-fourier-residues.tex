@@ -2282,6 +2282,236 @@ deterministic scalar whose continued order is $d-a$ was divided out
 before applying the martingale argument, so this law gives no
 nonvanishing estimate for that scalar.
 
+\section{Full-lattice reflection and two boundary coefficients}
+\label{app:fullreflect}
+
+A reflection on one rational pencil was used in Appendix~A.
+Retaining all three Fourier coordinates produces a different identity.
+It separates the contribution of the rational cubic from an explicit
+series over integer vectors away from it.
+
+Let $S$ contain the primes of bad reduction of the integral cubic.
+Write $e_q(u)=\exp(2\pi i u/q)$,
+$c_q(u)=\sum_{a\bmod q}^{*}e_q(au)$ and
+$\Gamma_{\mathbb R}(z)=\pi^{-z/2}\Gamma(z/2)$. Use the Euclidean
+norm throughout this appendix. Put
+\[
+ T_q(v)=\sum_{x\in(\mathbb Z/q)^3}c_q(F(x))e_q(v\cdot x),
+ \qquad
+ J_S(u,b)=\sum_{(q,S)=1}q^{-3-u}
+               \sum_{0\ne v\in\mathbb Z^3}T_q(v)\|v\|^{-b}.
+\]
+The notation $(q,S)=1$ means that $q$ has no prime factor in $S$.
+The defining series converges absolutely for $\Re b>3,\ \Re u>2$,
+by $|T_q(v)|\le q^4$. Write
+$\sigma_\nu^S(n)=\sum_{d\mid n,\,(d,S)=1}d^\nu$ for $n\ge1$
+and $Z_F(s)=\sum_{m\ne0,\,F(m)=0}\|m\|^{-s}$ for $\Re s>1$.
+
+\medskip
+\noindent\textbf{Full reflection.}
+Put $t=u+b$. In $\Re b<0,\ \Re t>2$, the reflected expression for
+$J_S$ is
+\begin{align}
+J_S(u,b)={}&
+\frac{\Gamma_{\mathbb R}(3-b)}
+     {\Gamma_{\mathbb R}(b)\zeta^S(t)}
+\left\{D_S(t,b)+\zeta^S(t-1)Z_F(3-b)\right\},\label{eq:fulldelta}\\
+D_S(t,b)={}&
+ \sum_{\substack{m\ne0\\F(m)\ne0}}
+   \sigma_{1-t}^S(|F(m)|)\|m\|^{b-3}.\notag
+\end{align}
+
+\noindent\emph{Proof.}
+For a periodic coefficient $h(v)$ modulo $q$ let
+$\widehat h(m)=\sum_{v\bmod q} h(v)e_q(-m\cdot v)$.
+Poisson summation on the cosets of $q\mathbb Z^3$ applied to a Gaussian,
+followed by Mellin transformation, gives
+\[
+ \Gamma_{\mathbb R}(b)\sum_{v\ne0}h(v)\|v\|^{-b}
+ =
+ q^{-b}\Gamma_{\mathbb R}(3-b)
+       \sum_{m\ne0}\widehat h(m)\|m\|^{b-3}
+\]
+as an identity of meromorphic functions. The zero terms on each side
+are removed in taking the Mellin transform: splitting the Gaussian
+integral at one supplies their simple polar terms in the completed
+identity. In particular the uncompleted left-hand series has value
+$-h(0)$ at $b=0$. Here $\widehat T_q(m)=q^3 c_q(F(m))$ by orthogonality.
+
+For fixed $q$ the reflection continues the inner series individually.
+One can first sum the continuations for $\Re u$ sufficiently large on
+a compact $b$-set avoiding the pole at $3$. Indeed split the original
+sum into the $q^3$ cosets. After rescaling, the translates of
+$\mathbb Z^3$ have shifts in $q^{-1}\mathbb Z^3/\mathbb Z^3$. Any
+nonzero shortest vector has length at least $1/q$. In the split
+Gaussian integral, removing the boundedly many vectors of length at
+most one leaves a uniformly bounded large-time tail. The dual
+large-time tail is uniformly bounded because its character weights
+have absolute value one. The removed terms and the rescaling
+$q^{-b}$ grow at most polynomially in $q$ on compact $b$-sets.
+This proves the initial overlap after continuation in $b$.
+
+For $\Re b<0,\ \Re t>2$ the reflected double sum converges absolutely
+by $|c_q(n)|\le q$. The formula
+$c_q(n)=\sum_{d\mid(q,n)}d\,\mu(q/d)$ yields
+\[
+ \sum_{(q,S)=1} c_q(n)q^{-t}=
+ \begin{cases}
+ \sigma_{1-t}^S(|n|)/\zeta^S(t), &n\ne0,\\
+ \zeta^S(t-1)/\zeta^S(t), &n=0 .
+ \end{cases}
+\]
+Combining the identities proves \eqref{eq:fulldelta}.
+\hfill$\square$
+
+\medskip
+For fixed $\Re b<0$, $D_S(t,b)$ is holomorphic in a neighborhood of
+$t=2$. In fact, on compact sets with $\Re t>1$ the divisor sum is at
+most the number of divisors of $|F(m)|$, which is
+$O_\epsilon((1+\|m\|)^\epsilon)$ for every $\epsilon>0$ by cubic growth.
+The residue along $t=2$ is therefore
+\begin{equation}\label{eq:fulldelta-res}
+ \frac{\Gamma_{\mathbb R}(3-b)}{\Gamma_{\mathbb R}(b)}
+ \frac{\rho_S}{\zeta^S(2)}\, Z_F(3-b),
+ \qquad \rho_S=\prod_{p\in S}(1-p^{-1}).
+\end{equation}
+At negative even $b$ the displayed coefficient is zero. For each
+rational point of $E$ choose a primitive integral vector and denote its
+Euclidean length by $H_2(P)$. Counting the nonzero positive and negative
+multiples of that vector gives the exact decomposition
+\[
+ Z_F(s)=2\zeta(s)\sum_{P\in E(\mathbb Q)} H_2(P)^{-s}.
+\]
+The point sum converges for $\Re s>0$. The height attached to
+$|3O|$ satisfies $\log H_2(P)=3\hat h(P)+O_E(1)$. Mordell--Weil lattice
+counting thus makes the point sum of size $\asymp_E s^{-r/2}$ as
+$s\downarrow0$ for $r>0$, with a finite nonzero limit when $r=0$.
+This describes the continuation of the \emph{isolated} coefficient
+\eqref{eq:fulldelta-res}. At $b=0$ the gamma quotient makes the
+coefficient zero.
+
+\subsection{The zero coefficient at the elliptic boundary}
+In the original half-plane of sufficiently large $\Re u$, the value
+at $b=0$ is
+\[
+ J_S(u,0)=-\sum_{(q,S)=1}q^{-3-u}T_q(0).
+\]
+We can continue this identified coefficient. At $p\notin S$ write
+$n_p=p+1-a_p$ and $B_k=\#\{x\bmod p^k:F(x)=0\bmod p^k\}$, with
+$B_0=1$. The primitive solutions contribute $(p-1)n_p p^{2k-2}$.
+The solutions divisible by $p$ contribute $1,p^3$ for $k=1,2$
+respectively, and $p^6 B_{k-3}$ for $k\ge3$ by homogeneity. Hence
+$T_{p^k}(0)=p^k B_k-p^{k+2}B_{k-1}$ for $k\ge1$.
+Summing the recurrence, with $X=p^{-u}$, gives
+\[
+ 1+\sum_{k\ge1}p^{-(3+u)k}T_{p^k}(0)
+ =\frac{1-a_p(p-1)p^{-2}X+(p-1)p^{-2}X^2-p^{-1}X^3}{1-X^3}.
+\]
+Divide its numerator by
+$(1-a_p p^{-1}X+p^{-1}X^2)(1-p^{-1}X^3)$.
+At $u=0$ the quotient is one. For $\Re u\ge-\delta$, with
+$0<\delta<1/12$, Hasse's bound makes it
+$1+O_\delta(p^{-3/2+5\delta})$ for large $p$. Finitely many remaining
+quotients are regular and nonzero in a neighborhood of zero.
+Multiplicativity and continuation yield
+\begin{equation}\label{eq:deltaZ0}
+ J_S(u,0)=-
+ \frac{\zeta^S(3u)\,U_S(u)}
+ {L^S(E,1+u)\,\zeta^S(1+3u)},\qquad U_S(0)=1 .
+\end{equation}
+Thus its order at zero is $|S|+1-a$ with the current finite-prime
+convention. The cone residue at $t=2$ and this elliptic coefficient
+are computed by different specializations of the reflected formula.
+The analytic difficulty is concentrated in $D_S(t,b)$: a divisor
+switch introduces the angular factor
+$|F(m/\|m\|)|^{1-t}$ (with further finite-prime factors for $S\ne
+\varnothing$). It is singular for some $t$ near the cone, and the
+divisor switch itself only applies to $F(m)\ne0$. The stated
+continuations of the two coefficients give no interchange at their
+joint boundary.
+
+\section{A polar weight on a pencil and its Artin correction}
+\label{app:polar}
+Fix a nonflex $P\in E(\mathbb Q)$ and a rational transverse line with
+linear form $\ell$ and intersection divisor $P+Q_0+R_0$, with all
+three geometric points distinct. Write
+\[
+ g=\frac{\partial_P F}{\ell^2}\quad\hbox{on }E,\qquad
+ \partial_P F(x)=\nabla F(x)\cdot P .
+\]
+Both numerator and denominator have degree two. Put
+$Z=[2]^{-1}(-P)$ and $R=\{Q_0,R_0\}$. Then
+\[
+                 \operatorname{div}(g)=\sum_{Q\in Z}[Q]
+                                  -2\sum_{Q\in R}[Q].
+\]
+Indeed away from $P$, the polar cuts $E$ precisely where the
+tangent passes through $P$. Such a tangent has divisor $2Q+P$, which
+is equivalent to $3O$ exactly when $2Q=-P$. These four geometric
+points are distinct, and $P$ is different from them by nonflexion.
+The polar has a double zero at $P$: in affine coordinates centered at
+$P$, the equation is $l+q+c=0$ with terms homogeneous of degrees
+one, two and three, and the polar restricts to $-q-2c$.
+This has order at least two. B\'ezout with the cubic accounts for all
+six intersections. Transversality of $\ell$ keeps $R$ disjoint from
+$Z$. On the pencil in Appendix~A the denominator $\ell(A(m)+LP)^2$
+is independent of $L$. The two values of $g$ at distinct roots on a
+split member have ratio $-1$ whenever the denominator is nonzero.
+Thus a multiplicative character can distinguish the two roots locally.
+
+\medskip
+\noindent\textbf{Local mass.}
+Let $\eta$ be a finite-order Hecke character of $\mathbb Q$. Enlarge
+$S$ to omit ramification and primes where the divisors and units just
+used have bad reduction. At $p\notin S$ put $\alpha_p=\eta_p(p)$.
+Give each residue disk in $E(\mathbb Q_p)$ measure $1/p$ and put
+\[
+ I_p(\eta)=\int_{E(\mathbb Q_p)}\eta_p(g(Q))\,d\mu_p(Q).
+\]
+Zeros and poles have measure zero. There is an exact formula
+\begin{equation}\label{eq:polar-density}
+ I_p(\eta)=\frac{n_p}{p}
+ +|Z(\mathbb F_p)|\,\frac{\alpha_p-1}{p-\alpha_p}
+ +|R(\mathbb F_p)|\,\frac{\alpha_p^{-2}-1}{p-\alpha_p^{-2}}.
+\end{equation}
+In a disk containing a section of order $e$, a uniformizer of
+valuation $k\ge1$ has mass $(1-p^{-1})p^{-k}$. The character is
+$\alpha_p^{ek}$ there and equals one in every unmarked disk.
+Subtracting the untwisted masses and summing the geometric series
+gives \eqref{eq:polar-density}. Smooth reduction and the exclusion
+of bad divisor primes ensure that each rational reduced branch lifts.
+
+Choose the reciprocity convention in which $\eta(\operatorname{Frob}_p)
+=\alpha_p$. In the complex representation ring of the compositum of
+the fields defining the branches and the character, put
+\[
+ V=(\eta-\mathbf1)\otimes\mathbb C[Z]
+       +(\eta^{-2}-\mathbf1)\otimes\mathbb C[R].
+\]
+Define $A_p=I_p(\eta)/(n_p/p)$. The first-order expansion of
+\eqref{eq:polar-density} is
+$A_p=1+p^{-1}\operatorname{tr}V(\operatorname{Frob}_p)+O(p^{-3/2})$.
+Consider the product $\prod_{p\notin S}(1+(A_p-1)p^{-z})$, initially
+for $\Re z>0$. Dividing by $L^S(1+z,V)$ gives a normally convergent
+Euler correction near $z=0$ by the expansion. Upon omitting the
+finitely many primes needed to keep the $A_p$ nonzero, the correction
+is a unit there. Brauer induction and the pole order at one of
+one-dimensional Hecke $L$-functions give its order in terms of the
+multiplicity of the trivial representation:
+\[
+ \operatorname{ord}_{z=0}\prod_{p\notin S}
+              (1+(A_p-1)p^{-z})=-\langle V,\mathbf1\rangle .
+\]
+For example choose a nontrivial quadratic character whose field is
+linearly disjoint from the splitting field of $Z$.
+Then $\eta^{-2}=\mathbf1$ and $\eta\otimes\mathbb C[Z]$ has no
+invariants. The displayed order is the number of Galois orbits on $Z$,
+a positive integer. A degree-zero polar weight can therefore change
+a central normalization by a nonunit even though its value at each
+rational input away from its divisor satisfies the idele class product
+formula. This calculation concerns local integrals on $E$;
+retaining a global height kernel requires a separate comparison.
+
 \begin{thebibliography}{9}
 \bibitem{CLT}
 A.~Chambert-Loir and Y.~Tschinkel,

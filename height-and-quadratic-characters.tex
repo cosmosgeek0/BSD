@@ -29,7 +29,7 @@
 \maketitle
 
 \begin{abstract}
-For a rational elliptic curve presented as a double cover of the projective line, we attach the positive squareclasses of a binary quartic, a rational-square height series, and a two-variable series of primitive quadratic Dirichlet $L$-functions.  We prove an exact identification of the rational-square locus with rational elliptic points, a regulator-normalized height-counting asymptotic, and its Abelian pole-type singularity.  Two specializations of the quadratic-character series recover the same height series: evaluation at character parameter zero and the residue at character parameter one.  Independently, we prove an Euler-product formula for the bulk average of all locally admissible slopes, and a meromorphic continuation of that \emph{bulk coefficient} to character parameter zero.  Its order is $1+b-a$, where $b$ is the number of rational Galois orbits of the four branch points and $a$ is the complex analytic rank of the elliptic curve.  We identify a rigorous obstruction to equating this order with the height singularity: all rational-square slopes may be deleted without changing the bulk coefficient, and the normalized finite-height means have a divergent first character derivative at zero.  The two asymptotics therefore do not prove Birch--Swinnerton-Dyer.  No finiteness assumption on the Tate--Shafarevich group is made.
+For a rational elliptic curve presented as a double cover of the projective line, we attach the positive squareclasses of a binary quartic, a rational-square height series, and a two-variable series of primitive quadratic Dirichlet $L$-functions.  We prove an exact identification of the rational-square locus with rational elliptic points, a regulator-normalized height-counting asymptotic, and its Abelian pole-type singularity.  Two specializations of the quadratic-character series recover the same height series: evaluation at character parameter zero and the residue at character parameter one.  Independently, we prove an Euler-product formula for the bulk average of all locally admissible slopes, and a meromorphic continuation of that \emph{bulk coefficient} to character parameter zero.  Its order is $1+b-a$, where $b$ is the number of rational Galois orbits of the four branch points and $a$ is the complex analytic rank of the elliptic curve.  We identify a rigorous obstruction to equating this order with the height singularity: all rational-square slopes may be deleted without changing the bulk coefficient, and the normalized finite-height means have a divergent first character derivative at zero.  The two asymptotics therefore do not prove Birch--Swinnerton-Dyer.  We also compute a self-dual Poisson sum, local squareclass laws in two integral models, and the signed Frobenius and height series on the symmetric square. No finiteness assumption on the Tate--Shafarevich group is made.
 \end{abstract}
 
 \section{Introduction and scope}
@@ -427,7 +427,360 @@ rational points. The analytic order concerns a coefficient preserved
 after those points are deleted. Identifying the two ranks would require
 an additional arithmetic argument.
 
-\begin{thebibliography}{9}
+\section{A self-dual prime sum and deletion of rational rays}\label{sec:ray-deletion}
+
+For a good odd prime $p\notin S$ put $\varphi_p(v)=(G(v)/p)$, using the
+Legendre symbol extended by zero. Homogeneity makes this constant on the
+nonzero vectors on each line in $\F_p^2$. The double cover of the
+projective line defined by the quartic has $p+1+\sum_{[v]}\varphi_p(v)$
+rational points, so $\sum_{[v]}\varphi_p(v)=-a_p$. For
+$J(u_1,u_2)=(-u_2,u_1)$, put $e_p(x)=\exp(2\pi ix/p)$. Summing first
+along each nonzero line gives the finite Fourier identity
+\[
+ \sum_{v\bmod p}\varphi_p(v)e_p(u\cdot v)
+ =p\varphi_p(Ju)+a_p-p a_p\,\mathbf 1_{u=0}.
+\]
+Indeed the character sum on a line with its zero removed is either
+$p-1$ or $-1$, according as the line is perpendicular to $u$ or not.
+
+Take $W(x)=(1-2\pi\|x\|^2)e^{-\pi\|x\|^2}$ on $\R^2$ and the Fourier
+transform with kernel $e^{-2\pi i x\cdot y}$. Then $\widehat W=-W$.
+Poisson summation on each residue class of $\Z^2$ modulo $p$, followed
+by the finite identity and the ordinary Gaussian Poisson identity
+$\sum_m W(m/\sqrt p)=-p\sum_m W(\sqrt p\,m)$, gives exactly
+\begin{equation}\label{eq:ray-prime}
+ S_p:=\sum_{v\in\Z^2}\varphi_p(v)W(v/\sqrt p)
+       =a_p\sum_{m\in\Z^2}W(\sqrt p\,m).
+\end{equation}
+The rightmost sum equals $1+O(p e^{-\pi p})$. The prime series
+$\sum_p S_p\log p\, p^{-s}$ consequently has the same continued
+residue at $s=1$ as the prime-only series for $a_p$, namely
+$\tfrac12-a_E$. To check the half, remove prime powers from
+$-(L^S)'/L^S$. The second-power coefficient is $a_p^2-2p$ and its
+series has residue $-1/2$ there, by the Rankin--Selberg simple pole
+and regularity and nonvanishing of the adjoint factor at the edge (also for CM). Equivalently the squared normalized Hecke traces have prime average one; substituting $2s-1$ into the logarithmic derivative supplies the factor $1/2$.
+Powers three and higher converge normally near $s=1$.
+
+For a primitive, unoriented rational square ray $v$, let $h=H(v)$ and
+$g(t)=(1-2\pi t^2)e^{-\pi t^2}$. Its full contribution to
+\eqref{eq:ray-prime} is zero at primes dividing $G(v)$, and otherwise
+equals
+\begin{equation}\label{eq:ray-line}
+ K(h/\sqrt p)-K(h\sqrt p),\qquad K(t)=\sum_{n\in\Z}g(nt).
+\end{equation}
+Here $p\mid n$ gives zero in the prime sum. The integral of $g$ on
+$\R$ is zero. One-dimensional Poisson summation gives $K(t)=O_A(t^A)$
+for $0<t\le1$ and $K(t)=1+O_A(t^{-A})$ for $t\ge1$, for every $A>0$.
+For each fixed ray the contribution is thus $-1+O_{v,A}(p^{-A})$.
+Deleting that one ray adds one to the continued prime residue. For
+any fixed radial Schwartz function with Fourier transform $-W$ the
+same proof gives $-W(0)$ in place of $-1$: Fourier slicing identifies
+its line integral with the integral of $\widehat W$ on a perpendicular
+line, which equals its negative by radiality. The coefficient of
+$a_p$ in \eqref{eq:ray-prime} also tends to $W(0)$.
+
+For the full set of rational square rays and $r\ge1$ one obtains
+\begin{equation}\label{eq:ray-slice}
+ S_{p,\square}
+ =-\mathrm C_E\left(\tfrac12\log p\right)^{r/2}
+      +O_E\!\left(1+(\log p)^{(r-1)/2}\right).
+\end{equation}
+Here is a uniform justification. The ellipsoid count used in
+Theorem~\ref{thm:height} has error $O(1+T^{(r-1)/2})$ in a
+logarithmic radius cutoff $T=\log H$. Cover lattice points by their
+unit fundamental cells; only cells in a boundary layer of bounded
+Euclidean thickness in the Mordell--Weil lattice can disagree with
+volume. The bounded error between $2\widehat h$ and $\log H$ is
+absorbed by the same bound. In every shell $j\le\log h<j+1$ this
+gives $O_E(1+j^{(r-1)/2})$ rays. Put $T=\tfrac12\log p$. Equation
+\eqref{eq:ray-line} differs from $-\mathbf1_{\log h\le T}$ by
+$O_A(e^{-A|\log h-T|}+ (h\sqrt p)^{-A})$. Summing this shell
+error costs $O_E(1+T^{(r-1)/2})$.
+
+It remains to exclude $p\mid G(v)$ in the main count $h\le\sqrt p$.
+The point underlying such a ray reduces to two-torsion or to the
+origin, so $2P$ reduces to the origin. If $2P\ne O$, the denominator
+of $x(2P)$ is divisible by $p^2$ on a fixed integral short
+Weierstrass model away from finitely many primes. Thus
+$8\widehat h(P)+O_E(1)=h(x(2P))\ge2\log p$.
+Apply this also to differences of points in the reduction kernel
+of $[2]$. In the free Mordell--Weil lattice, distinct such points
+modulo torsion are separated by $\gg_E\sqrt{\log p}$ in the height
+norm. The points under consideration lie in a ball of radius
+$O_E(\sqrt{\log p})$, so packing bounds their number by $O_E(1)$.
+Finitely many torsion points have bounded contribution. This proves
+\eqref{eq:ray-slice}.
+
+In particular for $234446.\mathrm{a}1$ deleting square rays outside
+any fixed rank-two subgroup increases $S_p$ by
+$\mathrm C_E(\log p)^2/4+O_E((\log p)^{3/2})$. The subgroup itself
+contributes $O_E(\log p)$ by the same count. This distinguishes
+subgroups at every sufficiently large prime. It does not determine
+the central residue: deletion of even one more fixed ray changes that
+residue by one and leaves all leading powers in \eqref{eq:ray-slice}
+unchanged.
+\section{Local probabilities on two integral quartic charts}
+
+At $2$ the measure on slopes depends on coordinates. For this section
+we use the original abscissa $x$ of each minimal Weierstrass equation
+and complete the square in $y$, giving
+\[
+ F_4(x)=4x^3-3x^2-316x+1156,\qquad F_2(x)=4x^3+4x^2-8x+1
+\]
+for $234446.\mathrm{a}1$ and $389.\mathrm{a}1$ respectively.
+Write $G_i^0(m,n)=n^4 F_i(m/n)$. In Section~\ref{sec:examples},
+$G_4$ instead uses the abscissa $4x-1$. That change of variable
+does not preserve uniform projective measure at $2$.
+
+For $v=2^eu$ with $u$ odd, $\chi_D(2)$ equals $+1$ or $-1$
+when $e$ is even and $u$ is respectively $1$ or $5\bmod8$; it is
+zero otherwise. Uniform projective slopes have two charts. Those
+with $n$ odd have mass $2/3$, with $m/n$ uniform in $\Z_2$.
+The other chart has mass $1/3$, with $n/m$ uniform in $2\Z_2$.
+The conditional distributions in the order $(+1,-1,0)$ are
+\[
+\begin{array}{c|c|c|c}
+ & n\text{ odd}& n\text{ even}&\text{overall}\\ \hline
+E_4&(13/16,1/16,1/8)&(1/24,1/24,11/12)&(5/9,1/18,7/18)\\
+E_2&(1,0,0)&(1/12,1/12,5/6)&(25/36,1/36,5/18)
+\end{array}
+\]
+
+Indeed $F_2(x)\equiv1\bmod8$ for every integral $x$. For $F_4$,
+odd $x$ gives $F_4(x)\equiv1\bmod8$, and $4\mid x$ gives
+$F_4(x)/4\equiv1\bmod8$. If $x=2y$ with $y$ odd, then
+$F_4(2y)/4=8y^3-3y^2-158y+289$ takes residues $8,4,8,20\bmod32$
+as $y$ runs through $1,3,5,7\bmod8$. These facts give the
+odd-denominator column.
+
+On the other chart write $t=n/m=2^ku$, with $u$ uniform and odd.
+Here $k\ge1$ has probability $2^{-k}$. The reversed quartics are
+\[
+ G_2^0(1,t)=t(4+4t-8t^2+t^3),\qquad
+ G_4^0(1,t)=t(4-3t-316t^2+1156t^3).
+\]
+For $E_2$ the parenthesis has valuation two. Its quotient by four
+is $5\bmod8$ when $k=1,2$, and $1\bmod8$ when $k\ge3$.
+Only even $k$ contribute a sign, each sign with conditional
+probability $1/4$. For $E_4$ at $k=1$ the normalized odd part
+is $3$ or $7\bmod8$. At $k=2$ the value equals $16uH(u)$ where
+$H(u)=1-3u-1264u^2+18496u^3$. The map $u\mapsto uH(u)$ maps
+odd residues bijectively to even residues modulo every $2^j$ by
+Hensel lifting: its derivative is odd throughout the chart.
+Each nonzero sign then has conditional probability
+$\tfrac14\sum_{j\ge1}2^{-2j}=1/12$. At $k\ge3$ the parenthesis has
+valuation two; at $k=4$ the normalized odd part is $u+4\bmod8$,
+and for even $k\ge6$ it is $u\bmod8$. Summing with weights
+$2^{-k}$ gives the even-denominator column.
+
+At the odd bad primes the change $x\mapsto4x-1$ preserves the
+measure and the quadratic squareclass. Direct reduction of $F_i$
+gives $4(x-\alpha)^2(x-\beta)$, with
+\[
+ \begin{array}{c|r|r|r|r}
+ &p&\alpha&\beta&F_i(\alpha)/p\bmod p\\ \hline
+ E_4&117223&7592&72734&43107\\
+ E_2&389&299&179&369
+ \end{array}
+\]
+Thus the double-root tube has valuation exactly one and contributes
+zero. The two simple-root directions are $\beta$ and infinity.
+Each contributes $1/[2(p+1)^2]$ to the projective squareclass mass
+by summing even positive valuations in a simple Hensel tube.
+In both rows $\alpha-\beta$ is a nonzero square modulo $p$.
+Away from these three directions the quadratic-character sum is
+$-1$, so exactly $(p-3)/2$ directions have square value. Hence
+\[
+ \rho_p=\frac{p-3}{2(p+1)}+\frac1{(p+1)^2},\qquad
+ \rho_{117223}=\frac{6870498641}{13741466176},\quad
+ \rho_{389}=\frac{75271}{152100}.
+\]
+All these numbers describe the indicated unrestricted projective
+charts before imposing the local square restrictions of $\calV$.
+
+There is a related transform for the square indicator (including
+zero values of $G$). At an odd prime let $s_p(v)$ indicate this
+condition for $v\ne0$ and put $s_p(0)=0$. Write $t_p$ for the number
+of allowed projective residue directions. With Fourier normalization
+$p^{-2}$ the zero coefficient is $(p-1)t_p/p^2$, and each nonzero
+frequency has coefficient $(p\,s_p(Ju)-t_p)/p^2$. Summing first
+over the $p-1$ nonzero scalar representatives of a projective line
+proves the formula; the Chinese remainder theorem gives all
+squarefree-modulus versions.
+
+\subsection{An upper bound on a shell derivative}
+Use $G^0_4$ and the max-norm cutoff
+$H\le\max(|u|,v)<2H$, $v>0$, $\gcd(u,v)=1$. Retain positive
+$G^0_4$ with fundamental discriminant $D>1$, optionally imposing
+further local square restrictions. For an integer $H\ge1$ put
+\[
+ M_H(w)=H^{-4+4w}\sum_{\rm retained}L(w,\chi_D).
+\]
+Each character is even and nonprincipal, so $M_H(0)=0$ and the
+Dirichlet functional equation gives
+\[
+ 0\le M'_H(0)=\frac1{2H^4}\sum_{\rm retained}\sqrt D\,L(1,\chi_D)
+ \le4\sqrt{94656}\bigl(\log(94656H^4)+2\bigr).
+\]
+Indeed there are fewer than $8H^2$ pairs and
+$D\le4G_4^0\le94656H^4$. A sum through $D$ and partial summation
+using the character period bound the Dirichlet value by $\log D+2$.
+The dyadic sum therefore satisfies
+\[
+ \limsup_{s\downarrow0}s^2\sum_{j\ge0}2^{-js}M'_{2^j}(0)
+ \le\frac{16\sqrt{94656}}{\log2}.
+\]
+This bound is a finite-height estimate. For example for any constant
+$K$, $K(1-H^{-w})^3/w+wH^{-w}$ has derivative $1$ at zero for each
+finite $H$, but its limit at fixed real $w>0$ is $K/w$.
+
+\section{Signed degree-two divisors and rational heights}
+Let $\sigma:X=\operatorname{Sym}^2 E\to E$ be the sum map. Translating
+both members of an unordered pair by $-T$ when its sum is $2T$ gives
+an isomorphism over $\Q$
+\[
+ E\times\mathbb P^1\xrightarrow{\ \sim\ } X\times_{E,[2]} E,\qquad
+ (T,x(P))\longmapsto(\{T+P,T-P\},T).
+\]
+The inverse uses $E/\{\pm1\}\simeq\mathbb P^1$. By the projective
+bundle formula, every line bundle on this product is obtained from a
+line bundle on $E$ and $\mathcal O_{\mathbb P^1}(d)$. Its Weil height
+therefore separates up to a bounded term. The identity for canonical
+heights is exact:
+\[
+ \widehat h(T+P)+\widehat h(T-P)=2\widehat h(T)+2\widehat h(P).
+\]
+
+\subsection{Frobenius traces}
+Let $\pi:E^2\to X$ be the quotient by the switch $\tau$ and put
+$\mathcal F=(\pi_*\Q_\ell)^-$ at a good prime $p\ne\ell$.
+On pairs the trace has values $1,-1,0$ for distinct split points,
+a quadratic conjugate pair, and a repeated point respectively. If
+$q=p^n$, $N_q=q+1-a_q=\#E(\F_q)$, then $N_{q^2}=(q+1)^2-a_q^2$.
+Hence the total signed trace and its mean on $X(\F_q)$ are
+\[
+ \frac{N_q^2-N_{q^2}}2=-a_q N_q,\qquad -\frac{a_q}{q+1}.
+\]
+The denominator in the mean comes from the $q+1$ points of each
+projective-line fibre. For $V=H^1(E_{\overline{\F}_p},\Q_\ell)$ one has
+$R\sigma_*\mathcal F\simeq V[-1]$ as a geometrically constant
+complex with its natural Frobenius action. In fact
+$(A,B)\mapsto(A+B,A)$ identifies the ordered-pair family with a
+product; the involution on the second factor is $A\mapsto S-A$
+above $S$. It acts by $-1$ in degree one and by $+1$ in degrees
+zero and two. Proper base change and the idempotent $(1-\tau)/2$
+therefore give the assertion, including over a fibre with coincident
+points. If $\alpha,\beta$ are the two Frobenius eigenvalues on $V$,
+the resulting local zeta factor is
+\[
+ \exp\left(\sum_{n\ge1}\frac{-a_{p^n}N_{p^n}}n u^n\right)=
+ \frac{(1-\alpha u)(1-\beta u)(1-p\alpha u)(1-p\beta u)}
+ {(1-\alpha^2u)(1-pu)^2(1-\beta^2u)} .
+\]
+Here $a_{p^n}$ denotes $\alpha^n+\beta^n$ in this subsection.
+In contrast, the ordinary generating function of the normalized
+means is not rational: expanding $(p^n+1)^{-1}$ gives simple poles
+at $p^j/\alpha,p^j/\beta$ for $j\ge1$. Distinct $j$ have different
+pole moduli, and coincident poles for $\alpha=\beta$ add. The resulting
+series extends meromorphically off these points by normal convergence
+on compact subsets. Thus the normalized means cannot themselves be
+the power traces of a single finite-dimensional operator.
+
+\subsection{A signed height series}
+On $\mathbb P^1(\Q)$ write $H_0$ for primitive max height and put
+$\epsilon_E(u)=\#x^{-1}(u)(\Q)-1$. Its three values use the same
+splitting convention over $\Q$. For $\Re w>2$,
+\[
+ \Sigma_E(w):=\sum_{u\in\mathbb P^1(\Q)}\epsilon_E(u)H_0(u)^{-w}
+ =\sum_{P\in E(\Q)} H_0(x(P))^{-w}
+       -4\frac{\zeta(w-1)}{\zeta(w)} .
+\]
+Here $x(O)=\infty$. The factor four follows from the count $4\phi(n)$
+of primitive projective directions of height $n$, with $\phi(1)=1$.
+The right side continues meromorphically to $\Re w>0$.
+Write $t_E=|E(\Q)_{\rm tors}|$, $t_2=|E(\Q)[2]|$ and
+$\Theta_E(z)=\sum_{T\in E(\Q)} e^{-z\widehat h(T)}$.
+On the sector $\sigma(D)\in 2E(\Q)$, count an effective divisor $D$
+with the mean of its weights over its $t_2$ rational lifts to the
+product above. A lift $(T,u)$ has weight
+$\epsilon_E(u)e^{-z\widehat h(T)}H_0(u)^{-w}$. The resulting series
+is exactly $\Theta_E(z)\Sigma_E(w)/t_2$.
+When $r>0$, lattice counting or Poisson summation, together with
+$\log H_0(x(P))=2\widehat h(P)+O_E(1)$, gives
+\[
+ \frac{\Theta_E(z)\Sigma_E(z)}{t_2}\sim
+ \frac{t_E^2\pi^r}{2^{r/2}t_2\Reg_E}z^{-r}\quad(z\downarrow0).
+\]
+The zeta quotient is regular at zero. For $r=0$ its subtraction gives
+$\Sigma_E(0)=t_E-2/3$. For the corresponding positive count of
+\emph{distinct split} divisors with $\widehat h(A)+\widehat h(B)\le T$
+and $A+B\in2E(\Q)$, the leading term for $r>0$ is
+\[
+ \frac{t_E^2\pi^r}{2^{r+1}t_2\,r!\Reg_E}T^r .
+\]
+Indeed the finite-index condition has index $2^r t_2$ in the
+ordered-pair group, then switching contributes a factor $1/2$;
+the diagonal contributes $O(T^{r/2})$.
+
+\subsection{An independence weight for tuples}
+On the free Mordell--Weil lattice $\Gamma$ form the Gaussian sum
+\[
+ W_k(z)=\sum_{P_1,\ldots,P_k\in\Gamma}
+ \det(\langle P_i,P_j\rangle)_{i,j\le k}
+ e^{-z\sum_i\widehat h(P_i)},\qquad z>0 .
+\]
+The Gram determinant vanishes exactly for dependent tuples.
+Thus $W_k(z)>0$ exactly for $k\le r$. If $1\le k\le r$, lattice
+Riemann sums yield
+\[
+ W_k(z)\sim k!\binom rk
+  \left(\frac{\pi^{r/2}}{2\sqrt{\Reg_E}}\right)^k
+  z^{-k(r/2+1)}.
+\]
+In the Gaussian integral, Cauchy--Binet gives one squared minor for
+each set of $k$ coordinates. Its expectation is $k!/2^k$ because
+the coordinates under normalized density proportional to
+$e^{-\|x\|^2}$ have variance $1/2$. This gives the coefficient with
+the height convention of \eqref{eq:height-convention}. The exponent
+detects the number of independent arithmetic directions available
+to the tuple.
+
+\subsection{Positive Euler coefficients and their rightmost pole}
+For a good prime, put $u=\sqrt p$, $X=p^{-s}$. The local factor of
+$\zeta(s-\tfrac12)^2/L(E,s)$ has expansion
+\[
+ \frac{1-a_pX+pX^2}{(1-uX)^2}
+ =1+\sum_{n\ge1}n u^{n-1}(2u-a_p)X^n .
+\]
+All coefficients are nonnegative by Hasse. At the bad primes the
+numerator becomes $1-a_pX$, with $a_p\in\{-1,0,1\}$, and the same
+nonnegativity holds. The zeta functions introduce a double pole at
+$s=3/2$ by the nonvanishing of the normalized cuspidal $L$-function
+on $\Re s=1$ \cite{JS}. At the central point the pole order is $a_E$
+when $a_E>0$. A positive-coefficient Tauberian estimate from the
+rightmost singularity hence describes a different asymptotic.
+
+\subsection{Vertical factors in a model of the symmetric square}
+The generic fibre $\operatorname{Sym}^2E$ is a surface, so a regular
+arithmetic model has dimension three. Blowing up a regular closed
+centre $Z$ of codimension $c$ in such a model $Y$ gives
+\[
+ \zeta_{\operatorname{Bl}_Z Y}(s)/\zeta_Y(s)
+ =\prod_{j=1}^{c-1}\zeta_Z(s-j).
+\]
+Indeed the exceptional divisor is the projectivized normal bundle,
+and the complements of the centre and exceptional divisor agree.
+A closed point with residue cardinality $q$ introduces factors
+$(1-q^{1-s})^{-1}(1-q^{2-s})^{-1}$. They record the choice of model;
+the signed trace and the rank exponent above were obtained on the
+generic family and its good reductions.
+
+\raggedright
+\begin{thebibliography}{99}
+\bibitem{JS}
+H.~Jacquet and J.~A.~Shalika, \emph{On Euler products and the
+classification of automorphic representations. II},
+Amer. J. Math. \textbf{103} (1981), 777--815.
 \bibitem{SilvermanHeight}
 J. H. Silverman, \emph{The difference between the Weil height and the canonical height on elliptic curves},
 Math. Comp. \textbf{55} (1990), 723--743.
@@ -460,3 +813,4 @@ The LMFDB Collaboration, elliptic curve records
 \href{https://www.lmfdb.org/EllipticCurve/Q/234446/a/1}{234446.a1}.
 \end{thebibliography}
 \end{document}
+
