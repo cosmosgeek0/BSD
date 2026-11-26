@@ -14,6 +14,8 @@
 
 ## Further working papers
 
+- **Cyclic splitting fields, integral norms and Heegner derivatives.** The paper bounds the number of cyclic fields that can split a torsor under a rank-growth hypothesis, calculates the one-orbit integral norm index and gives conditional equality of relative ranks for a primitive Heegner derivative. [PDF](cyclic-splitting-fields.pdf) · [LaTeX](cyclic-splitting-fields.tex)
+
 - **Splitting densities of Selmer and Mordell–Weil classes.** Field indices and simultaneous prime-splitting densities recover the orders of finite-level Tate–Shafarevich subgroups under the stated image hypotheses. [PDF](selmer-splitting-densities.pdf) · [LaTeX](selmer-splitting-densities.tex)
 
 - **Genus characters in a fixed imaginary quadratic field.** The construction detects independent marked points modulo two using one fixed rank-one twist, under the stated sign and irreducibility hypotheses. [PDF](fixed-field-genus-characters.pdf) · [LaTeX](fixed-field-genus-characters.tex)
@@ -54,7 +56,7 @@
 
 - **Matrix coset averages in the boundary model of the Steinberg representation.** Exact finite-level averages, dependence on Smith invariants, and an all-conductor compact inert integral for the specified test function. [PDF](steinberg-coset-averages.pdf) · [LaTeX](steinberg-coset-averages.tex)
 
-- **Real origin fibres of modular parametrizations.** The note relates the central order to interior real crossings and gives degree bounds with a separate CM refinement. The paper includes flat-character moments, the completed spin value for the second derivative and the rescaled Artin comparison. A CM comparison describes the circular mean and the multiplicity in the elliptic variable. [PDF](real-origin-fibres.pdf) · [LaTeX](real-origin-fibres.tex)
+- **Real origin fibres of modular parametrizations.** The note relates the central order to interior real crossings and gives degree bounds with a separate CM refinement. The paper includes flat-character moments, the completed spin value for the second derivative and the rescaled Artin comparison. A CM comparison describes the circular mean and the multiplicity in the elliptic variable. The Artin comparison includes the construction of its auxiliary field. [PDF](real-origin-fibres.pdf) · [LaTeX](real-origin-fibres.tex)
 - **A certified four-zero disk for 234446.a1.** The interval proof counts four zeros with multiplicity in a disk of radius $10^{-57}$ about the centre. The individual central multiplicity remains two or four. [PDF](central-zero-disk.pdf) · [LaTeX](central-zero-disk.tex)
 
 ## Drafts

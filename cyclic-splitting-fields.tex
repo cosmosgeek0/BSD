@@ -1,0 +1,486 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=0.90in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Sel}{\operatorname{Sel}}
+\newcommand{\Sha}{\mathrm{Sha}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\cor}{\operatorname{cor}}
+\title{Cyclic Splitting Fields, Integral Norms and Heegner Derivatives}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad
+\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+In a $\Z_p^2$-extension where the rank at layer $n$ is $O(p^n)$
+and the elliptic curve acquires no $p$-torsion, a torsor of period
+$p^{n-j}$ splits in only a bounded number of cyclic subfields of degree
+$p^n$, uniformly in $n$ for fixed $j$. The bound gives a sufficient
+criterion for a compatible Selmer class to be a base-field Kummer class.
+For a single cyclic field we compute the integral norm index that
+controls descent and the height of a divided point. In the opposite
+direction, a polynomial weight on a cyclic quotient realizes a mixed
+Heegner derivative with the same precision. Under explicit primitivity
+hypotheses this last construction gives equal increments in arithmetic
+and analytic rank over the cyclic field.
+\end{abstract}
+
+\section{How many cyclic subfields can split a torsor?}
+Let $E/K$ be an elliptic curve over a number field and let $p$ be an odd
+prime. In a Galois extension $K_\infty/K$ with group
+$\Gamma\simeq\Z_p^2$, put $K_n=K_\infty^{p^n\Gamma}$.
+A field splits $\alpha\in H^1(K,E)$ when its restriction there
+is zero. For an element $c_n\in\Sel_{p^n}(E/K)$, its image in
+$\Sha(E/K)[p^n]$ splits over $L$ precisely when
+$\res_L(c_n)$ is represented by a point of $E(L)/p^nE(L)$.
+
+\begin{theorem}\label{thm:count}
+Suppose that $E(K_\infty)[p]=0$ and
+$\rank E(K_s)\le Cp^s$ for all $s\ge1$. If $0\le j<n$ and
+$\alpha\in H^1(K,E)$ has exact order $p^{n-j}$, the number of cyclic
+degree-$p^n$ subfields of $K_n$ splitting $\alpha$ is at most
+\[
+ \frac{Cp}{p-1}\frac{p^{j+1}-1}{p-1}.
+ \tag{1}
+\]
+\end{theorem}
+\begin{proof}
+Take such a field $L$ and let $L_s$ be its unique degree-$p^s$
+subfield. Let $s$ be the first layer at which $\alpha$ splits.
+The restriction--corestriction identity gives
+$p^s\alpha=0$, hence $s\ge n-j$.
+
+Write $D=\Gal(L_s/L_{s-1})$. The rank increases at this step.
+Otherwise $D$ acts trivially on the lattice $E(L_s)/E(L_s)_{\rm tors}$
+because it acts trivially after tensoring with $\Q$. The torsion has
+order prime to $p$, so its positive-degree $D$-cohomology vanishes.
+Thus $H^1(D,E(L_s))=0$, since a homomorphism from $D$ to a free
+abelian group is zero. Inflation--restriction would then preclude
+first splitting at this step.
+
+Since $L_s\subset K_s$, the rank increase occupies at least
+$\varphi(p^s)$ dimensions in $E(K_s)\otimes\Q$.
+Indeed all irreducible rational representations of a cyclic quotient
+of order $p^s$ that are nontrivial on its subgroup of order $p$
+correspond to its faithful complex characters. They form one rational
+orbit of size $\varphi(p^s)$. Distinct degree-$p^s$ fields have
+different kernels in $\Gal(K_s/K)$, and their faithful parts are
+disjoint. Hence there are at most $Cp^s/\varphi(p^s)=Cp/(p-1)$
+possible first-splitting fields of degree $p^s$.
+
+Each kernel at level $s$ has $p^{n-s}$ lifts to a cyclic field
+of degree $p^n$ inside $K_n$. To count them, represent a quotient by
+a primitive row in $(\Z/p^s)^2$, up to multiplication by a unit.
+Use a chart in which one entry is $1$; its lifts are parametrized by
+the $p^{n-s}$ lifts of the other entry. Summing over
+$n-j\le s\le n$ gives (1).
+\end{proof}
+
+Lei and Sprung prove the required rank bound for $E/\Q$,
+$K$ imaginary quadratic, and odd $p$ of good reduction split in $K$,
+in the full $\Z_p^2$-extension \cite[Thm.~1.1]{LS}. The condition on
+$p$-torsion is a separate hypothesis.
+
+\begin{corollary}\label{cor:compatible}
+Let $c=(c_n)_n$ belong to the inverse limit of the $p^n$-Selmer
+groups in Theorem~\ref{thm:count}. If the number of distinct cyclic
+degree-$p^n$ fields in $K_n$ over which $c_n$ is Kummer is unbounded
+as $n$ varies, then $c$ belongs to $E(K)\otimes\Z_p$.
+\end{corollary}
+\begin{proof}
+The Kummer sequences give a map to $T_p\Sha(E/K)$ with kernel
+$E(K)\otimes\Z_p$, by surjectivity of the point transition maps.
+Write $\eta=(\eta_n)$ for the image of $c$. If
+$\eta\ne0$, let $\eta_{j+1}$ be its first nonzero coordinate.
+It has order $p$, and $p\eta_{n+1}=\eta_n$ implies that for
+$n>j$ the order of $\eta_n$ is exactly $p^{n-j}$.
+Apply (1) at each such $n$.
+\end{proof}
+
+\section{The integral obstruction in a single cyclic field}
+Suppose $L/K$ has degree $p$ with cyclic group $G=\langle\sigma\rangle$
+and $E(L)[p]=0$. Put
+\[
+ M=E(L)\otimes\Z_p,\quad A=M^G,\quad
+ N=\sum_{g\in G}g,\quad P=\ker(N:M\to M),\quad \pi=\sigma-1 .
+\]
+Then $A=E(K)\otimes\Z_p$. Taking invariants commutes with this
+flat base change on finitely generated groups. On the quotient
+$B=M/A$ and on $P$, the group-ring action factors through
+$\mathcal O=\Z_p[\zeta_p]$, and $\pi$ acts as its uniformizer.
+Both are torsion-free $\mathcal O$-modules of the same rank $t$.
+For a comparison with the general integral Galois-module setting, see
+\cite{VW}. The new rational representation contains $t$ copies of $\Q_p(\zeta_p)$.
+
+\begin{proposition}\label{prop:index}
+There is an integer $0\le e\le t$ with
+\[
+ [M:A+P]=[NM:pA]=p^e,\qquad
+ H^1(G,M)=P/\pi M\simeq(\F_p)^{t-e}.
+ \tag{2}
+\]
+If $t=1$, any nonzero base class in $H^1(K,E[p])$ represented over
+$L$ by a trace-zero point modulo $p$ comes from $E(K)/pE(K)$
+if and only if $e=1$.
+\end{proposition}
+\begin{proof}
+The norm induces $M/(A+P)\simeq NM/pA$. In $B$ the image of
+$P$ contains $\pi B$, since $\pi M\subset P$.
+It has index $p^e$ in $B$, whereas $\pi B$ has index $p^t$.
+The map $P\to B$ is injective, so $\pi M$ corresponds exactly to
+$\pi B$. Cyclic cohomology gives (2), including the elementary
+abelian structure.
+
+Restriction on $H^1(K,E[p])$ is injective by $E(L)[p]=0$.
+The kernel on Weil--Ch\^atelet groups is $H^1(G,E(L))$, identified
+with $H^1(G,M)$ since it is killed by $p$ and $E(L)$ is finitely
+generated. If $e=t=1$ this kernel is zero, so the base class has
+zero Weil--Ch\^atelet obstruction. If $e=0$, then $M=A\oplus P$;
+in $M/pM$ a nonzero vector from $P/pP$ cannot come from $A/pA$.
+These are the only two possibilities.
+\end{proof}
+
+For an individual invariant $Q\bmod pM$, the obstruction to lifting
+it to $A/pA$ is the boundary in $H^1(G,M)[p]$. Its value in
+$P/\pi M$ is represented by $\pi Q/p$. If $Q\in P$ then its
+possible invariant residues form a space of dimension $t$, since
+$P$ is saturated in $M$ and
+$(P/pP)^G=\pi^{p-2}P/pP$. Thus one relative character orbit can
+supply at most one independent base class with a trace-zero
+representative. Both indices in (2) actually occur for abstract
+one-orbit lattices, as seen by comparing $\Z_p\oplus\mathcal O$
+with $\Z_p[G]$. This comparison concerns integral representations.
+
+\subsection*{Regulators and a divided point}
+For the height identities, write $M_{\Z}=E(L)/E(L)_{\rm tors}$
+and equip it with the absolute N\'eron--Tate quadratic height
+$\hat h$. Let $A_{\Z}=M_{\Z}^{G}$ and $P_{\Z}=\ker N$.
+For a lattice $J$ write $R(J)$ for its Gram determinant, with
+$\hat h(x)=\langle x,x\rangle$. Orthogonality and (2) give
+\[
+ R(M_{\Z})=p^{-2e} R(A_{\Z})R(P_{\Z}).
+ \tag{3}
+\]
+Indeed $M_{\Z}/(A_{\Z}+P_{\Z})$ is killed by $p$, since
+$p x=Nx+(p-N)x$. Its order is the same as its $p$-adic index in (2).
+The invariant lattice in (3) is taken after quotienting by torsion.
+
+More generally, for a cyclic extension of degree $h$, in the same
+integral height lattice write $L_0=M_{\Z}^{G}$ and $N=\sum_{g\in G}g$.
+Suppose $y=\pi z$ for an actual $z\in M_{\Z}$. Hermitian extension
+of the positive definite form to $M_{\Z}\otimes\mathbb C$ gives
+orthogonal character idempotents $e_\chi$. All integral predecessors
+are $z+L_0$. Pythagoras on the invariant and moving components gives
+\[
+ \min_{\pi x=y}\hat h(x)=
+ \sum_{\chi\ne1}\frac{\|e_\chi y\|^2}{|\chi(\sigma)-1|^2}
+ +\frac1{h^2}\min_{R\in Nz+hL_0}\hat h(R).
+ \tag{4}
+\]
+The second term is a shortest-vector problem in a specified coset.
+The identity
+$\pi\sum_{j=0}^{h-1}j\sigma^j=h-N$ gives a predecessor of $hy$
+of trace zero, since $Ny=0$. Thus multiplying the input by $h$
+eliminates its invariant correction. In a Heegner construction the
+same scaling can be obtained by multiplying the modular
+parametrization by $h$, which leaves the elliptic $L$-function fixed.
+
+\section{Compressing a mixed derivative into a cyclic quotient}
+Let $A'$ be a finite abelian group, $U=\prod_{i=1}^d
+\langle\sigma_i\rangle$ a subgroup with $|\sigma_i|=m_i$, and
+$P_0=p^a$, $a\ge1$, a divisor of every $m_i$. Let $Y$ be an element
+of an $A'$-module $M'$ which is free of finite rank over $\Z_p$.
+Write $N_i=\sum_{j=0}^{m_i-1}\sigma_i^j$, assume
+\[
+ N_iY=0\bmod P_0M'\quad(1\le i\le d),
+ \qquad
+ D_i=\sum_{j=0}^{m_i-1} j\,\sigma_i^j.
+\]
+Choose a set of representatives $\mathcal R$ for $A'/U$
+and put $D(Y)=\sum_{\tau\in\mathcal R}\tau D_1\cdots D_dY$.
+Its class modulo $P_0$ is independent of $\mathcal R$, since
+$(\sigma_i-1)D_i=m_i-N_i$.
+Let $T:A'\twoheadrightarrow\Z/P_0$ have $T(\sigma_i)=b_i$
+a unit for every $i$.
+
+\begin{proposition}\label{prop:compress}
+For $1\le d<p$, take the same integer lift of each $T(g)$ throughout
+its fibre. Then $Q_T=\sum_{g\in A'}T(g)^d gY$ is fixed by $\ker T$
+and satisfies
+\[
+ Q_T\equiv d!\Big(\prod_i b_i\Big) D(Y)\pmod{P_0M'} .
+ \tag{5}
+\]
+\end{proposition}
+\begin{proof}
+On the coset of $\tau$, expand $(T(\tau)+\sum_i b_i j_i)^d$.
+Every monomial missing $j_i$ acts through $N_iY$ and vanishes
+modulo $P_0$. The one remaining monomial has coefficient
+$d!\prod_i b_i$. Constancy of the lifted weight on fibres gives
+the asserted invariance before reduction.
+\end{proof}
+
+There is an integral variant for arbitrary $d\ge1$. If $T$ instead
+takes values in $\Z/p^{a+\lfloor\log_p d\rfloor}$ and each $b_i$
+is a unit, use $\binom{T(g)}d$. This is well-defined modulo $p^a$.
+Indeed, for $q=p^{a+\lfloor\log_p d\rfloor}$ one has
+$v_p\binom qj=a+\lfloor\log_p d\rfloor-v_p(j)\ge a$ for
+$1\le j\le d<q$, so Vandermonde's formula ensures periodicity.
+On a coset subtract all lower-dimensional faces of the weight by
+successive differences, replacing coordinate $j_i$ by zero in the
+subtracted term. Every such face that omits a coordinate makes zero
+contribution. The full difference of $\binom{x}d$ with steps
+$b_i j_i$ equals $\prod_i b_i j_i$, by its leading coefficient.
+This gives (5) with $d!$ removed. Among one-variable polynomial
+weights modulo $p^a$ with unit constant $d$th difference and
+zero $(d+1)$st difference this period is minimal: in the Newton
+basis $\binom{x}{k}$, period $q$ forces successively
+$\binom q1,\dots,\binom qd\equiv0\bmod p^a$, by comparing the
+coefficients from degree $d-1$ down and using the unit top
+coefficient. A $p$-power period $q\le d$ fails at $j=q$; for
+$q>d$ the valuation formula above gives the claimed minimum
+among $p$-power periods.
+
+\subsection*{An explicit Heegner application}
+Take a non-CM curve $E/\Q$ with a modular parametrization of
+$X_0(N)$, normalized by sending the infinity cusp to $O$, and an imaginary quadratic field $K$ in which all primes
+of $N$ split. For a simple ring-class formulation take
+$\mathcal O_K^\times=\{\pm1\}$ and $p\nmid h_K$. Let $n$ be a
+product of $1\le d<p$ distinct odd primes $\ell_i\nmid pN$
+inert in $K$, with $p^a\mid\ell_i+1$ and $p^a\mid a_{\ell_i}$.
+Write $H=K[n]$ for the ring class field, and assume $E(H)[p]=0$.
+Use the compatible Heegner points and the derivative in the convention
+of \cite[\S3]{JLS}. Here $A'=\Gal(H/K)$, $U=\Gal(H/K[1])$
+and $m_i=\ell_i+1$. These formulas for $U$ follow from the
+ring-class exact sequence and our unit hypothesis. Each prescribed
+surjection on $U$ to $\Z/p^a$ extends to $A'$ because $p\nmid h_K$.
+The trace relations give $N_iY=a_{\ell_i}y_{n/\ell_i}$ for $Y=y_n$.
+In particular they supply the divisibilities in
+Proposition~\ref{prop:compress}.
+
+Assume that $D(Y)\ne0\bmod pE(H)$. This is a substantive input at
+the chosen conductor. Formula (5) realizes its reduction modulo
+$p^a$ (up to the displayed unit) by a point in $E(H^{\ker T})$.
+A Kummer class at the base constructed by descent of this derivative
+is therefore Kummer over $H^{\ker T}$: restriction from that field
+to $H$ is injective on $H^1(-,E[p^a])$ by $E(H)[p]=0$. Since
+$D(Y)$ is invariant modulo $p^a$ under $A'$, the usual Kummer
+class over $H$ descends uniquely using the same absence of
+invariants in inflation--restriction.
+
+\begin{corollary}\label{cor:relative}
+Let $L=H^{\ker T}$ under these hypotheses. Then
+\[
+ \rank E(L)-\rank E(K)
+ =\ord_{s=1}L(E/L,s)-\ord_{s=1}L(E/K,s)=p^a-1 .
+ \tag{6}
+\]
+Here $\ord$ denotes order of vanishing.
+\end{corollary}
+\begin{proof}
+Let $L_b\subset L$ have degree $p^b$ and put $Y_b=\Tr_{H/L_b}Y$.
+Choose a generator $\sigma$ of $\Gal(L/K)$ corresponding to $1$
+under $T$. Applied at precision $p$ to $T\bmod p$, (5) gives
+\[
+ \sum_{j=0}^{p-1}j^d\sigma^jY_1\ne0\bmod pE(H).
+\]
+It follows that $Y_1$ is primitive modulo $p$. If its moving
+component were zero in $E(L_1)\otimes\Q$, then $Y_1$ would be fixed
+in the $p$-adic lattice, since its conjugate differences are torsion
+of order prime to $p$. For $d<p-1$, reduction of the displayed sum
+would vanish as $\sum j^d=0\bmod p$. For $d=p-1$, one has $d\ge2$
+and the successive norm relations imply $\Tr_{H/K}Y\in p^2 E(K)$.
+But $\Tr_{L_1/K}Y_1=pY_1$ in the fixed lattice, contradicting
+primitivity. Thus the first orbit of nontrivial characters occurs in $Y_1$.
+
+For $b>1$, if $Y_b$ had no character component of exact order $p^b$,
+it would be fixed by $\Gal(L_b/L_{b-1})$ after tensoring with $\Z_p$.
+Then $Y_{b-1}$ would be divisible by $p$ in $E(H)\otimes\Z_p$.
+Further tracing would make $Y_1$ divisible by $p$ there.
+At every level, Galois conjugacy over the field of values of a
+character therefore gives a nonzero projection of $Y$ for every
+character of that exact order.
+
+Every nontrivial character of $\Gal(L/K)$ has primitive ring-class
+conductor $n$, since its local restrictions at all $\ell_i$ have its
+full order. The classical Heegner hypothesis and
+$(n,N\operatorname{disc}K)=1$ put these Heegner character components
+in the setting of the Gross--Zagier formula \cite[Thm.~1.1]{CST}.
+The height of each nonzero component is nonzero (pair conjugate
+components), so each corresponding $L$-function has a simple
+central zero. The descent theorem of Bertolini and Darmon
+\cite[\S\S1--2]{BD} makes each such Mordell--Weil eigenspace
+one-dimensional. Summing the nontrivial dimensions, or applying
+Artin factorization and adding the orders, gives (6).
+\end{proof}
+
+One can adjoin squarefree auxiliary conductor coprime to $n$ made up
+of good inert primes with $p^a\mid\ell+1$ and $p\nmid a_\ell$,
+assuming the same torsion condition in the enlarged ring class field.
+Take $T$ of full local order also on these primes and keep degree $d$
+in the weight. Every monomial omitting a core coordinate vanishes
+modulo $p^a$. Hence the surviving monomial is constant in all the
+new coordinates, and the trace relations multiply (5) by the unit
+$\prod_{\ell\ {\rm added}}a_\ell$. The proof of (6) then applies
+to this conductor as well.
+
+
+There is a valuation test in the first layer. Use the notation of
+Proposition~\ref{prop:index} with $L=L_1$, $t=1$, and identify
+$B=M/A$ with a fractional ideal of $\mathcal O$, normalized to have
+valuation zero. Let $\bar Y_1$ be the image of $Y_1$ in $B$. Then
+\[
+ v_\pi(\bar Y_1)=d-1+e .
+ \tag{7}
+\]
+To see this, put $W=\sum_{j=0}^{p-1}j^d\sigma^jY_1$. By (5) its
+residue is nonzero and invariant mod $p$. Here $E(L_1)/pE(L_1)$ injects into $E(H)/pE(H)$:
+any division point of an $L_1$-point in $H$ is fixed over $L_1$, by
+$E(H)[p]=0$. The total Heegner trace
+$NY_1$ lies in $p^dA$. Thus $NW/p\in pA$ for $d\ge2$; for $d=1$ use
+$\sum j=p(p-1)/2$. The point $W-NW/p$ is therefore a primitive,
+invariant-mod-$p$ vector in $P/pP$. Here we use $P\cap pM=pP$.
+It has valuation $p-2$ in $P$ and $p-2+e$ in $B$, since the image
+of $P$ in this rank-one quotient is $\pi^e B$. In $B$ it equals
+$A_d(\zeta_p)\bar Y_1$ for $A_d(X)=\sum_{j=0}^{p-1}j^d X^j$.
+The coefficient of $U^k$ in $A_d(1+U)$ is
+$\sum_j j^d\binom{j}{k}$. Modulo $p$ these moments vanish for
+$k<p-1-d$, by summation of polynomials on $\mathbb F_p$; the
+moment for $k=p-1-d$ is $-1/k!$. Since $v_\pi(p)=p-1$, this gives
+$v_\pi(A_d(\zeta_p))=p-1-d$ and proves (7). With this normalization
+a nonzero derived class represented by $W$ comes from $E(K)/pE(K)$
+exactly when $v_\pi(\bar Y_1)=d$.
+
+\section{A finite quadratic descent test under prescribed pairings}
+Here is a second way to certify a base point. Its input is the choice
+of twists with specified pairing radicals. Let $K$ be a number field,
+$S=\Sel_2(E/K)$, and write $\bar a$ for the image of
+$a\in S$ in $H^1(K,E)$. For a quadratic character $\chi$ let $D_\chi$
+be its splitting field and identify $E^\chi[2]$ with $E[2]$.
+
+\begin{proposition}\label{prop:quadratic}
+Suppose that $\Sel_2(E^\chi/K)=S$ for the twists used below.
+If one twist has nondegenerate pulled-back Cassels--Tate pairing on
+$S$, restriction $H^1(K,E)\to H^1(D_\chi,E)$ is injective.
+Alternatively, let $a,b\in S$ be independent and suppose there are
+three twists whose pairing radicals are respectively the lines
+$\F_2a,\F_2b,\F_2(a+b)$. The three restriction maps together are
+injective on $H^1(K,E)$. If one twist has radical a line
+$\F_2a$ with $\bar a=0$, that twist alone suffices.
+\end{proposition}
+
+\begin{proof}
+Write $D=D_\chi$ and let $\sigma$ be its nontrivial automorphism.
+Inflation--restriction identifies the kernel with
+$E(D)^-/(\sigma-1)E(D)$, where $E(D)^-=\ker(1+\sigma)$.
+It is the image in $H^1(K,E)$ of the twisted rational Kummer image
+under the natural identification on two-torsion. To see this, let
+$P\in E(D)^-$, choose $2Q=P$ geometrically, and represent its twisted
+Kummer class by $g\mapsto \chi(g)gQ-Q$. Subtract the ordinary coboundary
+$gQ-Q$. The result vanishes on $G_D$ and equals $-2gQ=P$ on its
+other coset, which is precisely the inflated cyclic cocycle.
+
+Rational Kummer classes for $E^\chi$ lie in the radical of the
+pulled-back Cassels--Tate pairing, since their image in $\Sha(E^\chi/K)$
+is zero. Each restriction kernel is therefore contained in the image
+of its specified radical. A common nonzero element for the three fields
+would have to equal each of $\bar a,\bar b,\overline{a+b}$, impossible
+by additivity in characteristic two. The one-field assertions follow
+from the same containment.
+\end{proof}
+
+This criterion applies simultaneously to all torsors under the given
+curve. On an even-dimensional vector space a nondegenerate alternating
+form exists; on an odd-dimensional space one can construct an alternating
+form with any prescribed radical line. Realizing these forms by twists
+is an arithmetic hypothesis. Morgan's pairing-prescription theorem
+\cite[Thm.~1.14]{Morgan} gives a realization result in its stated
+setting. The proposition uses the actual common Selmer groups and
+pairings as its inputs.
+
+\section{What descends to the original field}
+Formula (6) compares increments. The contribution of the trivial
+character is exactly the original base-field rank on each side.
+At precision $p$ and one moving character orbit, Proposition~\ref{prop:index}
+gives the integral norm test for a nonzero trace-zero Kummer
+representative. Across independent directions,
+Corollary~\ref{cor:compatible} gives a field-counting test for a
+fixed compatible class.
+
+A natural attempt to replicate one such field loses precision. Let
+$L_1,L_2/K$ be cyclic subfields of a common finite abelian
+extension, $I=L_1\cap L_2$, and suppose
+$\operatorname{End}_{\overline K}E=\Z$. A homomorphism over $K$
+between the two Weil restrictions acts on points as
+\[
+ X\longmapsto\sum_{\tau\in\Gal(I/K)}
+ a_\tau\,\tau\bigl(\Tr_{L_1/I}X\bigr),\qquad a_\tau\in\Z.
+\]
+After base change the matrix entries are integers, constant on the
+orbits of pairs of embeddings. These orbits are indexed by
+$\Gal(I/K)$, and the entries in each output row run over the
+embeddings extending a fixed embedding of $I$. This gives the formula
+(cf.\ \cite{MRS}). In particular a base point acquires a factor
+$[L_1:I]$. Restriction--corestriction gives the corresponding index
+loss for base cohomology classes. More precisely, let $[L_1:I]=p^b$ and let a compatible Selmer
+class at precision $p^{a+b}$ become Kummer over $L_1$. Its
+Weil--Ch\^atelet obstruction restricts to a class killed by $p^b$
+over $I$, by taking corestriction from $L_1$. Multiplication by $p^b$
+gives the obstruction at precision $p^a$. That lower-precision
+class is therefore Kummer over $I$ and over $L_2$.
+
+A single local vanishing condition can also lose the obstruction.
+If $K_v=\Q_p$ at a place of good reduction, the rational local
+Kummer space $E(K_v)^{\wedge p}\otimes_{\Z_p}\Q_p$ (using the $p$-adic
+completion of the point group) has dimension one. A nontorsion
+$P\in E(K)$ has nonzero elliptic logarithm there, because the
+kernel on $E(\Q_p)$ is torsion. From any rational $p$-adic Selmer
+class one may therefore subtract a scalar multiple of $P$ to
+obtain zero localization at $v$. Subtracting $P$ leaves the image
+in $T_p\Sha(E/K)\otimes\Q_p$ unchanged.
+
+
+\medskip\noindent\textit{Research provenance.}
+The manuscript draws on the BSD Lead project's research turns on
+divided Heegner heights, cyclic compression, integral descent and
+two-variable splitting directions. The cohomological and
+character calculations were checked separately in the project's
+periods and correspondences research threads. ChatGPT and Codex
+participated in the derivations and drafting.
+
+\begin{thebibliography}{9}
+\bibitem{LS} A. Lei and F. Sprung, \emph{Ranks of elliptic curves over
+$\Z_p^2$-extensions}, Theorem 1.1.
+\href{https://arxiv.org/abs/1809.10127}{Paper}.
+\bibitem{VW} T. Vavasour and C. W\"uthrich, \emph{Mordell--Weil group as
+Galois modules}, for the broader integral Galois-module framework.
+\href{https://arxiv.org/abs/2306.13365}{Paper}.
+\bibitem{JLS} D. Jetchev, K. Lauter and W. Stein, \emph{Explicit Heegner
+points: Kolyvagin's conjecture and non-trivial elements in the
+Shafarevich--Tate group}, Section 3.
+\href{https://arxiv.org/abs/0707.0032}{Paper}.
+\bibitem{CST} L. Cai, J. Shu and Y. Tian, \emph{Explicit Gross--Zagier and
+Waldspurger formulae}, Theorem 1.1.
+\href{https://msp.org/ant/2014/8-10/ant-v8-n10-p05-p.pdf}{Paper}.
+\bibitem{BD} M. Bertolini and H. Darmon, \emph{Kolyvagin's descent and
+Mordell--Weil groups over ring class fields}.
+\href{https://www.math.mcgill.ca/darmon/pub/Articles/Research/04.Kolyvagin-descent/paper.pdf}{Paper}.
+\bibitem{Morgan} A. Morgan, \emph{Hasse principle for Kummer varieties
+in the case of generic two-torsion}, Theorems 1.14 and 5.8.
+\href{https://doi.org/10.1112/plms.70066}{Paper}.
+\bibitem{MRS} B. Mazur, K. Rubin and A. Silverberg, \emph{Twisting commutative
+algebraic groups}.
+\href{https://arxiv.org/abs/math/0609066}{Paper}.
+\end{thebibliography}
+\end{document}
