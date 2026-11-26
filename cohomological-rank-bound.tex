@@ -522,6 +522,59 @@ $\sum_g(\delta_{g,0}-\delta_{\gamma g,0})^2
 (\delta_{g,1}-\delta_{\gamma g,1})=-1$.
 Corestriction realizes every norm.
 
+\subsection*{One-cycle inputs}
+For a symmetric integral polarization $\lambda:X\to\widehat X$ and a
+one-cycle $\Gamma$ on $X$, the codimension-two term of its unnormalized
+Poincar\'e Fourier transform is
+\[
+ \Xi_\lambda(\Gamma)=\frac16\lambda^*p_{2,*}
+      \bigl(p_1^*\Gamma\cdot c_1(\mathcal P_X)^3\bigr).
+\]
+It is odd under inversion and hence homologically trivial. If
+$B=E^2$, $k_g=(\lambda h_g)^\vee:X\to\widehat B$ and
+$D_g=k_{g,*}\Gamma$, functoriality of the Poincar\'e transform gives
+\[
+ Z_*\Xi_\lambda(\Gamma)=
+ -\mathcal F_{\widehat E}\left(\sum_g(q^\vee)^*
+                  \frac{D_g-[-1]^*D_g}{2}\right).
+\]
+Indeed Fourier transform exchanges pullback by $\lambda h_g$ with
+pushforward by $k_g$, and exchanging $q_*$ with $(q^\vee)^*$ has
+sign $(-1)^{\dim B-\dim E}=-1$. On $\widehat B$ it is the odd part
+of the divisor that contributes. The Fourier identities used here are
+in \href{https://arxiv.org/abs/0904.3995}{Moonen--Polishchuk, \S3.7}.
+
+A concrete nonzero input needs a point already over $K$. Use the
+polarizations induced by the coordinate products on the norm kernels.
+For $P\in E(K)$ take the sum over $j$ of the translates of
+$t\mapsto(r_j(t),r_j(t),0)$ by $(0,0,r_j(P))$. Put
+$a_{ij}=\langle e_i-e_{\gamma i},e_j-e_{\gamma j}\rangle$ in the
+coordinate lattice. Under $k_i$ the two elliptic coordinates of the
+$j$th translated curve, identified with their duals by the principal
+polarization $\lambda_E$, are $2a_{ij}t$ and $a_{ij}P$.
+Its pushforward divisor thus has multiplicity $4a_{ij}^2$ on the
+corresponding horizontal elliptic curve. Since each row has entries
+$2,-1,-1$ and zeros, $\sum_{i,j} a_{ij}^3=6d$ for $d\ge3$.
+In the principal-polarization convention the resulting output is
+$-24d\lambda_E(P)$. Dividing the self-Fourier transform by the
+polarization Euler characteristic would introduce the additional
+denominator $d^3$: the Gram matrix of the restricted product
+polarization on $A$ is $1+\mathbf1\mathbf1^t$ with determinant $d$.
+
+The canonical Ceresa cycle of a twist of Bring's curve gives zero
+in this construction. On the diagonal-quadric/cubic Bring model the
+space of differentials is the standard four-dimensional $S_5$ module
+tensored with sign (equivariant adjunction). Thus, on $A_5$, the traces
+on $\bigwedge^3 H^1$ are $56,0,2,-4$ on the identity, double
+transpositions, 3-cycles and 5-cycles. Their size-weighted sum
+$56+15\cdot0+20\cdot2-24\cdot4$ is zero. Canonical Ceresa vanishing
+in rational Chow then follows from
+\href{https://arxiv.org/abs/2406.03891}{Laga--Shnidman, Theorem A};
+rational Chow injectivity under field extension gives the same
+conclusion on a twist. This explains why realizing the rational
+augmentation character in its Jacobian does not give a new point by
+this cycle operation.
+
 \subsection*{An exterior-power boundary}
 The cubic norm-vanishing proof uses the invertibility of $3!$.
 For $G=C_{p^2}$ and $A_j=\bigwedge^j Q_G$, every prime $p\ge7$ satisfies

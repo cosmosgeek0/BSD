@@ -16,14 +16,14 @@
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\Sel}{\operatorname{Sel}}
 \newcommand{\GQ}{G_{\Q}}
-\title{Finite first moments detecting a mock plectic invariant}
+\title{Finite Augmentation Moments and Mock Plectic Invariants}
 \author{\small \href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad \href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
 \date{}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-For an elliptic curve and an imaginary quadratic field satisfying the hypotheses of Fornea and Gehrmann, we give a finite witness for nonvanishing of their rational mock plectic invariant. The witness is a weighted sum of coefficients of a level-raised quaternionic theta element modulo a power of \(p\). The proof combines their first-derivative formula and explicit reciprocity law with detection of a cohomology class at a single admissible Frobenius. A finite Fourier identity gives an equivalent criterion in terms of squared absolute values at cyclic characters. The precision and auxiliary prime depend on the class. Fornea and Gehrmann's Selmer-rank theorem then gives the arithmetic consequence of finding a witness.
+For an elliptic curve and an imaginary quadratic field satisfying the hypotheses of Fornea and Gehrmann, we give a finite witness for nonvanishing of their rational mock plectic invariant. The witness is a weighted sum of coefficients of a level-raised quaternionic theta element modulo a power of \(p\). The proof combines their first-derivative formula and explicit reciprocity law with detection of a cohomology class at a single admissible Frobenius. A finite Fourier identity gives an equivalent criterion in terms of squared absolute values at cyclic characters. We compute the precise layer needed for a higher coefficient and obtain even-rank certificates from a unit moment. We state the extra integral control required for finite-layer consequences. The precision and auxiliary prime depend on the class. Fornea and Gehrmann's Selmer-rank theorem then gives the arithmetic consequence of finding a witness.
 \end{abstract}
 
 \section{The finite criterion}
@@ -145,6 +145,237 @@ Cyclic summation gives \(\sum_jj c'_j=Md_{M-1}-\sum_jd_j\), proving the congruen
 
 The energy's integer value depends on the lifts. Its residue is the invariant used here, up to the square of the unit in the theta normalization. The arithmetic input to the rank bound is the mock plectic class. A connection from nonvanishing of the ordinary complex \(L''(E,1)\) to existence of a detecting moment would require an additional theorem. The general equality between the rational rank and the order of the ordinary complex \(L\)-function remains open.
 
+\section{Precision for higher augmentation tests}\label{sec:depth}
+A first-moment test uses the linear term in an augmentation variable.
+For higher moments the number of layers required depends on the
+degree as well as the coefficient precision. We record two versions
+of this distinction.
+
+\begin{proposition}\label{prop:coeff-depth}
+Let $k,h\ge1$ and set $R_k=\Z/p^k\Z$. The coefficient functional
+$[X^h]$ on $R_k[[X]]$ is well defined on the finite cyclic quotient
+$R_k[[X]]/((1+X)^{p^n}-1)$ if and only if
+\[
+                   n\ge k+\lfloor\log_p h\rfloor .
+\]
+\end{proposition}
+\begin{proof}
+The coefficient on a multiple of the defining relation is
+$\sum_{j=1}^{\min(h,p^n)}\binom{p^n}{j}[X^{h-j}]g$.
+It vanishes for all $g$ precisely when every displayed binomial
+coefficient is divisible by $p^k$, as seen by taking monomials.
+For $1\le j<p^n$ one has
+$v_p\binom{p^n}{j}=n-v_p(j)$: use
+$(p^n/j)\binom{p^n-1}{j-1}$ and the fact that the latter binomial is
+a unit. If $h\ge p^n$ the coefficient at $j=p^n$ is one.
+These statements give the equivalence.
+\end{proof}
+
+For the related tower comparison fix an identification of each cyclic
+quotient with $\Z_p$. Let $G$ be a profinite group, $\kappa:G\to\Z_p$
+a continuous character, $T$ a finite-dimensional residual
+$\F_p$-representation, and $\Omega=\F_p[[X]]$, $I=(X)$.
+On $T\otimes\Omega/I^{n+1}$ let $G$ act diagonally using
+$(1+X)^{\kappa(g)}$ on the second factor. The degree-$n$ generalized
+Bockstein is the connecting map for
+\[
+ 0\to T\otimes I^n/I^{n+1}\to T\otimes\Omega/I^{n+1}
+ \to T\otimes\Omega/I^n\to0 .
+\]
+Ray and Sujatha identify these degree-two cohomology images with
+spans of proper Massey products for their binomial defining systems
+\cite[\S6.2]{RS}. Their proof of Theorem~7.3 compares towers agreeing
+in the first layer. The following proposition isolates the dependence
+on the layer in this particular fixed-depth comparison.
+
+\begin{proposition}\label{prop:bock-depth}
+If $\kappa_1\equiv\kappa_2\bmod p^a$ and $n<p^a$, the two truncated
+coefficient actions, connecting maps and their images coincide.
+For every $a\ge1$ the two images can differ at $n=p^a$ for continuous
+representations of a pro-$p$ group of cohomological dimension two.
+\end{proposition}
+\begin{proof}
+Writing $\kappa_2-\kappa_1=p^a u$, the ratio of coefficient actions is
+$(1+X^{p^a})^{u(g)}$, which is 1 modulo $X^{n+1}$ when $n<p^a$.
+
+For the converse at the boundary take $G=\Z_p^2$ with generators
+$x,y$, and let $n=p^a$. Use $\kappa_1(x)=\kappa_2(x)=1$,
+$\kappa_1(y)=0$, $\kappa_2(y)=n$. The two towers have identical
+first $a$ layers. Take the fixed representation
+$T=\F_p[N]/N^{n+1}$ with $x$ acting by $1+N$ and $y$ by $1$.
+This action is continuous since $1+N$ has finite $p$-power order.
+For a finite coefficient module $U$, the Koszul resolution for $x,y$
+gives $H^2(G,U)=U/((x-1)U+(y-1)U)$.
+For $U=T\otimes\Omega/I^{n+1}$ the $x$ relation eliminates $N$ by
+$N=-X/(1+X)$; the resulting quotient is $\Omega/I^{n+1}$.
+The $y$ relation is zero for the first action and $X^n$ for the
+second. Thus the two $H^2$ groups are $\Omega/I^{n+1}$ and
+$\Omega/I^n$, respectively. The common left-hand $H^2$ in the
+coefficient sequence is the line
+$(T/NT)\otimes I^n/I^{n+1}$.
+Its generator maps to $X^n$, nonzero for the first action and zero
+for the second. Exactness shows that the first Bockstein image is
+zero and the second is the entire line.
+\end{proof}
+
+The arithmetic hypotheses on decomposition and ramification of the
+number-field extensions in \cite[Theorem 7.3]{RS} are additional
+hypotheses. Proposition~\ref{prop:bock-depth} tests the formal transfer
+of a witness at a given depth; deciding an eventual spanning criterion
+for arithmetic fine Selmer groups requires further input.
+
+\section{A unit moment in higher rank}
+
+Suppose that $2h$ independent points of $E(K)$ are known, $h\ge1$,
+under the hypotheses of Section~1. Suppose that the $p$-Selmer corank
+over $K$ is even, as in the positive root-number case with the
+$p$-parity input in the proof of \cite[Thm.~3.4]{FG}. At a single
+$1$-admissible prime $\ell$ test the canonical element
+$\lambda_{\ell,1}$ from the same system as $\kappa^\infty$.
+Section~\ref{sec:depth} computes its coefficient
+\[
+             [X^h]\lambda_{\ell,1}
+             =\sum_j\binom jh c_j\pmod p
+\]
+at any finite layer $p^n>h$. In this formula the $c_j$ are the
+coefficients at that layer, with all ray multiplicities and the
+original Tate-period normalization retained.
+
+\begin{theorem}
+If $[X^h]\lambda_{\ell,1}\ne0$, then the rational rank and $p$-Selmer
+corank over $K$ are $2h$, and $\operatorname{Sha}(E/K)[p^\infty]$
+is finite. The compact ordinary Iwasawa Selmer group $\mathcal S$
+has a generator $z$ for which $\kappa^\infty=X^h z$.
+\end{theorem}
+\begin{proof}
+Reciprocity and the nonzero coefficient imply $\kappa^\infty\ne0$.
+Theorem~3.3 of \cite{FG} makes $\mathcal S$ free of rank one over
+$\Lambda$ and its ordinary dual $\mathcal X$ of rank one. Let
+$d=\ord_X(\kappa^\infty,\mathcal S)$. Localizing at the height-one
+prime $(X)$ and using the structure theorem over the resulting
+discrete valuation ring gives
+\[
+  2h\le r_p(E/K)\le \operatorname{rank}_{\Z_p}(\mathcal X/X\mathcal X)
+     \le 1+\ord_X\operatorname{char}(\mathcal X_{\rm tors})
+     \le 1+2d .
+\]
+Here the second inequality is the ordinary control bound
+\cite[Lem.~3.1]{FG}; in the third each cyclic primary block contributes
+at most its length. Thus $d\ge h$. Division is integral by freeness.
+The reciprocity map commutes with multiplication by $X$, so $d>h$
+would kill the tested coefficient. Hence $d=h$. Writing
+$\kappa^\infty=X^h u e$ in a basis $e$, the image of $ue$ under
+the residual local map has nonzero constant term by cancellation in
+$\F_p[[X]]$. This forces $u\notin(p,X)$, so $z=ue$ is a generator.
+The displayed bounds now give $2h\le r_p(E/K)\le2h+1$; the asserted
+corank and rank follow by parity. The Kummer sequence and cofiniteness
+give the finiteness assertion.
+\end{proof}
+
+This argument proves $\operatorname{char}(\mathcal X_{\rm tors})
+=(X^\alpha)$ with $\alpha\le2h$ up to a unit: at every other
+height-one prime the bound in \cite[Thm.~3.3]{FG} has right-hand side
+zero. A coefficient divisible by $p$ cannot replace the unit.
+For $\kappa=pX^he$ the $X$-order is still $h$, but the quotient by
+$X^h$ does not generate the module.
+
+\subsection{Additional integral control and the finite group}
+
+For clarity we isolate the integral hypotheses required to upgrade
+finiteness to vanishing. Suppose that the extended, self-dual
+two-term Selmer complex at augmentation admits a primitive free pair
+with degree-one generator $z$, and that removing it leaves a minimal
+square torsion presentation $A$ over $\Lambda$. Assume the following
+base-change identifications for this very complex:
+\begin{enumerate}
+\item $A$ has size $2h+s$, where
+$s=\dim_{\F_p}\operatorname{Sha}(E/K)[p]$, and
+$\det A$ is a unit times $X^b$ with $b\le2h+1$.
+\item The cokernel has no $p$-torsion; after rationalization at $(X)$
+it has $2h$ primary blocks. The first augmentation Bockstein paired
+by duality is symmetric and changes sign under complex conjugation.
+\end{enumerate}
+The extra period at a split Tate prime is part of this extended
+complex. A bound on a characteristic ideal alone does not imply
+these descriptions of the residual fibre.
+
+Every entry of $A$ is in $(p,X)$ by minimality. Reduction modulo $p$
+forces $b\ge 2h+s$. Thus $s\le1$. For the finite $p$-primary group
+in the theorem, perfect alternating Cassels--Tate duality makes $s$
+even. It follows that $\operatorname{Sha}(E/K)[p^\infty]=0$.
+If $b=2h+1$ then exactly one rational block has length two and all
+the others length one. The first Bockstein has rank $2h-1$, because
+it sees the linear term of the presenting differential. But a symmetric
+form reversing the conjugation sign in odd characteristic zero has
+matrix $\left(\begin{smallmatrix}0&B\\B^t&0\end{smallmatrix}\right)$
+on the two eigenspaces, of even rank. Thus $b=2h$ and all blocks have
+length one. Since the determinant is a unit times $X^b$, the torsion
+cokernel is killed by a power of $X$ and is finite over $\Z_p$.
+Consequently rationalization at $(X)$ detects its entire
+$\Q_p$-vector space. Torsion-freeness over $\Z_p$ now gives
+$X\,\operatorname{coker} A=0$ integrally. In particular the cokernel
+is $(\Lambda/X)^{2h}$.
+
+If derived specialization identifies the finite-layer complex with
+this same complex tensored with $R_n=\Z_p[\Gamma/\Gamma^{p^n}]$,
+the free pair and the $2h$ copies of the presentation by $X$ give
+cohomology groups free over $\Z_p$ of rank $p^n+2h$ in both degrees.
+Indeed the kernel of $X$ on $R_n$ is the norm line and its cokernel is
+$\Z_p$. Suppose in addition that integral control supplies the exact sequence
+\[
+ 0\longrightarrow\Sel_{p^\infty}(E/F_n)^\vee
+ \longrightarrow H^2(C_n)\longrightarrow\Z_p\longrightarrow0,
+\]
+with trivial action on the period quotient and the corresponding
+degree-one comparison removing just the trivial period direction.
+This embeds the classical dual into a torsion-free integral module.
+Suppose also that every
+$\kappa_n=X^h z_n$ is the completed Kummer image of the prescribed
+Heegner points. Each nontrivial character of the regular summand has
+nonzero $z_n$-projection, and $X^h$ acts by a nonzero scalar there.
+The period line loses none of these components. Together with the
+$2h$ base points they account for all $p^n+2h-1$ dimensions of the
+classical Selmer corank. Its dual is torsion-free over $\Z_p$ by the
+control sequence, so the finite $p$-primary Tate--Shafarevich group
+at that layer vanishes as well. These finite-layer statements require
+the stated integral comparisons at every layer where they are used.
+
+\subsection{Signature bounds and a normalization control}
+
+More generally let $D_+,D_-$ be the dimensions of the two classical
+residual Selmer eigenspaces, and let $N_\pm=D_\pm+\delta_\pm$ include
+one local period line in its conjugation eigenspace. Assume a primitive
+free pair as above and residual control identifying the sizes of the
+two extended spaces. If the residual torsion module has length
+$b\le2d+1$ and $N_++N_--1$ primary blocks at augmentation, then
+\[
+                  D_\pm+\delta_\pm\le d+1.
+\]
+In fact the residual Bockstein is off-diagonal, so the number of
+length-one blocks is at most $2\min(N_+,N_-)$. Each other block costs
+at least two units of length. Hence
+$b\ge2(N_++N_--1)-2\min(N_+,N_-)=2\max(N_+,N_-)-2$,
+which proves the bound. If $D_\epsilon$ attains the resulting upper
+bound already through independent rational points on the chosen
+quadratic twist, and that twist has no rational $p$-torsion, the
+Kummer sequence gives $\operatorname{Sha}[p]=0$ on that twist.
+This argument alone gives only a bound on the other eigenspace.
+
+Neither integrality nor the norm and reciprocity relations force the
+canonical moment to be a unit. For example, let
+$g=(\gamma-\gamma^{-1})^2$. Multiplication of every component by $g$
+preserves conjugation, $\Lambda$-linear reciprocity and norm
+compatibility; at finite levels it takes integral combinations of
+the original conjugate points. Yet $g=4X^2+O(X^3)$ raises the order
+by two. Multiplication by $p+g$ preserves the $X$-order and multiplies
+its leading coefficient by $p$. Thus a numerical witness must identify
+the actual integral normalization. The project records report a
+first coefficient $54\bmod109$ and a second coefficient $60\bmod389$.
+The recovered data do not provide the two original auxiliary-level
+graphs, primitive eigenvectors and labeled CM tables together.
+Accordingly neither number is used here to assert a vanishing
+Tate--Shafarevich group for a specific curve.
+
 \begin{thebibliography}{9}
 \bibitem{BD}
 M. Bertolini and H. Darmon,
@@ -158,5 +389,9 @@ M. Fornea and L. Gehrmann,
 \bibitem{DF}
 H. Darmon and M. Fornea, \emph{Mock plectic points}, arXiv:2310.16758.
 \url{https://arxiv.org/abs/2310.16758}.
+\bibitem{RS}
+A. Ray and R. Sujatha, \emph{Massey products and the Iwasawa theory
+of fine Selmer groups}. \href{https://arxiv.org/abs/2508.17156v2}{arXiv:2508.17156v2},
+especially Sections~6.2 and~7.
 \end{thebibliography}
 \end{document}

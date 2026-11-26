@@ -1,0 +1,406 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\LambdaW}{\OO[[W]]}
+\setlength{\emergencystretch}{1em}
+\title{Ordinary degeneracy maps, period normalization, and a coupled path at conductor 389}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the ordinary calculation at $p=13$ on $y^2+y=x^3+x^2-2x$,
+we track the integral old quotient after raising the tame level by $7$.
+Literal scheme pushforwards introduce the cover degree $6$ in the
+period comparison. The two sign matrices give primitive quotient maps
+although the old eigensubmodule has nonunit image. We compute the
+resulting change of weight and norm coordinates from specified
+leading coefficients. Over the old/new nodal algebra an exact
+first-order specialization loses the full critical coefficient module
+even when a distinguished class has an integral lift. We state the
+cohomological inputs to this application separately from the matrix
+and power-series identities.
+\end{abstract}
+
+\section{The degree in the old period}
+Let $q\nmid Np$ be prime, $N\ge4$, and work in weight two on a
+trivial tame diamond component. Write $A_1,A_2$ for the two degeneracy
+pullbacks from level $N$ to level $Nq$ and $T_1,T_2$ for their
+Poincar\'e-adjoint scheme pushforwards, in the conventions of
+\cite[\S\S2.3--2.4, 5.7]{KLZ}. Let $a_q$ be the lower Hecke eigenvalue.
+The intermediate map that forgets a generator of a cyclic subgroup
+of order $q$ has degree $c=q-1$. A fibre of the cyclic-subgroup
+correspondence has $q+1$ points, and its two mixed composites give the
+usual $q$th Hecke correspondence. Thus on the lower eigenspace the
+matrix $(T_i A_j)$ is
+\[
+ c\begin{pmatrix}q+1&a_q\\a_q&q+1\end{pmatrix}.
+\]
+Let $\alpha$ be a chosen unit root of $X^2-a_qX+q$ in a
+coefficient DVR. Use the compatible Fricke operators $W_H,W_L$,
+so $W_H A_1=A_2W_L$, $W_H A_2=A_1W_L$. For
+$P=T_1-\alpha^{-1}T_2$ and $P^*=A_1-\alpha^{-1}A_2$ it follows that
+\begin{equation}\label{eq:fricke}
+ P W_H P^*=c s_q W_L,\qquad
+ s_q=\alpha(1-q/\alpha^2)(1-1/\alpha^2).
+\end{equation}
+Indeed the matrix multiplication gives
+$a_q(1+\alpha^{-2})-2(q+1)\alpha^{-1}$
+after removing $c$, and $a_q=\alpha+q/\alpha$.
+In a normalization where $P^*$ carries the lower normalized
+differential to the old stabilized form, the differential functional
+satisfies $\omega_L P=\omega_H$. The Fricke-dual functional, with
+the same ordinary $p$-root at both levels and normalized by the first
+coefficient, then satisfies $\eta_LP=c s_q\eta_H$ by
+\eqref{eq:fricke}. In the corresponding determinant frames,
+\[
+ a_L\det P=c s_q a_H.
+\]
+This equality specifies which periods are being compared. If raw
+pullbacks rather than Poincar\'e-normalized coordinates are used to
+identify trivial-diamond parts, the map acquires the relative factor
+$c$. Dividing the two pullback identifications by their cover
+degrees moves this factor into the Fricke-dual functional. Replacing
+$P$ by $P/c$ scales its determinant and the two-fold tensor
+pushforward of a diagonal class by the same factor $c^{-2}$.
+
+\section{A finite receiver at the prime 13}
+Take $E:y^2+y=x^3+x^2-2x$, $q=7$, and $N=389$. Point counting gives
+$a_7=-5$ and $a_{13}=-3$. The selected root of $X^2+5X+7$ is
+$\alpha=1158\bmod 2197$, characterized by $\alpha\equiv1\bmod13$.
+The following two small blocks are the trace tuples in the recovered
+integral modular-symbol calculation at precision $13^3$:
+\[
+ T^+=\begin{pmatrix}133&348\\32&761\end{pmatrix},\qquad
+ T^-=\begin{pmatrix}400&1762\\1203&1795\end{pmatrix}.
+\]
+Here a row of $T^\pm$ is a literal trace, and the coordinates
+are those of the \emph{standard} $U_7$ packet. In this basis
+$T_1U_7=7T_2$ and $T_2U_7=a_7T_2-T_1$. Fricke swaps the two traces
+and conjugates $U_7$ to the dual Hecke operator $U_7'$. Consequently
+$P$ on the Fricke-transported packet is the second row minus
+$\alpha^{-1}$ times the first in the displayed coordinates. The results
+are
+\[
+ P^+=(159,829),\qquad P^-=(2064,1710)\pmod {2197}.
+\]
+Their reductions $(3,10),(10,7)$ are primitive. On the positive
+sign the stored matrix and old and new columns are
+\[
+ U^+=\begin{pmatrix}56&1102\\55&1103\end{pmatrix},\qquad
+ o^+=(-1,-1)^t,\qquad n^+=(1418,1)^t .
+\]
+Direct multiplication gives $P^+U^+=\alpha P^+$, $P^+n^+=0$ and
+$P^+o^+=1209\bmod2197$, of valuation one. On the negative sign
+$P^-(1896,1)^t=0$. Over a free rank-one old branch quotient a
+primitive map to the lower rank-one sign module is an isomorphism.
+The extra factor on the old eigen\emph{submodule} reflects the
+intersection with the integral new branch.
+
+These packet data, from the original Manin presentation, fix the bases
+for this finite calculation. The archived computation uses full plus
+ranks $33$ and $262$ at levels $389,2723$, respectively, then
+localizes at the non-Eisenstein $T_2=-2$ packet and the positive
+$U_7$ root. The sign-minus ambient rank at level $2723$ is $259$.
+Both trace-row products and the old column product above were checked
+directly from the restored numerical arrays. This checks the arithmetic
+of the displayed inputs; the full Manin-basis reduction is from the
+original source computation.
+
+\section{A weight derivative and an ordinary annular column}
+Use the weight coordinate $W=14^{k-2}-1$ on the level-$389$
+ordinary branch. For clarity we describe the finite receiver used
+to compute its ordinary root derivative. The arithmetic input here
+is the ordinary rank-one control identification and its weight-two
+Cartier/Hecke receiver, as in the archived construction using
+\cite[\S\S3.3, 3.8]{EPW}. Let $a_n$ be the elliptic newform coefficients
+and $C$ the product of $\sum_{n\ge1}\sigma_{11}(n)q^n$ with this newform
+(in this paragraph $q$ denotes its Fourier variable).
+At weight $14$ the divided $T_{13}$ defect of $E_{12}f$ has
+coefficients modulo $13$ given by
+\[
+ d_n=11(C_{13n}+3C_n)-a_{n/13},
+\]
+with $a_{n/13}=0$ unless $13\mid n$. To see it, use
+$E_{12}\equiv1+13\cdot11\sum\sigma_{11}(n)q^n\bmod169$.
+The weight-$14$ return term $13^{13}$ is zero modulo $169$; at
+weight two it is $13$, giving the final term above. Cartier squared
+minus the identity gives coefficients $d_{169n}-d_n$ in the
+source receiver. Its $U_{13}$ residue is $10$, so its
+Cartier-difference eigenvalue $10^2-1=8\bmod13$ is inverted by $5$.
+
+Here are finite instructions for checking the scalar. The archived
+coefficient of $T_n$ in the projector, for $1\le n\le30$ in order,
+is
+\[
+\begin{gathered}
+ (2,1,9,9,5,2,0,8,5,3,11,3,8,12,7,4,7,0,4,9,7,3,8,2,3,1,8,5,5,2).
+\end{gathered}
+\]
+Form the $a_n$ through $65910$ by point counts, the good prime-power
+recurrence and multiplicativity (the multiplicative coefficient at
+$389$ is $1$). Sieve $\sigma_{11}(n)\bmod13$ through the same bound,
+and convolve at indices needed in the displayed defects. For the
+projector coefficients $e_n$ the finite sum
+$\sum e_n(d_{169n}-d_n)$ gives $12\bmod13$; this convolution and
+projection were recomputed using the recovered coefficient vector.
+The $T_{13}$ secant divided by $13$ is thus $5\cdot12=8\bmod13$.
+At weight $14$ the nonordinary root is zero modulo $169$ and the
+ordinary root is $101\bmod169$. At weight two the ordinary root of
+$X^2+3X+13$ equals $114\bmod169$. Since $W(14)=156\bmod169$,
+the corresponding derivative is
+\[
+ \alpha_{13}'(0)=
+ \frac{(101-114)/13}{156/13}=1\pmod{13}.
+\]
+In the convention $\mathcal L_{\rm GS}=-2\,d\log\alpha_{13}/dk$
+this yields $\mathcal L_{\rm GS}/\log_{13}(14)=5\bmod13$.
+The finite checks do not use the complex central derivative.
+
+Another coefficient comes from an annular theta-series test. At the
+inert prime write its integral unimodular local norm form as
+$Q(z_1,z_2)=\mathrm N(z_1)+u\mathrm N(z_2)$ with $u\in\mathbb Z_p^\times$
+and both coordinates in the integers of the unramified quadratic field.
+On fibres $Q\in p\mathbb Z_p$, either both coordinates are units or
+both are divisible by $p$. Thus the annular condition that the first
+coordinate be a unit equals, on these fibres, the difference between
+the full lattice and the sublattice scaled by $p$. If the non-$p$
+test functions are preserved by this change of variables, the theta
+series for the scaled sublattice is $V_{p^2}\Theta_0$. Since $U_p$
+selects exactly the $p$-divisible fibres, passage to a common level
+and ordinary projection give
+\[
+ e_{\rm ord}\Theta_{\rm ann}=(1-U_p^{-2})e_{\rm ord}\Theta_0.
+\]
+Indeed $U_p^2V_{p^2}=1$ and $U_p$ is invertible on the ordinary
+summand. The multiplier on the retained residual packet equals
+$1-10^{-2}=11\bmod13$. The calculation requires the same
+Schwartz function, tame phase and lattice frame on both sides.
+
+\section{The old/new congruence quotient}
+Let $\Lambda=\LambdaW$ and normalize the weight determinant by
+$\delta(W)$, with $\delta(0)=1$. Write $\nu=\delta^{1/2}$,
+$\alpha^2-a_q(W)\alpha+q\delta=0$, and $d(W)=\alpha/\nu-1$.
+With the two standard old bases, consider
+\[
+ U_i=\begin{pmatrix}0&-\delta\\q&a_q\end{pmatrix},\qquad
+ U_o=\begin{pmatrix}a_q&-\delta\\q&0\end{pmatrix},\qquad
+ G=\begin{pmatrix}q+1&a_q\\a_q/\delta&q+1\end{pmatrix}.
+\]
+The vectors $v_i=(-\delta,\alpha)^t$, $v_o=(\alpha,q)^t$ are
+$\alpha$-eigenvectors, and
+$Gv_i=\alpha^{-1}(\alpha^2-\delta)v_o$. This last scalar is
+$h d(W)$ for $h=\nu(\alpha+\nu)/\alpha$, a unit in the positive
+residual packet at odd $p$.
+
+Here is the lattice consequence and its necessary hypotheses.
+Let $M$ be a free ordinary sign module over $\Lambda$, and let
+$i:\Lambda\to M$, $j:M\to\Lambda$ be the old inclusion and the dual
+trace in the selected root. Assume $i(1)$ is residually primitive,
+$j$ surjective, and $ji=hd$. These are integral Ihara inputs
+(see \cite[\S2.2]{Wiles} and \cite[\S3]{EPW} for the degeneracy and
+ordinary control frameworks). Suppose on the fraction space
+$T=U_q/\nu-1$ acts by $d$ on $i\Lambda$, by zero on $\ker j$, and
+$d\ne0$. Both are direct summands over the fraction field. Thus
+$T=i h^{-1}j$ there, and consequently over the original lattice
+by torsion-freeness. It follows that
+\[
+ TM=i\Lambda,qquad \ker T=\ker j,qquad
+ M/(TM+\ker T)\simeq\Lambda/(d).
+\]
+This argument allows a new summand of arbitrary rank. The coefficient
+algebra of a two-branch rank-two node is
+$B_W=\Lambda[t]/(t(t-d(W)))$; multiplication by $t$ in this algebra
+has $\operatorname{ann}(t)=(t-d)B_W$. Thus a free $B_W$-module of
+rank two gives two copies of $\Lambda/(d)$ in the analogous quotient.
+
+Let $d(0)\equiv0\bmod\pi^n$ and $D=\OO/(\pi^n)$.
+Under $W\mapsto\eta$ in $A=D[\eta]/(\eta^2)$, write $a=d'(0)\bmod\pi^n$
+and $v=\min(n,v_\pi(a))$. For $Q=\Lambda/(d)$ the free two-term
+resolution yields
+\[
+ Q\otimes A=A/(a\eta),\qquad
+ \operatorname{Tor}^{\Lambda}_1(Q,A)
+     =\operatorname{ann}_{D}(a)\oplus\eta D .
+\]
+The map $Q\otimes D\to\eta(Q\otimes A)$ is $D\to D/(a)$.
+The kernel has length $n-v$ and the Tor group length $n+v$.
+Changing the generator of $(d)$ by a unit leaves both lengths invariant.
+For a unit $d'(0)$ the entire critical quotient dies under multiplication
+by $\eta$. This loss occurs on the congruence quotient before any
+comparison to a unitary Hecke algebra.
+
+\section{A diagonal norm factor and the coupled path}
+We give the source calculation in a form that separates its
+input identities from its consequences. Let $s=\sigma_q^{-1}$ denote
+the normalized tame Frobenius variable of a diagonal Rankin class.
+In the raw degeneracy normalization the four terms from the
+Beilinson--Flach norm relation \cite[\S5]{KLZ} on a scalar
+diagonal weight-two packet have factors
+\[
+ 1-s^2,qquad a_qs(1-s),\qquad
+ a_qs(1-s),\qquad qs(1-s^2).
+\]
+Contracting both factors by $P$ gives
+\[
+ (1-s^2)-2\alpha^{-1}a_qs(1-s)+q\alpha^{-2}s(1-s^2)
+   =(1-s)^2(1-q\alpha^{-2}s).
+\]
+For $s=(1+Y)^{-\kappa_q}$, $\kappa_q=\log_p\langle q\rangle/
+\log_p(1+p)$, the initial $Y^2$ coefficient is
+$\kappa_q^2(1-q\alpha^{-2})$. At $q=7$, $p=13$ one has
+$\kappa_7=4\bmod13$, giving $8\bmod13$. For instance
+$\kappa_q\bmod13$ is
+$(q^{12}-1)/(13\cdot12)\bmod13$. A bottom class of order two
+in $Y$ is thereby sent to order four if the coefficient on the lower
+determinant line is a unit and the quotient projection is an integral
+isomorphism in the specified frames.
+
+For the coupled weight/norm construction take $\OO=\mathbb Z_{13}$.
+Assume the retained normalized diagonal source on $B_W$ has the
+following form, where the indicated Tate line is free on $e$:
+\begin{equation}\label{eq:nodal}
+ z=Y^3 C(W,Y)(t-d(W)+X(W,Y))e,\qquad
+ C\in\OO[[W,Y]]^\times,quad X\in Y\OO[[W,Y]]^\times .
+\end{equation}
+Here the last condition means $X/Y$ is a unit. The weight character
+in the determinant of the rank-two module is canceled by choosing
+the external variable $1+Y_j=(1+W)(1+Y)$. The data on both branches
+and in the same full node in \eqref{eq:nodal} are required. Knowing
+only two vanishing orders at $W=0$ does not establish this identity.
+
+\begin{proposition}
+If $d_0=d(0)\ne0$, $d_0\in13\OO$ and $d'(0)$ is a unit, there is
+a unique integral power series $W(Y)\in Y\OO[[Y]]$ with
+$d(W(Y))-X(W(Y),Y)=d_0$. On the new branch $t=0$ the quotient of
+$z$ by $d_0Y^3$ along this path is primitive. If the normalized old,
+new and lower level determinant frames satisfy
+\[
+ a_{\rm new}/a_H\equiv-1\bmod13,qquad
+ X_Y(0,0)\equiv-32\frac{d_0 a_{\rm new}}{a_L\det P}\pmod{13},
+\]
+and $d_0=\alpha-1$, $d'(0)=5\bmod13$ as in the recorded $389,7$
+normalization, then $X_Y(0,0)=1$ and $W'(0)=8$ modulo $13$.
+\end{proposition}
+\begin{proof}
+The implicit equation has unit derivative in $W$ since $X(W,0)=0$.
+Solving coefficient by coefficient gives existence and uniqueness.
+Its substitution in \eqref{eq:nodal} gives $-d_0Y^3 C(W(Y),Y)e$.
+The frame congruence in the proposition arises at a rank-two node as
+follows. In its coefficient dual use $\tau$ with $\tau(1)=0$ and
+$\tau(t)=1$. The old and new normalized lines are $t\tau,(t-d_0)\tau$.
+Resolving $\tau$ along these two lines gives coefficients $1/d_0$
+and $-1/d_0$. A further common unit of the node takes values congruent
+modulo $d_0$ on the branches. Thus the determinant ratio has sign
+$-1$ modulo $13$ when the old and new frames differ only by this common
+unit. The scalar $-32$ incorporates the normalized source coefficients
+of the lower and new classes; it is an input from the archived
+reciprocity calculation (see the scope statement below).
+
+From \eqref{eq:fricke} we have $a_L\det P=c s_q a_H$, and
+$s_q/d_0=(1-q/\alpha^2)(\alpha+1)/\alpha\equiv1\pmod{13}$.
+Thus $d_0a_{\rm new}/(a_L\det P)\equiv-1/6=2\bmod13$ and
+$X_Y(0,0)\equiv-32\cdot2=1$. Implicit differentiation gives $W'(0)=1/5=8$.
+\end{proof}
+
+Here is the distinction between a class lift, a Hecke character and
+a module lift. For $h=h_0+t h_1$ in the node,
+$h\mapsto h_0+X h_1$ respects the defining polynomial exactly when
+$X(X-d)=0$ in the target ring. Its first-order multiplicativity
+defect is $-d_0 X_Y(0,0)\eta$ at fixed weight. A first-order
+character therefore survives after the $d_0$ cut. Also
+$(t-d)^2=-d(t-d)$: passing from a primitive new eigenline to the
+determinant of the rank-two new eigen\emph{submodule} costs $d$.
+Along the coupled path put $S=\OO[[Y]]$, $f=d_0+X(W(Y),Y)$ and
+$Q_{\rm path}=S/(f)$. Weierstrass preparation gives $Q_{\rm path}\simeq\OO$,
+with $Y$ acting by a nonzero scalar of valuation $v_{13}(d_0)$.
+On reducing $d_0=0$, $Y^2=0$, the equation becomes a unit times $Y$:
+the scalar quotient is $\OO/d_0$ and the analogous rank-two quotient
+is $(\OO/d_0)^2$. This full coefficient loss is consistent with a
+primitive lift of the one class in \eqref{eq:nodal}.
+
+In fact, for $V=S/(d_0)$ one has
+\[
+ \mathrm{Hom}_S(Q_{\rm path},V)=\mathrm{Hom}_S(V,Q_{\rm path})=0,qquad
+ \operatorname{Ext}^1_S(Q_{\rm path},V)\simeq
+ \operatorname{Ext}^1_S(V,Q_{\rm path})\simeq\OO/d_0.
+\]
+This follows by the principal resolutions: $f\bmod d_0$ is $Y$ times
+a unit, and $d_0$ is regular on $Q_{\rm path}$. The critical fibres
+agree, even though their identity need not lift to a map of the modules.
+For a lift of the form $v(Y)=-C(Y)\kappa(Y)$ in a free source,
+where $\kappa=\kappa_0+Y\kappa_1+\cdots$ is a cocycle and the
+cochain differential is $d+Y\theta+\cdots$, we instead have
+$d\kappa_1+\theta\kappa_0=0$. The corresponding equation for
+$v_1=-C_0\kappa_1-C_1\kappa_0$ gives the explicit first-order
+nullhomotopy for that class.
+
+\section{The opposite local factor and the scope of the calculation}
+The old split place here is $q_0=389$ over $K=\Q(\sqrt{-11})$.
+If $J$ denotes the independent norm coordinate, alignment of the
+outer character requires $(1+W)(1+J)^2=1+Y$. Thus
+$J'(0)=(1-W'(0))/2=3\bmod13$. In the local spectral coordinate this
+fixes $y=q_0^{-1}(1+Y)^{\kappa_{q_0}}$. For the normalized
+intertwiner on its common kernel, the scalar of the opposite
+composition in this coordinate is the rational function
+\[
+ r(y)=\frac{(1-y/q_0^2)(1-y/q_0^3)}{1-q_0^{-3}/y}.
+\]
+This scalar, the domain being the common kernel before any finite cut,
+is a local input. Its behavior along the path can be computed directly.
+Here $d_0=143\bmod169$. The small roots of $d(W)$ and $f(Y)$
+satisfy $W_0=39$, $\rho=26\bmod169$, respectively, by the linear
+terms since $W_0,\rho\in13\OO$. With $C=(1+\rho)^{\kappa_{389}}$,
+$\kappa_{389}=9\bmod13$, one finds $C=66\bmod169$. At this point
+\[
+ (1-Cq_0^{-4})/13=5,\quad (1-q_0^{-2}/C)/13=10,\quad
+ 1-Cq_0^{-3}=2\quad(\bmod 13).
+\]
+Hence $r(q_0^{-1}C)=1\bmod13$, while at $Y=0$ the simplified
+$r(q_0^{-1})=(1-q_0^{-3})(1+q_0^{-2})$ has residue $4$.
+A unit value at one point gives neither an everywhere integral family
+nor the opposite input itself. In the archived normalization, if $f_0$
+is the coherent critical vector and $D(q_0)$ the integral common-kernel
+operator, the opposite vector involves
+$(1-q_0^{-3})^{-1}(1-q_0^{-1})^{-1}D(q_0)f_0$, as well as its scalar.
+It is not obtained by simply identifying the two vectors.
+
+\paragraph{What can be reproduced.}
+The original November 17 record preserves the two sign projection
+matrices, two independent $U_{13}$ arithmetic outputs, the source
+Fourier coefficients, the tame norm polynomial, and the original
+node/Tor computations. Their small matrix products, convolution, slope
+and residue calculations are given above. The broader source's
+identification of the control projector, the normalized lower and
+new adjoint/regulator inputs giving $-32$, and the all-weight class
+factorization \eqref{eq:nodal} are separate inputs to the stated path
+application. A later reconstructed check of the period units does not
+retain every intermediate raw calculation; no independent reconstruction
+of the complete tame Cartan numerator or the whole Beilinson--Flach
+class is asserted here. The finite calculations involve $p=13$ on
+the level-$389$ source raised at $7$. The conductor-$389$ higher
+moment with coefficient prime $389$ is a different calculation.
+Finally no original unitary Hecke character or identification of its
+central class follows from the native old/new normalization, the
+existence of a source class or its first-order nullhomotopy.
+
+\begin{thebibliography}{9}
+\bibitem{KLZ} G. Kings, D. Loeffler and S. L. Zerbes,
+\emph{Rankin--Eisenstein classes and explicit reciprocity laws},
+Cambridge J. Math. \textbf{5} (2017), 1--122.
+\href{https://arxiv.org/abs/1503.02888}{Corrected version}.
+\bibitem{Wiles} A. Wiles, \emph{Modular elliptic curves and Fermat's
+Last Theorem}, Ann. of Math. \textbf{141} (1995), 443--551.
+\href{https://doi.org/10.2307/2118559}{Article}.
+\bibitem{EPW} M. Emerton, R. Pollack and T. Weston,
+\emph{Variation of Iwasawa invariants in Hida families},
+Invent. Math. \textbf{163} (2006), 523--580.
+\href{https://www.math.uchicago.edu/~emerton/pdffiles/iwasawa.pdf}{Authors' paper}.
+\end{thebibliography}
+\end{document}

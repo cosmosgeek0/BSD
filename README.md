@@ -14,6 +14,8 @@
 
 ## Further working papers
 
+- **Ordinary degeneracy maps and periods at conductor 389.** The paper derives the corrected level-seven period factor, the integral lattice and finite-cut corrections, and distinguishes the verified local comparison from the required global lift. [PDF](ordinary-period-degeneracy.pdf) · [LaTeX](ordinary-period-degeneracy.tex)
+
 - **A recurrence test for the Brauer–Manin sets of three quartic coverings.** For primes congruent to one modulo eight, the recurrence gives a test for three locally soluble quartics. The paper relates the test to the two-primary Selmer groups and states the hypotheses for its CM rank-one applications. [PDF](cm-quartic-brauer-manin.pdf) · [LaTeX](cm-quartic-brauer-manin.tex)
 
 - **Central-derivative quadratures for elliptic modular forms.** The paper derives squarefree modular-symbol and Kummer-correlated formulas with explicit correction terms and gives a same-curve control for the bounded integer quadrature. [PDF](central-derivative-quadratures.pdf) · [LaTeX](central-derivative-quadratures.tex)
@@ -49,7 +51,7 @@
 
 - **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. The final sections treat fixed-prime Heegner-height moments, split-prime sampling, covector orbit fields, and limits for local and global character weights. The final version treats both real and imaginary quadratic sampling and proves the orbit formula at composite modulus. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
 
-- **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. The extension treats the cyclic exterior norm, simultaneous elementary divisors and the mixed two-prime cohomology calculation. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
+- **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. The extension treats the cyclic exterior norm, simultaneous elementary divisors and the mixed two-prime cohomology calculation. The final lattice edition also treats the signed finite correspondence identities. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
 
 - **A quartic governing character for a twist family.** An explicit quadratic character on a quartic field identifies the pairing sign and proves equidistribution under the stated local conditions. The three explicit quartics are identified as halving fields of sums of rational points, with degree certificates. [PDF](quartic-governing-character.pdf) · [LaTeX](quartic-governing-character.tex)
 
@@ -72,7 +74,7 @@ Of the six drafts below, the strongest candidate for external review on BSD-rela
 | Paper | Result | Files |
 | --- | --- | --- |
 | Central derivatives from closed geodesics | The decay of a specified Fourier mode recovers the analytic rank and the first nonzero central derivative. | [PDF](closed-geodesics.pdf) · [LaTeX](closed-geodesics.tex) |
-| Finite first moments detecting a mock plectic invariant | A finite weighted sum detects the Fornea–Gehrmann invariant under their hypotheses. | [PDF](finite-selmer-certificate.pdf) · [LaTeX](finite-selmer-certificate.tex) |
+| Finite first moments detecting a mock plectic invariant | A finite weighted sum detects the Fornea–Gehrmann invariant under their hypotheses. The higher-rank theorem states its point, parity, and unit-moment inputs. Triviality of the primary Tate–Shafarevich group at higher layers additionally requires the integral control comparisons given in the paper. | [PDF](finite-selmer-certificate.pdf) · [LaTeX](finite-selmer-certificate.tex) |
 | Congruence kernels of mod-two elliptic period characters | Membership in the Shimura subgroup characterizes which period characters have congruence kernel. | [PDF](modular-periods.pdf) · [LaTeX](modular-periods.tex) |
 | Rational-point height singularities and quadratic-character series | The height singularity records rational rank. Deleting every rational-square slope preserves the quadratic-character mean. The new sections treat the self-dual Poisson comparison, local squareclasses, finite shells, and the signed symmetric-square spectrum with torsion and lattice-shape factors. | [PDF](height-and-quadratic-characters.pdf) · [LaTeX](height-and-quadratic-characters.tex) |
 | A global heat-sign inequality | An interval certificate proves the two sign changes and heat positivity on curve 234446.a1 whenever the absolute parameter is at least 2 × 10⁻⁵². | [PDF](heat-transform.pdf) · [LaTeX](heat-transform.tex) |
