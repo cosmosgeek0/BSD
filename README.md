@@ -26,7 +26,7 @@
 
 - **Genus characters in a fixed imaginary quadratic field.** The construction detects independent marked points modulo two using one fixed rank-one twist, under the stated sign and irreducibility hypotheses. [PDF](fixed-field-genus-characters.pdf) · [LaTeX](fixed-field-genus-characters.tex)
 
-- **Dihedral branch cycles.** Explicit covers, their branch cycles and arithmetic points recovered from the original geometry record. [PDF](dihedral-branch-cycles.pdf) · [LaTeX](dihedral-branch-cycles.tex)
+- **Dihedral branch cycles.** Explicit covers, their branch cycles and arithmetic points recovered from the original geometry record. The expanded proof includes both degeneration depths, the Fibonacci specialization, an explicit degree-three target and local integrality tests. [PDF](dihedral-branch-cycles.pdf) · [LaTeX](dihedral-branch-cycles.tex)
 
 - **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. The combined edition includes the all-character averaging calculation, ramification correction and a semistable abelian-surface example with unbounded projected monodromy index. The final edition gives an exterior-square Pfaffian precision calculation and an optimal scalar descent depth for a finite eigenvector. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
 

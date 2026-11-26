@@ -10,6 +10,7 @@
 \newcommand{\CH}{\operatorname{CH}}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
 \title{Modified diagonals and branch-divisor points on dihedral genus-two quotients}
 \author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad
 \href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
@@ -25,7 +26,10 @@ in a two-parameter chart. One component gives an explicit cover of every
 prescribed non-CM elliptic curve after an extension of degree at most eight.
 We find a nontorsion specialization and a quadratic character that can force
 the trace of the projected point to vanish. A second family gives a
-nontorsion cycle image on a geometrically simple Jacobian.
+nontorsion cycle image on a geometrically simple Jacobian. In that family
+we classify the degree-two and degree-three loci and give a local obstruction
+to elliptic quotients with prescribed Tate parameter. For a fixed dihedral
+quotient the moving branch class is computed by a real-multiplication isogeny.
 \end{abstract}
 \section{The reflection correspondence}
 We use smooth projective curves in characteristic zero and Chow groups with
@@ -166,6 +170,87 @@ rational parametrizations
  b=\frac{256(w+11)^4(w+21)}{3125(21-w)^5}.
 \]
 \end{proof}
+
+The moduli image of \eqref{quintic} is dense in the Humbert surface
+$H_5$. The endomorphism $S$ constructed below supplies the inclusion.
+For a numerical certificate of the dimension use the absolute
+invariants in the convention of \cite{Shaska}. At $(a,b)=(1,1)$
+their values and derivatives from the sextic transvectants are
+\[
+ (i_1,i_2)=(1089/1369,27008289/1266325),
+\]
+\[
+ \frac{\partial(i_1,i_2)}{\partial(a,b)}=
+ \begin{pmatrix}
+ -118800/50653&59400/50653\\
+ 1213071552/46854025&-284909724/46854025
+ \end{pmatrix}.
+\]
+The determinant is $-41307216192/2565726409$. For reproduction,
+the invariants $J_2=800(40b-3a^2)$, $J_4=40000(20b-9a^2)^2$ and
+\[
+ \frac{J_6}{320000}=600000b^3+18432ab^2+225000ab^3-466000a^2b^2
+                -9216a^3b+119700a^4b+1152a^5-6399a^6
+\]
+give $i_1=144J_4/J_2^2$,
+$i_2=-1728(J_2J_4-3J_6)/J_2^3$. The point is in $bD_0\ne0$.
+Irreducibility of $H_5$ and this full-rank differential give the
+assertion.
+
+\subsection{A different multiplicative degeneration}
+For the subfamily in Theorem~\ref{points},
+\[
+ \operatorname{disc}(5u^6-20su^3-40u+4s^2)
+ =2^{18}5^5(108s^5+3125)^2.
+\]
+For $p\ge7$ a negative valuation of $s$ gives potentially good
+reduction: adjoin $\alpha^3=s$ and put $u=\alpha x$, $Y=sy$. The
+reduction $y^2=5x^6-20x^3+4$ is smooth. A multiplicative quotient
+therefore requires a specialization near $s_*$ with
+$108s_*^5+3125=0$. Put $A=-6s_*^2/25$, so $A^5=-2/3$,
+$s_*=(5/2)A^3$. The limiting sextic is
+\[
+ 5(u^2-Au-A^2)^2(u^2+2Au+5A^2).
+\]
+Let $\phi_\pm=(1\pm\sqrt5)/2$. At the two nodes $u=A\phi_i$,
+the linear terms of the critical values in $s-s_*$ are
+$-40A^3\phi_i(s-s_*)$, both units times $s-s_*$. The normalization
+is the conic parametrized by
+$u=A(t-t^{-1}-1)$, $V=A\sqrt5(t+t^{-1})$, where
+$V=Y/(u^2-Au-A^2)$. The pairs above the nodes are
+$(\phi_i+1\pm b_i)/2$, $b_i^2=3(\phi_i+2)$.
+The graph is a bouquet with two edges of length $k=v(s-s_*)$ and
+monodromy $kI_2$. In the split marking the off-diagonal period has
+constant term the cross-ratio of these two pairs,
+\[
+ c=(-7+3\sqrt5)/2=-\phi_+^{-4}
+\]
+or its inverse for a change of orientation. Indeed choose
+$b_+b_-=3\sqrt5$; the numerator and denominator cross-difference
+products are $(-5+3\sqrt5)/2$ and $(-5-3\sqrt5)/2$.
+Their product is a unit at the retained primes. The universal
+unit argument given below for the three-edge graph applies here
+with zero edge exponents. It yields $Q_{12}=c(1+O(s-s_*))$
+with integral Taylor coefficients over the unramified splitting field.
+
+On this lattice the RM endomorphism $S$ is symmetric for $kI_2$,
+has trace $-1$, determinant $-1$, and is
+$\left(\begin{smallmatrix}0&1\\1&-1\end{smallmatrix}\right)$
+after signed permutation. Multiplicative adjunction gives
+$Q_{11}/Q_{22}=Q_{12}$. Write $U=Q_{22}$, $V=Q_{12}$.
+An elliptic quotient character $(m,n)$ sends the two period
+columns to $U^mV^{m+n}$ and $U^nV^m$. As $v(U)>0$ and $v(V)=0$,
+eliminating the target Tate period gives $V^{n^2+mn-m^2}=1$.
+The exponent is nonzero for every nonzero integral $(m,n)$.
+Conversely a torsion $V$ gives an elliptic splitting by raising both
+coordinates to its order.
+
+Write $s_p=v_p(F_{p-(5/p)})$ for the indicated Fibonacci number, with
+$v_p(p)=1$. Binet's formula gives $v_p(\log c)=s_p$: with
+$h=p-(5/p)$ even, $\phi_+^{2h}-1=\sqrt5\,\phi_+^h F_h$, and $h$ is a
+$p$-adic unit. Thus $v_p(s-s_*)>s_p$ makes $\log Q_{12}$ nonzero and
+the Jacobian geometrically simple. This test is specific to the
+two-loop degeneration just computed.
 
 \subsection{A specialization with two nontorsion projections}
 Take $(a_2,a_1,a_0)=(1,0,256/3125)$ on $F_1$. The base quintic is
@@ -405,6 +490,587 @@ maps add isogenies of bounded degree and hence only finitely many
 further targets. The explicit family in Theorem~\ref{universal} has
 different moduli and is not subject to this finiteness conclusion.
 
+\section{Small-degree quotients of the genus-four family's sextic}
+Put $s=q^3$ and $w=s+s^{-1}$ in \eqref{four}. In the invariant
+normalization of \cite{Shaska} its Igusa--Clebsch invariants are
+\[
+ J_2=1000,\quad J_4=62500,\quad
+ J_6=18505000-1440000w,\quad J_{10}=12800000(w-2)^2 .
+\]
+These are obtained by the normalized transvections
+$A=[f,f]_6,\ I=[f,f]_4,\ B=[I,I]_4,\ C=[I,[I,I]_2]_4$; here
+$[g,h]_j$ is $(g,h)_j$ multiplied by
+$(\deg g-j)!(\deg h-j)!/(\deg g!\deg h!)$. The formulas are
+$J_2=-120A,\ J_4=-720A^2+6750B,\
+J_6=8640A^3-108000AB+202500C$, and $J_{10}=\operatorname{disc}(f)$.
+Thus the two equations of the moduli curve in the $J_2\ne0$ chart are
+\[
+ C_1=J_2^2-16J_4=0,\qquad C_2=(64J_6-J_2^3)^2-663552J_2J_{10}=0.
+\]
+
+\begin{proposition}
+The geometric degree-two locus in the smooth family \eqref{four}
+is $(s+1)(32s^2+3061s+32)=0$. Its geometric degree-three locus
+has ten distinct $w$-values. Only $w=-2$ is rational. At the nine
+other degree-three values the class $B-K_D$ is nontorsion.
+\end{proposition}
+\begin{proof}
+With the covariants of Proposition~\ref{locus} the determinant becomes
+$-64q^{-9}(s-1)^3(s+1)(32s^2+3061s+32)$. The same invariant criterion
+proves the degree-two statement and $q=-1$ is the only rational $q$ in it.
+
+For degree three we give elimination details to specify the parameter
+charts. Use the normal forms in \cite{Shaska}, with absolute invariants
+in that paper's convention. In the degenerate chart
+$(3X^2+4)(X^3+X+c)$ the invariants are
+\[
+ J_2=774,\quad J_4=36(268+837c^2),\quad
+ J_6=36(76760+290574c^2-729c^4),\quad J_{10}=432(4+27c^2)^3.
+\]
+The first two absolute invariants force $c^2=12353/13392$ and
+$w=-111600508651/19559994112$. The third differs by
+$537328796797921779/1530373478645898674176$.
+In the generic chart take
+\[
+ f_1=X^3+aX^2+bX+1,\qquad f_2=4X^3+b^2X^2+2bX+1,\quad
+ u=ab,\ v=b^3,\ H=v-9-2u .
+\]
+At $b=0$, $C_1=0$ gives $a^3=-2565/704$, where
+$C_2=136650973826879014545/14641$. At $H=0,\ b\ne0$,
+$C_1=12(v-27)^3(v^2-11v-32)/v$.
+After dividing $v^4 C_2$ by $64(v-27)^8$, its remainder modulo
+$v^2-11v-32$ is $166212(2864+1043v)$, which is coprime to that
+quadratic. $v=27$ is singular.
+
+On the remaining chart put $t=-H/(v-27)$ and set
+\begin{align*}
+ R&=4u^3-u^2v-18uv+4v^2+27v,&
+ \eta&=-48R/(v(v-27)^3),\\
+ D_t&=1+2t-t^2/2,& E_t&=t^2-4t-2,\\
+ K_t&=(2t+1)(1+2t-2t^2),&
+ Q_t&=32t^5+96t^4+56t^3+76t^2+22t+1 .
+\end{align*}
+Transvection of $f_1f_2$ gives the absolute invariants
+\[
+ i_1=\frac{9((t+1)^4+(t+4)\eta)}{4D_t^2},\qquad
+ i_2=\frac{27((t+1)^6+\tfrac32(t-8)(t+1)^2\eta+\tfrac38\eta^2)}{8D_t^3},
+ \quad i_3=-\frac{9\eta^3}{131072D_t^5}.
+\]
+For \eqref{four} these are
+$9,-(37719+23328w)/3125,243(w-2)^2/39062500$, respectively.
+The first equality gives $\eta=3K_t/(t+4)$; $t=-4$ fails and
+$K_t=0$ would give a singular curve. The last two equations give
+\[
+ w(t)=2+\frac{3125(2t+1)Q_t}{256(t+4)^2E_t^3},\qquad
+ Q_t^2-64(2t+1)(1+2t-2t^2)^3(t+4)E_t=0.
+\]
+The polynomial factors as
+\[
+ (4t+3)(4t^2-6t+3)(8t^3+36t^2+20t+3)
+ (16t^4-32t^3+96t^2+82t+19).
+\]
+Every root is realized: solve
+\[
+ K_t v^2+(2t+1)(4t^3+78t^2-18t-11)v-8(t+4)(3t+1)^3=0
+\]
+and set $u=((t+1)v-27t-9)/2$, $b^3=v$, $a=u/b$.
+The polynomial at $v=27$ equals $4(t+4)(9t+5)^2$.
+The ten roots above avoid $t=0,-4,-1/2,-1/3,-5/9$ and
+$K_tE_t=0$. Substitution in the quadratic gives
+$R=(v-27)^2((t+1)^2(2t+1)v-2(3t+1)^3)/4\ne0$.
+Thus the reconstruction gives a smooth normal form, and its
+invariants determine the same geometric genus-two curve.
+On $Y^2=f_1f_2$ the actual degree-three map is
+\[
+ U=X^2/f_1,\quad V=Y(X^3-bX-2)/f_1^2,\qquad
+ V^2=-(R/v)U^3+2(6a^2-ab^2-9b)U^2+(b^2-12a)U+4.
+\]
+
+The first factor gives $w=-2$. For the remaining three irreducible
+$t$-factors, elimination of $t$ against $w(t)$ gives
+\begin{align*}
+ W_2&=2476099w^2-4557521w+8976271,\\
+ W_3&=20511149w^3-43927820019w^2+147887021288w-150744429817,\\
+ W_4&=146211169851w^4-4170608746308w^3+50055219167049w^2\\
+    &\hspace{22mm}-229010043991482w+384192134208241 .
+\end{align*}
+The first two are irreducible modulo 2, the third modulo 11. The two
+distinct primes $3,7$ divide $W_2(-2)$, the primes $3,47$ divide
+$W_3(-2)$ and $13,37$ divide $W_4(-2)$. All corresponding leading
+coefficients are units. At primes of $\Q(w)$ over $(p,w+2)$, and then
+of a field containing $q$, one has $s\equiv-1$. A pole-free expression
+for the branches of \eqref{branchx}, putting $A=1-4s$, is
+\begin{align*}
+ X_\pm&=(5q^2\pm2(s+1)\sqrt q)/A,\\
+ Y_\pm&=(164s^3+27s^2-138s-1\mp2q(4s^3-153s^2+107s+14)\sqrt q)/A^3 .
+\end{align*}
+At the specified primes their sum reduces to a canonical fibre: the
+two coordinates are $X=q^2,\ Y=\pm4q\sqrt q$. The reduced sextic is
+smooth by the discriminant formula. In characteristic zero the two
+$X$-coordinates are distinct. As in Theorem~\ref{points}, two
+different good residue characteristics rule out torsion. The
+complementary elliptic projections give an isogeny, so at least one
+projection is nontorsion at every one of these nine parameters.
+\end{proof}
+
+At the additional degree-two values the analogous nonvanishing holds
+on both factors. To see the geometry, choose
+\[
+ s=(-3061+225\sqrt{185})/64,\quad
+ z=-(8s+17)/225,\quad r=(5\sqrt{37}-13\sqrt5)/8.
+\]
+Under $X=(z+ru)/q,\ v=sY/r^3$, the reciprocal sextic has the form
+$v^2=u^6+Au^5+Bu^4+Cu^3+Bu^2+Au+1$, where
+$A=4\sqrt5+2\sqrt{37}$, $B=-23-2\sqrt{185}$,
+$C=14\sqrt5+6\sqrt{37}$. The quotients are
+$W_\pm^2=(U\pm2)(U^3+AU^2+(B-3)U+C-2A)$, with $U=u+u^{-1}$.
+Direct quartic invariants give $j=4096$ for both. At primes of residue
+characteristics 3 and 37, $s\equiv-1$ and the preceding specialization
+argument applies. The involution negating $\sqrt5,\sqrt{37}$ fixes $s$
+and exchanges the two quotients by $u\mapsto-u$, so both images are
+nontorsion. All these observations concern geometric elliptic factors.
+
+The finite calculation also determines the fields of the elliptic
+invariants in the degree-three case. In the nondegenerate chart used
+above set
+\[
+ T=6u^2/v-u-9,\quad W=1-12u/v,\quad R_0=R/v,\quad
+ Z=4T^2+3R_0W .
+\]
+The cubic in $U,V$ gives $j_1=16v^2 Z^3/(R_0^2(v-27)^3)$.
+With $z=2t$, the following coefficient data give a short certificate
+for the two targets. Write $S_j=j_1+j_2$, $P_j=j_1j_2$.
+Eliminating $v$ by the displayed quadratic gives
+\[
+\begin{array}{c|l}
+ \text{minimal polynomial of }z&\text{reduced expressions}\\ \hline
+ z^2-3z+3&S_j=251498-143759z,\quad P_j=-68433479-43892640z\\
+ z^3+9z^2+10z+3&S_j=-259117-899290z-782739z^2\\
+   &P_j=26283214+75435525z+53768088z^2\\
+ z^4-4z^3+24z^2+41z+19 &j_1=j_2=486-1458z+1053z^2+189z^3 .
+\end{array}
+\]
+These data can be reproduced by replacing $v^2$ by the linear polynomial
+in $v$ from the reconstruction quadratic and adding or multiplying its
+two conjugates. All are algebraic integers. No $j_i$ here is rational:
+in the quadratic case the $z$ coefficient of $j^2-S_jj+P_j$
+would force $j=3990240/13069$, which fails the constant equation.
+In the cubic case the nonconstant coefficients require two different
+rational values. In the quartic case the displayed representative has
+nonconstant degree below four. At the remaining rational parameter
+$q=-1$ a reciprocal substitution gives elliptic quartics
+\[
+ W_\pm^2=(S\pm2)(S^3-4S^2-3S-2)
+\]
+with invariants $j=-25/2,-121945/32$. All the elliptic factors
+arising at these degree-two or degree-three fibres are therefore
+potentially good at every $p\ge7$. Composing with further isogenies
+preserves potential good reduction.
+
+
+\section{A local obstruction to a prescribed multiplicative factor}
+Let $p\ge7$, $L=\Q_p(\sqrt5)$ with its unramified valuation $v(p)=1$,
+and retain the genus-two family \eqref{four}.
+\begin{theorem}\label{local}
+Let $E/\Q_p$ have multiplicative reduction, let $q_E$ be its Tate
+parameter after the possible unramified splitting twist, and write
+$e=v(q_E)$. If $p\ne67$ and $p\nmid e$, then no smooth geometric
+member of \eqref{four} over $\overline{\Q}_p$ has a nonzero homomorphism
+from its Jacobian to $E$. The family nevertheless has infinitely many
+algebraic parameters with multiplicative elliptic quotients.
+\end{theorem}
+
+\subsection{The normalized multiplicative periods}
+For $q$ a unit with $q^3-1$ a unit the discriminant in the preceding
+section gives good reduction. If $v(q)>0$, set $\alpha^5=q$, $X=\alpha u$.
+The reduced binary branch form is $Z(4u^5+Z^5)$ with distinct roots,
+including the one at infinity. This gives potentially good reduction.
+The reciprocal change $X\mapsto1/X,\ Y\mapsto Y/X^3$ replaces $q$ by
+$1/q$. So a multiplicative quotient is possible only at $q^3\equiv1$.
+After a cube-root-of-unity scaling take $q=1+h$, $v(h)>0$.
+
+Put $g=(x-1)(x^2+3x+1)$ and label its roots
+$a_0=1,\ a_1=(-3+\sqrt5)/2,\ a_2=(-3-\sqrt5)/2$. At $h=0$ the
+components $y=\pm g$ meet at these three nodes. If $c_a(h)$ is the
+critical point of $f_{1+h}$ near $a$, then
+\[
+ f_{1+h}(c_1(h))=(36/25)h^2+O(h^3),\qquad
+ f_{1+h}(c_a(h))=4(a-a^5)h+O(h^2)\quad(a=a_1,a_2).
+\]
+These follow by expanding $g^2+4h(x-x^5/(1+h))$ and its first
+derivative. Since $\operatorname N(a-a^5)=-45$, the two coefficients
+are units for $p\ge7$. The edge lengths are $2v(h),v(h),v(h)$.
+In the graph basis $e_0-e_1,e_0-e_2$ the valuation matrix is
+$v(h)M_0$ with $M_0=\left(\begin{smallmatrix}3&2\\2&3\end{smallmatrix}\right)$.
+
+Denote the symmetric, principally polarized multiplicative period matrix
+by $Q=(Q_{ij})$ in this basis. We record the computation of its first
+units, since valuations alone would miss the obstruction. Taking branch
+coordinates with first jets $x-a$ on both components gives plumbing
+parameters $y_a=-f_{1+h}(c_a(h))/(4g'(a)^2)+\cdots$. Thus
+$y_{a_0}\sim-9h^2/625$ and $y_a\sim3(7a+3)h/25$ for $a=a_1,a_2$.
+The stable forms on the plus component are
+$d\log((x-a_0)/(x-a_i))$ and on the minus component their negatives.
+Multiplying the endpoint ratios from integration on the two components
+and using the neck equation $(x-a)_+(x-a)_-=y_a$ gives
+\[
+ Q_{ii}\sim\frac{y_{a_0}y_{a_i}}{(a_0-a_i)^4},\qquad
+ Q_{12}\sim\frac{y_{a_0}(a_1-a_2)^2}
+                  {(a_0-a_1)^2(a_0-a_2)^2}.
+\]
+The leading units are
+\[ (Q_{11}/h^3,Q_{12}/h^2,Q_{22}/h^3)_{h=0}=(-v_0^3,-v_0^2,v_0^3),\qquad v_0=3/(25\sqrt5). \]
+
+The normalized ratios are units of $\mathcal O_L[[h]]$. Indeed the
+universal graph-period construction in \cite[Thms.~4.3, 5.1--5.3]{Ich}
+gives multiplicative periods as units after inversion of the three node
+parameters. A unit in this localization is an edge monomial times a
+power-series unit, since the edge variables are prime. The exponents of
+these monomials are the products of the oriented cycle multiplicities on
+each edge (equivalently by the neck integration above with the three
+parameters independent). To specialize the marked deformation integrally,
+take the half-edge coordinates $a_i$ on one component and $a_i+1$ on
+the other. Differences of adjacent marked points are units because
+$\operatorname{disc}(g)=125$; opposite coordinates differ by one. The
+node smoothing ideals specialize to $(h^2),(h),(h)$ by the critical-value
+calculation. The graph is trivalent so its components with their three
+marked nodes have no further moduli. These choices give the formal
+specialization in the universal marked chart. Theorems 5.2 and 5.3
+identify the same units with the periods of the polarized Mumford
+Jacobian and the exponentiated complex periods.
+
+For completeness, the integral endomorphism $S=\pi_*r\pi^*$, with $r$
+a rotation of the genus-four cover, is Rosati self-adjoint. Its pullback
+equals $(r+r^{-1})\pi^*$, and $\sum_{i=0}^4r^i=0$ on the Jacobian
+since the rotation quotient has genus zero. Thus $S^2+S-1=0$. The
+action of $R=1+S$ on the period lattice satisfies
+$R^tM_0=M_0R,\ \operatorname{tr}R=1,\ \det R=-1$. The two integral
+solutions are
+$\left(\begin{smallmatrix}2&1\\-1&-1\end{smallmatrix}\right)$ and its
+complement $1-R$. Indeed the equations give $R_{11}=2+3m$ and a
+quadratic with discriminant $-20m(m+1)$, forcing $m=0,-1$.
+Applying multiplicative Rosati adjunction
+\cite[Prop.~3.8]{PR} gives $Q_{11}Q_{22}=Q_{12}^3$. Set
+$\rho=Q_{11}/Q_{22}$ and $\theta=Q_{11}/Q_{12}$. Then
+\[
+ Q_{11}=\theta^3/\rho,\qquad Q_{12}=\theta^2/\rho,\qquad
+ Q_{22}=\theta^3/\rho^2 .
+\]
+Geometric splitting occurs exactly when $\rho$ is torsion. In fact,
+real multiplication forces any elliptic quotient to give a square up
+to isogeny. Otherwise the real quadratic field would map unitally into
+the endomorphism algebra of a single elliptic factor, which is $\Q$ or
+imaginary quadratic. For an isogeny to a square, the Hom description for
+toric uniformizations \cite[\S3.7]{PR} gives nonsingular integral
+character and lattice matrices. Clearing their determinants makes all
+three periods powers of one Tate parameter; their valuations then force
+$\rho$ to be torsion. Conversely, if $\rho$ has order $N$, the $N$th
+powers of the periods belong to the period lattice of
+$E_{\theta^N}^2$ with exponent matrix $M_0$. The induced torus map
+has finite kernel and cokernel on lattices.
+
+At the degeneration $h=0$ the normalized branch divisor of
+\eqref{branchx} has one point on each component, at $x=-3$ on $y=g(x)$
+and $x=-1/3$ on $y=-g(x)$. Subtracting the infinity divisor gives
+gluing units $((a+3)/(3a+1))_{a=a_1,a_2}$ after normalization at
+$a_0=1$, namely $-9\mp4\sqrt5$. These are reciprocal and not roots of
+unity. If $p\ge7$, put $s_p=v_p(F_{p-(5/p)})$ as above. Each unit has
+$p$-adic logarithm of valuation $s_p$ by Binet's formula, now using
+$-9+4\sqrt5=-\phi_+^{-6}$. For $h\in L$ with $v_p(h)>s_p$ this proves
+nontorsion of the section $B-K_D$. To see the precision, its branch
+and infinity sections avoid all nodes and define a Cartier divisor
+in the family over $\mathcal O_L[[h]]$ of multidegree zero. The
+identity formal Picard group has two parameters restricting at $h=0$
+to split torus coordinates (smoothness follows from $H^2=0$ for
+curves). Multiply the section by the residue-field order minus one
+to place it in the formal group. Its two coordinates at $h$ differ
+from those at zero by elements of $h\mathcal O_L$; the latter both have
+valuation $s_p$. The evaluated coordinates hence have minimum valuation
+$s_p\ge1$. On this ball the integral formal-group logarithm is injective,
+by the same degree-$n$ integration estimate used above. This comparison
+concerns the class of the divisor; the period obstruction for elliptic
+quotients uses a different unit.
+
+
+\subsection{Computing the first period coefficients}
+For residue-normalized forms $(c_i+d_ix)\,dx/g$ on the plus component
+one has $c_i+d_ix=(1-a_i)(x-a_j)$, $j\ne i,\ j\in\{1,2\}$.
+Write $P_i(x,h)\,dx/y$ for their normalized continuations.
+The branch-point variational formula in this normalization is
+\[
+ \frac{d\log Q_{ij}}{dh}
+ =-2\sum_{f_q(e)=0}P_i(e,h)P_j(e,h)\frac{\partial_h f_q(e)}{f'_q(e)^2}.
+\]
+It follows by differentiating $P_i\,dx/y$ at fixed $x$ and applying
+the bilinear relation to the resulting second-kind differential, with
+zero $A$-periods. At a simple branch point use $x-e=t^2$: its double
+pole has leading coefficient $-P_i(e)\partial_h f_q(e)/f'_q(e)^{3/2}$
+and a primitive of the other form has linear coefficient
+$2P_j(e)/\sqrt{f'_q(e)}$. This yields the factor $-2$.
+
+For the three products $1,x,x^2$ in the numerators the corresponding
+raw coefficients are $3/[5(q^3-1)],0,3q/[5(q^3-1)]$.
+One algebraic verification is to set $B=qf_q$, and use
+\[
+ B_xZ-10q(q^3-1)B_q=
+ B(10-22q^3+48qx-18q^2x^2-60x^3-18qx^4),
+\]
+where $Z=-3q^2-2(q^3-1)x+21qx^2-3q^2x^3-12x^4-3qx^5$.
+At branch points, logarithmic derivatives reduce by this identity
+and by Lagrange interpolation. More precisely for the monic $f_q$,
+$\sum_e H(e)/f'_q(e)$ is the coefficient of $x^5$ in $H\bmod f_q$.
+
+The normalized continuations of the two numerator polynomials $1,x$
+are, to the needed precision,
+\begin{align*}
+ P_{1}^{\,0}&=1+\tfrac4{25}h+\tfrac{12}{625}h^2
+                  -\tfrac{544}{15625}h^3+O(h^4),\\
+ P_x^{\,0}&=x(1-\tfrac4{25}h+\tfrac{112}{625}h^2
+                   -\tfrac{2556}{15625}h^3)+O(h^4).
+\end{align*}
+Here is a reproducible residue check for normalization. Expand
+$f_{1+h}=g^2+s_1h+s_2h^2+s_3h^3+\cdots$ with
+$s_1=4(x-x^5),\,s_2=4x^5,\,s_3=-4x^5$.
+For each numerator above form $P(1+(f-g^2)/g^2)^{-1/2}/g$ by the
+binomial formula to degree three in $h$. At each nonconstant power,
+partial fractions in $x$ have zero simple-pole coefficients at
+$a_0,a_1,a_2$: explicitly, if the term is $D/g^{2j+1}$, the coefficient
+at $a$ is
+\[
+ [z^{2j}]\frac{D(a+z)}
+                  {(g(a+z)/z)^{2j+1}} .
+\]
+For $j=1,2,3$ substitution of the three displayed numerator
+coefficients gives zero at $a=1$ and zero modulo $a^2+3a+1$.
+This fixes the $A$-periods and provides finite checks with denominators
+invertible at $p\ge7$.
+
+Applying the variational formula to $c_iP_{1}^{\,0}+d_iP_x^{\,0}$ gives
+\begin{align*}
+ (\log Q_{11})'={}&3/h-3/2-9\sqrt5/50
+ +(173/250+9\sqrt5/50)h\\
+ &\hspace{22mm}+(-36/125-2367\sqrt5/15625)h^2+O(h^3),\\
+ (\log Q_{12})'={}&2/h-1+(173/375)h-(24/125)h^2+O(h^3).
+\end{align*}
+The other diagonal entry follows by conjugation. In particular,
+\[
+ \rho=-1+(9\sqrt5/25)h+O(h^2).
+\]
+Its linear coefficient is a unit, and the higher coefficients are
+integral by the universal-period argument. Put $T=-\rho-1$; then
+$h=G(T)\in T\mathcal O_L[[T]]$ with unit linear coefficient.
+The involution $q\mapsto1/q$ swaps the two quadratic nodes and
+exchanges the components. In the chosen graph basis it acts by minus
+the swap matrix. Thus it sends $(\rho,\theta)$ to
+$(\rho^{-1},\theta/\rho)$. The series $\theta/T$ is invariant under
+$T\mapsto-T/(1+T)$ and has the form
+\[
+ \theta=T H(U),\qquad U=T^2/(1+T),\qquad
+ H(0)=-1/15,\quad H'(0)/H(0)=-14/135 .
+\]
+Indeed the fixed subring is $\mathcal O_L[[U]]$ by
+$T^2-UT-U=0$ and the involution $T\mapsto U-T$.
+The displayed logarithmic derivatives and leading units give
+$\theta/T=-1/15+(14/3125)h^2+O(h^3)$ and
+$U=(81/125)h^2+O(h^3)$. Conjugating $\sqrt5$ induces the same exchange
+of periods and fixes $H$. This descent over the formal coefficient
+field gives $H\in\Z[1/30][[U]]^\times$.
+
+\begin{proof}[Proof of Theorem~\ref{local}]
+For a prescribed multiplicative elliptic quotient, $\rho$ is torsion.
+Then $-\rho$ is a nontrivial $p$-power root of unity $\zeta$, say of
+order $p^r$, since $h\ne0$. Write $D=(p-1)p^{r-1}$. We have
+$h=G(\zeta-1)\in L(\zeta)$, $v(h)=v(\theta)=1/D$.
+Commensurability of the Tate period lattices for the target gives
+$\theta^{eD}/q_E$ torsion by comparison of valuations.
+If $r\ge2$, clearing this root of unity by a root of unity makes a
+$p$th root of $q_E$ lie in an abelian extension of $\Q_p$.
+Such a root has valuation $e/p$ with denominator $p$,
+so it generates a degree-$p$ extension. This extension would be Galois
+and would contain $\zeta_p$, which is impossible since $p-1\nmid p$.
+
+For $r=1$ put $\lambda=\zeta-1$ and $a=H'(0)/H(0)$. The cyclotomic
+equation gives
+\[
+ \lambda^{p-1}/p=-(1-\lambda/2+\lambda^2/3)
+                  \pmod{\lambda^3}.
+\]
+After dividing $\theta^{eD}/q_E$ by its residue-field root of unity,
+its linear and quadratic coefficients are
+$-e/2$ and $e(1/3-a)+e(e-1)/8$. Indeed
+$U=\lambda^2+O(\lambda^3)$ and the remaining unramified unit factor
+differs from its Teichm\"uller lift by a multiple of $p$.
+If this ratio were torsion the remaining unit would be
+$(1+\lambda)^k$, since $L(\zeta_p)$ contains no $p^2$-th roots.
+The linear term forces $k=-e/2\bmod p$ and the quadratic term would
+be $e(e+2)/8$. The discrepancy is $-e(a+1/24)$ with
+$a+1/24=-67/1080$, nonzero under the theorem's hypotheses.
+
+For the last assertion take a primitive $\zeta$ of order $p^r$ for
+each $r\ge1$ and $q=1+G(\zeta-1)$. The periods give a geometric
+elliptic quotient as shown above; the two-dimensional torus power
+map and the period lattice embedding with matrix $M_0$ give a finite
+degree bound for each fixed $r$. The parameter lies in the finite
+union of the bounded-degree quotient loci used after
+Proposition~\ref{fourpt}, so it is algebraic over $\Q$, despite its
+initial definition by a $p$-adic power series. The distinct valuations
+give infinitely many different parameters.
+\end{proof}
+
+\section{Moving the branch class on a fixed genus-two quotient}
+We describe the geometric variation in a dihedral Hurwitz fibre. Work
+over an algebraically closed field of characteristic zero. Fix an
+\'etale cyclic-five cover $\nu:C\to B_0$ of a genus-two curve, its
+rotation $r$, and a lift $\tau$ of the hyperelliptic involution. The six
+Weierstrass fibres each contribute one fixed point of $\tau$. Hence
+$g(C)=6$, $g(D)=2$ for $D=C/\tau$, and the quotient $\pi:C\to D$ has
+six branch points. In this section write $B_{\rm ram}=\pi_*R$,
+$A=\Jac(D)$, and $\delta=B_{\rm ram}-3K_D$.
+If $F=f^*\mathcal O(1)$ is the degree-five pencil on $D$,
+Riemann--Hurwitz for the six branch partitions $(2,2,1)$ yields
+\[
+ B_{\rm ram}\sim2F-2K_D,\qquad \delta\sim2F-5K_D.
+\]
+Indeed the full inverse image of the six branch values consists of
+twice the ramification divisor $K_D+2F$ and the six unramified points.
+
+The integral Rosati self-adjoint endomorphism $S=\pi_*r\pi^*$
+satisfies $S^2+S-1=0$. In fact $\pi^*S=(r+r^{-1})\pi^*$, and
+$\nu_*\pi^*=0$ since the hyperelliptic involution on $B_0$ acts
+as $-1$ on its Jacobian. Thus $(1+r+\cdots+r^4)\pi^*=0$,
+which proves the identity (the kernel of $\pi^*$ is finite).
+Write $T=\pi_*r^2\pi^*=-1-S$, $u=1+2S$, so $u^2=[5]$.
+
+\begin{proposition}\label{moving}
+For a fixed marked quotient $(D,S)$ in the image, the embedded
+one-dimensional family through a smooth cover is birational to an
+open subset of $D$. With its parameter denoted by $P$, the branch
+class satisfies
+\[
+ \delta_P-\delta_{P_0}=-2u[P-P_0]\quad\text{in }\Jac(D).
+\]
+Additional level or cover markings can give finite covers of this
+embedded family.
+\end{proposition}
+\begin{proof}
+Use the embedding $(\pi,\pi r^2):C\hookrightarrow D^2$ of
+\cite[Lemmas 2.4--2.6]{AP}. The curve has bidegree $(2,2)$, genus six
+and self-intersection two. Let $q:D^2\to\operatorname{Sym}^2D$
+and let $h:\operatorname{Sym}^2D\to A$ be the Abel map
+$\{x,y\}\mapsto[x+y-K_D]$, the blowup at $0$. Factor exchange on $C$
+is the reflection $\tau r^2$ and its quotient map is $\pi r$.
+Thus $q(C)$ is an embedded copy of $D$ (a group-invariant closed
+immersion descends to a closed immersion on these finite-group
+quotients). Its strict image under $h$ is a translate of $S(D)$,
+where $D$ is Abel-embedded using a geometric Weierstrass point:
+the induced correspondence is $\pi_*(\pi r)^*=S$. As $S$ is an
+automorphism, the image has square two. Its strict transform has
+square one since $q^*q(C)=C$. It consequently passes through zero
+with multiplicity one, and has the unique expression $S(D-P)$ with
+$P\in D$. Uniqueness uses the trivial translation stabilizer of a
+principal theta divisor.
+
+Conversely write $G_\iota$ for the graph of the hyperelliptic
+involution. The divisors
+\[
+ C_P=(h q)^*(S(D-P))-G_\iota
+\]
+form an algebraic family. Near the smooth initial member, its curves
+remain smooth and connected with the same bidegree, genus and cross
+correspondence $T$. To check that these smoothings are again marked
+dihedral covers, let $\tau_1,\tau_2$ be the two degree-two projection
+involutions. The map $A^2\to\Jac(C_P)$ by the two pullbacks has Gram
+matrix $\left(\begin{smallmatrix}2&T\\T&2\end{smallmatrix}\right)$
+with isogeny determinant $4-T^2=3+T$. It has four-dimensional image.
+There the two involutions have respective matrices
+$\left(\begin{smallmatrix}1&T\\0&-1\end{smallmatrix}\right)$
+and $\left(\begin{smallmatrix}-1&0\\T&1\end{smallmatrix}\right)$.
+Using $T^2+T-1=0$, their product satisfies $\Phi_5=0$ on this
+image and acts trivially on its two-dimensional orthogonal complement,
+where both involutions act by $-1$. The rotation thus has order five.
+Its invariant differentials have dimension two; Riemann--Hurwitz then
+gives an \'etale quotient of genus two. The descended reflection acts
+as $-1$ on its differentials and hence is hyperelliptic. This supplies
+the converse on the smooth open. Translation of $S(D)$ depends
+nontrivially on $P$, giving the birational parameter assertion.
+
+Write $\mathcal O(C_P-C_{P_0})=p_1^*M\otimes p_2^*M$ on $D^2$.
+Here the two factors agree by symmetry, and the difference is
+algebraically trivial. With $\lambda_\Theta(z)=t_z^*\mathcal O(\Theta)
+\otimes\mathcal O(\Theta)^{-1}$, restriction to the Abel curve sends
+$\lambda_\Theta$ to $-1$ on $A$: on a generic translate the difference
+of restricted theta divisors is $W+\iota(P)-2W$ for the chosen
+Weierstrass base $W$. Since $S$ is self-adjoint, translating $S(\Theta)$
+by $-S[P-P_0]$ gives $M=-S^{-1}[P-P_0]$ in additive notation.
+
+Let $\pi_*\mathcal O_{C_P}=\mathcal O_D\oplus L^{-1}$ with $\deg L=3$.
+Adjunction gives $F=K_D+L$ since $\pi^*F=K_{C_P}$ and $\pi^*$ on
+$\Pic^0 D$ is injective (apply the displayed splitting to a degree-zero
+line bundle whose pullback is trivial). The surface divisor sequence
+of $C_P\subset D^2$ and relative duality for $p_1$ yield
+\[
+ L=\det(p_{1,*}(\mathcal O(C_P)\otimes p_2^*K_D))
+ \quad\text{in }\Pic D
+\]
+up to a constant one-dimensional vector space. Indeed
+$R^1 p_{1,*}\mathcal O(-C_P)$ fits into the extension of
+$H^1(D,\mathcal O_D)\otimes\mathcal O_D$ by $L^{-1}$.
+The direct image has rank three since the restrictions to the
+fibres have degree four. Replacing $\mathcal O(C_{P_0})$ by
+$\mathcal O(C_{P_0})p_1^*M p_2^*M$ changes the determinant by
+$3M+T(M)$: the first term is the projection formula; the second
+is the restriction correspondence on the two horizontal curves
+in a divisor presentation $M=[x-y]$, by the restriction exact
+sequences. Degree-zero divisors of this form generate $A$.
+Finally $(3+T)S^{-1}=1+2S$, which gives the formula for $\delta$.
+\end{proof}
+
+In particular the differences of branch classes generate all of $A$.
+When a degree-two map $f:D\to E$ exists, applying $f_*$ gives a
+nonconstant projection. More precisely, let $\phi=f_*$ and act on
+divisors by the branch correspondence of Proposition~\ref{moving}.
+On the image of $u\phi^*:E\to A$, the returned elliptic endomorphism
+is $-2\phi u^2\phi^*=[-20]$; applying the normalized modified
+diagonal gives $[-8]$. The formulas persist over every field where
+the marked correspondence and $f$ descend. One can realize the
+operations using actual divisors. A hyperelliptic fibre in the smooth
+parameter open, of degree two, supplies the correspondence $2T$
+by summing the two embedded curves, and hence $u=-1-2T$ integrally.
+For a supplied point $Q$ the divisor $f^*([Q]-[O])$ is defined over
+its field of definition. A degree-zero divisor $\xi$ can be moved
+into the open using $\xi+2K_D$, a base-point-free divisor class
+of degree four. Thus individual closed parameters of degree at
+most four suffice when the base field is infinite. This operation
+returns a multiple of a supplied point. In particular if $M/K$ is a
+power-of-two extension of degree at most eight defining the maps
+and $p\ne2,5$, a class in $H^1(K,E[p^n])$ is Kummer precisely when
+its restricted image under $u\phi^*$ is Kummer on $A(M)$.
+For the reverse implication apply the returning map and corestriction:
+multiplication by $-20[M:K]$ is invertible modulo $p^n$.
+
+There is also a useful geometric check on the field bound for
+\emph{unmarked} targets. For a non-CM $E$ let $t$ be an order-three
+automorphism of $E[2]$. It is Galois equivariant over an extension of
+degree at most two (its centralizer in $S_3$ is $A_3$). Gluing $E$ to
+itself along the graph of $t$ yields a principally polarized genus-two
+Jacobian with two degree-two maps to $E$ \cite[Props.~3--4]{HLP}.
+Indeed $t$ is an anti-isometry and is not induced by a geometric
+automorphism of $E$. The self-adjoint matrix
+$\left(\begin{smallmatrix}0&1\\1&-1\end{smallmatrix}\right)$ preserves
+the graph since $t^2+t+1=0$, and descends as an integral endomorphism
+satisfying $S^2+S-1=0$. This construction need not carry the marked
+branch point of the explicit quintic. Conversely, in an optimal
+degree-$n$ gluing of $E,E'$ with such an endomorphism, let
+$\pi:E\times E'\to\Jac(D)$ be the gluing map. The matrix
+$\pi^\dagger S\pi=\left(\begin{smallmatrix}a&\psi^\dagger\\
+\psi&d\end{smallmatrix}\right)$ satisfies $M^2+nM-n^2=0$.
+The off-diagonal map is nonzero and $a+d=-n$, giving
+\[
+ 1\le\deg\psi=n^2-na-a^2\le5n^2/4 .
+\]
+There are consequently only finitely many geometric $D$ of this type
+for a specified non-CM target and a fixed bound on the cover degree.
+
 \section*{Arithmetic scope}
 The branch calculation gives Jacobian points arising from
 modified diagonals. The two-component locus and the twist computation
@@ -438,5 +1104,16 @@ J. Number Theory 92 (2002), 139--163.
 \bibitem{Kumar} A. Kumar, \emph{Hilbert modular surfaces for square discriminants and
 elliptic subfields of genus 2 function fields}.
 \href{https://arxiv.org/abs/1412.2849}{arXiv:1412.2849}.
+\bibitem{Shaska} T. Shaska, \emph{Genus 2 fields with degree 3 elliptic subfields}.
+\href{https://arxiv.org/abs/math/0109155}{arXiv:math/0109155}.
+\bibitem{Ich} T. Ichikawa, \emph{The universal Mumford curve, and its abelian
+differentials and periods in arithmetic formal geometry}.
+\href{https://arxiv.org/abs/2010.11517}{arXiv:2010.11517}.
+\bibitem{PR} M. Papikian and J. Rabinoff, \emph{Optimal quotients of Jacobians
+with toric reduction and component groups}.
+\href{https://arxiv.org/abs/1212.3574}{arXiv:1212.3574}.
+\bibitem{HLP} E. W. Howe, F. Lepr\'evost and B. Poonen, \emph{Large torsion
+subgroups of split Jacobians of curves of genus two or three}.
+\href{https://math.mit.edu/~poonen/papers/large.pdf}{Author's paper}.
 \end{thebibliography}
 \end{document}
