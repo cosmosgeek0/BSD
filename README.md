@@ -1,6 +1,6 @@
 # BSD
 
-Contact: [admin@cosmosgeek.org](mailto:admin@cosmosgeek.org)
+[admin@cosmosgeek.org](mailto:admin@cosmosgeek.org) · [b321014@iiit-bh.ac.in](mailto:b321014@iiit-bh.ac.in)
 
 [Download the source archive](bsd-research-history.zip). It preserves the recovered research records and a snapshot of replies from 28 conversations in the original ChatGPT BSD project. The records include corrections, conjectures, and failed approaches. The archive and manuscripts are public.
 
