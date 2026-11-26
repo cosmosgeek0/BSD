@@ -1,0 +1,488 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\F}{\mathbb F}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\tr}{\operatorname{tr}}
+\title{Integral Splittings in Split and Unitary Rank-Three Compact Models}
+\author{\small \href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\\[-2pt]
+\small\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working draft for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+We compute integral splittings of two maps in depth-one compact models
+for rank-three Siegel induction. At a split place a sum over two-by-six
+matrices maps onto the Grassmann incidence image. On a nonsingular
+central character its retraction averages over $q+1$ lines. We
+determine the compact intertwining matrix and construct integral
+preimages at its critical parameter. At an unramified inert place a
+Steinberg-weighted boundary operator has two rows on ten parahoric
+orbits. Two orbit indicators give a right inverse throughout the
+unramified parameter germ. Both calculations retain the lattices
+and denominators governing coefficient specialization.
+\end{abstract}
+
+\section{The two splitting problems}
+The pullback of a rank-three Siegel section to a lower-rank induced
+representation involves choices of local sections. An explicit
+splitting over the coefficient ring makes the image accessible even
+after nonflat specialization. We treat two local configurations in
+the framework of Skinner and Urban \cite[\S\S10--11]{SU}.
+
+At a split prime the finite compact source consists of functions on
+the ordinary Grassmannian of three-planes. A finite oscillator sum
+selects the incidence image of the two-planes. We compute a retraction
+onto that image and its action on a finite Jacobi character space.
+The Grassmann up/down spectrum is classical. We recall the relevant
+eigenvalues and compare with Srinivasan \cite{Srinivasan}. The compact
+intertwiner then gives a section family through a prescribed critical
+vector.
+
+At an inert prime the compact source consists of functions on maximal
+isotropic three-planes. We evaluate two boundary rows on the subspace
+invariant under an outer Siegel parabolic and a middle Borel. The
+geometric series from the affine Weyl cosets has a moving denominator,
+while the minor defining the right inverse is constant. The common
+application is lifting a prescribed vector or boundary value
+integrally without changing its compact level.
+\section{The split compact source}
+Let $E,D,F$ denote two-dimensional $k$-vector spaces and put
+$V=E\oplus D\oplus F$. Throughout, $q$ is an odd prime power.
+Let $\mathcal O$ be a discrete valuation ring of characteristic
+zero and residue characteristic $p\nmid q$, containing the values of a
+nontrivial additive character $\psi:k\to\mathcal O^\times$.
+Write $M_i=\mathcal O[\Gr_i(V)]$ for functions on $i$-planes, with
+their delta-function bases. The group $\mathrm{GL}(V)$ acts by
+permuting subspaces. Define
+\[
+ (U_i f)(L)=\sum_{\substack{W\subset L\\\dim W=i}}f(W),
+ \qquad D_{i+1}=U_i^{\mathrm t},
+ \qquad [j]_q=1+q+\cdots+q^{j-1}.
+\]
+The transposes use the standard basis pairings. One source for this
+incidence map is the space of functions $\Phi$ on two-by-six matrices
+over $k$. Its summation over matrices with both rows in $L$ gives
+\[
+ (\lambda\Phi)(L)
+   =\sum_{\substack{X\in\operatorname{Mat}_{2,6}(k)\\
+             \operatorname{row}(X)\subset L}}\Phi(X).
+\]
+Row operations by $\mathrm{GL}_2(k)$ preserve this sum.
+
+\begin{lemma}\label{lem:project}
+Suppose $[2]_q,\ldots,[6]_q$ are units in $\mathcal O$.
+Then $\operatorname{im}\lambda=\operatorname{im}U_2$, and the
+integral projector onto this direct summand with kernel $\ker D_3$ is
+\[
+             P=U_2(D_3U_2)^{-1}D_3 .
+\]
+\end{lemma}
+\begin{proof}
+A rank-two matrix with row space $W$ maps under $\lambda$ on its
+delta function to $U_2\mathbf1_{\{W\}}$. For a fixed line in a
+three-plane there are $[2]_q$ intermediate two-planes. There are
+$[3]_q$ two-planes in the whole three-plane. These counts express
+the images of rank-one and rank-zero inputs in $\operatorname{im}U_2$.
+
+For completeness the needed eigenvalues of the inclusion matrices follow
+from the Grassmann up/down recurrence (compare \cite{Srinivasan}):
+\[
+ D_{i+1}U_i-U_{i-1}D_i=([6-i]_q-[i]_q)\operatorname{id}.
+\]
+On two different $i$-planes both off-diagonal counts equal one when
+their intersection has dimension $i-1$, and equal zero otherwise. On
+a single plane the counts are $[6-i]_q$ and $[i]_q$. Use $D_0=0$.
+First $D_1U_0=[6]_q$. Then $D_2U_1$ has eigenvalues
+$[2]_q[5]_q$ on $U_0M_0$ and $q[4]_q$ on $\ker D_1$.
+These are units, giving a direct sum
+\[
+ M_2=U_1U_0M_0\oplus U_1\ker D_1\oplus\ker D_2.
+\]
+The recurrence at $i=2$ gives the eigenvalues of $D_3U_2$ on these
+summands, respectively
+\[
+ [3]_q[4]_q,\qquad q[2]_q[3]_q,\qquad q^2[2]_q .
+\]
+Invertibility supplies the stated retraction and kernel.
+\end{proof}
+
+\subsection{A nonsingular central character}
+Use row coordinates for $V$. Consider the subgroup $H$ of block upper
+unitriangular matrices in $\mathrm{GL}(V)$ with blocks of size two.
+Its centre $Z$ consists of the $(1,3)$-blocks
+$S:E\to F$. Fix bases and an invertible matrix $\beta$ such that
+$\chi(S)=\psi(\tr(\beta S))$ is a nonsingular additive character. For
+an $H$-module let $M[\chi]$ denote its $\chi$-eigenspace for $Z$.
+This eigenspace is cut out by the integral idempotent
+\[
+        e_\chi=q^{-4}\sum_{S\in Z}\chi(S)^{-1}S .
+\]
+The external group $K=\mathrm{GL}(D)$ acts through the block diagonal
+$(1,g,1)$; it normalizes $H$ and fixes $Z$ pointwise. Both $H$ and $K$
+act on every $M_i[\chi]$. Put $S_\chi=M_2[\chi]$.
+
+\begin{theorem}\label{thm:fibre}
+Assume only $p\nmid q$. There is an $H\rtimes K$-equivariant
+isomorphism
+\[
+ M_3[\chi]\ \simeq\ S_\chi\otimes_{\mathcal O}
+                    \mathcal O[\mathbb P(D)]
+\]
+under which $U_2:S_\chi\to M_3[\chi]$ sends $x$ to the constant tuple
+$(x)_{d\in\mathbb P(D)}$. The action on $S_\chi$ is its inherited
+action, and $H$ acts trivially on $\mathbb P(D)$. If $q+1$ is a unit,
+there is a unique $H\rtimes K$-equivariant projection onto this diagonal.
+It sends
+\[
+ (x_d)_d\ \longmapsto\
+   \left((q+1)^{-1}\sum_{d\in\mathbb P(D)}x_d\right)_{d'\in\mathbb P(D)}.
+\]
+Under the hypotheses of Lemma~\ref{lem:project}, this is precisely
+$P$ on $M_3[\chi]$. If $q+1$ fails to be a unit, no such equivariant
+projection exists over $\mathcal O$.
+\end{theorem}
+
+\begin{proof}
+For a central permutation orbit on $\Gr_i(V)$ the character space
+has rank one if the character is trivial on its stabilizer; otherwise
+the space is zero. Indeed a character function on an orbit is
+determined by one value. An incompatible stabilizer forces that value
+to vanish. If the projection of a plane onto $E$ is proper, the central
+stabilizer contains all maps vanishing on its projection. Nonsingularity
+of the trace pairing ensures that $\chi$ is nontrivial on this
+subspace. In particular $M_1[\chi]=0$.
+
+A contributing two-plane is hence a graph $E\to D\oplus F$.
+The centre translates the $F$-component freely. Thus $S_\chi$ has
+a basis indexed by $Z_0\in\Hom_k(E,D)$, of cardinality $q^4$. The
+$(1,2)$-block acts by translations of this index; the $(2,3)$-block
+acts by multiplication by the additive characters
+$Z_0\mapsto\psi(\pm\tr(\beta Z_0V_0))$ as $V_0:D\to F$ varies.
+The common sign depends only on the permutation-action convention.
+These are all the additive characters of $\Hom_k(E,D)$ by
+nonsingularity. Their averaging idempotents project onto individual
+basis indices, since $q$ is a unit. Those projections and the
+translations give every matrix unit. In particular the commutant of
+$H$ on $S_\chi$ consists of scalars.
+
+A contributing three-plane projects onto $E$ with one-dimensional
+kernel $\ell\subset D\oplus F$. If $\ell\subset F$, the maps
+$E\to\ell$ lie in its stabilizer and $\chi$ is nontrivial there.
+Otherwise $\ell$ is the graph of a map from some line $d\subset D$
+to $F$. There are $q^2$ choices of this map for fixed $d$. The centre
+acts freely, altering the $F$-part of the lifts of $E$.
+Modulo this action the remaining datum for a fixed $\ell$ is a map
+$E\to D/d$, with $q^2$ choices. It follows that
+$M_3[\chi]=\bigoplus_d S_d$, with each $S_d$ free of rank $q^4$.
+The unipotent group $H$ preserves $d$ and $K$ permutes the $d$'s.
+
+Let $A_d$ be the component of $U_2:S_\chi\to S_d$, and let $B_d$
+be the restriction of $D_3$ to $S_d$. Their product $B_dA_d$ is
+an $H$-endomorphism of $S_\chi$, hence scalar. All these scalars
+agree by $K$-equivariance. On $S_\chi$, the recurrence in the proof of
+Lemma~\ref{lem:project} gives $D_3U_2=q^2(q+1)\operatorname{id}$
+because $D_2S_\chi\subset M_1[\chi]=0$. Adding the $q+1$
+scalars and canceling this nonzero integer in characteristic zero
+gives $B_dA_d=q^2\operatorname{id}$ over $\mathcal O$. These are
+maps between free modules of equal rank. Each $A_d$ is an
+isomorphism, with inverse $q^{-2}B_d$. Using the $A_d$ themselves
+to identify the summands gives the asserted equivariant tensor
+description, with $U_2$ diagonal and $D_3=q^2\sum_d$.
+
+An $H$-equivariant map from the tuple module to $S_\chi$ is
+$\sum_d b_dx_d$. The action of $K$ forces all $b_d$ equal. Its
+restriction to the diagonal is multiplication by $(q+1)b_d$,
+giving both the retraction and the obstruction claimed. The
+integral change of coordinates given by the $A_d$ remains valid
+after coefficient base change.
+\end{proof}
+
+\subsection{The compact intertwiner and its critical preimage}
+Here take $q$ an odd prime, $F_0=\mathbb Q_q$, and give
+$\operatorname{Mat}_3(\mathbb Z_q)$ additive measure one. The standard
+intertwiner for the $(3,3)$-parabolic of $\mathrm{GL}_6(F_0)$ integrates
+a section on the row chart $[I,T]$, $T\in\operatorname{Mat}_3(F_0)$
+\cite[\S11]{SU}. In the lower-block convention, saturation of the rows
+by a left factor of determinant valuation $m$ gives $Y^mq^{-3m}$ in
+the integrand. This fixes our parameter $Y$.
+
+A matrix entry on the compact level depends only on the dimension
+$r$ of intersection of the input and output three-planes. Its
+unnormalized value per individual plane is
+\begin{equation}\label{eq:schur}
+ c_r(Y)=q^{-9}(Yq^3)^r\prod_{i=1}^{r}\frac{1-q^{-i}}{1-Yq^{3-i}} .
+\end{equation}
+Fix the output spanned by the last three coordinates. Split each
+three-block into $3-r,r$, and write
+$T=\left(\begin{smallmatrix}A&B_0\\C&D_0\end{smallmatrix}\right)$.
+A coordinate input of intersection $r$ has pivots in the first $3-r$
+positions of the first block and the last $r$ of the second block.
+Gaussian elimination gives the saturated rows
+\[
+ \begin{pmatrix}I&-U&Z_0&0\\0&V_0&W&I\end{pmatrix},
+ \quad V_0=D_0^{-1},\quad U=B_0D_0^{-1},\quad
+ W=D_0^{-1}C,\quad Z_0=A-B_0D_0^{-1}C .
+\]
+They reduce to the specified coordinate plane precisely when all
+four new matrices have entries in $q\mathbb Z_q$. The pivot minor
+requires $D_0$ to be invertible. The Jacobian for $dT$ is
+$|\det V_0|^{-6}$: inversion accounts for $2r$ in the exponent and
+the rectangular blocks for $3-r$ each. The character times the
+Jacobian is $(Yq^3)^{v_q(\det V_0)}$. Scaling the nine entries
+contributes $q^{-9}$ and the factor $(Yq^3)^r$. The last integral is
+\[
+ \int_{\operatorname{Mat}_r(\mathbb Z_q)}
+ s^{v_q(\det V')}\,dV'=\prod_{i=1}^r\frac{1-q^{-i}}{1-sq^{-i}}.
+\]
+Separate the common valuation of the first column. After taking out
+that power of $q$, an integral change of basis sends its primitive
+part to the first unit vector; the residual minor is uniformly
+distributed. Induction proves the integral and \eqref{eq:schur}.
+
+Let $\binom{i}{j}_q$ denote the Gaussian binomial. The number of input
+planes for a fixed intersection dimension is $q^{(3-r)^2}\binom{3}{r}_q^2$:
+choose the intersection, its complementary projection, and a graph
+into the quotient of the output by that intersection. The four counts
+are $q^9,q^4[3]_q^2,q[3]_q^2,1$. Multiplying them by \eqref{eq:schur}
+and summing gives the spherical scalar
+\[
+ m_0(Y)=\prod_{i=1}^3(1-Yq^{-i})\big/\prod_{j=0}^2(1-Yq^j).
+\]
+Writing $N=c/m_0$ for the operator fixing constants, its entry at
+intersection dimension $r$ is
+\[
+ d_r(Y)=q^{-9}(Yq^3)^r
+ \frac{\prod_{i=1}^r(1-q^{-i})\prod_{j=0}^{2-r}(1-Yq^j)}
+      {\prod_{i=1}^3(1-Yq^{-i})}.
+\]
+These identities hold first for small $|Y|$ and then as rational
+identities. Set $Y=X^{-1}$. If $q(q^2-1)(q^3-1)(q^4-1)$ is a
+coefficient unit, all remaining denominators are units in the
+germ $\mathcal O[[X-q]]$. At $X=q$, the four entries satisfy
+$d_0=d_1=0$, $d_2=1/([3]_q[4]_q)$ and $d_3=[3]_qd_2$. The
+$(L,L')$ entry of $U_2D_3$ is $\binom{r}{2}_q$, so
+\[
+ N(q^{-1})=\frac{U_2D_3}{[3]_q[4]_q},\qquad
+ g=[3]_q[4]_q U_2(D_3U_2)^{-2}D_3 f \quad(f\in U_2M_2)
+\]
+satisfies $N(q^{-1})g=f$. The three eigenvalues in
+Lemma~\ref{lem:project} are units under the present hypotheses.
+Their monic cubic identity, computed in characteristic zero, holds on
+the integral module by torsion-freeness; its unit constant coefficient
+gives the inverse even when $[5]_q$ or $[6]_q$ is a nonunit.
+Thus $N(X^{-1})g$ is an integral family with critical value $f$.
+
+\section{The inert compact source}
+
+Let $q$ be an odd prime, $k=\F_{q^2}$ and
+$\bar x=x^q$. On the $k$-space with basis
+$e_1,e_2,e_3,f_1,f_2,f_3$ use the split skew-Hermitian form with
+$\langle e_i,f_j\rangle=\delta_{ij}$ and
+$\langle f_i,e_j\rangle=-\delta_{ij}$. Write
+$V_o=\langle e_1,e_2,f_1,f_2\rangle$,
+$V_m=\langle e_3,f_3\rangle$,
+$F_o=\langle f_1,f_2\rangle$ and $E_m=\langle e_3\rangle$.
+The stabilizer of $F_o$ in $U(V_o)$ times the stabilizer of $E_m$ in
+$U(V_m)$ acts on the maximal totally isotropic three-planes of
+$V_o\oplus V_m$. Let $M$ be the functions constant on its orbits.
+
+There are six decomposed orbits. For a three-plane
+$L=L_o\oplus L_m$ the outer index is
+$d=\dim(L_o\cap F_o)$, and the middle index records whether
+$L_m=E_m$. Use the following labels:
+\[
+\begin{array}{c|cc}
+d&L_m=E_m&L_m\ne E_m\\\hline
+2&9&1\\1&7&3\\0&0&5
+\end{array}
+\]
+The three outer positions can be seen by first fixing the intersection
+in $F_o$ using its general linear stabilizer. On the remaining
+hyperbolic quotient the outer plane is transverse to the remaining
+part of $F_o$. Its graph is carried to the standard transverse plane
+by a unipotent in the stabilizer of $F_o$. In the middle plane the
+stabilizer of $E_m$ is transitive on its complement among isotropic
+lines, by the same graph description.
+
+Four further orbits consist of graphs. In fact, the projection of $L$
+to $V_o$ or $V_m$ has orthogonal complement $L\cap V_o$ or $L\cap V_m$
+respectively, since $L=L^\perp$. If $L\cap V_m$ has dimension one,
+the middle projection is that same line and $L$ decomposes. Otherwise
+the middle projection is onto and $\ell=L\cap V_o$ has dimension one.
+Modulo $\ell$, $L$ is the graph of an anti-isometry
+$V_m\to\ell^\perp/\ell$ (the orthogonal here is in $V_o$).
+The outer line $\ell$ is either in $F_o$ or outside it. There is
+one stabilizer orbit for each position: in the first case use the
+Levi action on $F_o$, and in the second first move the projection of
+$\ell$ onto the complementary isotropic two-plane by the Levi.
+The remaining graph coordinate is removed by the unipotent radical,
+since an isotropic graph on a line extends to an isotropic graph on
+that two-plane (extend its Hermitian matrix by one row and column).
+
+In each case the stabilizer of $\ell$ induces the full Borel of the
+hyperbolic plane $\ell^\perp/\ell$ fixing the image of
+$F_o\cap\ell^\perp$. Indeed, at the representatives $\ell=f_2$ and
+$\ell=e_2$, the Borel on $\langle e_1,f_1\rangle$ acts while fixing
+the other hyperbolic pair. A graph is therefore classified by whether
+$E_m$ maps to the distinguished line in that quotient. Write
+\[
+\begin{array}{c|cc}
+ &\text{equal}&\text{different}\\\hline
+\ell\subset F_o&8&4\\
+\ell\not\subset F_o&6&2 .
+\end{array}
+\]
+Together these tables give a basis $f_0,\ldots,f_9$ of $M$, the
+indicator functions of the corresponding orbits, over any coefficient
+ring.
+
+\subsection{The boundary operator}
+
+Let $K/\mathbb Q_q$ be unramified quadratic. Use the same split form
+and its integral basis over $\OO_K$. For
+$h=\left(\begin{smallmatrix}a&b\\ c&d\end{smallmatrix}\right)
+\in\mathrm{SL}_2(\mathbb Q_q)$ and $z\in\{f_2,e_2\}$, form the three
+rows
+\begin{equation}\label{rows}
+       d e_3+f_1+c f_3,\qquad e_1+b e_3+a f_3,\qquad z .
+\end{equation}
+They span a maximal isotropic space: the pairing of the first two
+rows is $-1+ad-bc=0$. Intersect their $K$-span with the standard
+$\OO_K$-lattice and reduce the saturated lattice modulo $q$. Call
+the resulting orbit $j_z(h)$.
+
+We use the affine-Iwahori row normalization in which
+\[
+ m_r=\operatorname{diag}(q^r,q^{-r}),\quad
+ w=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+ \quad r\in\mathbb Z.
+\]
+These are the translations $m_r$ and reflected translations $m_rw$
+for the affine double cosets of $\mathrm{SL}_2(\mathbb Q_q)$.
+On the Steinberg Iwahori-fixed line the characteristic Hecke operator,
+normalized by division by $H=\operatorname{vol}(I)$, acts by
+$(-1)^{\ell(g)}$ for the affine Weyl element $g$: every simple
+generator acts by $-1$ and on a reduced word the operators multiply.
+In particular the signs for $m_r$ and $m_rw$ are $+$ and $-$.
+We keep $H$ in the row formula. The coordinate convention
+\eqref{rows} is the row-space restriction used in the project archive
+for the local Klingen pullback; the underlying pullback construction
+is described in \cite[Section~11]{SU}.
+
+For $X$ an unramified parameter write $u=X/q^3$. Define our two
+normalized boundary rows on $f\in M$ by the explicit coset sums
+\begin{equation}\label{definition}
+ B_z(f)=H\sum_{r\in\mathbb Z}u^{|r|}
+       \bigl(f(j_z(m_r))-f(j_z(m_rw))\bigr),
+       \qquad z=f_2,e_2 .
+\end{equation}
+Here $f(j)$ is the value of the function on orbit $j$. Formula
+\eqref{definition} can be used directly and fixes all normalization
+choices. The factor $u^{|r|}$ uses the lower-block determinant
+valuation $-|r|$. Indeed, saturating the rows \eqref{rows} at either
+representative for $r\ne0$ multiplies exactly one row by $q^{|r|}$.
+In lower-block induction with parameter
+$X=\chi(q)^{-1}q^{-2s}$ this supplies
+$\chi(q)^{-|r|}q^{-2(s+3/2)|r|}$. Weight two in this convention is
+$s=-1/2$, $\chi(q)=1$, hence $X=q$.
+
+\begin{theorem}
+Let $t=X/(q^3-X)$. With columns $f_0,\ldots,f_9$ and rows in
+the order the vectors $f_2,e_2$ for the third row in \eqref{rows}, the
+matrix of $B/H$ is
+\[
+\begin{pmatrix}
+0&t&0&-t&-1&0&0&t&1&-t\\
+t&0&-1&t&0&-t&1&-t&0&0
+\end{pmatrix}.
+\]
+If $H$ and $q(q^2-1)$ are units in the coefficient ring, then in
+the formal germ at $X=q$ the map has the constant right inverse
+\[
+ (y_1,y_2)\longmapsto H^{-1}(-y_1 f_4+y_2 f_6).
+\]
+Its kernel is free of rank eight over that germ and the splitting
+commutes with coefficient base change.
+\end{theorem}
+
+\begin{proof}
+For $m_r$ the first two rows in \eqref{rows} are
+$q^{-r}e_3+f_1$ and $e_1+q^r f_3$.
+For $m_rw$ they are $f_1+q^{-r}f_3$ and $e_1-q^re_3$.
+Use the unit pivots after saturation to read off the following orbits:
+\[
+\begin{array}{cc|ccc}
+z&h&r<0&r=0&r>0\\\hline
+ f_2&m_r&1&8&7\\
+ f_2&m_rw&9&4&3\\
+ e_2&m_r&3&6&0\\
+ e_2&m_rw&7&2&5
+\end{array}
+\]
+For example with $r>0$ the first pair reduces to $e_3,e_1$ and
+the second to $f_3,e_1$. With $r<0$ they reduce to $f_1,f_3$
+and $f_1,e_3$. At $r=0$ the outer intersection is $\langle z\rangle$.
+The graph sends $e_3$ to the image of $f_1$ for $m_0$ and to the
+image of $e_1$ for $m_0w$, up to a unit sign, giving respectively
+the closed and open graph positions in the second orbit table.
+
+Each positive or negative tail has weight
+$\sum_{r\ge1}u^r=u/(1-u)=t$, initially for $|u|<1$ and then
+rationally. Substitution in \eqref{definition} gives the matrix.
+In the formal germ $q^3-X$ has unit constant term. Columns 4 and 6
+are $(-H,0)$ and $(0,H)$ for all $X$. If $(b_j,c_j)$ is the $j$th
+column of $B/H$, the remaining columns yield the kernel basis
+$f_j+b_j f_4-c_j f_6$, $j\ne4,6$. These formulas persist over every
+base change of the germ.
+\end{proof}
+
+The finite model accounts for two local boundary coordinates. The unit
+minor supplies an integral correction in this module, even when the
+weight varies. Applying it to an additional toric period, a different
+compact level, or a global cusp form requires the maps to those
+particular spaces.
+
+\section{Using the splittings}
+On the split nonsingular character space take a tuple supported at
+one line $d_0\in\mathbb P(D)$, with value $x\in S_\chi$. Projection
+gives $x/(q+1)$ in every component. At a coefficient prime dividing
+$q+1$, the diagonal embedding still exists over the original lattice
+while equivariant retraction fails. At a nonresonant prime the compact
+matrix above lifts a prescribed critical coherent section to the
+unramified family at the same level.
+
+On the inert source, consider $u_0=f_0+f_6$. At $X=q$ the first
+row of $B$ on $u_0$ vanishes; the second has value $Hq^2/(q^2-1)$.
+Hence $u_0-q^2 f_6/(q^2-1)$ lies in the critical kernel. In the
+moving germ the coefficient of $f_6$ for this correction is
+$1+t=q^3/(q^3-X)$. Using the fixed critical coefficient throughout
+would generally leave a nonzero boundary. The two constant pivot
+columns explain why this correction uses no division by $X-q$.
+A functional that factors through these two boundary rows vanishes on
+their common kernel. Applying a correction to a different period
+requires its own comparison map.
+
+\begin{thebibliography}{9}
+\bibitem{Srinivasan} M.~K. Srinivasan,
+\emph{The Goldman--Rota identity and the Grassmann scheme},
+\href{https://arxiv.org/abs/1304.6244}{arXiv:1304.6244}.
+\bibitem{SU} C. Skinner and E. Urban,
+\emph{The Iwasawa main conjectures for $\mathrm{GL}_2$},
+\href{https://www.math.columbia.edu/~urban/eurp/MC.pdf}{authors' paper},
+Sections 10--11, especially Proposition 11.2.3.
+\bibitem{record} Project research record of 17 November 2026,
+checkpoint 48, \emph{Split finite $\mathrm{GL}_6$: the actual
+coherent incidence image and its nonsingular Jacobi projector} and
+\emph{Split $\mathrm{GL}_6$: the full compact standard intertwiner};
+checkpoint 63, \emph{An actual all-weight minimal-parahoric boundary
+right inverse} and \emph{The ten minimal compact orbits: exact native
+boundary rows}.
+\end{thebibliography}
+\end{document}

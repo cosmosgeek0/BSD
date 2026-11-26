@@ -14,6 +14,8 @@
 
 ## Further working papers
 
+- **Integral splittings in split and unitary rank-three compact models.** The paper derives the integral projector and its denominator in the split model, and the ten-orbit boundary and constant splitting in the inert model. [PDF](compact-section-splittings.pdf) · [LaTeX](compact-section-splittings.tex)
+
 - **Cyclic splitting fields, integral norms and Heegner derivatives.** The paper bounds the number of cyclic fields that can split a torsor under a rank-growth hypothesis, calculates the one-orbit integral norm index and gives conditional equality of relative ranks for a primitive Heegner derivative. [PDF](cyclic-splitting-fields.pdf) · [LaTeX](cyclic-splitting-fields.tex)
 
 - **Splitting densities of Selmer and Mordell–Weil classes.** Field indices and simultaneous prime-splitting densities recover the orders of finite-level Tate–Shafarevich subgroups under the stated image hypotheses. [PDF](selmer-splitting-densities.pdf) · [LaTeX](selmer-splitting-densities.tex)
@@ -41,11 +43,11 @@
 
 - **Anticyclotomic traces of the Tate theta function.** A local norm-compatible construction gives a nonzero limiting trace congruent to 162 modulo 243. [PDF](anticyclotomic-theta-traces.pdf) · [LaTeX](anticyclotomic-theta-traces.tex)
 
-- **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. The final sections treat fixed-prime Heegner-height moments, split-prime sampling, covector orbit fields, and limits for local and global character weights. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
+- **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. The final sections treat fixed-prime Heegner-height moments, split-prime sampling, covector orbit fields, and limits for local and global character weights. The final version treats both real and imaginary quadratic sampling and proves the orbit formula at composite modulus. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
 
 - **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
 
-- **A quartic governing character for a twist family.** An explicit quadratic character on a quartic field identifies the pairing sign and proves equidistribution under the stated local conditions. [PDF](quartic-governing-character.pdf) · [LaTeX](quartic-governing-character.tex)
+- **A quartic governing character for a twist family.** An explicit quadratic character on a quartic field identifies the pairing sign and proves equidistribution under the stated local conditions. The three explicit quartics are identified as halving fields of sums of rational points, with degree certificates. [PDF](quartic-governing-character.pdf) · [LaTeX](quartic-governing-character.tex)
 
 - **Prescribed quadratic traces on elliptic curves.** A genus-two construction realizes two prescribed traces under cyclic-isogeny hypotheses, with branch-degree, height and exceptional-set estimates. [PDF](prescribed-quadratic-traces.pdf) · [LaTeX](prescribed-quadratic-traces.tex)
 
