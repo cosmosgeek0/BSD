@@ -25,7 +25,7 @@ module needs to have length strictly smaller than the critical precision.
 We give equality examples, a two-branch order showing why an exponent
 bound cannot replace a length bound, and an example in which a perfect
 source pairing of fixed discriminant coexists with arbitrarily long
-central relation loss. We compute every first-order relation on a cyclotomic Gauss row at level $p$ and prove that a compatible row admits unit-speed jets at every fixed precision at sufficiently deep levels. Joining two such rows can kill every speed. The arithmetic application requires an actual
+central relation loss. We compute every first-order relation on a cyclotomic Gauss row at level $p$ and prove that a compatible row admits unit-speed jets at every fixed precision at sufficiently deep levels. Joining two such rows can kill every speed. For a finite family of nearby twisted Kloosterman rows we compute sharp simultaneous integral normalization ideals, including attainment. The arithmetic application requires an actual
 finite lift of the original coefficient module and its class.
 \end{abstract}
 
@@ -774,6 +774,246 @@ $e_h$, since $2$ is a unit. As $x=x(1-e_h)$, its distinguished class
 $v$ vanishes. Every normalized first-order map on the joined lattice
 has zero speed. A local first-order map for a single output is
 insufficient to construct a simultaneous arithmetic lift.
+\section{Simultaneous normalization of twisted Gauss and Kloosterman rows}
+The following integral calculation uses the level-one Gauss row from the preceding graph problem together with actual nearby Kloosterman rows. Here the unknown is a single scalar in the rational group ring making all the displayed functions integral. The resulting ideal concerns augmentation of that scalar; the first-order maps in the preceding section are a different invariant.
+Let $p$ be an odd prime. Fix a primitive $p^2$th root $z$, put
+$O_0=\mathbb Z_p[z]$, $\lambda=z-1$, $h=(p-1)/2$, $e=p(p-1)$, and write
+$\epsilon=h\bmod2\in\{0,1\}$. Let $O$ be the ring of integers of a
+finite extension of $\mathbb Q_p(z)$, and $K=\operatorname{Frac}(O)$.
+Write $C_p=\langle T\rangle$, $R=O[C_p]$, $N=\sum_{m=0}^{p-1}T^m$;
+evaluation at $T=1$ is augmentation. Define
+$\theta:(\mathbb Z/p^2)^\times\to C_p$ by $\theta([r])=1$ on
+Teichm\"uller units and $\theta(1+p)=T$. Fix a unit $D\in\mathbb Z_p$ with
+$-1/D$ a nonsquare mod $p$. For unit squares $c\bmod p^2$ put
+\[
+ G=\sum_u\theta(u)^{-1}z^{Du},\qquad
+ K_c=\sum_u\theta(u)^{-1}z^{Du-c/u},
+\]
+\[
+ R_0=N/p+G/[p(p+1)],\quad R_c=K_c/[p(p+1)],
+\]
+where $u$ ranges over all units mod $p^2$. For a nonempty set
+$\mathcal C$ of these labels put
+\[
+ J_{\mathcal C}=\{B(1):B\in K[C_p],\ B R_0\in R,\quad
+                       B R_c\in R\ \text{for all }c\in\mathcal C\}.
+\]
+The problem concerns a common multiplier with prescribed augmentation.
+Characterwise evaluations of a single twisted sum are classical; see
+\href{https://mathweb.ucsd.edu/~revans/GaussKloosRingsAlgInt.pdf}{Evans on Gauss and Kloosterman sums over residue rings} for related explicit evaluations.
+
+\begin{theorem}
+One has $J_{\{1\}}=\lambda^{ph+\epsilon}O$.
+If $\mathcal C$ contains a lift of each nonzero square mod $p$, then
+$J_{\mathcal C}=\lambda^{(p-1)^2}O$. In this second case the multiplier
+\[
+ B_*=\frac{G(T)}{T-1}\,R_0^{-1}
+\]
+attains the bound for \emph{all} unit square lifts; $G(T)$ in this
+quotient is the polynomial representative of degree less than $p$.
+\end{theorem}
+Since $v_p(\lambda)=1/e$, the two minimal valuations are
+$1/2+\epsilon/e$ and $1-1/p$. They coincide for $p=3$.
+The coefficient field $K$ contains $z$.
+
+\subsection{Reduction to one truncated group algebra}
+First take $O=O_0$. Put $\zeta=z^p$. At $T=\zeta^j$, writing
+$u=[r](1+pt)$ gives by the sum over $t\in\mathbb F_p$
+\[
+ G_j=pz^{D[j/D]}\quad(j\ne0),\qquad G_0=0,\qquad
+ (K_c)_j=p\sum_{Dr+c/r=j}z^{D[r]-c/[r]} .
+\]
+Here and below the index $r$ belongs to $\mathbb F_p^\times$. The equation
+$Dr+c/r=0$ has no solution by the hypothesis. Thus $R_0(1)=1$,
+$K_c(1)=0$, and $R_0$ is invertible in $K[C_p]$.
+Set $F=B R_0$ and $W_c=pR_c/R_0$. Fourier inversion gives
+\[
+ [T^m]W_c=\sum_{r\ne0}z^{A_{r,c}-pmj_{r,c}},\qquad
+ j_{r,c}=Dr+c/r,\quad A_{r,c}=D[r]-c/[r]-D[j_{r,c}/D].
+\]
+In particular $W_c\in O_0[C_p]$, $W_c(1)=0$, and
+$A_{r,c}\equiv-2c/r\bmod p$. The problem is exactly to compute the
+augmentations $F(1)$ with $F\in O_0[C_p]$ and $FW_c\in pO_0[C_p]$.
+Modulo $p$ we work in
+$\mathbb F_p[\lambda,x]/(\lambda^e,x^p)$, where $x=T-1$.
+
+Set $m_{2j}(d)=\binom{2j}{j}d^j$, $m_{2j+1}(d)=0$. For
+$1\le i\le 2h$ and $k=2h-i$, expansion in the truncated ring yields
+\begin{equation}\label{coef}
+ [x^i]W_c=\lambda^{pk}
+ \big[-m_k(Dc)+\lambda\{m_{k+1}(Dc)+2{\bf1}_{i=1}\}
+           +O(\lambda^2)\big].
+\end{equation}
+Indeed the sum over $m$ in $[x^i]W_c$ involves
+$\binom mi(1+\lambda^p)^{-mj_{r,c}}$. For $\lambda^{pu}$ with
+$u<k$ the relevant polynomial in $m$ has degree below $p-1$
+and sums to zero; at $u=k$ its sum is
+$-(-j_{r,c})^k/(i!k!)=j_{r,c}^k$ by Wilson's identity.
+The next such term is $p$ degrees later. Put $v=c/r$, so
+$j_{r,c}=v+Dc/v$. The constant coefficient in the bracket is
+$\sum_{v\ne0}(v+Dc/v)^k=-m_k(Dc)$. For the next coefficient sum
+$-2v(v+Dc/v)^k$ over $v\in\mathbb F_p^\times$. The constant Laurent term
+contributes $m_{k+1}(Dc)$ to this sum, and the term of exponent
+$p-1$ contributes a further $2$ exactly when $k=p-2$.
+There is no exponent $-(p-1)$ in that range.
+
+\subsection{The single Kloosterman row}
+Here $c=1$ and we omit the argument $D$ in $m_i(D)$. Put $a=4D$
+and $\kappa=(-1)^hD^h=-1$ in $\mathbb F_p$. For $0\le j\le 2h$,
+\[
+ m_{2h-j}=\kappa a^{-j}m_j .
+\]
+For even $j=2t$ this is
+$\binom{2h-2t}{h-t}=(-1)^h16^{-t}\binom{2t}t\bmod p$,
+which follows from the case $t=0$ by comparing successive ratios;
+both sides of the moment identity vanish for odd $j$.
+Normalize $b_i=(-\kappa)^{-1}a^i[x^i]W_1/\lambda^{p(2h-i)}$.
+It is defined modulo $\lambda^{pi}$; choose lifts in $\mathbb F_p[[\lambda]]$.
+Equation \eqref{coef} becomes
+\begin{equation}\label{bi}
+ b_i=m_i-a\lambda m_{i-1}+2a\lambda{\bf1}_{i=1}+O(\lambda^2).
+\end{equation}
+
+Define $\ell(f)$ to be the constant Laurent coefficient of $f(U+D/U)$
+over $\mathbb F_p$, so $\ell(X^j)=m_j$. Take $P_0=1$ and monic $P_j$ given by
+$P_j(U+D/U)=U^j+D^jU^{-j}$ for $j\ge1$. These arise by the recursion
+$P_1=X$, $P_2=X^2-2D$, $P_j=XP_{j-1}-DP_{j-2}$ for $j\ge3$.
+They are orthogonal for $\ell(fg)$, with squared norms $1$ at $j=0$
+and $2D^j$ otherwise. With $H_\nu^{(n)}=(m_{i+j+\nu})_{0\le i,j<n}$
+this gives
+\begin{align}
+ \Delta_n=\det H_0^{(n)}&=2^{n-1}D^{n(n-1)/2},\label{gram0}\\
+ \det H_2^{(n)}&=2^n(1+2\lfloor n/2\rfloor)D^{n(n+1)/2},\label{gram2}\\
+ \det(H_1^{(h)}-yH_0^{(h)})&=(-1)^h\Delta_h P_h(y).\label{gram1}
+\end{align}
+For \eqref{gram2}, the indicated determinant is the cofactor of
+entry $(0,0)$ in $H_0^{(n+1)}$; dividing by $\Delta_{n+1}$ gives
+$\sum_{j=0}^nP_j(0)^2/\ell(P_j^2)=1+2\lfloor n/2\rfloor$.
+For \eqref{gram1}, multiplication by $X$ followed by orthogonal
+projection to degrees below $h$ acts as multiplication by $X$
+modulo $P_h$. Its characteristic polynomial is $P_h$.
+
+\paragraph{Lower bound.}
+Write $F=\sum_{j=0}^{2h} f_jx^j\bmod p$ and put
+$w=\min_j(\operatorname{ord}_{\lambda} f_j+pj)$, assigning order $e$ to zero.
+If $w<ph$, put $r=\lfloor w/p\rfloor<h$. For $0\le j\le r$ let
+$A_j=a^j[\lambda^{w-pj}]f_j$. At least one is nonzero.
+For each $r+2\le k\le2r+2$, the first possible $\lambda$-order
+in $[x^k](FW_1)$ is $w+e-pk\in[0,e-1]$. Vanishing forces
+$\sum_{j=0}^r A_jm_{k-j}=0$, after dividing out a common nonzero
+scalar. Reversing columns gives $H_2^{(r+1)}$, invertible by
+\eqref{gram2}. Hence $w\ge ph$.
+
+If $h$ is odd and $\operatorname{ord}_{\lambda} f_0=ph$, then $w=ph$. The same equations for
+$k=h+1,\ldots,2h$ imply that $P=\sum_{j=0}^hA_jX^{h-j}$, with
+$A_0\ne0$, is orthogonal to $X,\ldots,X^h$. Their orthogonal
+complement in degree at most $h$ is spanned by the reproducing
+kernel $\sum_{j=0}^hP_j(X)P_j(0)/\ell(P_j^2)$. This follows by
+evaluating its pairing with any polynomial at zero and using the
+nondegenerate Gram form. Only even $j$ occur, so its degree is
+less than $h$. This contradiction gives the additional unit of
+$\lambda$-order when $h$ is odd.
+
+\paragraph{Attainment.}
+Set $f_i=a^{-i}\lambda^{p(h-i)}A_i$ for $0\le i\le h$,
+$f_i=0$ for $i>h$, and $A_0=\lambda^\epsilon$. Coefficients of
+$FW_1$ at $x^k$ for $k\le h$ already vanish modulo $\lambda^e$.
+For $h<k\le2h$ it suffices, by the chosen scaling, to solve
+$\sum_{i=0}^h A_i b_{k-i}=0$ over $\mathbb F_p[[\lambda]]$.
+Reversing the unknown columns gives the matrix
+\[
+ M=(b_{r+j+1})_{0\le r,j<h}
+ =H_1^{(h)}-a\lambda H_0^{(h)}
+       +2a\lambda E_{00}+O(\lambda^2).
+\]
+When $h$ is even, $\det M(0)$ is a unit by \eqref{gram1} and
+$P_h(0)=2(-D)^{h/2}$. For $h=2r+1$ its rank is $h-1$: $P_h$
+has a simple zero at zero with $P_h'(0)=h(-D)^r$, by the recursion.
+The coefficient column $\mathbf q$ of $Q=P_h/X$ spans the kernel
+since $P_h$ is orthogonal to lower degrees. Thus
+$\operatorname{adj} H_1^{(h)}=c\mathbf q\mathbf q^t$ for a nonzero
+$c$. Multiplying by $X$ and telescoping the recurrence gives
+$Q=\sum_{j=0}^r(-D)^{r-j}P_{2j}$. In particular
+$\ell(Q^2)=hD^{h-1}$ and $Q(0)=h(-D)^r$. The coefficient of $\lambda$
+in $\det M$ is
+\[
+ ac\{-\ell(Q^2)+2Q(0)^2\}=ac h(2h-1)D^{h-1}\ne0 .
+\]
+Here $2h-1=p-2$. Consequently $\lambda^\epsilon M^{-1}$ is integral
+in both cases. The right side is divisible by $A_0=\lambda^\epsilon$,
+so integral $A_1,\ldots,A_h$ exist. Changes in the lift of $b_{k-i}$
+affect the original product only in orders at least
+$p(3h-k)+p(k-i)=p(3h-i)\ge e$. Lifting the resulting coefficients
+modulo $\lambda^e$ to $O_0$, with $f_0=\lambda^{ph+\epsilon}$
+exactly, proves attainment over $O_0$.
+
+\subsection{All square labels}
+Work with \eqref{coef} and let $w=\min_i(\operatorname{ord}_{\lambda} f_i+pi)$ as before.
+Put $w_0=p(p-2)$; then $(p-1)^2=w_0+1$. If $w<w_0$ and
+$r=\lfloor w/p\rfloor\le p-3$, put $A_i=[\lambda^{w-pi}]f_i$
+for $0\le i\le r$. At $x^{p-1}$ and $x^{p-2}$ the first possible
+orders of $FW_c$ are $w$ and $w+p<e$, respectively. Hence
+\[
+ \sum_{i=0}^r A_i m_i(Dc)=0,\qquad
+ \sum_{i=0}^r A_i m_{i+1}(Dc)=0
+\]
+at each of the $h$ distinct nonzero square residues $c\bmod p$.
+The even $A_i$ occur in the first polynomial, with distinct degrees
+at most $h-1$ and nonzero central binomial coefficients. The odd
+$A_i$ occur in the second with the same properties. Evaluation on
+the $h$ distinct residues forces all coefficients to vanish,
+contradicting the definition of $w$. Thus $w\ge w_0$. If
+$\operatorname{ord}_{\lambda} f_0=w_0$, the equation at $x^{p-1}$ again forces all even
+coefficients, now up to index $p-3$, to vanish, including
+$A_0\ne0$. This proves the stronger lower bound.
+
+Using the canonical polynomial representatives in $T$, set
+$F_*=G/(T-1)$ and $Q_c=K_c/(T-1)$; both are integral.
+The identity $G W_c=pK_c$ follows from the character values
+above, including at the trivial character. Thus $F_*W_c-pQ_c$
+is annihilated by $T-1$, hence is an integral multiple of $N$.
+Augmenting proves
+\[
+ F_*W_c=pQ_c-K_c'(1)N.
+\]
+The involution $u\mapsto-c/(Du)$ preserves $Du-c/u$ and gives
+$K_c(T)=T^{-d_c}K_c(T^{-1})$ in the group ring, where
+$\theta(-c/D)=T^{d_c}$. Differentiate this identity \emph{modulo $p$},
+where $d(T^p-1)/dT=0$. Evaluation at one gives
+$2K_c'(1)=-d_cK_c(1)=0\bmod p$. Therefore $F_*W_c\in pR$
+for every square lift.
+
+Finally $F_*(1)=G'(1)=
+\sum_{r\ne0}z^{D[r]}\sum_{m=0}^{p-1}m\zeta^{-mDr}$.
+The inner sum starts in $\lambda$-order $p(p-2)$ with coefficient
+$(Dr)^{p-2}$ by the same degree computation as \eqref{coef}.
+The next possible inner order is at least $p$ degrees later,
+all calculations being modulo $p$. Summing over $r$ cancels
+the constant coefficient since $\sum(Dr)^{p-2}=0$, while the next
+coefficient is $\sum(Dr)^{p-1}=-1$ in $\mathbb F_p$.
+Thus $\operatorname{ord}_{\lambda} G'(1)=(p-1)^2<e$. Multiplication by $R_0^{-1}$
+gives the common attaining multiplier in the theorem.
+
+\paragraph{Change of coefficients.}
+For either set of labels the integral $F$ form the kernel of
+$O_0[C_p]\to\bigoplus_{c\in\mathcal C}(O_0/p)[C_p]$,
+$F\mapsto(FW_c)_c$. Since $O$ is flat over the DVR $O_0$,
+both the kernel and its image under augmentation extend by
+tensor product. Since $R_0(1)=1$, these are exactly the asserted
+ideals over $O$.
+
+\paragraph{Finite checks and scope.}
+For $(p,D)=(3,1),(5,2),(7,1)$, expansion into the basis
+$\lambda^iT^j$ over $\mathbb F_p$ reduces these claims to ordinary linear
+algebra: stack the multiplication matrices for $W_c$, then find
+the first augmentation coefficient whose row is outside their row
+space. The resulting one-label/all-label exponent pairs are
+$(4,4),(10,16),(22,36)$. The proof of the theorem applies at all
+odd primes. These are denominator computations for the displayed
+rows. An application to a geometric Fourier lattice requires a
+separate comparison with its integral functionals.
+
+
 \section{Recovering an omitted character value by bounded Gauss averaging}
 \label{sec:arch-gauss-averaging}
 Let $\mathcal O$ be the ring of integers of a finite extension of
