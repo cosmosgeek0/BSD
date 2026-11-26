@@ -115,6 +115,159 @@ H(s)=L^S(E,s)^2\frac{\zeta^S(2s-1)}{L^S(\operatorname{Sym}^2 E,2s)}\,U(s)
 with $U$ holomorphic and nonzero near one. In fact $p\log r_p=2a_p+O(p^{-1/2})$ by Hasse. In twice the logarithm of the elliptic Euler product the quadratic term is $(a_p^2-2p)p^{-2s}$; the first terms of the two auxiliary factors contribute its negative. All remaining prime terms converge normally in a neighborhood of one. The symmetric-square $L$-value at $2$ is finite and positive by Rankin--Selberg theory (in classical weight-two normalization). If $\operatorname{ord}_{s=1} L(E,s)\ge2$ this yields
 $H'''(1)=c_{E,S}L''(E,1)^2$ with a positive constant depending on $E$ and $S$, by expanding the simple zeta pole. The same ratio test survives even though the restricted quadratic extensions have trivial integral gluing as in \eqref{glue}.
 
+\appendix
+\section{Reverse pencils and exact certificates on the 73, 359 and 911 twists}
+
+Let $E:y^2=x^3+Ax+B$ and
+$E_d:y^2=x^3+a x+b$, where $a=d^2 A,\ b=d^3 B$ for a nonsquare
+$d\in\mathbb Q^\times$. Fix $R=(X,Y)\in E_d(\mathbb Q)$.
+Intersect $E_d$ with $y=t(x-X)-Y$, the line through $-R$.
+The two residual points have abscissas
+\[
+ x_\pm=\frac{t^2-X\pm\sqrt{\Delta_R(t)}}2,\qquad
+ \Delta_R(t)=t^4-6Xt^2-8Yt-3X^2-4a .
+\]
+Thus $\Delta_R(t)=d u^2$ gives conjugate points $U,\bar U$ over
+$\mathbb Q(\sqrt d)$ with $U+\bar U=R$. Choose
+$\sqrt{\Delta_R(t)}=u\sqrt d$ in the formula for $U$.
+The anti-invariant difference $V=U-\bar U$ corresponds to a point
+$P_t\in E(\mathbb Q)$ via the twisting isomorphism
+$(x,y)\mapsto(x/d,y/(d\sqrt d))$.
+
+Write $z=t(t^2-3X)-2Y$, which is $\Delta_R'(t)/4$.
+The chord from $U$ to $-\bar U$ has slope $z/(u\sqrt d)$. Thus
+\begin{align*}
+ x_V&=z^2/\Delta_R-t^2+X,\\
+ y_V&=\frac{z((t^2-X)/2-x_V)-t\Delta_R/2}{u\sqrt d},\\
+ x(P_t)&=\frac{Xt^4+4Yt^3+(6X^2+4a)t^2+4XYt+X^3+4b}
+                     {d\,\Delta_R(t)} .
+\end{align*}
+Here $Y^2=X^3+aX+b$ has been used in expanding $x_V$.
+A rational slope gives the unordered pair of opposite differences.
+In the formulas we remove zero discriminants and the finitely many
+exceptional intersections involving the point at infinity.
+
+\subsection{Which subgroup the slopes record}
+If $U_0+\bar U_0=R$ has a solution over $\mathbb Q(\sqrt d)$,
+then all solutions are $U_0+W$ where $\bar W=-W$.
+Their differences give precisely a translate of $2E(\mathbb Q)$ on
+the original curve; there are $|E(\mathbb Q)[2]|$ solutions for each
+given output. In particular $R=2R_*$ with $R_*\in E_d(\mathbb Q)$
+makes $U_0=R_*$ available. A single coset can contain a full set of
+linearly independent points even when their mod-two classes coincide.
+
+For an affine $R$ the quartic $\Delta_R$ is squarefree in
+characteristic zero: its repeated residual intersections are the
+branch values of the degree-two quotient $U\mapsto\{U,R-U\}$, whose
+four fixed points are the distinct geometric halves of $R$.
+The vertical line through $-R$ has two distinct residual points
+unless $R=O$ (for a two-torsion point the two residual points
+are $R$ and $O$). Thus the four branch values have finite slopes.
+The numerator of $d\,x(P_t)$ reduced modulo $\Delta_R$
+is $z^2$. This gives a degree-four map of the $t$-line to the
+$x$-line, and
+\[
+                  \hat h(P_t)=2h(t)+O_{E,d,R}(1)
+\]
+with the convention $\hat h=\tfrac12h(x)+O_E(1)$.
+Here $h(t)$ is the ordinary logarithmic height on $\mathbb P^1$.
+Suppose the norm fibre is nonempty and $r=\operatorname{rank}E(\mathbb Q)>0$.
+If $\operatorname{Reg}_E$ denotes the determinant of the quadratic
+form $\hat h$ in a basis modulo torsion, lattice counting now gives
+\[
+ \#\{t\in\mathbb Q:\Delta_R(t)\in d\,\mathbb Q^{\times2},\
+                            h(t)\le H\}
+ \ \sim\
+ \frac{|E(\mathbb Q)_{\rm tors}|\,\operatorname{vol}(B_r)}
+      {2^{1+r/2}\sqrt{\operatorname{Reg}_E}}\ H^{r/2}.
+\]
+Indeed the output coset has index
+$2^r|E(\mathbb Q)[2]|$. The canonical-height cutoff is $2H+O(1)$,
+each output has the indicated $|E(\mathbb Q)[2]|$ lifts, and two
+conjugate lifts give the same slope. Here $B_r$ is the Euclidean
+unit ball. When $r=0$ the rational lift set is finite.
+
+\subsection{A rank-three certificate from one pencil}
+Take $E_0:y^2=x^3-28x+1$, $d=73$ and $R=(2,301)\in(E_0)_{73}(\mathbb Q)$.
+Then $\Delta_R=t^4-12t^2-2408t+596836$. The preceding formulas
+give the following exact data, with $u>0$.
+\[
+\begin{array}{r|r|c}
+t&u\ \ (\Delta_R=73u^2)&P_t\\ \hline
+-9/2 &365/4&(-6/25,347/125)\\
+23/3 &803/9&(-94/121,-6283/1331)\\
+32 &146&(-5,4)\\
+-41 &219&(-38/9,-179/27)
+\end{array}
+\]
+Call the first three points $A_1,A_2,A_3$. For each good prime in the
+next table, $E_0(\mathbb F_p)/3E_0(\mathbb F_p)$ is cyclic of order
+three. The last column gives their coordinates in this quotient relative
+to the displayed generator.
+\[
+\begin{array}{r|r|r|c|c}
+p&\#E_0(\mathbb F_p)&|3E_0(\mathbb F_p)|&g_p&(A_1,A_2,A_3)\\ \hline
+7 &12&4&(0,1)&(2,2,1)\\
+29&36&12&(6,7)&(0,0,1)\\
+31&39&13&(1,6)&(1,2,2)
+\end{array}
+\]
+Each row can be reproduced by listing the solutions of the cubic modulo
+$p$, adjoining $O$, and forming $C=\{[3]T:T\in E_0(\mathbb F_p)\}$.
+The coordinate of $\bar A_i$ is the unique $j\in\{0,1,2\}$ such that
+$\bar A_i-jg_p\in C$. The determinant of the last three rows of
+coordinates is $-2$. Also $\#E_0(\mathbb F_5)=7$, so reduction excludes
+rational three-torsion. The three points are independent over $\mathbb Z$,
+as a nonzero relation could otherwise be divided by three until a
+nontrivial relation modulo three remained.
+
+Their mod-two classes in fact coincide. Direct rational addition gives
+\[
+ A_1=A_3+2(8,17),\qquad A_2=A_3+2(18,73).
+\]
+At $7$, $2E_0(\mathbb F_7)=\{O,(0,1),(0,6)\}$, whereas
+$A_3\bmod7=(2,4)$. This also verifies that the common mod-two class
+is nonzero. For comparison set $P_0=(-2,7)$, $Q_0=(-4,7)$,
+$R_0=(0,1)$ on $E_0$. The same addition formulas give
+$(8,17)=Q_0-R_0$, $(18,73)=P_0-R_0$, and $A_3=-P_0-Q_0+R_0$.
+The last three generators are related to $P_0,Q_0,R_0$ by an
+integral matrix of determinant one in absolute value. This identifies
+two integral subgroups; the calculation proves the rank lower bound
+three, independently of a global saturation or descent upper bound.
+
+\subsection{Two prescribed traces on the negative 23 twist}
+For a second exact check start on $E=(E_0)_{-23}$ itself, and take
+a line of slope $t$ through $-R$. Given $\Delta_R(t)=du^2$ the two
+residual points have trace $R$; their difference now gives the point
+$(d x_V,d\sqrt d\,y_V)$ on $E_d$.
+For $R=(144,917)$ and $t=-9$, the quadratic equation for their
+abscissas is $x^2+63x+1082=0$, with discriminant $-359$.
+One of the residual points is
+\[
+ \left(\frac{-63+\sqrt{-359}}{2},
+       \frac{1325-9\sqrt{-359}}{2}\right).
+\]
+Its difference with its conjugate gives
+$(1733008,-2280671873)\in(E_0)_{8257}(\mathbb Q)$.
+For $R=(239,3178)$ and $t=45683/5325$ the analogous identity is
+\[
+ 5325^4\Delta_R(t)=-911\,(616298542)^2 .
+\]
+With the indicated positive square multiplier, the point of
+$(E_0)_{20953}(\mathbb Q)$ obtained from the difference is
+\[
+ \left(\frac{14041010740946281161086}{94955973217831441},\
+       -\frac{1104427769239083543369701211067379}
+                   {29260613924170282745029511}\right).
+\]
+Modulo $7$ the cubic of $E$ has roots $1,2,4$. The local two-descent
+vectors of the two traces, in that root order, are $(-,+,-)$ and
+$(-,-,+)$: use $x-e_i$ away from $e_i$, and the cubic derivative
+at $e_i$ in the exceptional coordinate. These two norm classes are
+independent modulo doubling. Each of the two fields was constructed
+using its specified trace. The coordinates can be checked entirely
+by the displayed rational chord formulas.
+
 \begingroup\raggedright
 \begin{thebibliography}{10}
 \bibitem{demeio} J.~L.~Demeio, \emph{Elliptic fibrations and Hilbert Property}, \href{https://arxiv.org/abs/1808.09808}{arXiv:1808.09808}.

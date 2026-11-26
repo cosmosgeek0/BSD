@@ -2512,6 +2512,209 @@ rational input away from its divisor satisfies the idele class product
 formula. This calculation concerns local integrals on $E$;
 retaining a global height kernel requires a separate comparison.
 
+\section{The lattices of rational pencils and their residual quartics}
+\label{app:pencilshape}
+
+For a rational point $P$ use a primitive vector, of norm $M=\|P\|_2$,
+and let $\Lambda_P=P^\perp\cap\mathbb Z^3$. All constants in this
+section may depend on the fixed integral cubic and its coordinates.
+
+\medskip
+\noindent\textbf{Proposition.}
+The lattices $M^{-1/2}\Lambda_P$ belong, up to isometry, to a compact
+subset of the space of unimodular planar lattices. In reduced integral
+bases of these pencils, the residual quadratic discriminants in
+Appendix~A belong to a finite set of integral binary quartic forms.
+
+\noindent\emph{Proof.}
+A line with primitive integral normal $v\in\Lambda_P$ cuts out
+$P+Q+R$, where $Q$ and $R$ can be algebraic and $Q+R=-P$.
+The line-bundle identity underlying \eqref{eq:chord-height} works over
+$\overline{\mathbb Q}$ with absolute heights: the bounded difference
+between two heights for a fixed line bundle is uniform on algebraic
+points. Thus
+\[
+ \log\|v\|_2=\hat h(P)+\hat h(Q)+\hat h(R)+O_E(1)
+       \ \ge\ \tfrac32\hat h(P)+O_E(1)
+       =\tfrac12\log M+O_E(1).
+\]
+The inequality follows from the parallelogram law.
+The lattice has covolume $M$. Its first minimum is at least $c_E\sqrt M$;
+planar lattice reduction gives an integral basis $v_1,v_2$ of lengths
+$O_E(\sqrt M)$ and angle bounded away from zero and $\pi$.
+This proves compactness.
+
+Let $B=(v_1,v_2)$ and lift the dual basis to integral columns $A_i$
+with $B^t A_i=e_i$. Project the columns orthogonally to $P^\perp$.
+The resulting $A_i'$ have length $O_E(M^{-1/2})$. Writing
+$A(m)=\sum_i m_i A_i$ and $A'(m)=\sum_i m_i A_i'$, the two
+quadratics $F(A(m)+TP)$ and $F(A'(m)+TP)$ differ by translating $T$
+by a real linear form in $m$. Their discriminants are identical,
+including as polynomial identities. For the projected columns the
+coefficients of $T^2,T,1$ have coefficient norms respectively
+$O_E(M^{3/2}),O_E(1),O_E(M^{-3/2})$ as forms in $m$ of degrees
+one, two and three. The quartic discriminant therefore has
+$O_E(1)$ coefficients. It is integral by the original choice of
+columns. This proves the finite-set assertion. \hfill$\square$
+
+The leading coefficient of the quadratic, and the metric on the
+dual coordinates, can still vary with $P$. The finite list is for
+the discriminants.
+
+\subsection{The height series for lines with one rational intersection}
+For a rational line $\xi$ write $n_{\mathbb Q}(\xi)$ for the number
+of distinct rational points on its intersection with the cubic. Use
+one primitive normal modulo sign and the Euclidean height $H_2(\xi)$.
+For $\Re b>2$ the incidence series is
+\[
+ I_E(b)=\sum_{[\xi]}n_{\mathbb Q}(\xi)H_2(\xi)^{-b}
+   =\frac{1}{2\zeta(b)}\sum_{P\in E(\mathbb Q)}
+         H_2(P)^{-b/2} Z_{\Lambda_P^1}(b),
+\]
+where $\Lambda_P^1=M^{-1/2}\Lambda_P$ and
+$Z_\Lambda(b)=\sum_{0\ne v\in\Lambda}\|v\|^{-b}$.
+Indeed each incidence contributes one primitive direction modulo sign
+in the specified pencil. The factor $2\zeta(b)$ restores all signed
+nonzero vectors. The point sum converges for every real positive height
+exponent by the quadratic Mordell--Weil height bound.
+
+Mellin transformation of the planar Gaussian theta function, splitting
+at one and applying Poisson summation to its small-time part, gives
+the meromorphic continuation of $Z_\Lambda(b)$, with possible pole at
+$b=2$ and $Z_\Lambda(0)=-1$. The Gaussian remainders and all their
+derivatives are uniform for the compact collection of shapes above
+and their duals. Thus the displayed expression continues $I_E$ to
+$\Re b>0$, allowing the Epstein pole and the zeros of $\zeta(b)$.
+Since $\zeta(0)=-1/2$, uniformly in $P$,
+$Z_{\Lambda_P^1}(b)/(2\zeta(b))=1+O_E(b)$ as $b\downarrow0$.
+In particular,
+\[
+ I_E(b)=(1+O_E(b))\sum_{P\in E(\mathbb Q)}H_2(P)^{-b/2}
+                \asymp_E b^{-r/2}\quad(r>0).
+\]
+
+Let $Z_1,Z_3,Z_T,Z_{\rm fl}$ denote the unweighted projective
+height series for reduced lines of splitting types $1+2$ and $1+1+1$,
+rational ordinary tangent lines, and rational flex lines, respectively.
+A reduced line with irreducible cubic intersection has no incidence.
+Counting the distinct rational points on each of the other lines gives
+\[
+                       Z_1=I_E-3Z_3-2Z_T-Z_{\rm fl}.
+\]
+The split and tangent series converge for $\Re b>0$ by
+\eqref{eq:pair-count}; the flex series is finite. For $r>0$,
+$Z_3(b)\asymp b^{-r}$, while $Z_T(b)=O_E(b^{-r/2})$, using the
+diagonals of the chord map and partial summation. Consequently along
+the positive real axis,
+\[
+                   Z_1(b)=-3Z_3(b)+O_E(b^{-r/2})\qquad(b\downarrow0).
+\]
+The negative leading term belongs to the continued one-root series.
+For $r=0$ the rational point sum is finite and $I_E(b)$ tends to
+$|E(\mathbb Q)|$ at zero. These incidence formulas use unit weights
+for the rational lines; a weighted Fourier sum can also depend on
+the quadratic field of the two residual intersection points.
+
+\section{A prime-square window for rational tangents}
+\label{app:prime-square-tangent-window}
+\newtheorem{psqtheorem}{Theorem}[section]
+\subsection{The portion of the expansion}
+Let $F\in\mathbb Z[x_1,x_2,x_3]$ be a primitive ternary cubic defining a smooth elliptic curve $E/\mathbb Q$ in its $|3O|$ embedding, $O$ a rational flex. Fix $r=\operatorname{rank}E(\mathbb Q)>0$. Put $H(c)=\|c\|_\infty$ for a primitive integral line vector, and select its representative whose first nonzero coordinate is positive. Let $w$ be an even, nonnegative smooth function of compact support in $0<c_0\le\|x\|_\infty\le C$, with
+\[
+ J=\int_{F(x)=0}w(x)\,\frac{d\sigma(x)}{\|\nabla F(x)\|}>0.
+\]
+The count $N_w(B)=\sum_{x\in\mathbb Z^3_{\rm prim},\,F(x)=0}w(x/B)$ counts both orientations of a rational point. Let $T(B)$ count projective rational tangents with $H(c)\le B^\delta$. Fix
+\[
+ 1+\delta<\alpha<\beta<3/2,\qquad 12\delta<\alpha,\qquad \delta>0 .
+\]
+Write $\mathcal I_2(B)=\{p\text{ prime}:B^\alpha<p^2\le B^\beta\}$ and $\lambda=\log(\beta/\alpha)$. A finite set of bad primes is excluded throughout.
+
+\begin{psqtheorem}\label{th:prime-square-sector}
+In the expansion below take one orientation of each nonzero primitive $c$, frequencies $n=dc$, moduli $q=p^2$ with $p\in\mathcal I_2(B)$, and $H(c)\le B^\delta$. The sum of these terms is
+\[
+ (J\lambda/\zeta(3)+o(1))\,T(B),\qquad
+ T(B)\sim\frac{|E(\mathbb Q)_{\rm tors}|\,\operatorname{vol}(\mathbb B_r)}
+                 {\sqrt{\operatorname{Reg}(E)}}\left(\frac{\delta\log B}{6}\right)^{r/2}.
+\]
+Here the regulator uses the bilinear form with diagonal $\widehat h_{[O]}$, and $\mathbb B_r$ is the Euclidean unit ball. The conjugate orientation has the same contribution. The full count is $O_{F,w}(1+(\log B)^{(r-1)/2})$.
+\end{psqtheorem}
+
+We specify the expansion because the choice of frequencies depends on the order of the operations. Write $e_m(z)=\exp(2\pi i z/m)$, $Q=B^{3/2}$. Apply M\"obius inversion first, writing $x=dy$, $1\le d\le CB$, with coefficient $\mu(d)$. This cutoff is exact by the support; $y=0$ has weight zero. In every summand apply the same delta identity \cite{HB} to the integer $F(dy)$, then Poisson summation to $y\bmod q$. The summand indexed by $(d,q,n)$, $n\in\mathbb Z^3$, is
+\[
+ \frac{c_Q B^3}{Q^2}\frac{\mu(d)}{d^3 q^3}
+ \sum_{a\bmod q}^{*}\sum_{y\bmod q}e_q(aF(dy)+n\cdot y)
+ \ I(q/Q,Bn/(dq)),
+\]
+where $c_Q=1+o(1)$ and
+\[
+ I(\rho,u)=\int_{\mathbb R^3}w(z)h(\rho,F(z))\exp(-2\pi i u\cdot z)\,dz .
+\]
+The smooth delta kernel of \cite{HB} tends to a unit point mass in the second variable as $\rho\to0$. In particular $I(\rho,u)=J+o(1)$ uniformly if $\rho\to0$ and $|u|\to0$. To justify uniformity, use coarea near the regular level $0$ with test functions $w(z)e^{-2\pi i u\cdot z}$. Their pushforwards near $0$ have uniformly bounded derivatives for bounded $u$, and their value at $0$ tends to $J$. Away from this level the delta kernel is rapidly decreasing in $\rho$. The stated windows give $q/Q\le B^{\beta-3/2}$ and $B|c|/q\ll B^{1+\delta-\alpha}$.
+
+\subsection{The prime-square calculation}
+For $p\nmid c$ (at least one coordinate a unit) at good reduction let $A_i$ be the number of projective points over $\mathbb Z/p^i$ on $F=c\cdot x=0$, for $i=1,2$. In the following sum $x$ runs over all residue vectors:
+\[
+ S_{p^2}(c)=\sum_{a\bmod p^2}^{*}\sum_{x\bmod p^2}e_{p^2}(aF(x)+c\cdot x)
+           =p^4(A_2-A_1).
+\]
+Indeed the Ramanujan sum in $a$ is $p^2{\bf1}_{p^2\mid F}-p{\bf1}_{p\mid F}$. The second term sums to zero by translation of $x$ by $p$ times a vector. In the first term $x\equiv0\bmod p$ also sums to zero. Group the remaining vectors into unit orbits and sum $e_{p^2}(c\cdot x)$ along each orbit. Smoothness gives $p$ projective curve lifts per point modulo $p$, so this yields $p^2[p^2A_2-p(pA_1)]$.
+
+Outside a fixed finite set, the primitive equation $F^\vee$ of the dual sextic detects exactly nontransverse lines modulo $p$. This follows by spreading out the Gauss incidence and the dual discriminant, or from the discriminant of the binary cubic restriction in the three standard line charts. If $F^\vee(c)\ne0$, its absolute value is $\ll_F B^{6\delta}<p$ throughout the window for large $B$. Transverse points lift uniquely, so $S_{p^2}(c)=0$. If $F^\vee(c)=0$, the line is tangent at a unique geometric point, necessarily rational by uniqueness; a cubic has no bitangent. The section is $2P+R$ with $R=-2P$, including $R=P$. At the reduced tangent point all $p$ curve lifts satisfy the line equation modulo $p^2$: the exact rational lift lies on both, and the differential of the line on the special-fiber curve vanishes there. Every other reduced point is simple and lifts uniquely. This remains valid if $R$ specializes to $P$. Consequently
+\[
+ S_{p^2}(c)/p^6=(p-1)/p^2.
+\]
+
+For $n=dc$ and $p\nmid d$, substitution $x=dy$ gives this very sum. If $p\mid d$ and $\mu(d)\ne0$, then $p\|d$, $aF(dy)\equiv0\bmod p^2$, and the nontrivial linear character sums to zero. Hence the $d$-factor is
+\[
+ \sum_{\substack{d\le CB\\p\nmid d}}\mu(d)d^{-3}
+   =\frac{1}{\zeta(3)(1-p^{-3})}+O_{w}(B^{-2})
+\]
+uniformly in $p$. The prime number theorem gives $\sum_{\mathcal I_2(B)}(p-1)/p^2=\lambda+o(1)$. These identities give the sector sum. For its size, the Gauss map is injective on geometric points and given by quadrics without base points on $E$. Its pullback of $\mathcal O(1)$ is $\mathcal O_E(6O)$, so $\log H(c)=6\widehat h_{[O]}(P)+O_F(1)$. Counting lattice points in an expanding ellipsoid gives the stated constant. On the original curve $\log H(P)=3\widehat h_{[O]}(P)+O_F(1)$. In an annulus the free Mordell--Weil vectors lie in a shell of bounded radial width at radius $O(\sqrt{\log B})$. Thickening by a fixed fundamental parallelepiped bounds their number as asserted.
+
+\subsection{Removing the zero frequency}
+Choose a good odd prime $t$ and a nontrivial quadratic character $\eta:E(\mathbb F_t)\to\{\pm1\}$ trivial on the reduction subgroup $\Gamma_t$ of $E(\mathbb Q)$. Such primes exist: take arbitrarily large primes splitting in the fixed finite Galois extension containing $E[2]$ and halves of a finite generating set for $E(\mathbb Q)$. Then $\Gamma_t\subseteq2E(\mathbb F_t)$ and the latter is proper. Set $\omega_t(x)=\eta([x])$ if $x\bmod t$ is a nonzero vector on the cone, and set it to zero elsewhere. Every primitive integral zero has weight one under $\omega_t$.
+
+\begin{psqtheorem}
+With this extra factor, the full count is unchanged, every zero-frequency term vanishes, and the tangent sector from Theorem~\ref{th:prime-square-sector}, formed using modulus $tq$ in Poisson summation for $(t,q)=1$ and indices $n=dc$, is
+\[
+ \left[\frac{J\lambda}{t^2\zeta(3)(1-t^{-3})}
+       \left(2-\frac{|\Gamma_t[3]|}{|\Gamma_t|}\right)+o(1)\right]T(B).
+\]
+The complement among the nonzero frequencies has the negative of this leading term.
+\end{psqtheorem}
+\begin{proof}
+The terms $t\mid d$ vanish. Use Poisson modulus $\operatorname{lcm}(t,q)$. For the zero frequency, the $t$-factor is proportional to $\sum_{P\in E(\mathbb F_t)}\eta(P)=0$ if $t\nmid q$ or $t\|q$ (in the latter case the additive phase is $1$ on the support at $t$). For $t^j\|q$, $j\ge2$, lift $y$ through the last $t$-adic digit. The $t$-component of the phase has nonzero gradient wherever the weight is supported, since $a,d$ are units and the projective cubic is smooth there. Orthogonality gives zero again.
+
+In the selected window $p\ne t$. For $p\nmid d$, Chinese remaindering gives the preceding $p^2$ factor with $c$ changed by a scalar unit; changing $x$ by that scalar and $a$ by its inverse cube preserves the sum. The $t$-factor, divided by $t^3$, is
+\[
+ t^{-3}\left(t\sum_{\substack{P\in E(\mathbb F_t)\\c\cdot P=0}}\eta(P)
+              -\sum_{P\in E(\mathbb F_t)}\eta(P)\right).
+\]
+This comes from summing the additive character over nonzero multiples of each projective representative. The phase changes by units under CRT, without changing the displayed formula. On a rational tangent the first sum counts the distinct reductions of $P,-2P$, both in $\Gamma_t$. All cosets of the reduction kernel have the same leading lattice-point count in the Gauss height ball, including the torsion cosets. The mean number of distinct reductions is therefore $2-|\Gamma_t[3]|/|\Gamma_t|+o(1)$. The $p\mid d$ terms vanish as before and omitting $t\mid d$ gives the factor $(1-t^{-3})^{-1}$. The real frequency is $Bc/(tq)$ in place of $Bc/q$, with the same limit. The annular bound now proves cancellation by nonzero frequencies alone.
+\end{proof}
+
+\subsection{A family with negative leading coefficient}
+Assume $t$ was chosen large enough to admit a point $U\in E(\mathbb F_t)$ with $\eta(U)=-1$ and $2U\ne O$. Choose a nontorsion point $A$ over a quadratic field $K$ split at $t$ such that $\bar A=U$ at one prime over $t$ and $\sigma A=-A$. Indeed use an integral short Weierstrass model at $t>3$, write $E:y^2=f(x)$, prescribe the residue of $x$ at $t$ and choose the local square root reducing to $y(U)$. Prescribe also valuation one of $f(x)$ at a fresh good prime with a simple root, using Schur's theorem and lifting modulo the prime square. Taking $x$ arbitrarily large in the resulting progression excludes torsion by Northcott's theorem in degrees at most two.
+
+For $k>0$ congruent to $1\bmod\operatorname{ord}(U)$ and $P\in E(\mathbb Q)$, the divisor
+\[
+             (-2P)+(P+kA)+(P-kA)
+\]
+defines a transverse rational line. Its three $t$-reductions are distinct: the last two have distinct reductions since $2U\ne0$, and their $\eta$-values differ from that of the first. The $t$-factor is consequently $-t^{-2}$. The lines in this family are distinct. Equality first gives $2P=2P'$, and matching the conjugate pair gives $P'-P=(k\pm k')A$ up to sign; nontorsion and $k,k'>0$ force $k=k'$ and $P=P'$.
+
+For completeness the incidence map $\Phi:E^2\to |3O|$ assigns the divisor $(X)+(Y)+(-X-Y)$ to $(X,Y)$. Pulling back the hyperplane of lines through $O$ gives the sum of the three divisors $X=O$, $Y=O$, $X+Y=O$ with multiplicity one. Functoriality of heights and the parallelogram identity therefore give
+\[
+ \log H(c)=6\widehat h(P)+2k^2\widehat h(A)+O_E(1).
+\]
+The count $U(B)$ of these directions with $H(c)\le B^\delta$ is $\asymp_{E,A,t,\delta}(\log B)^{(r+1)/2}$.
+
+Take the same twisted circle expansion and $n=dc$, now with prime moduli $B^\alpha<p\le B^\beta$. For $p$ larger than the same sextic bound there are no colliding roots; the number of roots on the line modulo $p$ is $A_1=3$ for split $p$ in $K$ and $1$ for inert $p$. The unrestricted prime character sum is $p^2 A_1-p\#E(\mathbb F_p)+p$ (the zero vector contributes $p-1$ to the primitive sum). Dividing by $p^3$ gives $(A_1-1)/p+O(p^{-3/2})$ by Hasse. All $d\le CB$ are prime to $p$ for large $B$. The real integral tends uniformly to $J$; primes split in the fixed quadratic field have harmonic mass $\lambda/2+o(1)$ in this window. The contribution is thus
+\[
+ -\left(\frac{J\lambda}{t^2\zeta(3)(1-t^{-3})}+o(1)\right)U(B).
+\]
+This calculation quantifies a signed part of the actual expansion on the same curve. It gives no identity relating an isolated part, or the required cancellation, to the central derivative of the complex Hasse--Weil function.
+
+
 \begin{thebibliography}{9}
 \bibitem{CLT}
 A.~Chambert-Loir and Y.~Tschinkel,
