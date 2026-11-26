@@ -1,0 +1,442 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Jac}{\operatorname{Jac}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\CH}{\operatorname{CH}}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\title{Modified diagonals and branch-divisor points on dihedral genus-two quotients}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad
+\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+For a family of plane quintics with a dihedral action of order ten, we compute
+the image of the canonical modified diagonal under a reflection correspondence.
+Its pushforward to the genus-two quotient is an explicit multiple of a
+branch-divisor class. This class has infinite order on an infinite sequence
+of rational fibres. We determine the degree-two elliptic quotient locus
+in a two-parameter chart. One component gives an explicit cover of every
+prescribed non-CM elliptic curve after an extension of degree at most eight.
+We find a nontorsion specialization and a quadratic character that can force
+the trace of the projected point to vanish. A second family gives a
+nontorsion cycle image on a geometrically simple Jacobian.
+\end{abstract}
+\section{The reflection correspondence}
+We use smooth projective curves in characteristic zero and Chow groups with
+rational coefficients. Let $\pi:C\to D$ be the quotient by an involution
+$\tau$, with ramification divisor $R$, branch divisor $B=\pi_*R$ and
+$d=\deg R$. Let $e=K_C/(2g(C)-2)$ for $g(C)>1$. The modified diagonal
+$\Delta_e\in\CH^2(C^3)$ is the small diagonal, minus the three partial
+diagonals with $e$ in the remaining coordinate, plus the three copies of
+$C$ with $e$ in each of the other two coordinates \cite{GS}. The insertions
+are exterior products of cycles. Put
+\[
+ \mathcal T_\tau(\Delta_e)=\pi_*\operatorname{pr}_{3,*}
+       (\operatorname{pr}_{12}^*\Gamma_\tau\cdot\Delta_e)
+ \in\Pic^0(D)\otimes\Q .
+\]
+\begin{proposition}\label{graph}
+The graph contraction is
+\[
+ \mathcal T_\tau(\Delta_e)=
+ \left(1-\frac d{2g(C)-2}\right)B-
+ \frac{2d}{2g(C)-2}K_D .
+\]
+\end{proposition}
+\begin{proof}
+Before the final pushforward, the seven signed terms are
+$R,-de,-\tau_*e,-\tau_*e,e,e,0$. For the small diagonal, the graph of
+$\tau$ meets the diagonal transversely at fixed points since the multiplier
+there is $-1$. The final intersection vanishes in $\CH^3(C^2)$. Since
+$\tau_*e=e$, the sum is $R-de$. Apply Hurwitz and
+$\pi_*\pi^*K_D=2K_D$.
+\end{proof}
+Graph contractions also occur in Chow--Heegner point constructions
+\cite{CH}. An explicit nontorsion image detects nonvanishing of the
+modified diagonal modulo rational equivalence.
+
+\section{Plane quintics of genus six}
+Consider the smooth members of
+\begin{equation}\label{quintic}
+ C:\ z^5+w^5+2a_2z^2w^2t+2a_1zwt^3+2a_0t^5=0,\qquad a_0\ne0 .
+\end{equation}
+The involution $\tau$ exchanges $z$ and $w$. The rotation is
+$(z,w,t)\mapsto(\zeta_5z,\zeta_5^{-1}w,t)$ over a field containing
+$\zeta_5$. The coordinate vertices lie outside $C$, so the rotation acts
+freely. The rotation quotient has genus two, with affine equation
+$v^2=(a_2x^2+a_1x+a_0)^2-x^5$ for $x=zw,\ v=(z^5-w^5)/2$ on $t=1$.
+Dihedral covers of this type occur in \cite{AP}.
+
+The reflection quotient $D$ has invariant generators $u=z+w,x=zw$
+on $t=1$. The equation for $x$ is
+\[
+ (5u+2a_2)x^2+(2a_1-5u^3)x+u^5+2a_0=0.
+\]
+With $Y=2(5u+2a_2)x+2a_1-5u^3$ this gives
+\begin{equation}\label{sextic}
+ Y^2=5u^6-8a_2u^5-20a_1u^3-40a_0u+4a_1^2-16a_0a_2 .
+\end{equation}
+Conversely $z,w$ are the roots of $Z^2-uZ+x$. The fixed locus lies on
+$z=w$ together with $P=[1:-1:0]$. Along the fixed line its intersection
+with $C$ is transverse since the tangent of $C$ at a fixed point has
+multiplier $-1$. Thus $R\sim H+P$ for a line section $H$, and $g(D)=2$.
+As $K_C=2H$, Hurwitz gives $\pi^*K_D\sim H-P$. With $Q=\pi(P)$ we get
+\begin{equation}\label{class}
+ B\sim2K_D+2Q,\qquad \delta=B-3K_D=2Q-K_D,\qquad
+ \mathcal T_\tau(\Delta_e)=\tfrac25\delta .
+\end{equation}
+Here $u_Q=-2a_2/5$, $Y_Q=-2a_1-8a_2^3/25$: the affine product
+$zw/t^2$ has a pole at $P$, selecting the infinite-$x$ sheet over
+$5u+2a_2=0$.
+
+\begin{theorem}\label{points}
+For $a_2=0$, $a_1=s$, $a_0=1$ and any $s\in21\mathbb Z\setminus\{0\}$,
+$\delta$ has infinite order in $\Jac(D_s)(\Q)$. The generic section over
+$\Q(s)$ also has infinite order.
+\end{theorem}
+\begin{proof}
+Here $D_s:Y^2=5u^6-20su^3-40u+4s^2$ and $Q_s=(0,-2s)$.
+At 3 and 7 the plane quintic has smooth diagonal reduction, and the
+sextic reduces to $5u(u^5-8)$. Its derivatives at zero and a nonzero
+root are $-40$ and $200$, so the sextic has good reduction at both primes.
+The hyperelliptic involution $\iota$ gives $\delta=Q_s-\iota Q_s$,
+nonzero since distinct degree-one divisors cannot be equivalent on
+a curve of positive genus. At both primes $Q_s$ reduces to the
+Weierstrass point $(0,0)$, so $\delta$ reduces to zero. Prime-to-$p$
+torsion injects under good reduction in residue characteristic $p$.
+An element in both torsion kernels would therefore vanish. Specializing at
+one such smooth fibre also rules out a finite annihilator of the generic
+section.
+\end{proof}
+
+\section{The elliptic quotient locus}
+The parameters $(a_2,a_1,a_0)$ have weights $(1,3,5)$. Set $a_2=1$,
+$a=a_1$, $b=a_0$. Put
+\begin{align*}
+ D_0={}&108a^5+16a^4-900a^3b-128a^2b+2000ab^2+256b^2+3125b^3,\\
+ F_1={}&16(a^2-4b)^2-3125b^3,\\
+ F_2={}&-128(a^2-4b)^2+34000ab^2-37800a^3b+9261a^5-25000b^3 .
+\end{align*}
+\begin{proposition}\label{locus}
+On $bD_0\ne0$ the degree-two elliptic quotient locus of \eqref{sextic}
+over an algebraic closure is $F_1F_2=0$. Its two components are
+geometrically irreducible rational curves.
+\end{proposition}
+\begin{proof}
+The discriminant of $(x^2+ax+b)^2-x^5$ is $b^5D_0$ by the resultant.
+An affine singularity of the quintic would give a repeated root of
+that polynomial, by multiplying the first derivative equations by
+$z,w$ respectively. The infinity points are smooth. For the binary
+sextic $f$ in \eqref{sextic} define the covariants
+\[
+ I=(f,f)_4/86400,\quad L=(I,f)_4/2880,\quad
+ M=(I,L)_2/24,\quad N=(I,M)_2/24.
+\]
+The unnormalized transvection $(g,h)_j$ is
+$\sum_{i=0}^j(-1)^i\binom ji
+(\partial_u^{j-i}\partial_v^i g)(\partial_u^i\partial_v^{j-i}h)$,
+where $v$ homogenizes $u$. Differentiation in coefficient order
+$u^2,uv,v^2$ gives $\det(L,M,N)=2^{17}D_0F_1F_2$.
+This nonzero degree-15 invariant is proportional to $R$ of
+\cite[Lemma 2.5]{MS}, by the one-dimensionality of the degree-15
+invariant space \cite{CFG}. The criterion there gives precisely the locus
+of the extra involution.
+
+Writing $x=b/a^2$ and dividing by $a^4$ gives
+\[
+ 16(1-4x)^2-3125a^2x^3,\qquad
+ -25000x^3a^2+(34000x^2-37800x+9261)a-128(1-4x)^2 .
+\]
+The first quadratic has no root over $\mathbb C(x)$ by valuation at zero.
+The second has nonsquare discriminant
+$(20x-49)^2(20x-9)^2(441-1280x)$. Both are primitive over
+$\mathbb C[x]$, and $a=0$ is not a component. Substitution gives dominant
+rational parametrizations
+\[
+ F_1:\ h=4(v^2-20)/625,\qquad a=hv,\qquad b=5h^2.
+\]
+\[
+ F_2:\ a=\frac{256(w+11)^2}{25(21-w)^3},\
+ b=\frac{256(w+11)^4(w+21)}{3125(21-w)^5}.
+\]
+\end{proof}
+
+\subsection{A specialization with two nontorsion projections}
+Take $(a_2,a_1,a_0)=(1,0,256/3125)$ on $F_1$. The base quintic is
+squarefree: a repeated nonzero root of $(x^2+a_0)^2-x^5$ would force
+$x=16/25$ and $a_0=-256/3125$. Over $\Q(i,\sqrt5)$ set $u=2X/5$,
+$Y=(8\sqrt5/125)y$, $X=2iz$, $y=8iv$. Equation \eqref{sextic} becomes
+$v^2=z^3P_3(z+z^{-1})$, where $P_3(S)=S^3+2iS^2-3S-4i$. For
+$\epsilon=\pm1$ the formulas
+\[
+ S=z+z^{-1},\qquad W_\epsilon=v(z+\epsilon)/z^2,\qquad
+ W_\epsilon^2=(S+2\epsilon)P_3(S)
+\]
+give complementary elliptic quotients with deck involutions given by
+reciprocal inversion and its composite with $\iota$. Set
+$A_\epsilon=-2\epsilon+4i$, $x=A_\epsilon/(S+2\epsilon)$ and
+$y=A_\epsilon W_\epsilon/(S+2\epsilon)^2$. The elliptic equation is
+\[
+ y^2=x^3+(9-8\epsilon i)x^2+(4-28\epsilon i)x-12-16\epsilon i .
+\]
+The marked point maps first to $(z,v)=(i/2,i\sqrt5/8)$, then to
+\[
+ P_\epsilon=\left((-8+4\epsilon i)/5,\ \sqrt5(-6\epsilon+8i)/25\right).
+\]
+The points at infinity on $D$ represent $K_D$ and have opposite images
+$(0,\pm A_\epsilon)$. Thus $\delta$ maps to $2P_\epsilon$. At a place
+over $2+i$, normalized by $v(5)=1$, the coordinates of $P_+$ are
+$-4/(2+i)$ and $-2\sqrt5/(2+i)^2$. In the integral formal group
+at infinity $T=-x/y$ has valuation $1/2$. For $v(T)>1/4$ the formal
+logarithm has the same valuation as $T$: the coefficient of degree $n$
+has valuation at least $-v_5(n)$ by integration of the invariant
+differential. Hence $P_+$ has infinite order. Complex conjugation
+takes $P_+$ to $-P_-$.
+
+\subsection{A map to a prescribed elliptic curve}
+\begin{theorem}\label{universal}
+For every non-CM elliptic curve $E/K$ over a number field there is a
+smooth member of \eqref{quintic} over an extension of degree at most two
+whose reflection quotient admits a degree-two map to $E$ over an
+extension of degree at most eight over $K$. Both elliptic projections
+of $\delta$ have infinite order on the generic member of this
+one-parameter construction.
+\end{theorem}
+\begin{proof}
+In weighted parameters take
+\[
+ a_2=\frac{5(21-w)}4,\quad a_1=20(w+11)^2,\quad
+ a_0=\frac{(w+11)^4(w+21)}4.
+\]
+The weight-15 homogenization of $D_0$ evaluates to
+$(390625/32)(w+11)^{10}(w^2+135)^2$. Thus the base quintic is squarefree
+for $w\ne-11,-21$ and $w^2+135\ne0$, including $w=21$.
+Use $s=\sqrt5$ and substitute
+\[
+ u=(w+11)v,\quad d(z)=(s-1)z-(s+1),\quad
+ v=-2(z+1)/d(z),\quad y=\frac{Yd(z)^3}{20(w+11)^2}.
+\]
+The resulting equation is $y^2=\kappa(Az^6+Bz^4+Cz^2+D)$ with
+$\kappa=10(w+11)$ and
+\begin{align*}
+ A&=20(s-2),& B&=(5-s)w+15(s-1),\\
+ D&=-20(s+2),& C&=(5+s)w-15(s+1).
+\end{align*}
+The quotient coordinates are $(z^2,y)$ and $(z^{-2},y/z^3)$,
+with cubic coefficients $\kappa(A,B,C,D)$ and $\kappa(D,C,B,A)$.
+The identities
+\[
+ B^2-3AC=10(3-s)(w^2+135),\qquad
+ \operatorname{disc}(AX^3+BX^2+CX+D)=400(w^2+135)^2
+\]
+and their conjugates give $j(E_1)=j(E_2)=64(w^2+135)/5$. Choose
+$w^2=5j(E)/64-135$ with sign avoiding $-11,-21$. Since $j(E)\ne0,1728$,
+the quotient $E_1$ becomes isomorphic to $E$ after at most one quadratic
+extension of $K(w,s)$.
+
+At $w=11$ the marked point has $u_Q=-5$, $Y_Q=-19985$. Its transformed
+coordinates are
+\[
+ z_Q=-\frac{49+5s}{49-5s},\qquad y_Q=\frac{7034720s}{(49-5s)^3}.
+\]
+On the monic integral model of $E_1$ the coordinates are
+$x=\kappa A z_Q^2,\ y_m=\kappa A y_Q$. At the prime over $569$
+dividing $49-5s$, the factors $\kappa A$ and the displayed numerators
+are units. Since the norm of $49-5s$ is $4\cdot569$, one has
+$v(x)=-2$, $v(y_m)=-3$. The formal logarithm applies at $v(-x/y_m)=1$.
+The conjugation $s\mapsto-s$ exchanges the quotient equations and takes
+$(z_Q,y_Q)$ to $(1/z_Q,y_Q/z_Q^3)$, proving that both quotient points
+have infinite order. On either quotient $\iota$ acts as inversion, so
+$\delta$ maps to twice the image of $Q$. Specialization proves the
+generic assertion.
+\end{proof}
+
+\begin{proposition}\label{twist}
+With $T=w^2+135$, put $E_w:y^2=x^3-3Tx-2wT$. Choose $r^2=\Delta(E)$
+and $w=c_6(E)s/(8r)$ with the sign chosen as above. Over $K(w,s)$,
+$E_1$ is the twist of $E$ by the squareclass
+$d=25(w+11)(1-s)c_4(E)/r$. If $5$ is nonsquare in $K(w)$, every
+$K(w,s)$-point of $E_1$ transported by the twisting isomorphism has
+zero trace from $K(w,s,\sqrt d)$ to $K$.
+\end{proposition}
+\begin{proof}
+The monic form for $E_1$ has coefficients
+$a_2=\kappa B$, $a_4=\kappa^2AC$, $a_6=\kappa^3 A^2D$.
+Its $c_4,c_6$ are those of $E_w$ multiplied by $d_1^2,d_1^3$ with
+$d_1=\kappa(s-5)/3$. Also $T=5c_4(E)^3/(64\Delta(E))$, and the
+usual invariant formulas give the twist of $E$ defining $E_w$ as
+$3sc_4(E)/(2r)$. Their product is $d$. Write $F=K(w)$.
+The nontrivial automorphism of $F(s)/F$ negates $s,r$ and gives
+\[
+ \operatorname{N}_{F(s)/F}(d)=2500(w+11)^2c_4(E)^2/\Delta(E).
+\]
+Its squareclass is $5$ in $F^\times/F^{\times2}$, since
+$\Delta(E)=5(c_6(E)/(8w))^2$. Thus $d$ is nonsquare, and the nontrivial
+quadratic automorphism acting on the transported point gives its inverse.
+\end{proof}
+For example, for $E:y^2+xy=x^3-x^2-8x-7$ over $K=\Q(\sqrt{-2})$,
+the invariants are $393,7803,-109$. Thus $K(w)=\Q(\sqrt{-2},\sqrt{-545})$
+with quadratic squareclasses $-2,-545,1090$. Proposition~\ref{twist}
+applies. Matching the geometric elliptic quotient in this example
+does not furnish a point of infinite order on the prescribed curve
+over $K$.
+
+\section{A genus-four cover and a simple specialization}
+Consider $C_t:y^5=x^3(x-1)^2(x-t)$ with $t\ne0,1$. This cyclic cover
+has four totally ramified points and genus four. The genus-four family
+of \cite[Example 3.8]{LS} is obtained after changes of coordinate and
+scalar: choosing $\eta^2=t(t-1)$ and $\beta^5=-t^2/\eta^3$, set
+$z=(x-t-\eta)/(x-t+\eta)$, $w=\beta y/x$ and
+$\rho=(t+\eta)/(t-\eta)$. Then
+$w^5=((z+1)/(z-1))((z+\rho)/(z-\rho))^2$.
+Adjoin $c$ with $c^5=t^4(t-1)^3$. A reflection is
+\[
+ \tau(x,y)=\left(\frac{t(x-1)}{x-t},
+                    \frac{cx(x-1)}{(x-t)y}\right).
+\]
+It has two fixed points: over each of the two fixed points of the
+base involution, inversion on the five cyclic sheets fixes one.
+These base points are disjoint from the branch locus. Hence the
+reflection quotient has genus two and $\deg B=2$.
+Proposition~\ref{graph} gives
+$\mathcal T_\tau(\Delta_e)=\frac23(B-K_D)$.
+
+\subsection{The quotient model and its branch}
+Put $a=-t(t-1)/c$, $b=-t^2(t-1)/c^2$. The canonical coordinates
+$z_1,z_2,z_3,z_4$ given respectively by
+$dx/y,\ x\,dx/y^2,\ x(x-1)\,dx/y^3,\ x^2(x-1)\,dx/y^4$ satisfy
+\[
+ z_1z_4=z_2z_3,\qquad
+ z_1z_2^2-z_1^2z_3-(1-t)z_2z_4^2-tz_3^2z_4=0.
+\]
+Their regularity follows by checking orders at the four ramification
+points and their independence by the four different rotation characters.
+The ratios $z_2/z_1=x/y$ and $z_3z_1/z_2^2=(x-1)/x$ recover $x,y$.
+Under $\tau$ the pairs $(z_1,az_4)$ and $(z_2,bz_3)$ are interchanged
+up to the same projective scalar. Set
+\[
+ U=\frac{z_2+bz_3}{z_1+az_4},\qquad
+ V=\frac{z_1-az_4}{z_1+az_4},\qquad
+ W=\frac{z_2-bz_3}{z_1+az_4},\qquad T_0=VW.
+\]
+For a direct elimination put
+\begin{align*}
+ h&=b^2-aU,& P_0&=b^2+aU-2abU^2,& R_0&=2bU-b^2U^2-aU^3,\\
+ A_0&=h^2-4ab(bU+1)^2,& B_0&=2(bU+1)(bP_0+aR_0).
+\end{align*}
+The two equations yield
+\[
+ V^2=\frac{P_0-2a(bU+1)T_0}{h},\quad
+ W^2=\frac{R_0-2b(bU+1)T_0}{h},\quad A_0T_0^2+B_0T_0-P_0R_0=0.
+\]
+Thus $U,T_0$ generate the invariant field. With
+$Y=(A_0T_0+B_0/2)/(bh)$, the last discriminant gives
+$Y^2=a^2U^6+(4a^2/b)U^5-10aU^3+4bU+1$.
+Adjoin $s$ with $s^3=a$, and put $X=sU$, $q=b/s$.
+The normalized equation is then
+\begin{equation}\label{four}
+ D_q:\quad Y^2=X^6+(4/q)X^5-10X^3+4qX+1,\qquad q^3=t/(t-1).
+\end{equation}
+The identification just exhibited is over the extended parameter field.
+The equation itself is defined over $\Q(q)$.
+
+For generic $q$ the two branch points satisfy
+\begin{align}
+ &(1-4q^3)X^2-10q^2X+q^4-4q=0,\label{branchx}\\
+ &Y=-\frac{(qX+1)(q^3+3qX-3q^2X^2-X^3)}{q(q^2-X)}.\notag
+\end{align}
+Indeed, at the two zeros of $A_0$ the pole sheet of $T_0$ gives
+$Y=-B_0/(2bh)$. There $V^2$ generically has odd-order pole, so
+the quadratic extension defined by $V$ ramifies there. Its total
+ramification degree is two. Substituting $X=sU$ gives
+\eqref{branchx}. In particular their sum defines $B$ over $\Q(q)$.
+For $q=2$, the $X$-polynomial is $X^2+(40/31)X-8/31$ and the two
+$Y$-values are given by $(13748X-15689)/8649$. These formulas give
+the divisor with the indicated sign in the smooth fibre.
+
+\begin{proposition}\label{fourpt}
+At $q=2$, $B-K_D$ has infinite order over $\Q$ and $\Jac(D_2)$ is
+geometrically simple. In particular the generic section has infinite
+order over $\Q(q)$.
+\end{proposition}
+\begin{proof}
+The two $X$-coordinates are distinct, so their sum cannot be a
+hyperelliptic fibre. This proves $B-K_D\ne0$. The sextic is squarefree
+in characteristics 3 and 11. At 3 the two points reduce to the two
+points over $X=1$ with $Y=\pm\sqrt2$ (substitute
+$X=(-20\pm18\sqrt2)/31$ and $Y=(-84591\pm27496\sqrt2)/29791$ with correlated signs before reducing).
+This is a canonical divisor. Thus torsion in this class would be
+3-primary. At 11 the counts of $D_2$ over $\F_{11}$ and $\F_{121}$ are
+$8,148$. They give $\#\Jac(D_2)(\F_{11})=95$, prime to 3,
+which proves the first assertion. For reproduction, the two counts are
+$2+\sum_x\#\{y:y^2=x^6+2x^5-10x^3+8x+1\}$ in the respective fields;
+one can use $\F_{11}[v]/(v^2-2)$ in the second sum.
+
+The Frobenius polynomial is
+$Z^4-4Z^3+21Z^2-44Z+121$. Its quadratic factors over $\Q(\sqrt5)$
+have traces $2\pm\sqrt5$ and constant term 11. Their discriminants
+$-35\pm4\sqrt5$ are totally negative, and a root $\pi$ recovers the
+quadratic field through $\pi+11/\pi$. Hence the polynomial is
+irreducible over $\Q$, and $11\nmid21$ gives ordinarity.
+In the notation of \cite[Theorem 6]{HZ}, $a=-4,\ b=21$, so
+$a\ne0$ and $a^2$ is different from $b+11,2b,3b-33$. The reduction is
+absolutely simple. Specialization of geometric endomorphisms at good
+reduction excludes a geometric elliptic factor in characteristic zero.
+\end{proof}
+
+The simple fibre has a consequence for target selection. For a fixed
+integer $N$, only finitely many geometric elliptic $j$-invariants occur
+as targets of degree $\le N$ from smooth members of \eqref{four}. For
+each optimal degree $m\ge2$ the locus is the Humbert surface of
+discriminant $m^2$ \cite{Kumar}. Its inverse image is a proper closed
+subset of the parameter curve by Proposition~\ref{fourpt}. On each
+of the finitely many fibres, the endomorphisms
+$\phi^*\phi_*$ of its Jacobian for optimal covers $\phi$ of degree
+$m\le N$ have Rosati squared norm $2m^2$ (use the trace on $H^1$).
+A positive-definite lattice contains finitely many elements of bounded
+norm, and their images specify the embedded elliptic factors. Nonoptimal
+maps add isogenies of bounded degree and hence only finitely many
+further targets. The explicit family in Theorem~\ref{universal} has
+different moduli and is not subject to this finiteness conclusion.
+
+\section*{Arithmetic scope}
+The branch calculation gives Jacobian points arising from
+modified diagonals. The two-component locus and the twist computation
+separate geometric target coverage from the arithmetic trace of those
+points. A relation to a specified Selmer class or to the complex Taylor
+coefficient of an elliptic $L$-function would require a further
+comparison.
+
+\begin{thebibliography}{9}
+\bibitem{AP} A. Albano and G. P. Pirola, \emph{Dihedral monodromy and Xiao fibrations}.
+\href{https://arxiv.org/abs/1406.6308}{arXiv:1406.6308}.
+\bibitem{GS} B. Gross and C. Schoen, \emph{The modified diagonal cycle on the triple
+product of a pointed curve}, Ann. Inst. Fourier 45 (1995), 649--679.
+\href{https://doi.org/10.5802/aif.1469}{Article}.
+\bibitem{CH} H. Darmon, M. Daub, S. Lichtenstein and V. Rotger,
+\emph{Algorithms for Chow--Heegner points via iterated integrals},
+\href{https://wstein.org/papers/mcom2927-chow-heegner.pdf}{author-hosted paper}.
+\bibitem{MS} A. Malmendier and T. Shaska, \emph{A universal genus-two curve from
+Siegel modular forms}, SIGMA 13 (2017), 089.
+\href{https://sigma-journal.com/2017/089/}{Article}.
+\bibitem{CFG} F. Cl\'ery, C. Faber and G. van der Geer,
+\emph{Covariants of binary sextics and vector-valued Siegel modular forms of genus two}.
+\href{https://arxiv.org/abs/1606.07014}{arXiv:1606.07014}.
+\bibitem{LS} J. Laga and A. Shnidman, \emph{Vanishing criteria for Ceresa cycles},
+Compos. Math. 161 (2025), 3017--3043.
+\href{https://arxiv.org/abs/2406.03891}{arXiv:2406.03891}.
+\bibitem{HZ} E. W. Howe and H. J. Zhu, \emph{On the existence of absolutely simple
+abelian varieties of a given dimension over an arbitrary field},
+J. Number Theory 92 (2002), 139--163.
+\href{https://arxiv.org/abs/math/0002205}{arXiv:math/0002205}.
+\bibitem{Kumar} A. Kumar, \emph{Hilbert modular surfaces for square discriminants and
+elliptic subfields of genus 2 function fields}.
+\href{https://arxiv.org/abs/1412.2849}{arXiv:1412.2849}.
+\end{thebibliography}
+\end{document}

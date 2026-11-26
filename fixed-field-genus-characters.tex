@@ -1,0 +1,323 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}\usepackage[hidelinks]{hyperref}
+\newtheorem{thm}{Theorem}\newtheorem{lem}[thm]{Lemma}\newtheorem{prop}[thm]{Proposition}
+\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}\newcommand{\F}{\mathbb F}
+\DeclareMathOperator{\Pic}{Pic}\DeclareMathOperator{\Gal}{Gal}
+\title{Genus characters detecting rational points over a fixed imaginary quadratic field}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\quad
+\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+Let $E/\Q$ have root number $+1$ and irreducible two-torsion.
+We choose one imaginary quadratic field $K$ for which the corresponding
+twist has analytic rank one. For any finite list of rational points
+independent modulo doubling, an odd multiple of a generator of this
+twist gives explicit quadratic forms over orders of $K$. After
+extension to a common order, the genus characters at its conductor
+send the resulting classes to a basis of an elementary abelian
+two-group. The field and the generator are independent of the list.
+Split-prime Heegner norm relations give an integral congruence of
+arbitrarily large depth in the resulting group ring. Their trivial
+complex character eigenvalue grows with the precision of the congruence.
+\end{abstract}
+
+\section{A fixed twist with a free Kummer translation group}
+
+Let $N$ be the conductor of $E$, $V=E[2]$, and let $S$ contain $2$,
+the primes dividing $N$ and the real place. Write $\Q_S$ for the
+maximal extension unramified outside $S$, and set
+$M=\Q_S\Q^{\rm ab}$. The torsion field $\Q(E[2^\infty])$ and the
+fields of halves of all rational points lie in $\Q_S$ by good
+reduction away from $S$ and the fact that multiplication by two is
+\'etale there. For any quadratic twist the two-torsion is canonically
+identified with $V$, and its full two-power torsion lies in $M$.
+
+\begin{lem}\label{free}
+Suppose $w(E)=+1$ and $V$ is irreducible. There is an imaginary
+quadratic field $K=\Q(\sqrt D)$, with fundamental discriminant $D$,
+split at every finite prime of $S$, such that $L(E^D,s)$ has a
+simple zero at $s=1$. If $R$ generates the free part of
+$E^D(\Q)$, its two-adic Kummer map on $G_M$ has image the entire
+Tate module $T_2E^D$.
+\end{lem}
+\begin{proof}
+The linear Galois image on $V$ is $C_3$ or $S_3$. Its normal
+subgroup of order three has odd order and fixes no nonzero vector,
+so inflation--restriction gives $H^1(\Gal(\Q(V)/\Q),V)=0$.
+Any nonzero class in $H^1(\Q,V)$ therefore restricts to a nonzero
+homomorphism on $G_{\mathrm Q(V)}$, whose image is all of $V$ by
+irreducibility. Its restriction to $G_{\mathrm Q(V)\Q^{\rm ab}}$ still has
+image $V$. Otherwise that homomorphism would factor through an abelian
+quotient on which conjugation by $G_{\mathrm Q}$ is trivial, whereas the action
+on $V$ is nontrivial and irreducible.
+
+The group $W=H^1(\Gal(\Q_S/\Q),V)$ is finite, by finiteness of
+bounded-degree extensions unramified outside a fixed finite set.
+For each nonzero $\beta\in W$, choose a fresh good prime $p_\beta$
+splitting in $\Q(V)$, congruent to $1$ modulo $8N$ and all the odd
+primes in $S$, with $\beta(\operatorname{Frob}_{p_\beta})\ne0$.
+The preceding restriction result and Chebotarev, applied to finite
+quotients, give these choices. Put $D_0=\prod_\beta p_\beta$.
+The positive intermediate twist $E^{D_0}$ has root number $+1$ by
+the quadratic-twist sign formula. The nonvanishing theorem of
+Bump--Friedberg--Hoffstein \cite{BFH}, applied to this intermediate
+newform, gives a negative fundamental discriminant $D_1$ splitting
+at $S$ and at every $p_\beta$ for which the twist by $D_1$ has a
+simple central zero. Take the squareclass $D_0D_1$ for $D$, avoiding
+the two exceptional imaginary quadratic fields with extra units.
+
+At $p_\beta$, the Kummer condition for the ramified twist meets the
+unramified condition trivially \cite[Lemmas 2.9--2.11]{MR}.
+Our choice of $\beta(\operatorname{Frob}_{p_\beta})$ rules out
+$\beta$ from the Selmer group of $E^D$. Hence this Selmer group
+meets $W$ in zero. By the analytic-rank-one theorem \cite{Wiles},
+$E^D(\Q)$ has rank one, and it has no rational two-torsion.
+Its free generator represents a nonzero mod-two Kummer class.
+
+Restrict this class to $G_{\mathrm Q_S}$. It remains nonzero by the
+description of $W$, and its image is $V$. It still has full image
+on $G_M$, since $\Gal(M/\Q_S)$ injects into an abelian Galois
+group over $\Q$ and hence has trivial conjugation action. Over $M$
+the Tate module is constant. The Kummer homomorphism for a compatible
+tower of divisions of $R$ has closed additive image surjecting modulo
+two. That image is a closed $\Z_2$-submodule, so Nakayama's lemma
+gives the assertion.
+\end{proof}
+
+\section{Simultaneous genus evaluations}
+
+\begin{thm}\label{main}
+Fix $E,K,R$ as in Lemma~\ref{free}. Given $P_1,\ldots,P_r\in E(\Q)$
+independent in $E(\Q)/2E(\Q)$, one can choose distinct primes
+$q_1,\ldots,q_r\equiv1\bmod4$ splitting in $K$ and $\Q(V)$,
+and a single odd positive integer $n$, with the following property.
+Set $c=\prod_i q_i$ and $\mathcal O_c=\Z+c\mathcal O_K$.
+Using the abscissa of $nR$ under the twist isomorphism and the
+coordinates of the $P_i$, the construction below produces classes
+$I_i\in\Pic(\mathcal O_c)$. The images of $I_1,\ldots,I_r$
+form a basis under the genus character quotient
+\[
+ \Pic(\mathcal O_c)\longrightarrow\{\pm1\}^r,\qquad
+ J\longmapsto\bigl((\tfrac{\mathrm N J}{q_j})\bigr)_{j=1}^r .
+\]
+Here the norm is computed using an integral representative coprime
+to $c$. The assertion concerns the specified list of classes.
+\end{thm}
+
+\begin{proof}
+Scale a rational short Weierstrass equation to
+$y^2=f(x)=x^3+Ax+B$ with $A,B\in\Z$ and
+$P_i=(a_i,b_i)\in\Z^2$. None of the $b_i$ is zero, since $V$ is
+irreducible. Let $U$ be the span of the Kummer classes of the $P_i$.
+For $\sigma\in G_{\mathrm Q(V)\Q^{\rm ab}}$ and $T\in V$, write
+\[
+        \lambda_{\sigma,T}(P)=e_2(\kappa_P(\sigma),T).
+\]
+These functionals span $U^\vee$ (writing $\mu_2$ additively for
+linear algebra), by the restriction argument in Lemma~\ref{free}
+applied to each nonzero combination and nondegeneracy of the Weil
+pairing. Choose $r$ of them giving a basis. This argument also
+covers cyclic cubic linear image, without an assumption that
+$\operatorname{End}_{G_{\mathrm Q}}(V)=\F_2$.
+
+We describe the choice of $q=q_j$ for one functional
+$\lambda_{\sigma,T}$, with $T\ne0$. Freeze the action of $\sigma$
+on the field of the halves of the $P_i$, on $\Q(V)$, on $K$, on
+$\Q(i)$ and on the quadratic fields $\Q(\sqrt t)$ for primes
+$t\mid 2\prod_i b_i$. Chebotarev first supplies a good arithmetic
+Frobenius $\gamma$ in this class; a choice of place above that prime
+gives the prescribed representative in the finite quotient. Its
+action $B_\gamma$ on $T_2E^D$ has $\det(B_\gamma-1)\ne0$, because
+the reduction has finite rational point group. An automorphism in
+$G_M$ fixes all of this linear data and all the original halves, and
+can change the translation vector of $\gamma$ on the divisions of
+$R$ by any element of $T_2E^D$ by Lemma~\ref{free}.
+
+For clarity, at a good prime with Frobenius $B_\gamma$ the two-primary
+part of the reduction of a point is represented by its Kummer
+translation in $T_2E^D/(B_\gamma-1)T_2E^D$. In particular, if $t/2$
+represents a rational point of order two in
+$(T_2E^D\otimes\Q_2)/T_2E^D$, its class in this cokernel is
+$(B_\gamma-1)t/2$. This is the connecting map obtained by lifting a
+fixed torsion class to $T_2E^D\otimes\Q_2$; it is an isomorphism
+because $B_\gamma-1$ is invertible over $\Q_2$.
+Choose the adjusted translation congruent to this last vector for the
+marked $T$. The condition persists in a sufficiently high finite
+two-power layer: if $2^hT_2E^D\subset(B_\gamma-1)T_2E^D$, fixing
+the linear and translation data modulo $2^{h+2}$ suffices, by
+invertibility of matrices congruent to the identity modulo two.
+Chebotarev in that finite layer now gives infinitely many primes $q$.
+At such a $q$ the reduction of $R$ has two-primary component the
+prescribed $T$ under a choice of place. The original Kummer
+evaluations are the prescribed ones. We exclude the finitely many
+primes of bad models, primes dividing $D$, and the primes dividing
+$2\prod_i b_i$. Since $K$ splits, we may use the twist isomorphism
+locally. Its two choices differ by sign, which fixes $T$.
+Take $n$ an odd common multiple of the orders of the odd components
+of $R$ at the chosen primes. Thus $nR\bmod q_j=T_j$ at all of them.
+
+Write the abscissa of $nR$ as $u/v$ in lowest terms with $v>0$.
+The point on $E(K)$ is antirational, so $f(u/v)=D z^2$ for some
+$z\in\Q^\times$. Put
+\[
+ \Delta=4v(u^3+Auv^2+Bv^3)=4D(v^2z)^2 .
+\]
+In particular $\Delta<0$. It is the discriminant of the following
+integral forms indexed by the rational marks:
+\[
+ [L_i,M_i,N_i]=
+ [v(u-a_i v),\ 2b_i v^2,\
+ -(u^2+a_iuv+(a_i^2+A)v^2)] .
+\]
+The identity follows by factoring $f(x)-f(a_i)$.
+If $h_i=\gcd(L_i,M_i,N_i)>0$, then $(h_i,v)=1$ since
+$N_i\equiv-u^2\bmod v$, and hence $h_i\mid2|b_i|$.
+Divide by $h_i$ and choose the overall sign to make the form
+positive definite. This is a primitive form of discriminant
+$\Delta_i=\Delta/h_i^2$, defining a proper ideal class of the
+quadratic order of this discriminant in $K$. This use of different
+initial orders deals with possible content of the specialization;
+the construction is related to the class pairings in \cite{GOT,Dall}.
+
+At $q=q_j$, $v$ is a unit, and $u/v$ reduces to the abscissa of
+$T_j$. Thus $q\mid\Delta_i$, and since $q$ is unramified in $K$
+it divides the conductor of that order. Moreover $q\nmid L_i$:
+equality of the abscissas of $P_i$ and $T_j$ would imply
+$b_i\equiv0\bmod q$. Extend the proper invertible ideals to the order
+$\mathcal O_c$, which contains every initial order.
+A representative integral ideal prime to the initial conductor can
+be chosen to have norm congruent to $\pm L_i/h_i\bmod c$. Indeed
+one can change variables in the primitive form by an integral
+unimodular substitution, fixing the first column $(1,0)$ modulo
+$c$ and choosing a first column at the other conductor primes on
+which the form is a unit. Such columns exist for primitive forms,
+and the substitutions lift from the finite product by the usual
+surjectivity of $\operatorname{SL}_2(\Z)\to
+\operatorname{SL}_2(\Z/m\Z)$. The leading coefficient then gives a
+norm for the ideal prime to the conductor. Extending this ideal
+preserves its norm.
+
+For each $q\mid c$, the norm character on ideals coprime to $c$
+descends to the class group: a local unit of $\mathcal O_c$ at the
+split prime has its two components congruent modulo $q$, hence
+square norm modulo $q$. Since $q\equiv1\bmod4$ and every prime
+factor of $h_i$ is a square modulo $q$, we obtain
+\[
+ \left(\frac{\mathrm N I_i}{q_j}\right)
+ =\left(\frac{a_i-x(T_j)}{q_j}\right)
+ =e_2\bigl(\kappa_{P_i}(\operatorname{Frob}_{q_j}),T_j\bigr).
+\]
+The second equality is the usual two-descent evaluation: the function
+$x-x(T_j)$ has divisor $2[T_j]-2[O]$ and gives the Tate pairing
+modulo squares. Equivalently, over a field with full rational
+two-torsion the three square roots of $x(P_i)-x(T)$ give the
+coordinates of the halving cocycle via the Weil pairing
+\cite{half}. The matrix is invertible by the choice of functionals.
+\end{proof}
+
+\section{The split Heegner norm operator}
+Let $G=\{\pm1\}^r$ denote this quotient, written multiplicatively
+with the basis $g_i$ just constructed. The field cut out over $K$
+by the characters is $K(\sqrt{q_1},\ldots,\sqrt{q_r})$:
+the Artin character on an ideal away from $c$ is its norm symbol
+displayed above by quadratic reciprocity. All primes dividing $N$ split
+in $K$, as required for the classical Heegner construction. For
+each $h\ge1$ choose distinct primes $\ell_i\nmid2cND$ split in $K$
+whose primes over $\ell_i$ have Artin image $g_i$ in $G$ and with
+\[
+             a_{\ell_i}\equiv 2\pmod{2^{h+1}},\qquad
+             a_{\ell_i}\ne2 .
+\]
+To check simultaneous realizability, choose a good prime split in
+$K(E[2^{h+1}])$. Its Frobenius has both complex eigenvalues of
+absolute value $\sqrt\ell>1$. Some positive power has trace
+different from $2$ (the sums of powers of two numbers of equal
+absolute value $>1$ cannot be constantly $2$). Fix this power on a
+larger finite torsion layer that distinguishes its trace from $2$.
+Every nontrivial product of the $q_j$ defines a quadratic field
+ramified at a prime at which this layer and $K$ are unramified.
+Consequently the genus signs remain freely prescribable. Chebotarev
+gives the primes asserted.
+
+At a good split prime the Heegner trace relation from conductor
+$c\ell$ to $c$ acts by $a_\ell-\sigma-\sigma^{-1}$, with $\sigma$
+the Artin symbol of either prime over $\ell$ \cite{Darmon}.
+Iterating at the distinct primes and projecting the group ring to
+$\Z[G]$ therefore yields, after dividing by $2^r$, the operator
+\[
+ U=\prod_{i=1}^r(a_{\ell_i}/2-g_i).
+\]
+Over $\F_2$ this is $\prod_i(1-g_i)$, the nonzero top monomial
+under $\F_2[G]\simeq \F_2[x_1,\ldots,x_r]/(x_1^2,\ldots,x_r^2)$.
+In fact the congruence holds modulo $2^h$ in $\Z[G]$. At the
+trivial complex character its value is a nonzero integer with
+absolute value at least $2^{hr}$. Dividing by this eigenvalue
+gives value $1+O_r(2^{-h})$ at every complex character as $h\to\infty$,
+since each changed sign replaces a factor $A-1$ by $A+1$ with
+$|A-1|\ge2^h$.
+
+There is a different limit at one fixed prime $\ell$ of the preceding
+type with $\ell>5$. Write $a_j=a_{\ell^j}$, where $a_0=1$,
+$a_{-1}=0$ and $a_{j+1}=a_\ell a_j-\ell a_{j-1}$. For $m\ge1$
+the trace from $c\ell^m$ to $c$ has group-ring coefficient
+\[
+                    a_m+a_{m-2}-2g a_{m-1}
+\]
+on the projected conductor-$c$ point. At $m=1$ this is the preceding
+relation. At $m=2$ subtract $\ell-1$, the degree of the first
+ring-class step. Thereafter the degree of each step is $\ell$, giving
+the recurrence above. Let $2\sqrt{\ell}\cos\theta=a_\ell$. Since
+$\ell\nmid a_\ell$ and the roots of the Frobenius polynomial have
+distinct $\ell$-adic valuations, their ratio is not a root of unity.
+Thus $\theta/\pi$ is irrational. On any congruence progression where
+$m$ is odd the denominator $a_{m-1}$ is odd, and
+\[
+\frac{a_m+a_{m-2}}{2a_{m-1}}
+=\frac{\sqrt\ell+1/\sqrt\ell}{2}\cos\theta+
+ \frac{\sqrt\ell-1/\sqrt\ell}{2}\sin\theta\cot(m\theta).
+\]
+The recurrence matrix is invertible modulo $2^{h+1}$. We may restrict
+$m$ to $1$ modulo twice its order modulo $2^{h+1}$, preserving
+$(a_m+a_{m-2})/(2a_{m-1})\equiv a_\ell/2\equiv1\bmod 2^h$
+in $\Z_{(2)}$. Irrational rotation makes the displayed real ratio
+approach $1$ on a subsequence of this progression, with
+$|a_{m-1}|\to\infty$ by the sine expression for $a_{m-1}$.
+Dividing the coefficient by $2a_{m-1}$ consequently gives the real
+limit $1-g$. Unlike the one-step normalization, this passage to a
+character projection uses unbounded normalizing factors.
+
+The fixed field has $L(E/K,s)=L(E,s)L(E^D,s)$. If $E(\Q)$ has rank
+at least two, $L(E,1)=L'(E,1)=0$, and hence
+\[
+                 L'''(E/K,1)=3 L''(E,1)L'(E^D,1).
+\]
+The twist factor is nonzero by construction. The preceding
+group-ring congruence determines a finite-precision norm relation;
+the arithmetic evaluation of the triple derivative remains open.
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{BFH} D.~Bump, S.~Friedberg and J.~Hoffstein,
+\emph{Nonvanishing theorems for $L$-functions of modular forms and
+their derivatives}, Invent. Math. 102 (1990), 543--618.
+\href{https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf}{Article}.
+\bibitem{MR} B.~Mazur and K.~Rubin, \emph{Ranks of twists of elliptic
+curves and Hilbert's tenth problem}.
+\href{https://arxiv.org/abs/0904.3709}{arXiv:0904.3709}.
+\bibitem{GOT} M.~Griffin, K.~Ono and W.-L.~Tsai, \emph{Quadratic
+twists of elliptic curves and class numbers}.
+\href{https://arxiv.org/abs/2006.01063}{arXiv:2006.01063}.
+\bibitem{Dall} W.~Dallaporta, \emph{Quadratic forms and genus theory:
+a link with $2$-descent and an application to nontrivial specializations
+of ideal classes}. \href{https://doi.org/10.1112/jlms.12921}{Article}.
+\bibitem{half} B.~M.~Bekker and Y.~G.~Zarhin, \emph{The divisibility
+by $2$ of rational points on elliptic curves}.
+\href{https://arxiv.org/abs/1702.02255}{arXiv:1702.02255}.
+\bibitem{Darmon} H.~Darmon, \emph{Rational Points on Modular Elliptic
+Curves}, CBMS 101, Section 3.4.
+\href{https://www.math.mcgill.ca/darmon/pub/Articles/Research/36.NSF-CBMS/chapter.pdf}{Chapter}.
+\bibitem{Wiles} A.~Wiles, \emph{The Birch and Swinnerton-Dyer Conjecture}.
+\href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Clay problem description}.
+\end{thebibliography}
+\end{document}

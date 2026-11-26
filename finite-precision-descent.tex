@@ -1,0 +1,458 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\len}{\operatorname{length}}
+\newcommand{\Fitt}{\operatorname{Fitt}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\OO}{\mathcal O}
+\setlength{\emergencystretch}{1em}
+\title{Finite coefficient lifts and integral jets of cyclotomic Gauss rows}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad
+\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\begin{document}
+\maketitle
+\begin{abstract}
+We bound the precision of a finite coefficient lift by the length of
+an adjacent tensor product, the exponent of a cyclic critical quotient,
+and the valuations of its tame Frobenius defects. Only one adjacent
+module needs to have length strictly smaller than the critical precision.
+We give equality examples, a two-branch order showing why an exponent
+bound cannot replace a length bound, and an example in which a perfect
+source pairing of fixed discriminant coexists with arbitrarily long
+central relation loss. We compute every first-order relation on a cyclotomic Gauss row at level $p$ and prove that a compatible row admits unit-speed jets at every fixed precision at sufficiently deep levels. Joining two such rows can kill every speed. The arithmetic application requires an actual
+finite lift of the original coefficient module and its class.
+\end{abstract}
+
+\section{A precision bound}
+Let $\OO$ be a complete discrete valuation ring, $\pi$ a uniformizer,
+$B=\OO/(\pi^L)$, and $D=\OO/(\pi^N)$ with $L\ge N>0$. All modules
+are finitely generated and lengths are taken over $\OO$. A subscript
+$D$ denotes tensoring over $B$ with $D$.
+Let $C,V_1,V_2$ be $B$-modules with a multiplication map
+\[
+ V_1\otimes_B V_2\longrightarrow C.
+\]
+Write $J$ for its image, $M=C/J$, and $U=M_D$.
+In particular $U=C_D/\im((V_1)_D\otimes_D(V_2)_D\to C_D)$
+by right exactness. Lifting an image lattice or replacing a module
+by a torsion-free quotient can change this equality.
+
+\begin{theorem}\label{thm:precision}
+Suppose $\Fitt_B^0(C)=0$ and $\len((V_i)_D)<N$ for at least one
+$i\in\{1,2\}$. Put
+$\kappa=\len((V_1)_D\otimes_D(V_2)_D)$.
+Suppose there are $m_1,\ldots,m_s\in M$ with
+$\pi^{a_i}m_i=0$. Write $T=\sum_i Bm_i$ and let $\bar T$ be
+its image in $U$. If $U/\bar T$ is cyclic and killed by $\pi^b$
+with $0\le b<N$, then
+\[
+ L\le\kappa+b+\sum_i a_i.
+\]
+\end{theorem}
+\begin{proof}
+For any $B$-module $V$, if $\len(V_D)<N$, its elementary divisors
+all have length smaller than $N$. Indeed one summand of length at
+least $N$ would contribute $N$ to the reduced length. Hence $V=V_D$
+via reduction. Apply this to $M/T$: its reduction is $U/\bar T$,
+of length at most $b$. Thus $\len(M)\le b+\sum a_i$. Also one
+of $V_1,V_2$ equals its reduction, so their tensor product equals
+the tensor of their two reductions. Therefore $\len(J)\le\kappa$.
+Diagonal presentation of $C$ gives
+$\Fitt_B^0(C)=(\pi^{\len(C)})B$, including when $C$ has a free
+$B$-summand. Consequently $L\le\len C=\len J+\len M$.
+\end{proof}
+
+The strict cut $b<N$ cannot in general be dispensed with: for $T=0$
+a single summand of arbitrary length $L\ge N$ reduces to $D$. The
+total-length bound itself can be attained. Take $\kappa=0$ and
+$C=M=\OO/(\pi^b)\oplus\bigoplus_i\OO/(\pi^{a_i})$,
+with $m_i$ the corresponding basis vectors and $L=b+\sum a_i\ge N$.
+
+\subsection{Tame valuations and scalar cocycles}
+Let $K$ be a number field with residue characteristic $p$ for $\OO$,
+and assume the coefficient ring is a $\mathbb Z_p$-algebra. Let a
+continuous cocycle take values in $M(\delta)$, with scalar action
+$\delta=\epsilon\Psi^{-1}$, where $\epsilon$ is the cyclotomic
+character. At a finite place $v\nmid p$ assume $\Psi$ unramified,
+write $F_v$ for arithmetic Frobenius and $q_v$ for the residue
+cardinality. The restricted cocycle on inertia is a homomorphism.
+It is zero on wild inertia and on the prime-to-$p$ part of tame inertia.
+For a generator $\tau_v$ of pro-$p$ tame inertia write $m_v=c(\tau_v)$.
+The relation $F_v\tau_vF_v^{-1}=\tau_v^{q_v}$ on the tame quotient
+then gives
+\[
+ \delta(F_v)m_v=q_vm_v,\qquad (\Psi(F_v)-1)m_v=0.
+\]
+If a chosen lift of $\Psi(F_v)-1$ has valuation $a_v<L$, then
+$\pi^{a_v}m_v=0$. Since inertia acts trivially, coboundaries vanish
+on inertia and the coordinates specialize under reduction. In an
+application with $U=D u_p+\bar T$ and $x^2u_p\in\bar T$, take
+$b=2v_\pi(x)<N$. This gives the explicit precision budget of
+Theorem~\ref{thm:precision} for any actual lift with that scalar class
+and those exact coefficient modules. It assumes the zeroth Fitting
+identity on $B$. One way to supply this identity is by base change
+of a zeroth Fitting identity on the original ring, using its original
+central module. An identity known only after passage to $D$ gives a
+lower bound of $N$ in place of $L$.
+
+A related estimate distinguishes individual elementary divisors.
+Let $n_1\ge\cdots\ge n_h$ be the elementary lengths of $M$.
+Assume that the residual functionals $M\to k=\OO/(\pi)$ inject
+as classes into a $k$-space in which the subspace unramified outside
+any subset $J$ of the tame places has dimension at most $1+|J|$.
+Here the tame restriction of a functional $\lambda$ is its value on
+$m_v$. For every $d\ge0$ the coordinate forms on summands of length
+$>d$ vanish on the $m_v$ killed by $\pi^{a_v}$ with $a_v\le d$:
+their projections to such summands are divisible by $\pi$. Thus
+\[
+ \#\{i:n_i>d\}\le 1+\#\{v:a_v>d\}.
+\]
+In decreasing order this bounds the $j$th length by $a_{j-1}$ for
+$j\ge2$, after padding the list of valuations with zeros. This
+conclusion uses the asserted residual injection and ramification
+dimension bound as separate inputs.
+
+\section{Tracking tame coordinates at a graph}
+Let $S=\OO[[Y]]$ and suppose the coefficient is an $S$-module $M$.
+If a tame scalar character has
+$\Psi(F_v)=(1+Y)^{b_v}$ with $b_v\in\mathbb Z_p^\times$,
+the quotient $((1+Y)^{b_v}-1)/Y$ is a unit of $S$. Thus $m_v\in M[Y]$.
+In particular its reduction lies in $\im(M[Y]\to M/YM)$, the image
+of the $Y$-torsion of the original module.
+
+If $Y$ acts as a scalar $\rho$ of valuation $a>0$ on a finite
+$\OO$-module with elementary lengths $n_i$, then
+\[
+ \len\im(M[Y]\to M/YM)
+  =\sum_i \max\{0,a-|n_i-a|\}.
+\]
+On a cyclic summand of length $n$, the annihilator of $\rho$ is
+$\pi^{\max(0,n-a)}M$ and the quotient has length $\min(n,a)$.
+Their overlap gives the stated summand. A free $\OO$-summand contributes
+zero. In particular the image can be nonzero for a module supported
+on a single scalar graph even when its free quotient has trivial image.
+
+\section{Three coefficient corners}
+Consider a three-block matrix order over a commutative local ring $A$;
+let $P,Q,C$ denote its $(1,2),(2,3),(1,3)$ corners. Use the convention
+that $PQ$ denotes the sum of all central products. Write $R,S'$ for
+the $(3,2),(2,1)$ corners. The same argument applies to coefficient
+ideals of matrix blocks after choosing matrix units. Suppose $A/I=D$
+and the relevant returns satisfy $RQ,PS'\subseteq I$ on the outer
+diagonal corners. Then $CRQ,PS'C\subseteq IC$. Put
+\[
+ U_P=P/(CR+IP),\quad U_Q=Q/(S'C+IQ),\quad
+ U_C=C/(PQ+IC).
+\]
+There is a right exact sequence
+\[
+ U_P\otimes_D U_Q\longrightarrow C/IC\longrightarrow U_C\longrightarrow0.
+\]
+Indeed the multiplication map kills the displayed relations, and its
+image in $C/IC$ is exactly $(PQ+IC)/IC$. If $\Fitt_D^0(C/IC)=0$,
+$U_P,U_Q$ are cyclic of length at most $a$, and $\len(U_C)\le2a$,
+then $N\le3a$. The analogous bound with the actual tensor length and
+the actual central length holds without cyclicity.
+
+\subsection{Equality and a failure with exponent in place of length}
+The bound $3a$ is attained. Take $A=\OO$, $I=(\pi^{3a})$,
+$P=Q=\pi^a\OO$, $C=\OO$, $R=S'=\pi^{2a}\OO$, and the $(3,1)$
+corner $\pi^{3a}\OO$. Diagonal corners are $A$. Ordinary matrix
+multiplication preserves these ideals. The respective lengths of
+$U_P,U_Q,U_C$ are $a,a,2a$, and $C/IC=D$.
+
+For a two-branch example take odd residue characteristic and put
+$A_j=\{(u,v)\in\OO^2:u-v\in\pi^j\OO\}$,
+$A=A_{2a}$, $t=(\pi^{2a},-\pi^{2a})$, $I=tA$ and $a>0$.
+The midpoint $(u+v)/2$ induces $A/I\simeq\OO/(\pi^{4a})$:
+on $A$ it is multiplicative modulo $\pi^{4a}$ and its kernel
+is $tA$. For the upper corners choose
+\[
+ P=Q=\pi^{2a} A_a,\quad C=A_0;
+\]
+for the lower corners choose $R=S'=\pi^{3a}A_0$ and
+$(3,1)=\pi^{4a} A_0$. These ideals are closed under the required
+products and the returns are contained in $I$. We have
+$CR=S'C=\pi^{3a}A_0$, $IC=\pi^{2a}A_0$, and $PQ\subseteq IC$.
+Thus $U_P\simeq U_Q\simeq\OO/(\pi^a)$ and
+$U_C=C/IC\simeq(\OO/(\pi^{2a}))^2$. The Fitting ideal is zero
+over $D$, and $\pi^{2a}U_C=0$, but $N=4a$. Replacing the length
+hypothesis by the exponent hypothesis in the preceding bound fails.
+
+\section{A source pairing and a central relation kernel}
+There is also no bound on the following central relation loss from
+the depth of a separate perfect source pairing over the same order.
+Let $\OO=\mathbb Z_p$ with $p\ge7$, $\Lambda=\OO[[Y]]$ and
+$R=\Lambda[t]/(t(t-p))$. In the basis $1,t$ define
+$B(x,y)=\ell(xy)$ for $\ell(1)=0$, $\ell(t)=1$. Its Gram matrix is
+$\bigl(\begin{smallmatrix}0&1\\1&p\end{smallmatrix}\bigr)$, and has unit determinant.
+The Casimir element (the sum of each basis vector tensored with its
+dual) is $1\otimes(t-p)+t\otimes1$. Its product specializes to
+$-p$ under $t\mapsto0$, of valuation one.
+
+For any $n\ge2$ put $d=p^n$, $D=\OO/d$ and $J=(d,Y)R$. Form the
+ordinary block order over $R$ with scalar diagonal entries
+(or a full $2$-by-$2$ middle block) and scalar entry ideals
+\[
+ \begin{pmatrix}
+ R & R & J\\
+ dYR & R & YR\\
+ d^2R & dR & R
+ \end{pmatrix}.
+\]
+The $1$-to-$3$ product ideal is $YR$. Closure follows, for example,
+from $dJ\subset R$, $dYJ\subset YR$, $d^2YR\subset dYR$ and
+$d^2R\subset dR$; the reverse-path products lie in $R$.
+Its original central product quotient $J/YR$ is $R/YR$:
+multiplication by $d$ on $R/YR$ is injective and $J=dR+YR$.
+Under $R\to D[\eta]/(\eta^2)$ with $Y\mapsto\eta$ and $t\mapsto0$,
+the quotient specializes to $D$, killed by $\eta$. Thus its
+$\eta$-torsion maps onto a critical quotient of length $n$.
+All $n$ share the same source order and the same source pairing.
+The depth-one source Casimir cannot alone bound the length of this
+central image. This is a construction with explicit modules and ideals;
+an arithmetic application requires extra information comparing the
+source with the original relation module.
+
+\section{Integral first-order deformations of a cyclotomic Gauss row}
+We now compute a local input to a finite-precision construction. The
+objects in this section are explicit finite group-ring lattices. A
+map from their integral relations to a central coefficient module
+as above is an additional arithmetic hypothesis.
+
+Fix an odd prime $p$, let $M=p^h$ for $h\ge1$,
+$O_h=\mathbb Z_p[\zeta_{p^{h+1}}]$, and $R_h=O_h[T]/(T^M-1)$.
+Write $K_h$ for the fraction field. Specify $r_h\in K_h[C_M]$ by its
+values at the characters of $C_M$. Its augmentation is $1$. For a
+character $\chi$ of exact order $p^j$, identify $T$ with the class of
+$1+p$ and extend $\chi$ trivially on Teichm\"uller units; set
+\[
+ r_h(\chi)=\frac{(-1)^{j+1}}{p^j(p+1)}
+   \sum_{u\in(\mathbb Z/p^{j+1})^\times}\chi(u)^{-1}
+                   \zeta_{p^{j+1}}^{,u}.
+\]
+Take the roots of unity compatibly across levels. Finite Fourier inversion
+defines $r_h$ and shows it projects to $r_k$ under $T\mapsto T$ for $k\le h$.
+The character is primitive modulo $p^{j+1}$. Orthogonality gives the
+product of its Gauss sum with the sum for $\chi^{-1}$ equal to
+$\chi(-1)p^{j+1}=p^{j+1}$. The automorphism sending each root of
+unity to its inverse exchanges these sums by $u\mapsto-u$; it preserves
+the unique $p$-adic valuation. Hence
+\begin{equation}\label{eq:gauss-size}
+ v_p(r_h(\chi))=(1-j)/2.
+\end{equation}
+
+Let $L_h=R_h+R_hr_h$, $I_h=\ker(\mathrm{aug}:L_h\to O_h)$ and
+$W_h=I_h/(T-1)I_h$. The elements $v=[T-1]$, $w=[r_h-1]$ generate
+$W_h$. A normalized first-order map at precision $D=O_h/(\lambda^s)$,
+$\lambda=\zeta_{p^{h+1}}-1$, is an $R_h$-linear homomorphism from $L_h$
+to $D[\eta]/(\eta^2)$ reducing to augmentation and sending $1$ to $1$.
+Here $T$ acts on the target by $1+u\eta$. Such a map exists exactly when a
+functional $W_h\to D$ sends $v$ to $u$. Indeed $L_h=O_h\cdot1\oplus I_h$
+and the coefficient of $\eta$ on $I_h$ must vanish on $(T-1)I_h$.
+
+\subsection{All relations at the first level}
+Set $h=1$, $e=p(p-1)$, and
+\[
+ a=(p-1)(p-3)/2,\qquad b=(p-1)^2/2,\qquad A=e-a .
+\]
+Then $\mathrm{aug}(R_1:r_1)=(\lambda^b)$ and
+$W_1\simeq O_1/(\lambda^a)\oplus O_1/(\lambda^A)$.
+At every depth $s$, the possible $u$ form $(\lambda^{k_s})D$, where
+\[
+ k_s=\min\{(s-a)_+,p-1\}+(s-A)_+ .
+\]
+
+Here are details. Put $N=1+T+\cdots+T^{p-1}$, $z=\zeta_{p^2}$ and
+$G(T)=\sum_u T^{-\log_{1+p}\langle u\rangle}z^u$, where $\langle u\rangle$
+is the principal-unit part of $u$ modulo $p^2$ and the sum ranges over
+units. Then $r_1=N/p+G/[p(p+1)]$. Replacing $r_1$ by
+$\epsilon=(N+G)/p=((p+1)-N)r_1$ preserves both the lattice and the
+colon ideal: the multiplier is an augmentation-one unit with inverse
+$(1+N)/(p+1)$. Compute over the degree-$p$ period field $F$ fixed by
+Teichm\"uller automorphisms of $K_1$; the result extends flatly to $O_1$.
+Let $t=1+\sum_{u\in\mu_{p-1}}z^u$ and let $\sigma(z)=z^{(1+p)^{-1}}$.
+Then $t$ is a uniformizer of $F$, $v_\lambda(t)=p-1$, and
+$\sigma(t)=t+ct^2+O(t^3)$ in $O_F/p$, $c\in\mathbb F_p^\times$.
+Indeed in expanding $(1+\lambda)^u$ the power sums over the
+Teichm\"uller residues first contribute a unit at degree $p-1$. For
+$\sigma(t)-t$ the first term modulo $p$ is
+$-\lambda^p\sum_u u(1+\lambda)^u$ up to terms of degree at least $2p$.
+The first nonzero power sum in this expression is at degree $p-2$.
+Thus the leading valuations are respectively $p-1$ and $2p-2$.
+In particular $O_F/p=\mathbb F_p[t]/(t^p)$.
+
+Set $x=T-1$ and write $p\epsilon=\sum A_i x^i$, with representatives
+of degree $<p$. Its coefficients in $T$ are $\sigma^m(t)$,
+$0\le m<p$, and $A_0=p$. For $i\ge1$ we have in $O_F/p$
+\[
+ A_i=t^{p-i}(\gamma_i+O(t)),\qquad \gamma_i=-c^{p-1-i}/i!.
+\]
+In fact $(\sigma-1)^jt=j!c^jt^{j+1}+O(t^{j+2})$ for $j\le p-2$.
+Expand $\sigma^m(t)$ binomially, noting that the sum over $m$ of
+$\binom mi\binom mj$ vanishes in $\mathbb F_p$ if $i+j<p-1$ and equals
+$-1/(i!j!)$ if $i+j=p-1$.
+
+Put $k=(p-1)/2$ and $J=(O_F[C_p]:\epsilon)$. For $B=\sum B_ix^i\in J$,
+$B(p\epsilon)$ vanishes in $\mathbb F_p[t,x]/(t^p,x^p)$.
+If $w_0=\min_i(v_t(B_i)+i)<k$, examine the coefficient of
+$t^{w_0+p-l}x^l$ for $l=w_0+1,\ldots,2w_0+1$. Writing $b_i$ for
+the coefficients of $t^{w_0-i}$ in $B_i$, we obtain
+$\sum_{i=0}^{w_0} b_i\gamma_{l-i}=0$. After multiplying rows/columns
+by units and rows by $l!$, the columns are the falling factorials
+$(l)_i$ at distinct residues. The Vandermonde determinant is a unit.
+This contradiction gives $v_t(B_i)+i\ge k$, hence $v_t(\mathrm{aug}(B))\ge k$.
+Equality is attained: set $B_0=t^k$, $B_i=t^{k-i}U_i$ for $1\le i\le k$,
+and the rest zero. The equations of $x$-degree $l\le k$ hold automatically.
+For $k+1\le l\le2k$ divide by $t^{k+p-l}$. Arbitrary power-series lifts of
+$A_{l-i}/t^{p-l+i}$ give a square system in the $U_i$ with invertible
+constant coefficient matrix: after unit scalings it is evaluation of
+$(l)_i$, $1\le i\le k$, and $l$ is a unit. Solving over
+$\mathbb F_p[[t]]$ and restoring the powers of $t$ solves the original
+congruences. Ambiguities of lifts disappear modulo $t^p$. Thus
+$\mathrm{aug}(J)=t^k O_F$.
+
+Write $C=B\epsilon$ in the integral group ring, and compute with
+degree-$<p$ representatives. Let $d(B)=(C-B)'(1)$, where the derivative
+is with respect to $T$. Polynomial division yields
+$B(p\epsilon)=pC+((1+x)^p-1)Q$. Differentiation at $x=0$ gives
+\[
+ d(B)=B(1)\epsilon'(1)-Q(0).
+\]
+Here $v_t(\epsilon'(1))=-1$, by the formula for $A_1$. Moreover
+$Q(0)\equiv[x^p] B(p\epsilon)\pmod p$, since every nonleading
+coefficient of $(1+x)^p-1$ is divisible by $p$. Each product
+$B_iA_{p-i}$ contributing has valuation at least $k$. It follows that
+$d(B)\in t^{k-1}O_F$ and this valuation is attained when $B(1)$
+generates $t^kO_F$.
+
+For any $h$ the relations on $v,w$ are generated by
+$(p^h,0)$ and $(-d(B),\mathrm{aug}(B))$ for $Br_h=C\in R_h$,
+where $d(B)=(C-B)'(1)$ using canonical representatives. To see
+this, express $I_h=xR_h+R_h(r_h-1)$. A syzygy has
+$B(r_h-1)\in xR_h$, equivalently $Br_h=C\in R_h$, with
+$C(1)=B(1)$. Dividing $C-B$ by $x$ gives the derivative after taking
+augmentation; the ambiguity is a multiple of the group norm, of
+augmentation $p^h$. Reducing syzygies modulo $x$ gives the claimed
+presentation by right exactness. The same presentation applies to
+$\epsilon$ at $h=1$. The determinant of $x$ on the rational
+augmentation-zero space is $\pm p^h$, so $\len W_h=v_\lambda(p^h)$.
+At $h=1$ the smallest relation valuation is $(k-1)(p-1)=a$.
+The other invariant is therefore $A$. Projection of the relation
+lattice onto its second coordinate has image $(\lambda^b)$. A triangular
+basis has rows $(\lambda^{e-b},0)$ and $(u_0\lambda^a,\lambda^b)$
+with $u_0$ a unit, because $a<b,e-b$. Solvability of the two
+relations in $D$ gives the stated formula for $k_s$.
+
+\subsection{Arbitrary fixed precision at large depth}
+At every fixed integer $J>0$ there is $h_0(p,J)$ such that for every
+$h\ge h_0$ the entire row $L_h$ admits a normalized first-order map
+with $u=1$ modulo $p^J$. We give a proof because knowing a single
+character value or a derivative of a rational representative does not
+control all integral syzygies.
+
+First we need a fact about bounded power series. In a complete
+nonarchimedean field containing $\mathbb C_p$, let $v(p)=1$ and
+$f(X)=\sum_i a_i X^i\ne0$ with $\mu=\inf_i v(a_i)>-\infty$.
+For $S_j=\{\zeta-1:\zeta\text{ of exact order }p^j\}$ and
+$d_j=\varphi(p^j)$,
+\[
+ \lim_{j\to\infty}j^{-1}\min_{x\in S_j}v(f(x))=0 .
+\]
+Indeed on the closed disc of valuation radius $1/d_j$ the Gauss valuation
+$\mu_j=\min_i(v(a_i)+i/d_j)$ tends to $\mu$. The largest minimizing
+index $l_j$ satisfies $l_j/d_j\le\mu_j-\mu\to0$. One-variable
+Weierstrass preparation in the Tate algebra, after scaling by a primitive
+$\zeta-1$, gives $l_j$ roots $\alpha_i$ in the disc with multiplicity and
+a constant-valuation unit; on the disc
+$v(f(x))=\mu_j-l_j/d_j+\sum_i v(x-\alpha_i)$.
+Work in a splitting field as needed. For every root remove a nearest
+point $x_i$ of $S_j$. At every remaining point
+$v(x-\alpha_i)\le v(x-x_i)$. The sum over $x\ne x_i$ of $v(x-x_i)$ is
+$v(\Phi'_{p^j}(1+x_i))=j-1/(p-1)$ by the cyclotomic derivative formula.
+All valuations in this sum are nonnegative. Averaging over the remaining
+at least $d_j-l_j$ points gives an upper bound
+$\mu_j-l_j/d_j+l_j(j-1/(p-1))/(d_j-l_j)$ for the minimum, while
+$\mu_j$ bounds it below. Division by $j$ proves the assertion.
+
+Use valuations normalized by $v(p)=1$. Write $\beta_h$ for the
+valuation of a generator of $\mathrm{aug}(R_h:r_h)$ and
+$\tau_h=h-\beta_h$. Since $W_h$ has total normalized length $h$ and
+$W_h/O_h v$ is the augmentation quotient of valuation $\beta_h$, the
+order ideal of $v$ has valuation $\tau_h$. Equivalently $\tau_h$ is
+the least valuation of an integral scalar $c$ with $c e_h\in L_h$,
+where $e_h=(1+\cdots+T^{p^h-1})/p^h$. Indeed $c v=0$ in $W_h$ means
+$x(c-y)=0$ for some $y\in I_h$, or $c-y=c e_h$.
+
+We claim that both $\tau_h$ and $\beta_h$ tend to infinity.
+A bounded subsequence of $\tau_h$ would give integral rows $A_h,B_h$
+and a fixed integer $C$ with $p^C e_h=A_h+B_h r_h$ on that sequence.
+A bounded subsequence of $\beta_h$ would instead give integral
+$A_h=B_h r_h$ with $\mathrm{aug}(B_h)=p^C$. The following common
+argument rules out both cases.
+
+Take bounded sequences in $\mathbb C_p$, modulo sequences whose norm
+tends to zero along a nonprincipal ultrafilter on the chosen levels.
+The quotient is a valued field with norm the ultralimit of the norms;
+a nonzero class has a bounded inverse on a set in the ultrafilter.
+Let $K$ be its completion and embed $\mathbb C_p$ by constant sequences.
+Project the integral $A_h,B_h$ to each fixed $C_{p^j}$. Coefficientwise
+they are still bounded by one, hence they yield compatible integral
+rows $A_j^*,B_j^*$ over $K$. Compatibility holds before passing
+to the quotient for all sufficiently large $h$. The coefficients of
+the $B_j^*$ on residues modulo $p^j$ define a bounded measure on
+$\mathbb Z_p$: the projections give additivity, and integration extends
+from locally constant functions by uniform approximation. Its binomial
+moments define a bounded series
+$f(X)=\sum_i(\int\binom zi\,d\mu(z))X^i$.
+For every $p$-power root $\zeta$, uniform convergence of the binomial
+expansion yields $f(\zeta-1)=B_j^*(\zeta)$ at the corresponding level.
+By \eqref{eq:gauss-size} and integrality of $A_j^*$ at these characters,
+$v(f(\zeta-1))\ge(j-1)/2$ on all $S_j$. The series lemma forces
+$f=0$. Finite Fourier inversion makes $B_j^*=0$ at every level.
+In the first case $A_j^*=p^C e_j$ contradicts integrality for $j>C$;
+in the second case $\mathrm{aug}(B_j^*)=p^C$ is a contradiction.
+
+Finally let $\alpha_h$ be the minimum normalized valuation of the
+entries of all relations on $v,w$. For $h\ge k$, projection to level
+$k$ preserves augmentation and maps the colon ideal into the lower
+colon ideal after flat extension of scalars. The derivative of
+a canonical group polynomial differs from the derivative of its
+projection by a multiple of $p^k$, by grouping exponents modulo $p^k$.
+At level $k$ choose one colon element whose augmentation generates that
+ideal. Any projected upper relation subtracts an integral multiple of
+this relation to eliminate its second coordinate; the multiplier has
+valuation at least $\beta_h-\beta_k$. A relation with second coordinate
+zero annihilates $v$, so its first coordinate has valuation at least
+$\tau_k$. Since $\alpha_k\le\beta_k$ and $\tau_k\le k$, this proves
+\[
+ \alpha_h\ge\min(\beta_h-\beta_k+\alpha_k,\tau_k).
+\]
+Given $J$, first take $k$ with $\tau_k>J$ and then $h$ with
+$\beta_h-\beta_k+\alpha_k>J$. Every entry is divisible by $p^J$.
+Sending $v$ to $1$ and $w$ to $0$ now gives the desired functional.
+No effective bound for $h_0$ follows from this compactness argument.
+
+There is a sharp limit on using several outputs. The second row
+$r'_h=2e_h-r_h$ has the same primitive character valuations as $r_h$,
+the same augmentation and compatibility. The proof just given applies
+to it separately. But the lattice generated by $1,r_h,r'_h$ contains
+$e_h$, since $2$ is a unit. As $x=x(1-e_h)$, its distinguished class
+$v$ vanishes. Every normalized first-order map on the joined lattice
+has zero speed. A local first-order map for a single output is
+insufficient to construct a simultaneous arithmetic lift.
+\paragraph{Provenance.} The three-corner calculation and its examples
+come from entries 296, 304 and 318 of the BSD research record. The graph
+calculation and source-pairing example come from the November 16--17
+mixed-characteristic graph and source-Casimir analyses. The Gauss-row results are recovered from the first-level period calculation and its independent audit, the interlevel derivative comparison, and the higher-level fixed-precision argument. The final
+precision theorem and its equality example are in the November 17
+finite-precision checkpoint. Their intended application to a unitary
+Hecke algebra still requires the arithmetic finite character, the full
+matched coefficient class and the critical local conditions.
+\end{document}

@@ -14,6 +14,14 @@
 
 ## Further working papers
 
+- **Splitting densities of Selmer and Mordell–Weil classes.** Field indices and simultaneous prime-splitting densities recover the orders of finite-level Tate–Shafarevich subgroups under the stated image hypotheses. [PDF](selmer-splitting-densities.pdf) · [LaTeX](selmer-splitting-densities.tex)
+
+- **Genus characters in a fixed imaginary quadratic field.** The construction detects independent marked points modulo two using one fixed rank-one twist, under the stated sign and irreducibility hypotheses. [PDF](fixed-field-genus-characters.pdf) · [LaTeX](fixed-field-genus-characters.tex)
+
+- **Dihedral branch cycles.** Explicit covers, their branch cycles and arithmetic points recovered from the original geometry record. [PDF](dihedral-branch-cycles.pdf) · [LaTeX](dihedral-branch-cycles.tex)
+
+- **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
+
 - **Modular-unit fibre heights and CM translates of central Mellin integrals.** Modular units control height pairings on fibres, while CM translates on a non-CM curve test the arithmetic content of central Mellin integrals. [PDF](modular-fibre-heights.pdf) · [LaTeX](modular-fibre-heights.tex)
 
 - **Analytic rank in quadratic twist families with two sections.** Two independent sections and prescribed local square conditions give twists of analytic rank at least three. The paper separates unconditional counts from upper bounds that assume the Riemann hypothesis for the twists. [PDF](two-section-twist-families.pdf) · [LaTeX](two-section-twist-families.tex)
