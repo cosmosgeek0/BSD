@@ -11,7 +11,7 @@
 \setlength{\emergencystretch}{1em}
 \begin{document}\maketitle
 \begin{abstract}
-For an elliptic curve over $\Q$ without complex multiplication, the reduced denominator of a continued prime sum over primes split in a multiquadratic field recovers the field degree. For the two fields singled out by a rational two-isogeny and its dual, the product of these denominators determines the Mordell--Weil rank. We specify the analytic orders lost on taking denominators. We also give exact finite-field and Kummer counts for marked reductions, and recover signed Frobenius traces on a density-one set from five fixed auxiliary marked twists. The results combine standard descent, analytic continuation and reduction estimates.
+For an elliptic curve over $\Q$ without complex multiplication, the reduced denominator of a continued prime sum over primes split in a multiquadratic field recovers the field degree. For the two fields singled out by a rational two-isogeny and its dual, the product of these denominators determines the Mordell--Weil rank. We specify the analytic orders lost on taking denominators. We also give exact finite-field and Kummer counts for marked reductions, and recover signed Frobenius traces on a density-one set from five fixed auxiliary marked twists. We also compare twist-moment measurements of a prime trace, nonzero Fourier means of local heights at split primes, and weighted character tests. The results combine standard descent, analytic continuation and reduction estimates.
 \end{abstract}
 
 \section{A central value for split primes}
@@ -207,7 +207,102 @@ In the common multiquadratic field these points lie in distinct characters, so a
 \end{proof}
 The same reasoning at primes split in a fixed quadratic field $K$ uses $r$ rational independent marks and one independent anti-invariant point. The exception has logarithmic weight $O(X^{1/2+1/(r+1)})$. For $r>1$ it has density zero. If the twist by $K$ has analytic rank one, the split-prime sum $\sum a_p\log p\,p^{-s}$ has residue $-a_1/2$ at $s=1$: the two character prime traces in the proof of Theorem~\ref{split} have residues $1/2-a_1$ and $1/2-1$. Here $a_1$ is the analytic rank of the untwisted curve. The reduction bound for $t$ points gives absolute convergence of the omitted trace series only for $\Re s>1+1/t$. Choosing auxiliary twists reconstructs the trace even if the base group is finite.
 
-\begin{thebibliography}{9}
+\section{The character representation before prime averaging}
+For the ratio in Section~3, set $T=E[m]$, $Y=\operatorname{Sur}(T,\Z/m)$, $C=(\Z/m)^t$ and $X=Y\times C$. On $X$ the affine division group acts by
+\[
+ (b,g)(\lambda,u)=(\lambda g^{-1},\,u+((\lambda g^{-1})(b_i))_i).
+\]
+Pullback along $X\to Y$ embeds the permutation representation on $Y$ in the one on $X$. For their quotient $W_m$, fixed-point counting gives
+\[
+ \operatorname{tr}(\mathrm{Fr}_p|W_m)=m^tY_m(p)-X_m(p).
+\]
+Thus the statistic multiplied by $a_p$ is a prime coefficient of $L(E\otimes W_m,s)$. On each orbit of covectors choose a representative $\lambda$. Let $K_\lambda$ be the field of its stabilizer and $F_\lambda$ the fixed field of the kernel of the stabilizer's homomorphism $(b,g)\mapsto (\lambda(b_i))_i$, with image $C_\lambda$. The fibres over $\lambda$ split into $|C|/|C_\lambda|$ identical stabilizer-orbits. This proves the incomplete Euler-product identity
+\[
+ L(E\otimes W_m,s)=
+ \prod_{[\lambda]}\frac{L(E/F_\lambda,s)^{|C|/|C_\lambda|}}{L(E/K_\lambda,s)} .
+\]
+When translations are full, $W_m$ has no trivial constituent by orbit counting. Nevertheless there is a nonzero second-power statistic. For prime $m$ and full affine image $T^t\rtimes\mathrm{GL}_2(\F_m)$,
+\[
+ \frac{1}{|G|}\sum_{h\in G}\operatorname{tr}(h^2|W_m)=m^t-1.
+\]
+In fact, conditioning on the linear part $g$ and a covector with $\lambda g^2=\lambda$, the translation sum of the fixed-point difference for $h^2$ has mean zero unless $\lambda(1+g)=0$. In that case it is $m^t-1$. For each $\lambda$ the number of $g$ sending it to $-\lambda$ equals its stabilizer size. Transitivity proves the formula. This distinguishes prime powers even after the first-power discrepancy averages to zero.
+
+\section{Two split-prime measurements}
+\subsection{Twisted first moments}
+There is another way to recover each $a_p$ using actual complex values. Write $w(E)$ for the functional-equation sign. In the Luo--Ramakrishnan family \cite[(2.7)--(2.8)]{LR}, take odd squarefree fundamental discriminants with $D w(E)<0$ and $D$ a unit square modulo a fixed $4R$ with $N\mid R$. For fixed good odd $p\nmid2R$ and a fixed nonnegative smooth cutoff of positive integral, let $M_+(X),M_-(X)$ be the smoothed sums of $L'(E^D,1)$ at $|D|\asymp X$, restricted to $\chi_D(p)=+1,-1$. Then their leading coefficients have ratio
+\[
+ R_p=\lim_{X\to\infty}\frac{M_+(X)}{M_-(X)}
+ =\frac{p+1+a_p}{p+1-a_p}.
+\]
+We recall the local calculation in the published first-moment method. Its square-diagonal leading term averages the local Hecke series over quadratic characters. At an unramified $D$ with specified sign $\epsilon$, the even and odd sums for $x=p^{-1}$ are
+\[
+ B_p=\frac{1+px^2}{(1+px^2)^2-a_p^2x^2},\qquad
+ C_p=\frac{a_p x}{(1+px^2)^2-a_p^2x^2}.
+\]
+These are the even and odd parts of $(1-a_px+px^2)^{-1}$. The two unit squareclasses have equal density. The first-moment theorem with the extra fixed prime in $R$ gives the plus packet; weighting by $\chi_D(p)$ gives the difference of the two packets. In the latter average the ramified terms vanish. The resulting leading coefficients are proportional to $B_p+C_p$ and $B_p-C_p$; both are strictly positive by Hasse's bound. Only a fixed prime is being tested before taking this limit. When $w(E)=+1$ and $L(E,1)\ne0$, Gross--Zagier's height formula in the same family realizes these weights, up to a fixed factor, as the Heegner trace heights divided by $\sqrt{|D|}$ \cite[(2.2),(2.6)]{LR}. In that case the inert proportion, conditional on being unramified and weighted by these heights, is $N_p/(2(p+1))$.
+
+A central consequence is obtained by forming
+\[
+ H(s)=\exp\left(\sum_{p\notin S}p^{1-s}\log R_p\right),\quad \Re s>3/2 .
+\]
+The local ratio $(1+\alpha_p/p)(1+\beta_p/p)/[(1-\alpha_p/p)(1-\beta_p/p)]$ equals $R_p$, where $\alpha_p,\beta_p$ are Frobenius roots. Comparing the odd-power logarithms gives
+\[
+ H(s)=e^{J(s)}
+ \frac{L^S(E,s)^2\zeta^S(2s-1)}{L^S(\operatorname{Sym}^2 E,2s)},
+ \quad J(1)=0 .
+\]
+The first-order terms agree identically. The remaining differences begin at the third power and converge normally for $\Re s>5/6$. Each vanishes individually at $1$. In particular if the analytic order is at least two,
+\[
+ H'''(1)=
+ \frac{3\operatorname{Res}_{v=1}\zeta^S(v)}
+      {4L^S(\operatorname{Sym}^2E,2)}
+       \left((L^S)''(E,1)\right)^2.
+\]
+Positive height weights detect a trace in the first limit, but $\log R_p$ has the sign of $a_p$, and the last formula uses continuation.
+
+\subsection{Marked Green functions on split primes}
+Here is a different statistic, retaining the marked point. Suppose $K/\Q$ is imaginary quadratic, $A\in E(K)$ is nontorsion with $\bar A=-A$, $P\in E(\Q)$ and $R\in E(\Q)$ is nontorsion on the identity real component. Put
+\[
+ D_P=[P+A]+[P-A]-[A]-[-A].
+\]
+This divisor represents $2P$ in $\operatorname{Pic}^0(E)$. No point in its support is real. Write $\lambda_v$ for the normalized local N\'eron height for $[O]$, including the local-degree factors in the sum over $K$. Define $G_{v,P}(X)=\sum_T n_T\lambda_v(X-T)$ for $D_P=\sum n_T[T]$. In the real period coordinate $x\in\mathbb R/\Z$ on $E(\mathbb R)^0$ write $R=\theta$; $\theta$ is irrational. For each $k\ne0$ and any fixed finite set $S_0$ of primes containing the bad, ramified and collision primes, one has
+\[
+ \lim_{Y\to\infty}
+ \frac{\sum_{n\in\Z}e^{-n^2/Y^2} e^{-2\pi i k n\theta}
+  \sum_{v\mid p,\,p\notin S_0,\,p\ {\rm split}}G_{v,P}(nR)}
+ {\sum_{n\in\Z}e^{-n^2/Y^2}}
+ =-\int_{\mathbb R/\Z}G_{\infty,P}(x)e^{-2\pi i kx}\,dx .
+\]
+The inside finite-place sum has finite support for each $n$. Indeed the global sum of local heights is
+$\sum_T n_T\widehat h(nR-T)$, an affine function of $n$ by polarization. Its nonzero Gaussian Fourier means tend to zero by Poisson summation and differentiation of the Gaussian. At a good inert prime outside the finite collision set, the reductions of $A,-A$ are distinct and exchanged by Frobenius. Neither they nor their translates by $P$ can meet a rational reduction; the local contribution vanishes. The archimedean function is real analytic on the real component, so irrational-rotation equidistribution gives the asserted archimedean coefficient.
+
+For clarity, each fixed finite place contributes zero in this limit even if $nR$ approaches a local pole. A bounded locally constant function on the closure of $\Z R$ pulls back to a periodic sequence, with zero Fourier mean at this irrational character. Truncate the local height in a formal-group coordinate at depth $j$. Beyond a fixed depth the integers where $nR$ approaches $T$ to depth $j$ lie in at most one progression modulo an integer $\gg_{p,R}p^{j/e_v}$, using the formal logarithm and its isometry on a sufficiently small neighborhood (depth in uniformizer units, absolute ramification $e_v$). The possible depth for $|n|\le X$ is $O_{v,E,R,T}((1+\log X)^C)$ by the lower bound for linear forms in $p$-adic elliptic logarithms \cite[Prop.~4.3]{BS}; the coefficients of $nR-T$ in a fixed Mordell--Weil basis are $O(n+1)$. Thus, summing the tail over $j>J$, its Ces\`aro mean for $|n|\le X$ is $O(p^{-J/e_v}+ (1+\log X)^C/X)$. This proves uniform integrability, also for the Gaussian means by partial summation.
+
+In particular these split-prime means for all $k\ne0$ determine $G_{\infty,P}$ up to its constant. With the convention $\lambda_\infty\sim-\log|z|$ at $O$, the canonical third-kind differential of $D_P$ is $-2\partial G_{\infty,P}$: the residues are those of $D_P$, and the periods have zero real part. The Fourier series on the open real oval gives its value there because the differential is real under conjugation. Choose a third-kind differential defined algebraically with the same residues and subtract it. The difference is a constant multiple of the invariant differential; evaluation at any nonsingular real algebraic point gives this scalar modulo $\overline{\Q}$. Scholl's criterion \cite[Thm.~3.2]{BO} implies that the scalar class vanishes exactly if a nonzero multiple of $D_P$ is principal. Additivity for integral linear combinations of the divisors therefore detects precisely the relations modulo torsion among the marks. This measures rational linear rank, and does not require an independence assertion with arbitrary algebraic scalar coefficients.
+
+\section{A test using character weights}
+We record why a density of good auxiliary tuples cannot simply be turned into the same number of zeros. Let $q$ run over products of $d$ distinct odd primes, with fixed $d\ge1$ and $\min_{p\mid q}p\to\infty$, and $(q,N)=1$. Average over primitive even characters of conductor $q$ with their own cardinality as denominator. For fixed $b>1$ consider two weights
+\[
+ W_{\rm loc}(\chi)=\prod_{p\mid q}(\chi_p(b)-1),\qquad
+ W_{\rm glob}(\chi)=(\chi(b)-1)^d.
+\]
+For each fixed $m$ recover a coefficient by averaging $m\overline{\chi(m)}L(E\otimes\chi,1)W(\chi)$. The Dirichlet series of the limiting coefficients are respectively
+\[
+ \bigl((-1)^d+b^{1-s}\bigr)L(E,s),\qquad
+ (b^{1-s}-1)^d L(E,s).
+\]
+These equalities concern limits at each fixed coefficient before summing a Dirichlet series.
+
+Here are the estimates justifying the diagonal calculation. In the two-piece central functional equation \cite{Akbary}, take exponential cutoffs of lengths $X\asymp_E q^{3/2}$ and $Y\asymp_E q^{1/2}$ with $XY=Nq^2/(4\pi^2)$ (bounded constant rescalings give the same bounds). In a term of the expanded weights, put $b_p=b$ or $1$ in the local case, or $b_p=b^j$ for all $p$ in the global case. The direct average selects $n b_p\equiv \pm m\bmod p$ with one common sign. Removing principal local characters by inclusion--exclusion also gives congruences modulo proper divisors $h\mid q$, with coefficients $O_d(h/q)$. In each progression the terms beyond its least positive representative have sum $O_{E,m,d,\epsilon}(X^{1/2+\epsilon}/h)$, by $|a_n|/n\ll_\epsilon n^{-1/2+\epsilon}$. A proper-divisor progression contributes at most an additional $O_d(h/q)$ from its least representative, which tends to zero. For $h=q$, if the least representative is unbounded its first term also tends to zero. A bounded positive representative must solve $n b_p=m$ at every factor for all sufficiently large $q$, with positive sign. The parity projection, normalized by the number of even characters, gives coefficient $1+o(1)$ on this diagonal.
+
+In the dual sum the root number has factor $\chi(N)\tau(\chi)^2/q$ times a fixed sign. Character orthogonality in each prime factor produces a normalized Kloosterman sum of size $O(p^{-1/2})$ by Weil's bound, for arguments prime to $p$; terms with $(n,q)>1$ vanish. Deleting the principal character changes the normalized bound by $O(1/p)$ or less. Both parity signs therefore give total dual error $O(q^{-1/2}Y^{1/2+\epsilon})$. All nondominant terms tend to zero. Mixed proper nonempty choices of local factors have no bounded diagonal. The all-selected diagonal contributes $b\,a_{m/b}$ if $b\mid m$, and the empty one contributes $(-1)^d a_m$. For global powers the same argument applies to every $b^j$, which gives the second formula by the binomial theorem. The argument persists on any sequence of admissible minimal witnesses with $\min_{p\mid q}p\to\infty$. The artificial orders are at most one for the first weight and exactly $d$ for the second, independently of the rank.
+
+\begin{thebibliography}{99}
+\bibitem{LR} W.~Luo and D.~Ramakrishnan, \emph{Determination of modular elliptic curves by Heegner points}, \href{https://msp.org/pjm/1997/181-3/pjm-v181-n3-p13-s.pdf}{Pacific J. Math., special issue (1997), 251--260}.
+\bibitem{BS} V.~Bosser and A.~Surroca, \emph{Upper bound for the height of $S$-integral points on elliptic curves}, \href{https://arxiv.org/abs/1208.2693}{Prop.~4.3}.
+\bibitem{BO} J.~Bruinier and K.~Ono, \emph{Heegner divisors, $L$-functions and harmonic weak Maass forms}, \href{https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n3-p15-p.pdf}{Ann. of Math. 172 (2010), Theorem 3.2, quoting Scholl}.
+\bibitem{Akbary} A.~Akbary, \emph{Non-vanishing of weight $k$ modular $L$-functions with large level}, \href{https://www.cs.uleth.ca/~akbary/paper1.pdf}{twisted functional equation and approximate sums}.
+
 \bibitem{GJ} S. Gelbart and H. Jacquet, \emph{A relation between automorphic representations of $\mathrm{GL}(2)$ and $\mathrm{GL}(3)$}, \href{https://doi.org/10.24033/asens.1355}{Ann. Sci. ENS 11 (1978), 471--542}.
 \bibitem{JS} H. Jacquet and J. Shalika, \emph{On Euler products and the classification of automorphic representations I}, Amer. J. Math. 103 (1981), 499--558.
 \bibitem{Cremona} J. Cremona, \emph{Higher descents on elliptic curves}, \href{https://johncremona.github.io/papers/d2.pdf}{two-isogeny descent formulas}.

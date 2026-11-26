@@ -26,7 +26,7 @@
 
 - **Modular-unit fibre heights and CM translates of central Mellin integrals.** Modular units control height pairings on fibres, while CM translates on a non-CM curve test the arithmetic content of central Mellin integrals. [PDF](modular-fibre-heights.pdf) · [LaTeX](modular-fibre-heights.tex)
 
-- **Analytic rank in quadratic twist families with two sections.** Two independent sections and prescribed local square conditions give twists of analytic rank at least three. The paper separates unconditional counts from upper bounds that assume the Riemann hypothesis for the twists. [PDF](two-section-twist-families.pdf) · [LaTeX](two-section-twist-families.tex)
+- **Analytic rank in quadratic twist families with two sections.** Two independent sections and prescribed local square conditions give twists of analytic rank at least three. The paper separates unconditional counts from upper bounds that assume the Riemann hypothesis for the twists. An unconditional almost-prime subfamily has a fixed upper bound on its algebraic rank. [PDF](two-section-twist-families.pdf) · [LaTeX](two-section-twist-families.tex)
 
 - **A determinant identity for fixed-level Hecke operators.** Under the stated local hypotheses, a chain of Hecke operators detects independent mod-two Selmer directions. The paper gives a bound on lifting the identity in the congruence lattice. [PDF](fixed-hecke-chain.pdf) · [LaTeX](fixed-hecke-chain.tex)
 
@@ -41,7 +41,7 @@
 
 - **Anticyclotomic traces of the Tate theta function.** A local norm-compatible construction gives a nonzero limiting trace congruent to 162 modulo 243. [PDF](anticyclotomic-theta-traces.pdf) · [LaTeX](anticyclotomic-theta-traces.tex)
 
-- **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
+- **Descent indices from prime sums and marked reductions.** A continued prime sum measures multiquadratic descent indices, with applications to two-isogeny descent and marked reductions. The final sections treat fixed-prime Heegner-height moments, split-prime sampling, covector orbit fields, and limits for local and global character weights. [PDF](marked-prime-reductions.pdf) · [LaTeX](marked-prime-reductions.tex)
 
 - **Moving rank and the order of a first cohomology class.** For finite abelian p-groups, an order-p⁴ class requires moving rank at least p⁴−1. Includes the sharp example and comparison with the cyclic case. [PDF](cohomological-rank-bound.pdf) · [LaTeX](cohomological-rank-bound.tex)
 
