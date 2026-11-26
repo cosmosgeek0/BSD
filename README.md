@@ -14,6 +14,8 @@
 
 ## Further working papers
 
+- **A recurrence test for the Brauer–Manin sets of three quartic coverings.** For primes congruent to one modulo eight, the recurrence gives a test for three locally soluble quartics. The paper relates the test to the two-primary Selmer groups and states the hypotheses for its CM rank-one applications. [PDF](cm-quartic-brauer-manin.pdf) · [LaTeX](cm-quartic-brauer-manin.tex)
+
 - **Central-derivative quadratures for elliptic modular forms.** The paper derives squarefree modular-symbol and Kummer-correlated formulas with explicit correction terms and gives a same-curve control for the bounded integer quadrature. [PDF](central-derivative-quadratures.pdf) · [LaTeX](central-derivative-quadratures.tex)
 
 - **Integral splittings in split and unitary rank-three compact models.** The paper derives the integral projector and its denominator in the split model, and the ten-orbit boundary and constant splitting in the inert model. The closing section relates the split and inert models through a rank-two determinant transform and unramified Jacobi multipliers. [PDF](compact-section-splittings.pdf) · [LaTeX](compact-section-splittings.tex)
