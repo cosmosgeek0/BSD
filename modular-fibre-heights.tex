@@ -4,14 +4,16 @@
 \setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]\newtheorem{lemma}[theorem]{Lemma}
 \newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\Frob}{\operatorname{Fr}}
+\newcommand{\Zp}{\mathbb Z_p}
 \newcommand{\ord}{\operatorname{ord}}
-\title{Modular-Unit Fibre Heights and CM Translates of Central Mellin Integrals}
+\title{Modular-Unit Fibre Heights, Fricke Logarithms, and CM Translates of Central Mellin Integrals}
 \author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\quad
 \href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
 \date{Working paper for specialist review}
 \begin{document}\maketitle
 \begin{abstract}
-A fibre of a modular parametrization gives a rational binary form by recording the values of a modular unit with multiplicity. Its projective height recovers the canonical height on the elliptic quotient. We construct units at a common raised level whose normalized fibre heights recover the same pairing and whose unfolded periods differ by any prescribed number of central zeros. For a non-CM curve of squarefree conductor and positive root sign with vanishing central value, a separate CM construction gives weighted algebraic points of infinite order with a distinguished complex logarithm tending to zero faster than any power of the mesh. A Hecke identity cancels the bulk integrals, while a Bernoulli correction accounts for the terminal cusp periods.
+A fibre of a modular parametrization gives a rational binary form by recording the values of a modular unit with multiplicity. Its projective height recovers the canonical height on the elliptic quotient. We construct units at a common raised level whose normalized fibre heights recover the same pairing and whose unfolded periods differ by any prescribed number of central zeros. For a non-CM curve of squarefree conductor and positive root sign with vanishing central value, a separate CM construction gives weighted algebraic points of infinite order with a distinguished complex logarithm tending to zero faster than any power of the mesh. A Hecke identity cancels the bulk integrals, while a Bernoulli correction accounts for the terminal cusp periods. For the same family of discriminant units we compute the ordinary Frobenius logarithm on each isogeny branch, its partial Fricke signs, its diagonal self projection, and the exact covariance left by a weighted Hecke trace.
 \end{abstract}
 
 \section{Units on a modular fibre}
@@ -121,9 +123,249 @@ The group $E(K^{\rm ab})_{\rm tors}$ is finite by the non-CM open image theorem 
 
 The constructions preserve the primitive complex $L$-function in \eqref{mean} and recover a height pairing in Section 1. The translated sums show why a lower bound on a canonical height alone cannot imply a lower bound on one distinguished complex logarithm along these CM samples.
 
-\begin{thebibliography}{9}
+\section{Partial Fricke signs of raised-level units}
+The height pairing in Section~1 applies to each unit below. Here we vary the tame isogeny or its Fricke involution and take the Frobenius logarithm at a different ordinary prime. In this section and the next three, the Fourier variable is $Q$, the elliptic quotient map remains $\phi$, and $\varphi$ denotes the Eisenstein tangent. Write $\Delta(Q)=Q\prod_{n\ge1}(1-Q^n)^{24}$, where
+$Q=e^{2\pi i\tau}$ in complex uniformization. In these four sections $N$ denotes the squarefree auxiliary level of the unit; it is independent of the conductor of the elliptic quotient. Let $N$ be squarefree,
+$N>1$, and put $\Delta_e(\tau)=\Delta(e\tau)$ and
+\[
+             u_N=\prod_{e\mid N}\Delta_e^{\mu(e)} .
+\]
+Each $\Delta_e$ is of weight 12 at level $\Gamma_0(N)$; their product
+has weight zero. Its zeros and poles are confined to the cusps.
+These discriminant ratios and the sign products of eta-units have
+classical precedents. Gross uses the prime-level unit \cite{Gross};
+Raghava computes the squarefree sign-product structure and
+Atkin--Lehner action \cite{Raghava}. We include the matrix calculation
+because its rational constant affects the $p$-adic logarithm and
+the diagonal unit class.
+
+Fix $q\mid N$, put $m=N/q$, and choose
+\[
+ W_q=\begin{pmatrix}qa&b\\ Nc&qd\end{pmatrix},\qquad qad-mbc=1 .
+\]
+For $e\mid m$ let $D_e=\operatorname{diag}(e,1)$. Direct multiplication
+gives $D_eW_q=\gamma_1D_{qe}$ and $D_{qe}W_q=q\gamma_2D_e$, where
+\[
+ \gamma_1=\begin{pmatrix}a&eb\\mc/e&qd\end{pmatrix},\qquad
+ \gamma_2=\begin{pmatrix}qa&eb\\mc/e&d\end{pmatrix}
+\]
+both have determinant one. Using the determinant-normalized weight
+12 slash operator therefore gives
+$\Delta_e|W_q=q^6\Delta_{qe}$ and
+$\Delta_{qe}|W_q=q^{-6}\Delta_e$. Pairing $e$ and $qe$ proves
+\begin{equation}\label{fricke}
+        W_q^*u_N=q^{12\sum_{e\mid N/q}\mu(e)}u_N^{-1}.
+\end{equation}
+This also holds at any common level at which $q$ divides the level
+exactly once and $u_N$ is pulled back: choose the matrix at that level
+and the same calculation applies.
+
+\section{Frobenius logarithms and the isogeny branches}
+Fix $p\ge7$ prime to the levels under consideration. On the ordinary
+locus use the canonical-subgroup Frobenius lift $\Frob$ with the
+associated tame-level transport as in Katz \cite{Katz}. On the Tate
+curve it sends $Q$ to $Q^p$, and on unramified coefficient roots of
+unity it is arithmetic Frobenius. For a modular unit $u$ define
+\[
+   \mathcal L(u)=\frac1p\log_p\left(\frac{\Frob(u)}{u^p}\right).
+\]
+On the smooth ordinary locus the ratio reduces to one modulo $p$.
+At a cusp its leading $Q$-power also cancels, so the formula on the
+Tate chart uses the ordinary unit logarithm. It is additive under
+multiplication and commutes with pullback along prime-to-$p$ isogenies
+with the tame frames transported. The latter follows from functoriality
+of the canonical subgroup. On constants in $\mathbb Q^\times$ of
+$p$-adic valuation zero it gives
+$(p^{-1}-1)\log_p u$. We use the logarithm that vanishes on
+Teichm\"uller units.
+
+Set $\mathfrak u_0=-(1-p^{-1})\log_p(1+p)\in\Zp^\times$ and define
+\[
+ \varphi(Q)=\frac{2}{\mathfrak u_0}\sum_{n\ge1}\sigma_{-1}^{(p)}(n)Q^n,\qquad
+ \sigma_{-1}^{(p)}(n)=\sum_{\substack{d\mid n\\p\nmid d}}d^{-1}.
+\]
+This is the nonconstant part of the Eisenstein tangent in our
+weight coordinate. On the Tate chart it is also
+\[
+ \frac{1}{12p\mathfrak u_0}
+ \log_p\!\left(\frac{\Delta(Q^p)}{\Delta(Q)^p}\right).
+\]
+Indeed $\log(\Delta(Q)/Q)=-24\sum_{n\ge1}\sigma_{-1}(n)Q^n$,
+and the terms indexed by divisors divisible by $p$ cancel in the
+displayed ratio. This computation concerns the chosen Tate frame.
+The following degeneracy differences are logarithms of genuine
+weight-zero modular units, so the frame dependence cancels.
+
+\begin{theorem}\label{sector}
+Let $q\ne p$ be prime with
+$\kappa_q=\log_p(q)/\log_p(1+p)\in\Zp^\times$.
+On the standard chart put
+\[
+ L_q=\frac{\mathcal L(u_q)}{12\mathfrak u_0\kappa_q}
+       =\frac{\varphi(Q)-\varphi(Q^q)}{\kappa_q}.
+\]
+Then $W_q^*L_q=1-L_q$ and the coefficient of $Q$ is
+$2/(\mathfrak u_0\kappa_q)$, a unit. For $N$ with at least two distinct prime
+factors,
+\[
+ G_N=\frac{\mathcal L(u_N)}{12\mathfrak u_0}
+       =\prod_{q\mid N}(1-V_q)\varphi,\qquad V_q f(Q)=f(Q^q),
+       \qquad W_q^*G_N=-G_N\quad(q\mid N).
+\]
+Its coefficient of $Q$ is $2/\mathfrak u_0$.
+\end{theorem}
+\begin{proof}
+The equalities on Fourier expansions follow from the logarithm of
+the product defining $u_N$. For one prime,
+$\mathcal L(q^{12})=12\mathfrak u_0\kappa_q$. For two or more primes the
+sum in \eqref{fricke} is zero. Additivity and \eqref{fricke} now
+give the transformations. In each product all terms with a nonempty
+set of degeneracies start at powers strictly higher than one.
+\end{proof}
+
+There are $q+1$ normalized branch values on a common root chart.
+Let $\zeta$ be a primitive $q$-th root of unity, and write
+$Q_a=\zeta^a Q^{1/q}$ for $a\bmod q$ and $Q_\infty=Q^q$. They give
+\begin{equation}\label{branches}
+ L_a=\frac{\varphi(Q_a)-\varphi(Q)}{\kappa_q},\qquad
+ L_\infty=1+\frac{\varphi(Q^q)-\varphi(Q)}{\kappa_q}.
+\end{equation}
+The finite branches are Frobenius logarithms of
+$\Delta(Q_a)/\Delta(Q)$ in these width-$q$ frames. Formula
+\eqref{branches} also results from dividing the differences of the
+normalized Eisenstein family by its weight parameter:
+if $E(W)=1+W\varphi+O(W^2)$ and
+$\kappa(W)=(1+W)^{\kappa_q}$, the finite quotients are
+$[E(W;Q_a)-E(W;Q)]/[\kappa(W)-1]$. The numerator for the infinity
+quotient is $\kappa(W)E(W;Q^q)-E(W;Q)$. Each division is performed
+in a power series ring where $(\kappa(W)-1)/W$ is invertible.
+
+Their sum is exactly one. In fact
+\[
+       \prod_{a\bmod q}\Delta(Q_a)\,\Delta(Q^q)
+                  =(-1)^{q-1}\Delta(Q)^{q+1}.
+\]
+Multiplication of the Euler factors proves the formula: for $q\nmid n$
+the product over $a$ gives $1-Q^n$, and for $q\mid n$ it gives
+$(1-Q^{n/q})^q$. The sign is the product of the leading root-of-unity
+factors. Frobenius permutes those roots. Applying its logarithmic
+ratio gives $\sum_i\varphi(Q_i)=(q+1)\varphi(Q)$, which proves the asserted
+normalization including the constant on the infinity branch.
+
+\section{Consequences for projections}
+Suppose that a coefficient module has an involution $W_q$ acting
+compatibly on products, and an integral quotient map $J$ satisfies
+$JW_q=-U_qJ$ with $U_q^2=1$. Work over a commutative coefficient
+ring with $2$ invertible, with $U_q$ a scalar or a central coefficient
+acting on both sides. Such identities apply on a $q$-new quotient
+in the compatible weight-two trivial-nebentypus convention. They
+are hypotheses on the chosen quotient. For $P_L(v)=J(L_qv)$,
+\eqref{fricke} and Theorem~\ref{sector} give
+\[
+ (P_L-\tfrac12 J)W_q=U_q(P_L-\tfrac12 J),\qquad
+ J=\tfrac12 J(1-U_q^{-1}W_q).
+\]
+Indeed $W_q((L_q-\tfrac12)v)=-(L_q-\tfrac12)W_qv$.
+Thus the centered product factors through $(1+U_q^{-1}W_q)/2$.
+For the squarefree $G_N$, multiplication switches every selected
+Fricke sign. When the operators commute and all the quotient
+identities hold simultaneously, the corresponding product
+of the individual sign projectors gives the factorization.
+
+A related calculation works for the diagonal Gysin class itself.
+Write $Y$ for the open modular curve, $\delta:Y\to Y^2$ for its
+diagonal, $[u]$ for the Kummer class of a unit in
+$H^1_{\mathrm{\acute et}}(Y,\mathbb Q_p(1))$, and
+$z(u)=\delta_*[u]$. This is the weight-two, degree-zero diagonal
+operation used in Rankin--Eisenstein constructions \cite[\S5]{KLZ}.
+Let $e$ be a rational cuspidal projector, or its compatible
+realization, on which $(W_q,W_q)$ acts trivially, and assume it
+commutes with this involution. For instance the self tensor of a
+$q$-new trivial-nebentypus eigenform has the square of its Fricke
+sign. Functoriality, \eqref{fricke} and the projection formula yield
+\[
+     e z(u_q)=6\,e\bigl(\kappa(q)\cup\delta_*1\bigr).
+\]
+Here $\kappa(q)$ is the pullback of the scalar Kummer class from
+$\operatorname{Spec}\mathbb Q$. Indeed
+$ez(u_q)=ez(q^{12}/u_q)=12e(\kappa(q)\cup\delta_*1)-ez(u_q)$.
+For at least two primes \eqref{fricke} gives $ez(u_N)=0$ whenever
+one selected diagonal Fricke acts trivially on the target. The
+computation is valid with the stated projector and level; it uses
+no division by a self-pairing or congruence period.
+
+\section{The part left by the Hecke trace}
+For another good prime $\ell\ne p$, let the $\ell+1$ branch variables
+$Q_i$ be as above with $q$ replaced by $\ell$. Write
+$\kappa_\ell=\log_p(\ell)/\log_p(1+p)$. For a weight-two input $f$
+in the trivial diamond convention take
+\[
+ T_\ell f=\ell^{-1}\sum_{a\bmod\ell} f(Q_a)+\ell f(Q_\infty).
+\]
+Consider the expression in the common Tate trivialization
+\[
+ C_\ell(f)=T_\ell(\varphi f)-\varphi\,T_\ell f+
+                          \ell\kappa_\ell f(Q_\infty).
+\]
+The last summand differentiates the multiplier
+$\ell(1+W)^{\kappa_\ell}$ on the infinity branch of the weight
+$2+k$ Hecke operator at $W=(1+p)^k-1$. Denote the summands of
+$T_\ell f$ by $F_a=\ell^{-1}f(Q_a)$ and
+$F_\infty=\ell f(Q_\infty)$. Put
+$b_i=\varphi(Q_i)-\varphi(Q)+\kappa_\ell\mathbf1_{i=\infty}$.
+The discriminant norm identity gives
+\[
+   \sum_i b_i=\kappa_\ell,\qquad
+   \sum_i F_i=T_\ell f,\qquad
+   C_\ell(f)=\sum_i b_i F_i .
+\]
+For $n=\ell+1$, consequently,
+\begin{equation}\label{cov}
+ n C_\ell(f)-\kappa_\ell T_\ell f
+   =\sum_{i<j}(b_i-b_j)(F_i-F_j).
+\end{equation}
+This follows by expanding each pair. It remains integral at
+$p\mid\ell+1$. When $n$ is a unit, division by $n$ gives the
+covariance of the trace-zero parts as the correction to
+$\kappa_\ell T_\ell f/n$.
+
+Here is a test for the strength of those two trace identities.
+Over a DVR $\mathcal O$ of odd residue characteristic take a nonunit
+$d\ne0$ and $B=\mathcal O[t]/(t(t-d))$. The regular module has
+a perfect self-adjoint pairing given by taking the $t$-coefficient
+of a product, with Gram matrix
+$\left(\begin{smallmatrix}0&1\\1&d\end{smallmatrix}\right)$.
+Put $f_0=d-t$. For an algebra element $T=\lambda+t$ we have
+$Tf_0=\lambda f_0$, and the original quotient $B/(t,f_0)$ is
+$\mathcal O/d$. In a fibre with at least two finite branches choose
+trace-zero logarithm coordinates $1,-1$ there, all other such
+coordinates zero. Set $F_0=1$, $F_1=\lambda f_0-1$ and all other
+$F_i=0$. The traces have the prescribed values, yet the product
+sum is $2-\lambda f_0$, mapping to the unit $2$ in the quotient.
+This algebra example tests a deduction from the trace constraints.
+Evaluating \eqref{cov} on a particular modular form still requires
+its actual branch values.
+
+
+\begin{thebibliography}{9}\raggedright
 \bibitem{Darmon} H. Darmon, \emph{Rational points on modular elliptic curves}, CBMS 101 (2004), chapter on complex multiplication. \href{https://math.mcgill.ca/darmon/pub/Articles/Research/36.NSF-CBMS/chapter.pdf}{Author's text}.
 \bibitem{Serre} J.-P. Serre, \emph{Propri\'et\'es galoisiennes des points d'ordre fini des courbes elliptiques}, Invent. Math. 15 (1972), 259--331. \href{https://doi.org/10.1007/BF01405086}{Article}.
 \bibitem{Ligozat} G. Ligozat, \emph{Courbes modulaires de genre 1}, \href{https://www.numdam.org/item/MSMF_1975__43__5_0/}{M\'emoires de la SMF 43 (1975)}.
+\bibitem{Gross} B.~Gross, \emph{Heegner points on $X_0(N)$}, section
+on Heegner divisors and modular units,
+\href{https://wstein.org/misc/sagedays18_papers/gross-heegner_points_on_X0N.pdf}{author's paper}.
+\bibitem{Katz} N.~Katz, \emph{The Eisenstein measure and $p$-adic interpolation},
+Amer. J. Math. \textbf{99} (1977), 238--311.
+\href{https://web.math.princeton.edu/~nmk/old/eismeasure.pdf}{Author's paper}.
+\bibitem{KLZ} G.~Kings, D.~Loeffler, and S.~Zerbes,
+\emph{Rankin--Eisenstein classes for modular forms},
+\href{https://arxiv.org/abs/1501.03289}{arXiv:1501.03289}.
+\bibitem{Raghava} K.~Srinivasa Raghava,
+\emph{Boolean Walsh eta units and Eisenstein bases for squarefree levels},
+\href{https://arxiv.org/abs/2607.11926}{arXiv:2607.11926}.
+\bibitem{record} BSD research record, 16 November 2026, checkpoints
+61--64, the physical isogeny and modular-unit formula, diagonal
+Fricke quotient, squarefree modular-unit, and weighted Hecke
+covariance calculations.
 \end{thebibliography}
 \end{document}

@@ -14,6 +14,8 @@
 
 ## Further working papers
 
+- **A Selmer dimension cut at resonant primes for split Cartan normalizers.** Under its residual-image and local Selmer hypotheses the paper constructs simultaneous auxiliary primes and controls the adjoint Selmer dimension. A global characteristic-zero modular lift is a separate requirement. [PDF](resonant-adjoint-selmer-cut.pdf) · [LaTeX](resonant-adjoint-selmer-cut.tex)
+
 - **Ordinary degeneracy maps and periods at conductor 389.** The paper derives the corrected level-seven period factor, the integral lattice and finite-cut corrections, and distinguishes the verified local comparison from the required global lift. [PDF](ordinary-period-degeneracy.pdf) · [LaTeX](ordinary-period-degeneracy.tex)
 
 - **A recurrence test for the Brauer–Manin sets of three quartic coverings.** For primes congruent to one modulo eight, the recurrence gives a test for three locally soluble quartics. The paper relates the test to the two-primary Selmer groups and states the hypotheses for its CM rank-one applications. [PDF](cm-quartic-brauer-manin.pdf) · [LaTeX](cm-quartic-brauer-manin.tex)
@@ -32,7 +34,7 @@
 
 - **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. The combined edition includes the all-character averaging calculation, ramification correction and a semistable abelian-surface example with unbounded projected monodromy index. The final edition gives an exterior-square Pfaffian precision calculation and an optimal scalar descent depth for a finite eigenvector. The integral jet and simultaneous Gauss–Kloosterman normalization theorems now share one treatment, with their separate existence conditions. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
 
-- **Modular-unit fibre heights and CM translates of central Mellin integrals.** Modular units control height pairings on fibres, while CM translates on a non-CM curve test the arithmetic content of central Mellin integrals. [PDF](modular-fibre-heights.pdf) · [LaTeX](modular-fibre-heights.tex)
+- **Modular-unit fibre heights and CM translates of central Mellin integrals.** Modular units control height pairings on fibres, while CM translates on a non-CM curve test the arithmetic content of central Mellin integrals. The unified edition includes the exact Fricke discriminant-unit logarithm, diagonal projection and residual Hecke covariance. [PDF](modular-fibre-heights.pdf) · [LaTeX](modular-fibre-heights.tex)
 
 - **Analytic rank in quadratic twist families with two sections.** Two independent sections and prescribed local square conditions give twists of analytic rank at least three. The paper separates unconditional counts from upper bounds that assume the Riemann hypothesis for the twists. An unconditional almost-prime subfamily has a fixed upper bound on its algebraic rank. [PDF](two-section-twist-families.pdf) · [LaTeX](two-section-twist-families.tex)
 

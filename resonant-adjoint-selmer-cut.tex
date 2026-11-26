@@ -1,0 +1,245 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Q}{\mathrm{Q}}
+\newcommand{\Zp}{\mathbb Z_p}
+\newcommand{\Sel}{\operatorname{Sel}}
+\newcommand{\unr}{\mathrm{ur}}
+\title{A Selmer Dimension Cut at Resonant Primes for Split Cartan Normalizers}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\\
+\small\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working draft for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+We treat a fixed-depth auxiliary-prime problem for an elliptic
+Galois representation with image the normalizer of a split Cartan
+modulo $p^m$, $p\ge7$. At a prime $q$ extending the swapping
+element of this normalizer one has $q\equiv-1\bmod p^m$.
+The adjoint tame space has two root lines. Relaxing to only one
+of them allows the primal and dual residual Selmer dimensions
+to be lowered by one simultaneously, under a detectable
+off-diagonal projection hypothesis. The negative choice of
+special Frobenius eigenvalues also preserves the original
+two-dimensional representation's unramified local finite line
+through the stated precision. We give the hypotheses for iteration
+and the local calculation for a resulting special lift.
+\end{abstract}
+
+\section{The finite-depth problem}
+Let $E/\Q$ be an elliptic curve, $p\ge7$, $k=\F_p$, and $m\ge1$.
+Write $\rho_m$ for its action on $E[p^m]$ and $\bar\rho$ for
+its reduction. Suppose there is an integral basis at this depth
+in which
+\[
+ G_m=\operatorname{im}\rho_m
+  =\bigl((\mathbb Z/p^m)^\times\times(\mathbb Z/p^m)^\times\bigr)
+                         \rtimes\langle w\rangle,\qquad
+ w=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+The diagonal subgroup defines a quadratic field $F$. Our hypothesis
+specifies the actual division-field image; it can apply to a CM
+elliptic curve at an ordinary split prime. It is stronger than
+irreducibility modulo $p$. Let $\eta$ be the quadratic character
+of $F/\Q$, and write $\epsilon$ for the mod-$p$ cyclotomic character.
+Set $A=\operatorname{ad}^0\bar\rho$ with the conjugation action.
+The trace pairing identifies its Tate dual $A^*$ with $A(1)$.
+There is a direct sum of $G_{\Q}$-modules
+\[
+ A=k\eta\oplus M,\qquad
+ k\eta=k\operatorname{diag}(1,-1),\qquad
+ M=kE_{12}\oplus kE_{21}.
+\]
+Fix a finite set $\Sigma$ of places containing $\infty,p$ and all
+places of ramification. At $\Sigma$ prescribe linear local
+conditions $\mathcal L$ on $A$, and take unramified conditions
+elsewhere. Let $\mathcal L^\perp$ be the exact local Tate-orthogonal
+conditions on $A^*$. Assume
+\[
+ \dim_k\Sel_{\mathcal L}(A)
+ =\dim_k\Sel_{\mathcal L^\perp}(A^*)=d,\qquad
+ \Sel_{\mathcal L}(A)\cap H^1(\Q,k\eta)=0.
+ \tag{1}
+\]
+The last condition refers to the indicated direct summand. One
+sufficient criterion is that every pure $\eta$-Selmer class restrict
+to an everywhere unramified class over $F$ and $p\nmid h_F$. Indeed,
+restriction across the quadratic extension is injective for such
+classes and class field theory identifies their images with a
+subspace of $\operatorname{Hom}(\operatorname{Cl}(F),k)$.
+To apply this criterion one must check the old local conditions,
+including the one at $p$.
+
+\begin{theorem}\label{cut}
+Under (1), if $d>0$ there are infinitely many good primes
+$q\notin\Sigma$ with $\rho_m(\operatorname{Frob}_q)$ conjugate to
+$w$, at each of which one can replace the unramified adjoint
+condition by the upper tame root line in the $(+1,-1)$ eigenbasis
+of $w$. The resulting primal Selmer group is a codimension-one
+subspace of the old group, and the resulting dual group also has
+dimension $d-1$. There is a succession of $d$ distinct such
+primes after which both groups vanish. They may avoid any
+prescribed finite set. One may also impose splitting in a fixed
+quadratic field $K$ ramified at a good prime outside $\Sigma$,
+provided that prime is kept outside all added ramification sets.
+\end{theorem}
+
+The use of auxiliary-prime local conditions to vary Selmer groups
+is classical in deformation theory; see \cite{CM,FKP}. The point at
+$q\equiv-1\bmod p$ is that full local $H^1$ is three-dimensional.
+The two-dimensional partial relaxation and the full depth-$m$
+swapping class are both part of the construction.
+
+\section{Simultaneous Frobenius detection}
+In the diagonal Cartan the two off-diagonal lines have distinct
+characters $s/t,t/s$, and $w$ exchanges them. Thus $M$ is an
+irreducible $G_1$-module. Every scalar matrix fixes $M$, and the
+scalar $zI$ acts on $A^*$ by $z^2$. Choosing $z^2\ne1$ shows
+that no constituent of $A^*$ is isomorphic to $M$.
+
+We need
+\[
+                 H^1(G_m,M)=H^1(G_m,A^*)=0.
+\]
+For $A^*$ the central scalar above gives the assertion by the
+central-element cocycle identity. For $M$, the order of $G_1$ is
+prime to $p$. The kernel of $G_m\to G_1$ is diagonal; conjugation
+by diagonal matrices is trivial there. Its maximal elementary
+abelian quotient therefore has no equivariant map to $M$, which has
+no diagonal invariants. Inflation--restriction proves the assertion
+also for $M$.
+
+Fix $f\ne0$ in the primal group and $g\ne0$ in the dual group. By
+(1) the projection $f_M$ is nonzero. Their restrictions to
+$\ker\rho_m$ are additive homomorphisms; the restrictions of $f_M$
+and $g$ are nonzero by the preceding vanishings. Their joint image
+in $M\oplus A^*$ is a $G_1$-submodule. The projections are $M$ and
+a nonzero submodule $C$ of $A^*$. This image equals $M\oplus C$:
+the two projections of a subdirect product have a common quotient
+after dividing by their kernels in the two summands, and here such
+a nonzero quotient is excluded by the scalar action. In particular
+one can alter independently the two translation coordinates of a
+lift of $w$ in their joint finite cocycle extension, while leaving
+its entire depth-$m$ matrix fixed.
+
+In the eigenbasis $(1,1),(1,-1)$ of $w$, write $H',e',f'$ for the
+trace-zero diagonal, upper and lower matrices. In these coordinates
+the components in the original basis are
+\[
+ \operatorname{diag}(1,-1)=e'+f',\quad
+ E_{12}+E_{21}=H',\quad E_{12}-E_{21}=-e'+f'.
+\]
+Frobenius on $A$ acts as $+1$ on $H'$ and $-1$ on the other two
+vectors. Its cyclotomic twist reverses those signs. The unramified
+value of an $A$-cocycle at this Frobenius is its projection onto
+$kH'$. The diagonal $\eta$-component contributes zero, and the
+arbitrary $M$-translation lets us make the $f$-value nonzero.
+For a dual unramified value $B$, the linear functional needed
+below is $\operatorname{tr}(e'B)$. It is nonzero on each simple
+constituent of $A^*=k\eta(1)\oplus M(1)$: on the invariant line
+in the first constituent use $e'+f'$, and in the second use
+$-e'+f'$. The two constituents have different dimensions and are
+irreducible. Hence $C$ can vary the $g$-value to make this functional
+nonzero, while keeping the chosen $f$-value.
+
+Chebotarev supplies infinitely many primes in the resulting conjugacy
+class. The eigenlines in the condition are labelled by their distinct
+eigenvalues; conjugating the data preserves the stated nonvanishing.
+At a good prime the elliptic determinant is cyclotomic, so
+$q\equiv-1\bmod p^m$. The prime is inert in $F$. If the extra field
+$K$ is used, the joint finite division and cocycle field is
+unramified at the prescribed good ramified place of $K$. Its
+intersection with that quadratic field is therefore $\Q$,
+so the independent splitting tag can be appended to Chebotarev.
+
+\section{The local condition and the cut}
+For finite unramified coefficients at $q\ne p$, restriction to tame
+inertia identifies the quotient by unramified $H^1$ with the
+$q$-eigenspace of Frobenius acting on the coefficient module.
+This follows from inflation--restriction and the tame relation
+$\varphi\tau\varphi^{-1}=\tau^q$. One may choose coordinates
+using an arithmetic Frobenius lift. At the selected $q$ the relevant
+spaces in these coordinates are
+\[
+ \begin{split}
+ H^1(\Q_q,A)&= kH'_{\unr}\oplus k e'_{\rm tame}\oplus k f'_{\rm tame},\\
+ H^1(\Q_q,A^*)&= k e'_{\unr}\oplus k f'_{\unr}\oplus kH'_{\rm tame}.
+ \end{split}
+\]
+Let $U=kH'_{\unr}$ and $N=k e'_{\rm tame}$, the latter represented
+by classes with Frobenius coordinate zero and this upper root on
+inertia. It is the tangent to the chosen special condition
+$\varphi\mapsto\operatorname{diag}(-q,-1)$,
+$\tau\mapsto1+c e'$. Indeed the displayed diagonal conjugates $e'$
+to $q e'$, so the tame relation holds for every $c$ and any lift
+of $c$. This specifies one of the two possible root directions.
+Local Tate duality pairs $e'_{\rm tame}$ with an unramified dual
+class by the trace against $e'$ up to a fixed nonzero scalar:
+pairing the tame generator with an unramified Frobenius generator
+is nonzero in the local invariant map, and the coefficient pairing
+is trace.
+
+First relax $U$ to $U+N$ only. Pair any partially relaxed global
+class with the \emph{old} dual class $g$. Local pairings at every
+other place vanish. At $q$ the unramified component pairs to zero
+and the pairing with $g$ is nonzero on the one-dimensional $N$.
+The reciprocity sum forces the new class's component along $N$
+to vanish. Thus the partially relaxed Selmer group already equals
+the old group. Replacing $U$ by $N$ inside this relaxation now
+keeps precisely those old classes with zero localization at $q$.
+As $f$ has nonzero localization, that is a single independent
+linear equation. The global duality dimension formula preserves
+the difference of primal and dual dimensions: the only changed
+local condition has the same dimension, one. This proves both
+dimension bounds. The new primal group lies in the old one, so the
+pure-diagonal exclusion persists. Induction proves
+Theorem~\ref{cut} without assuming the mixed local condition
+respects the original global decomposition $k\eta\oplus M$.
+
+\section{The elliptic finite line at a negative root}
+The local condition on the two-dimensional lattice is a separate
+calculation. Let $T$ be a free $\Zp$-lattice with the local special
+action above, $V=T\otimes\Q_p$, $D=V/T$. In a fixed basis
+suppose Frobenius is $\operatorname{diag}(-q,-1)$ and inertia
+acts by $\tau\mapsto 1+cE_{12}$ on a pro-$p$ tame generator
+with $c\ne0$. Let $j\ge1$ satisfy $p^j\mid(q+1)$ and $p^j\mid c$.
+Then $T/p^j$ is unramified, and the propagated finite condition in
+$H^1(\Q_q,T/p^j)$ from $D$ is its full unramified line.
+
+Indeed $V^I$ is spanned by the first basis vector and
+$\varphi-1$ acts there by $-(q+1)\ne0$, so
+$H^1_f(\Q_q,V)=H^1_{\unr}(\Q_q,V)=0$. Its image in $H^1(\Q_q,D)$
+is zero. Under the identification $T/p^j\simeq D[p^j]$, the
+preimage of that condition is the connecting image of
+$D^{G_{\Q_q}}/p^jD^{G_{\Q_q}}$.
+Frobenius acts with second eigenvalue $-1$, so invariants of $D$
+lie on the first coordinate and form
+$(q+1)^{-1}\Zp/\Zp$ there. A preimage under multiplication by $p^j$
+of the generator $1/(q+1)$ may be taken on the same line. Its
+connecting cocycle vanishes on inertia and has Frobenius value
+$-1/p^j$ on that coordinate. This generates the unramified
+cohomology, which is $(T/p^j)/(\varphi-1)(T/p^j)$ and has one
+free coordinate. Thus if a global special lift retains the given
+representation through level $p^j$, the old elliptic local line
+agrees with this propagated one. Existence of a global
+characteristic-zero modular lift with a specified complete set of
+old local conditions is an additional deformation problem.
+
+\begin{thebibliography}{9}
+\bibitem{CM} F.~Calegari and B.~Mazur,
+\emph{Nearly ordinary Galois deformations over arbitrary number fields},
+J. Inst. Math. Jussieu \textbf{8} (2009), 99--177.
+\href{https://www.math.uchicago.edu/~fcale/papers/ordinary.pdf}{Authors' paper}.
+\bibitem{FKP} N.~Fakhruddin, C.~Khare and S.~Patrikis,
+\emph{Relative deformation theory, relative Selmer groups, and lifting
+irreducible Galois representations},
+\href{https://par.nsf.gov/servlets/purl/10324335}{authors' paper}.
+\bibitem{record} BSD research record, 16 November 2026,
+checkpoint 46, \emph{CM-inert negative primes: balanced rigidity and
+a primitive ordinary source}, sections 1--7 and independent review.
+\end{thebibliography}
+\end{document}
