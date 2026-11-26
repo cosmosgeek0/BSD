@@ -16,7 +16,7 @@
 
 - **A Selmer dimension cut at resonant primes for split Cartan normalizers.** Under its residual-image and local Selmer hypotheses the paper constructs simultaneous auxiliary primes and controls the adjoint Selmer dimension. A global characteristic-zero modular lift is a separate requirement. [PDF](resonant-adjoint-selmer-cut.pdf) · [LaTeX](resonant-adjoint-selmer-cut.tex)
 
-- **Ordinary degeneracy maps and periods at conductor 389.** The paper derives the corrected level-seven period factor, the integral lattice and finite-cut corrections, and distinguishes the verified local comparison from the required global lift. [PDF](ordinary-period-degeneracy.pdf) · [LaTeX](ordinary-period-degeneracy.tex)
+- **Ordinary degeneracy maps and periods at conductor 389.** The paper derives the corrected level-seven period factor, the integral lattice and finite-cut corrections, and distinguishes the verified local comparison from the required global lift. Appendices cover the local inducing-character integral, finite measure moments and the integral convergence bounds for the positive source. [PDF](ordinary-period-degeneracy.pdf) · [LaTeX](ordinary-period-degeneracy.tex)
 
 - **A recurrence test for the Brauer–Manin sets of three quartic coverings.** For primes congruent to one modulo eight, the recurrence gives a test for three locally soluble quartics. The paper relates the test to the two-primary Selmer groups and states the hypotheses for its CM rank-one applications. [PDF](cm-quartic-brauer-manin.pdf) · [LaTeX](cm-quartic-brauer-manin.tex)
 

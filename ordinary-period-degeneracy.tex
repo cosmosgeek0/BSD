@@ -183,6 +183,33 @@ summand. The multiplier on the retained residual packet equals
 $1-10^{-2}=11\bmod13$. The calculation requires the same
 Schwartz function, tame phase and lattice frame on both sides.
 
+\subsection{A separate ordinary modular-symbol calculation}
+The source record gives the following two vectors, in group coordinates
+at conductor $169$, for its ordinary measures on the trivial Teichm\"uller
+branch. Their normalization for a primitive modular symbol $S$ is
+$\alpha^{-n}(S(a,13^n)-\alpha^{-1}S(a,13^{n-1}))$ with compatible
+cusp notation. For the quadratic twist use the Gauss-twisted minus
+symbol, summing $S((11a+bm)/(11m))$ against $(b/11)$ for $1\le b\le10$.
+The omitted Gauss normalization is a $13$-unit. The arrays are
+\[
+\begin{split}
+ &(1,7,4,7,1,3,6,12,8,8,12,6,3),\\
+ &(5,10,10,12,1,10,3,12,1,3,3,8,0).
+\end{split}
+\]
+For generator $14$ write $g=1+Y$. The coefficient of $Y^j$ is
+$\sum_i\binom ij a_i$ in $\mathbb F_{13}[Y]/Y^{13}$. The first
+nonzero terms are $7Y^2$ and $11Y$, respectively. Their product
+starts with $12Y^3$. The coefficients below degree $13$ survive
+projection of an integral Iwasawa power series to this group ring.
+Thus for measures identified with these arrays the residual orders
+are exactly $2,1,3$ and their $\mu$-invariants are zero. The
+conversion of the arrays was replayed. The computation that identifies
+them with the original two measures, including its higher-conductor
+compatibility, was reported in the November 17 recovery note; its
+most recent raw calculation was not restored. This division of evidence
+matters if one wants an independent ordinary-measure certificate.
+
 \section{The old/new congruence quotient}
 Let $\Lambda=\LambdaW$ and normalize the weight determinant by
 $\delta(W)$, with $\delta(0)=1$. Write $\nu=\delta^{1/2}$,
@@ -371,6 +398,116 @@ operator, the opposite vector involves
 $(1-q_0^{-3})^{-1}(1-q_0^{-1})^{-1}D(q_0)f_0$, as well as its scalar.
 It is not obtained by simply identifying the two vectors.
 
+\subsection{How far the local convergence checks go}
+We record two useful uniformity calculations on the source coordinates.
+The first is an elementary consequence of the stated Cartan ratios.
+In an ordinary opposite-branch normalization put
+\[
+ R_+=q_0^{-1}\chi_v(1+Y)^{-\kappa_{q_0}/2},\qquad
+ R_-=q_0^{-1}\chi_v^{-1}(1+Y)^{-\kappa_{q_0}/2}.
+\]
+Suppose the three tails of the pullback decompose, after their finite
+initial strips, into geometric series with respective ratios
+$(R_+,R_+^2)$, $(R_-,R_-^2)$ and $(R_+,R_-)$. A common denominator
+then divides
+\[
+ \Delta=(1-R_+)(1-R_-)(1-R_+^2)(1-R_-^2).
+\]
+This is a denominator bound; the finite angular numerator can cancel
+factors. For $Y\in13\OO$ and $\chi_v$ of exact order $13^{n-1}$,
+$n\ge2$, the first two factors are units since $q_0\equiv-1\pmod{13}$.
+Each remaining factor has valuation
+$a_{\chi}=1/(12\cdot13^{n-2})$: the unit $\chi_v^{\pm2}$ differs
+from $1$ at this fractional valuation whereas $q_0^{-2}$ and the
+norm-parameter contribution differ from $1$ at valuation at least
+one. Consequently $v_{13}(\Delta)=2a_\chi$. Dividing the positive
+input at the common kernel by this denominator is a different
+operation from dropping the opposite vector, the global period ratio
+or its old trace. The native toric multiplier and all of those global
+factors still enter an actual full boundary.
+
+The second calculation gives a sufficient convergence condition for
+a slowed positive-input family. Let $p>2$, $w=pZ$,
+$f(n)=n-v_p(n!)$, and $m(d)=\min_{n\ge d}f(n)$. Addition of the
+factorial valuations and the base-$p$ digit formula give
+$m(i)+m(j)\ge m(i+j)$ and
+$m(d)\ge ((p-2)d+1)/(p-1)$ for $d>0$.
+If the coefficient of $Z^n$ in a series belongs to $p^{f(n)}V$ in
+a complete $p$-adic lattice $V$, the $d$th divided difference at
+integral nodes belongs to $p^{m(d)}V$: the divided difference of
+$Z^n$ is the complete homogeneous symmetric polynomial of degree
+$n-d$ in the nodes, or zero for $n<d$. The same bound applies under
+multiplication by a scalar homogenizing factor with this estimate,
+by the divided-difference product rule. If its value at the zeroth
+node is a unit, the estimate for the product and those in lower orders
+give it for the original divided difference by induction.
+
+To apply this argument to a \emph{whole} section rather than its
+positive Fourier coefficients, the section lattice must be saturated
+for the family of tested coefficients after homogenization: reduction
+modulo $p$ with all those coefficients zero must force the full
+section to vanish modulo $p$. Under this hypothesis, dividing by the
+tested power of $p$ gives the same bound in $V$. Closedness of
+$p^{m(d)}V$ then gives the bound also for the coefficient obtained by
+letting the interpolation nodes tend to zero. The resulting section
+series converges for integral $Z$, and the $w$-series converges on
+$v_p(w)>1/(p-1)$. For $p=13$ this includes the displayed value of
+$W_0$. These are uniform estimates under the stated lattice and
+coefficient hypotheses. They do not provide the normalized full
+boundary or a nonzero cusp section at $W_0$.
+
+\subsection{The inducing character and the rank-one input}
+A direct local calculation fixes the sign of the inducing character
+in a source normalization. With additive Haar measure of volume one
+on $\mathbb Z_p$, a character $\psi$ of conductor $\mathbb Z_p$,
+and $\phi_t(X)=\mathbf1_{\mathbb Z_p}(X)\psi(-tX)$, consider the
+continuation of the convolution
+\[
+ M(z)\phi(X)=\int_{\mathbb Q_p}\chi_0(s)^{-1}|s|^{2z-1}\phi(X+s)\,ds.
+\]
+Fourier transform with kernel $\psi(-mX)$ and a change of variables
+give for $m\ne0$
+\[
+ \widehat{M(z)\phi_t}(m)
+ =J(\chi_0,z)\chi_0(m)|m|^{-2z}\mathbf1_{m+t\in\mathbb Z_p}.
+\]
+Write $u=\chi_0(p)$ and let $c$ be the conductor exponent.
+If $c>0$, the sole nonvanishing shell of $J$ is $v_p(s)=-c$, by
+unit-character orthogonality. It contributes
+$u^c p^{c(2z-1)}\sum_{a\bmod p^c}^{*}\chi_0(a)^{-1}\psi(a/p^c)$.
+If $c=0$, all nonnegative shells sum to
+$(1-p^{-1})/(1-u^{-1}p^{-2z})$, and the shell $v_p(s)=-1$ gives
+$-u p^{2z-1}$. Their sum is
+$(1-u p^{2z-1})/(1-u^{-1}p^{-2z})$.
+
+For a separate rank-one ordinary Eisenstein input, set
+$\chi_X(1+p)=1+X$ and take the trivial Teichm\"uller branch. In the
+Eisenstein-measure normalization of Katz
+\cite[\S\S3.3--3.6]{Katz}, write $A(X)=-X J_{\chi_X,1}$ and let
+$a_0(X)$ denote its standard constant. Its positive coefficients
+are $-X\sum_{d\mid n,\ p\nmid d}\chi_X(d)/d$. At the character
+$x^{p-1}$ the pole in $L^{(p)}(2-p)/2$ has valuation $-1$ by the
+von Staudt denominator of $B_{p-1}$, and
+$(1+p)^{p-1}-1$ has valuation one. Thus $a_0$ is a unit and
+$A/a_0$ is a bounded form-valued family. At $p=13$ its constant
+norming unit is $6\bmod13$: evaluate at the preceding character using
+$B_{12}=-691/2730$ and $L^{(13)}(1-12)=-(1-13^{11})B_{12}/12$,
+and multiply by $-((1+13)^{12}-1)/2$.
+Differentiating at $X=0$ gives the positive part
+\[
+ 2\sum_{n\ge1}\sum_{d\mid n,\ 13\nmid d} d^{-1}q^n \pmod {13}.
+\]
+This family supplies definite source coefficients. Under a complete
+projection by $t\mapsto\zeta t$, $t^N=q$, the degree-zero part of the
+product of two series has coefficient at $q^n$ given by the convolution
+over indices $i+j=Nn$. Projecting each factor separately discards
+mixed phases. Even for a genuine ordinary class a level change can
+multiply a variable-weight evaluation by $\alpha(W)^e$, whose
+derivative contributes $e\alpha'(0)/\alpha(0)$. A unit at the
+central weight does not remove this derivative. For these reasons the
+rank-one jet or the annular ordinary multiplier alone does not determine
+the proportionality factor of the entire family.
+
 \paragraph{What can be reproduced.}
 The original November 17 record preserves the two sign projection
 matrices, two independent $U_{13}$ arithmetic outputs, the source
@@ -402,5 +539,8 @@ Last Theorem}, Ann. of Math. \textbf{141} (1995), 443--551.
 \emph{Variation of Iwasawa invariants in Hida families},
 Invent. Math. \textbf{163} (2006), 523--580.
 \href{https://www.math.uchicago.edu/~emerton/pdffiles/iwasawa.pdf}{Authors' paper}.
+\bibitem{Katz} N. Katz, \emph{The Eisenstein measure and $p$-adic
+interpolation}, Amer. J. Math. \textbf{99} (1977), 238--311.
+\href{https://web.math.princeton.edu/~nmk/old/eismeasure.pdf}{Article}.
 \end{thebibliography}
 \end{document}
