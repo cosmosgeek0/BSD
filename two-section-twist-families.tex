@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}\newcommand{\Z}{\mathbb Z}
+\title{Analytic rank in quadratic twist families with two sections}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}
+\quad\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\setlength{\emergencystretch}{2em}
+\begin{document}\maketitle
+\begin{abstract}
+For every rational elliptic curve we construct infinitely many twists of analytic rank at least three with prescribed square behavior at any finite set of primes. An explicit genus-two sextic for the congruent-number curve gives $\gg_\eta X^{1/3}$ distinct positive twists in $[X,(1+\eta)X]$ of odd analytic rank at least three. Assuming the Riemann hypothesis for all quadratic twists of that curve, the same lower bound holds with analytic rank in $\{3,5,7\}$. We use Naccarato's average-rank method, exploiting both maps from the genus-two curve. We also compare the prime-by-prime trace mean with the central residue of each fixed twist and exhibit a discrepancy of at least $1/2$. The results concern variation in twist families.
+\end{abstract}
+
+\section{Imposing local conditions on a rank-two family}
+Write $E:y^2=f(x)$ with $f$ a separable monic integral cubic, after a rational change of variables. Use the twist convention $E^D: D y^2=f(x)$, and write $\operatorname{sqf}$ for the signed squarefree kernel.
+\begin{theorem}\label{all}
+Let $S$ be a finite set of primes. There are infinitely many squareclasses $D$ positive or negative with either prescribed sign, square in $\Q_p$ for every $p\in S$, such that $\operatorname{rank}E^D(\Q)\ge2$. For one choice of sign these twists have analytic rank at least three and agree with $E$ locally at the prescribed primes.
+\end{theorem}
+\begin{proof}
+Enlarge $S$ to contain all primes dividing $2N_E$. First choose a twist of positive rank in the local window. At each $p\in S$ take $x_0$ sufficiently large $p$-adically with $x_0$ a square, so $f(x_0)=x_0^3(1+o_p(1))$ is a local square. At infinity both signs occur in nonempty open intervals. Weak approximation gives infinitely many rational $x_0$ in these conditions. The point $(x_0,\sqrt{f(x_0)})$ on the fixed curve has degree at most two and is nontorsion for all but finitely many $x_0$ by Northcott. Fix one such twist $D_0$.
+
+Consider the surface of pairs on the same twist, with the simultaneous sign involution. The parameter $\lambda=y_1/y_2$ has fibres with plane model
+\[
+ C_\lambda:\quad f(x_1)=\lambda^2 f(x_2).
+\]
+This is Demeio's third genus-one fibration \cite[\S4.2]{demeio}. For general $\lambda\ne0$, the cubic is smooth: an affine singularity would use two critical points of $f$, restricting $\lambda$ to a finite set (critical values are nonzero). The three points at infinity are simple. The pairs from $E^{D_0}(\Q)^2$ are Zariski dense in the surface. They thus supply a rational point $T$ on a smooth $C_\lambda$ with infinitely many rational points, still in the required open local conditions. For detail on this last choice, if $H$ is the hyperplane class on a smooth fibre, then $T\mapsto[3T-H]$ is finite to its Jacobian. By the uniform boundedness of torsion on elliptic curves over $\Q$, points where $[3T-H]$ is torsion lie in a proper algebraic subset of the total surface (use the finitely many multiplication maps in the relative Jacobian). A point outside it gives positive fibre rank. This is also the content of \cite[Lemma~3.2]{demeio}.
+
+On the fixed fibre let $Y$ denote the smooth model of the double cover obtained by adjoining $s$ with $s^2=f(x_2)$. Its branch points are the nine ordered pairs of roots of $f$ and the three points at infinity. Indeed each of the former is a simple zero and $f(x_2)$ has a pole of order three at each point at infinity. Hence $Y$ is geometrically connected of genus seven. Its two maps to $E$ are $(x_1,\lambda s)$ and $(x_2,s)$. The pair determines $x_1,x_2,s$, so it is birational to its image in $E^2$. A nontrivial integer relation between the maps modulo constants would force this image into a translate of an elliptic subvariety, which has normalization of genus one. This proves independence over the function field for the twist by $f(x_2)$.
+
+The twist has zero constant trace: over the quadratic cover it is constant, but the nontrivial geometric deck transformation acts by inversion. A homomorphism from a constant abelian variety to this twist must therefore be its own negative after base change. By Silverman's specialization theorem \cite{silverman}, both sections remain independent outside bounded height on $C_\lambda(\Q)$, hence outside a finite set. Choose a nontorsion point on its Jacobian. Infinitely many translates of $T$ by integral multiples of it lie arbitrarily close to $T$ at the finitely many selected completions, by recurrence in the compact product of local elliptic groups. The nonzero squareclass of $f(x_2)$ is locally constant there. Each fixed global squareclass occurs at only finitely many parameters since its twist of $Y$ has genus seven, by Faltings \cite{faltings}. This proves infinitude. For $D$ square at $p\mid2N_E$, the root number is $w(E)\operatorname{sgn}(D)$ \cite{root}. Negative sign and the two independent points force analytic rank at least three by Gross--Zagier and Kolyvagin \cite{wiles}.
+\end{proof}
+Mestre's rank-two construction and its quantitative refinements are discussed by Rubin and Silverberg \cite{rubin}. The local sign selection and analytic conclusion above use variation along a positive-rank cubic fibre. Finite agreement of Euler factors does not bound the central vanishing order of the chosen twists by that of the original curve.
+
+\section{An explicit sextic and quantitative consequences}
+Put $E_1:y^2=x^3-x$ and
+\[
+ G(u,v)=3(2u^2-v^2)(u^2-2v^2)(u^2+v^2).
+\]
+The smooth genus-two curve $C:s^2=G(t,1)$ admits two maps to $E_1$,
+\[
+(t,s)\mapsto\left(\frac{2t^2-1}{3},\frac{2s}{9}\right),\qquad
+(t,s)\mapsto\left(\frac{2/t^2-1}{3},\frac{2s}{9t^3}\right).
+\]
+Direct substitution verifies the equations. Their invariant differential pullbacks are nonzero multiples of $t\,dt/s$ and $dt/s$, respectively. Hence the induced map from $J_C$ to $E_1^2$ is an isogeny. At every good prime outside a fixed finite set, the Frobenius trace of $C$ equals $2a_p(E_1)$. The two resulting sections on the quadratic twist of $E_1$ by $G(t,1)$ are independent and remain so for all but finitely many rational slopes, as in Theorem~\ref{all}.
+
+\begin{theorem}\label{count}
+Fix $\eta>0$. For every sufficiently large $X$ there are $\gg_\eta X^{1/3}$ positive squarefree $D\in[X,(1+\eta)X]$ for which $E_1^D$ has rank at least two and odd analytic rank at least three. Assuming the Riemann hypothesis for all quadratic twists of $E_1$, there are $\gg_\eta X^{1/3}$ such $D$ with analytic rank three, five or seven.
+\end{theorem}
+We prove a second version simultaneously. If $w(E)=+1$ and a class $\beta\in\mathrm{Sel}_2(E)$ is specified, the same method gives $\gg_{E,\beta,\eta,S}X^{1/2}$ positive twists in the same interval, square at a fixed finite set $S$, with a nontorsion point of class $\beta$ and even analytic rank at least two. Under the Riemann hypothesis for the twists of $E$, one can require analytic rank two or four. For the unmarked claim compare Naccarato's Theorem~1; his Theorem~2 gives infinitely many odd analytic ranks in $[3,17]$ for the congruent-number curve under the same hypothesis \cite{nacc}.
+
+For the marked variant choose a separable integral binary quartic $G$ representing $\beta$. Divide out the largest square dividing its content. This rational rescaling of the square coordinate preserves the covering, all squareclasses of nonzero values, and the Kummer condition. More explicitly, twist the two-cover $[2]:E\to E$ by the translation cocycle $\beta$ and quotient its source by $[-1]$. The quotient is a conic with points everywhere locally, hence $\mathbb P^1$. The cover is $s^2=G(u,v)$ and has Jacobian $E$. Twisting it to $D s^2=G(u,v)$ twists the target to $E^D$ while retaining the translation cocycle. A nonzero value with squarefree kernel $D$ therefore supplies the prescribed Kummer class. Only finitely many slopes give a torsion image (bounded-degree torsion on the fixed curve, and the covering map is finite). The Frobenius trace of the genus-one cover equals $a_p(E)$ at its good primes, since every genus-one curve over a finite field has a point.
+
+\subsection{The squarefree and congruence conditions}
+Write $e=\deg G$ and $j=2$ for the sextic, $j=1$ for the quartic, so the Frobenius trace of the curve above the parameter line is $j a_p(E)$. In the sextic case impose $4\mid u$ and $v$ odd; then $G\equiv6\bmod 8$ and any positive squarefree kernel is $6\bmod8$, of negative root number for $E_1$ \cite{elkies}. Take a small rectangle of positive values such that the maximum and minimum of $G$ there have ratio less than $1+\eta$. In the quartic case local solubility gives such a positive rectangle and local square conditions at all specified places and the primes dividing $2N_E$. Use a primitive local pair away from the branch locus at every prescribed place.
+
+At every prime up to a fixed $Y$, and at the primes of the local conditions, discriminant and content, prescribe a unit-scalar orbit of a primitive residue pair at a sufficiently high prime power to fix the valuation of $G$ and every needed unit squareclass. Such pairs with nonzero $G$ exist, and when imposing square values the preceding choice supplies one. In the sextic case $(0,1)$ gives $G=6$ at any auxiliary prime. Write $M$ for the resulting modulus and $\mathcal C$ for the product orbit. The square part at primes dividing $M$ is a fixed $s_0^2$.
+
+At the remaining primes the number $\rho_G(p^2)$ of pairs modulo $p^2$ on which $p^2\mid G$ is at most $(e+1)p^2$: count the nonprimitive pairs and at most $e$ simple projective roots, each lifting uniquely. The squarefree sieve for binary forms of degree at most six with no repeated factor, on a fixed congruence class, is unconditional \cite[Thm.~5.3]{varilly}; its rectangular-region version is discussed in \cite[Prop.~1.1]{manduchi}. Equivalently one may apply the large-prime square-divisor error on an enclosing box and calculate the finitely many small-prime probabilities within the rectangle by the Chinese remainder theorem. For a smooth nonnegative weight $W$ compactly supported in the chosen rectangle, summation by approximation with step functions gives relative retained weight
+\[
+                 \prod_{p\nmid M}(1-\rho_G(p^2)/p^4).
+\]
+It exceeds $99/100$ if $Y$ was chosen sufficiently large. Here $Y$ and $M$ are fixed before the parameter-box scale $T$ tends to infinity. On the retained points $\operatorname{sqf}(G)=G/s_0^2$. Rescale $T$ so that the chosen positive rectangle scaled by $T$ has all these values in $[X,(1+\eta)X]$; then $T\asymp X^{1/e}$.
+
+There are $\asymp T^2$ retained pairs since the fixed weight has positive integral. Finitely many exceptional rational slopes account for $O(T)$ pairs. Among all representations of $0<|G(u,v)|\ll T^e$, the input pairs giving two essentially distinct representations of the same integer number $o(T^2)$ \cite[Lemma~2.4]{stewart}. Otherwise there are at most $|\operatorname{Aut}_{\Q}G|$ representations, the order of a finite group. This proves the two unconditional counts.
+
+\subsection{The analytic estimate}
+For clarity we indicate which parts of Naccarato's binary Poisson argument \cite[\S4]{nacc} change. With $h_X(u)=(1-|u|/\log X)_+$, define
+\[
+ U_i(D,X)=-\sum_{p^i\le X,\ p\ge5}
+  \operatorname{tr}(\mathrm{Fr}_p^i;E^D)\frac{\log p}{p^i}h_X(i\log p),
+\]
+using the local Euler parameters at bad primes. At good primes the trace in $U_2$ is the sum of the squares of the two Satake roots, $a_p^2-2p$. To avoid confusion we use $Z$, rather than the target discriminant scale $X$, as the explicit-formula cutoff. Under the stated Riemann hypothesis, the nonnegative Fourier transform of the triangular test gives
+\[
+ r_{\rm an}(E^D)\le
+ \frac{\log N(E^D)+2U_1(D,Z)+2U_2(D,Z)+O_E(1)}{\log Z}.
+\]
+The square term is $U_2(D,Z)=\tfrac14\log Z+O_E(1+\log\log(3|D|))$ \cite[Lemma~3.5]{nacc}.
+
+Average over \emph{all} pairs in $\mathcal C$ with weight $W(u/T,v/T)$, and $D=\operatorname{sqf}(G(u,v))$. For good $p\nmid M$, replace the primitive character by $(G(u,v)/p)$. The error per pair in $U_1$ is $O_E(\sqrt{\log(2T)})$: it is supported on $p^2\mid G$ and bounded by $2\sum_{p^2\mid G}\log p/\sqrt p$, which is of this size by splitting at $\log(2T)$ and using $|G|\ll T^e$.
+
+Set $a_p=a_p(E)$. Grouping by projective directions, then summing over nonzero scalars, gives
+\[
+ \sum_{u,v\bmod p}\left(\frac{G(u,v)}p\right)e_p(hu+kv)
+ =p\left(\frac{G(k,-h)}p\right)+j a_p
+           -pj a_p\,\mathbf1_{p\mid h,\ p\mid k}.
+\]
+Here $\sum_{\mathbb P^1(\F_p)}(G/p)=-j a_p$ by counting the points of the cover, including its points at infinity. The zero frequency identity fixes the sign. Since $\mathcal C$ is invariant under multiplication by units modulo $M$, the finite Fourier factor $A(h,k)=\sum_{b\in\mathcal C}e_M((h,k)\cdot b)$ is independent of $p$. Poisson summation in the box modulo $Mp$ now gives exactly the three terms of \cite[eq.~(17)]{nacc}, with the first two trace terms multiplied by $j$ and $q^3$ replaced by $M$. To see the estimates explicitly, the $-pj a_p$ component contributes $-j a_p/p$ times the original total weight to the mean character sum; the $j a_p$ component contributes $j a_p\sum_{\mathcal C}W(pu/T,pv/T)$. The latter vanishes for $p\gg T$ (the zero pair is excluded by $\mathcal C$) and is $O_E(T^2/p^2)$ before its factor $j a_p$. Its weighted contribution to the total $U_1$ error is $O(T^2)$.
+
+The remaining Fourier term has coefficients $A(h,k)(G(k,-h)/p)$. Under the twist Riemann hypothesis the prime sum in \cite[eq.~(19)]{nacc} is $O_\epsilon(Z^\epsilon |G(k,-h)|^\epsilon)$ with weight $a_p\log p/p$ for nonzero $G(k,-h)$; if it is zero the character vanishes. Partial summation on $P<p\le2P$ supplies a further $P^{-1}$ and a rapidly decreasing factor $(1+T(|h|+|k|)/(MP))^{-A}$ from $\widehat W$ and its first derivatives. The term $h=k=0$ vanishes. Summing over frequencies and using $|G(k,-h)|\ll (|h|+|k|)^e$ gives $O_{\epsilon,E,G,M,W}(Z^{1+\epsilon})$ for the unnormalized dual contribution, as in \cite[eqs.~(20)--(22)]{nacc}, reducing $\epsilon$ at the start to absorb $e$ and the dyadic sum. The main term uses
+$\sum_{p\le Z}a_p^2 h_Z(\log p)\log p/p^2=\tfrac12\log Z+O_E(1)$.
+Since the total weight is asymptotic to a positive constant times $T^2$, we obtain
+\[
+ \operatorname{avg}_W U_1(D,Z)
+   =\tfrac j2\log Z+O_{E,G,M,W,\epsilon}
+      (1+\sqrt{\log(2T)}+Z^{1+\epsilon}/T^2).
+\]
+Set $Z=T^{2-\delta}$, with fixed small $\delta>0$, and choose $\epsilon$ to make the last error bounded. The conductor is $\ll_E T^{2e}$. Letting $\delta$ decrease gives
+\[
+ \limsup_{T\to\infty}\operatorname{avg}_W r_{\rm an}
+                  \le e+j+\tfrac12.
+\]
+For the sextic this bound is $8.5$; for the quartic it is $5.5$. Apart from the fixed exceptional slopes, ranks in the first case are odd and at least three, in the second even and at least two. Thus the lower limiting weighted fraction of ranks $\le7$ or $\le4$ is respectively at least $1/12$ or $1/8$. Removing less than $1/100$ of the weight by the above sieve leaves a positive fraction. The same multiplicity estimate proves Theorem~\ref{count} and the marked variant. The argument does not identify an individual rank occurring with positive frequency.
+
+\section{A discrepancy between two central residues}
+Fix rational $a>1$ and set $f(x)=(x+1)(x-a)(x-a^{-1})$, $E:y^2=f(x)$. Write $g(z)=f(z^2)$ and $C:y^2=g(z)$. The maps $(z,y)\mapsto(z^2,y)$ and $(z,y)\mapsto(z^{-2},y/z^3)$ have independent pullback differentials; $x^3 f(1/x)=f(x)$ verifies the second map. Hence $J_C\sim E^2$ and the two twist sections are independent outside finitely many rational slopes. Impose congruences near the slope $\infty$ so $g$ is square at the primes of $2N_E$ (use $z^{-6}g(z)\to1$ there); select a real interval with the desired sign. The polynomial takes both signs on the real line. Choose the sign for which the twists have root number $-1$. For fixed good primes $p$ outside the congruence conditions, reduced projective slopes of primitive integer pairs in the resulting dilating box are equidistributed in $\mathbb P^1(\F_p)$ by elementary lattice counting with M\"obius inversion.
+
+Define the local trace statistic at $p$ by $a_p(E)(g(z)/p)$, with zero at a branch slope; for projective reduction use the degree-six homogenization. Its average over the $p+1$ slopes is $-2a_p(E)^2/(p+1)$. Define the prime series using weight $(\log p)p^{-s}$. Averaging the local statistic at each prime before forming the series yields residue $-2$ at $s=1$: the Rankin--Selberg pole of $\sum_p a_p(E)^2(\log p)p^{-s-1}$ contributes one, and replacing $p$ by $p+1$ there changes a holomorphic function near one. For a \emph{fixed} rational slope, only finitely many primes distinguish this statistic from the twist trace. If its analytic rank is $m$, the prime-series residue is $1/2-m$. Indeed $-L'/L$ contributes $-m$; the prime-square sum with trace $a_p(E^D)^2-2p$ contributes $-1/2$ at $s=1$, by Rankin--Selberg, and higher powers converge normally near one. Removing the prime-square sum adds $1/2$. Every sufficiently large chosen slope has $m\ge3$, so its residue is $\le-5/2$.
+
+One can also delete every fibre reduction for which a nonzero combination of the two marked points with coefficients of absolute value $\le p^{1/16}$ is zero. For the prime-by-prime calculation, the morphism $b_1\phi_1+b_2\phi_2:C\to E$ has degree $O((|b_1|+|b_2|)^2)$, uniformly at good primes, by the quadraticity of the degree pairing; it is nonconstant, since the induced maps give an isogeny $J_C\to E^2$ also on good reductions. The same bound applies after quadratic twisting. Counting the $O(p^{1/8})$ combinations bounds the number of discarded slopes by $O(p^{1/4})$, so the prime-series error converges absolutely for $\Re s>3/4$. For a fixed slope with independent marked points, primes in a dyadic interval $[P,2P]$ where a given combination reduces to zero divide the denominator of its abscissa; the sum of their logarithms is $O_{E,z}((|b_1|+|b_2|)^2+1)$ by the canonical-height bound. Summing over the coefficient box gives $O_{E,z}(P^{1/4})$. The corresponding dyadic error is $O_{E,z,s}(P^{3/4-\Re s})$. The discrepancy of at least $1/2$ survives both restrictions. This comparison concerns two well-defined orders of operation; it requires no limiting average of the individual analytic ranks.
+
+\begingroup\raggedright\begin{thebibliography}{10}
+\bibitem{demeio} J.~L.~Demeio, \emph{Elliptic fibrations and Hilbert Property}, \href{https://arxiv.org/abs/1808.09808}{arXiv:1808.09808}.
+\bibitem{silverman} J.~H.~Silverman, \emph{Heights and the specialization map for families of abelian varieties}, \href{https://doi.org/10.1515/crll.1983.342.197}{J. reine angew. Math. 342 (1983)}.
+\bibitem{faltings} G.~Faltings, \emph{Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern}, \href{https://doi.org/10.1007/BF01388432}{Invent. Math. 73 (1983)}.
+\bibitem{root} J.~Desjardins, \emph{Root number of twists of an elliptic curve}, \href{https://doi.org/10.5802/jtnb.1112}{J. Th\'eor. Nombres Bordeaux 32 (2020)}.
+\bibitem{wiles} A.~Wiles, \emph{The Birch and Swinnerton-Dyer conjecture}, \href{https://www.claymath.org/wp-content/uploads/2022/05/birchswin.pdf}{Clay Mathematics Institute}.
+\bibitem{rubin} K.~Rubin and A.~Silverberg, \emph{Rank frequencies for quadratic twists of elliptic curves}, \href{https://arxiv.org/abs/math/0010056}{authors' paper}.
+\bibitem{nacc} F.~Naccarato, \emph{On elliptic curves with prescribed analytic rank at least 2}, \href{https://arxiv.org/abs/2611.21447}{arXiv:2611.21447}, especially Section~4.
+\bibitem{elkies} N.~D.~Elkies, \emph{Curves $Dy^2=x^3-x$ of odd analytic rank}, \href{https://arxiv.org/abs/math/0208056}{authors' paper}.
+\bibitem{varilly} A.~V\'arilly-Alvarado, \emph{Density of rational points on isotrivial rational elliptic surfaces}, \href{https://msp.org/ant/2011/5-5/ant-v5-n5-p04-p.pdf}{Algebra Number Theory 5 (2011)}.
+\bibitem{manduchi} E.~Manduchi, \emph{Root numbers of fibers of elliptic surfaces}, \href{https://www.numdam.org/item/CM_1995__99_1_33_0.pdf}{Compositio Math. 99 (1995)}.
+\bibitem{stewart} C.~L.~Stewart and S.~Y.~Xiao, \emph{On the representation of integers by binary forms}, \href{https://arxiv.org/abs/1605.03427}{arXiv:1605.03427}.
+\end{thebibliography}\endgroup
+\end{document}

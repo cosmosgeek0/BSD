@@ -254,6 +254,67 @@ to the quadratic coefficient. This obstruction concerns the proposed
 Euler realization and leaves the germ identity intact. For the
 ordinary Artin relations on elliptic $L$-functions and regulators see
 \cite{DD}.
+\subsection*{A circular mean for a shifted CM lattice}
+Suppose $E/\mathbb Q$ has complex multiplication by the full ring
+$\mathcal O$ of an imaginary quadratic field of class number one.
+Write $w=|\mathcal O^\times|$. Choose the Hecke character of $E$ so that
+$\psi((\alpha))=\epsilon(\alpha)\alpha$ and $L(\psi,s)=L(E,s)$.
+Extend its finite character $\epsilon$ by zero on nonunits modulo its
+conductor. Then $\epsilon(v)=v^{-1}$ for $v\in\mathcal O^\times$, so
+its mean over a full residue system is zero. For $z$ near zero set
+\[
+ H(u,z)=\frac1w\sum_{\epsilon(\alpha)\ne0}
+       \epsilon(\alpha)\frac{\alpha+z}{|\alpha+z|^{2+2u}}.
+\]
+The sum starts in $\Re u>1/2$, where $H(u,0)=L(E,1+u)$ by summing
+over generators of principal ideals. For the CM lattice-series
+framework see F. Rodriguez Villegas and D. Zagier,
+\href{https://people.mpim-bonn.mpg.de/zagier/files/mpim/92-68/fulltext.pdf}
+{\emph{Square roots of central values of Hecke L-series}}.
+
+Insert the Mellin integral for $|\alpha+z|^{-2-2u}$.
+Poisson summation on the conductor-lattice cosets gives exponential
+decay as the heat parameter tends to zero: the zero dual mode
+vanishes by the mean of $\epsilon$. The same holds with the linear
+numerator removed or after any fixed number of spatial derivatives.
+Decay at the other endpoint is exponential locally uniformly for
+$|z|$ smaller than the distance to the nearest contributing lattice
+point. Division by $\Gamma(1+u)$ thus gives continuation near $u=0$
+with bounded spatial derivatives on a fixed smaller disk.
+
+For $\Delta=4\partial_z\partial_{\bar z}$, differentiation in the
+absolute-convergence region and continuation give
+\[
+ \Delta H(u,z)=4u(1+u)H(u+1,z).
+\]
+Likewise $\partial_z H$ is $-u$ times the continued scalar lattice
+sum with denominator $|\alpha+z|^{2+2u}$, including the same
+$1/w$ normalization. Consequently $H(0,z)$ is antiholomorphic.
+It is invariant under $z\mapsto vz$ for every unit $v$.
+If $L(E,1)=0$, the origin in the spatial variable has multiplicity
+exactly $w$: the coefficient of $\bar z^w$ equals
+\[
+ \frac{(-1)^w}{w}\sum_{\epsilon(\alpha)\ne0}
+       \frac{\epsilon(\alpha)}{\bar\alpha^{\,w+1}} .
+\]
+This differentiated sum is absolutely convergent. It is $(-1)^w$
+times the Hecke series at $s=w+1$ of the character on ideals
+$(\alpha)\mapsto\epsilon(\alpha)\alpha^{w+1}$. Its Euler product is
+absolutely convergent and nonzero there, since $(w+1)/2>1$.
+
+If $L(E,1)=L'(E,1)=0$ and $\lambda\ge0$ is fixed, then
+\[
+ \lim_{u\downarrow0}\frac1{2\pi u^2}\int_0^{2\pi}
+       H\!\left(u,\sqrt{\lambda u}\,e^{i\theta}\right)\,d\theta
+ =\tfrac12 L''(E,1)+\lambda L(E,2).
+\]
+Indeed the circular Taylor mean at radius $\rho$ is
+$H+(\rho^2/4)\Delta H+(\rho^4/64)\Delta^2 H+O(\rho^6)$, with all
+three terms evaluated at $(u,0)$. Here $\Delta^2H(u,0)=O(u)$ by
+two applications of the differential identity. The displacement
+term survives for every positive $\lambda$ even if $L''(E,1)=0$.
+
+
 \begin{thebibliography}{9}\raggedright
 \bibitem{D} C. Delaunay, \emph{Critical and ramification points of the modular
 parametrization of an elliptic curve}, J. Th\'eor. Nombres Bordeaux

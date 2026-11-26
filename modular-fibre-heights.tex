@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\ord}{\operatorname{ord}}
+\title{Modular-Unit Fibre Heights and CM Translates of Central Mellin Integrals}
+\author{\small\href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\quad
+\href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
+\date{Working paper for specialist review}
+\begin{document}\maketitle
+\begin{abstract}
+A fibre of a modular parametrization gives a rational binary form by recording the values of a modular unit with multiplicity. Its projective height recovers the canonical height on the elliptic quotient. We construct units at a common raised level whose normalized fibre heights recover the same pairing and whose unfolded periods differ by any prescribed number of central zeros. For a non-CM curve of squarefree conductor and positive root sign with vanishing central value, a separate CM construction gives weighted algebraic points of infinite order with a distinguished complex logarithm tending to zero faster than any power of the mesh. A Hecke identity cancels the bulk integrals, while a Bernoulli correction accounts for the terminal cusp periods.
+\end{abstract}
+
+\section{Units on a modular fibre}
+Fix an optimal modular parametrization $\phi:X_0(N)\to E$ normalized by $\phi(\infty)=O$, with normalized newform $f(z)=\sum a_n e(nz)$, $e(t)=e^{2\pi it}$. For a multiple $M$ of $N$, use the ordinary degeneracy map and write $\phi_M:X_0(M)\to E$ for the composite. Let $U$ be any nonconstant rational modular unit on $X_0(M)$ and $d=\deg\phi_M$. Put
+\[
+ \Psi_U(P)=\bigl\{U(z):z\in\phi_M^{-1}(P)\bigr\}
+ \in\operatorname{Sym}^d(\mathbb P^1)=\mathbb P^d,
+\]
+using scheme-theoretic multiplicities, also at branch values. This is a morphism: the fibres form an algebraic family of degree-$d$ effective divisors on a smooth curve, and $U:X_0(M)\to\mathbb P^1$ pushes them to the symmetric power.
+
+\begin{theorem}
+Writing $C_U=\deg(U)$, with the degree-one height convention for $\widehat h_E$, one has
+\[
+ h(\Psi_U(P))=C_U\widehat h_E(P)+O_{\phi_M,U}(1)
+ \qquad(P\in E(\overline{\Q})).
+\]
+\end{theorem}
+\begin{proof}
+The hyperplane of effective divisors containing $\infty$ pulls back to $(\phi_M)_*U^*[\infty]$. For a local verification take the leading coefficient of the fibre polynomial, or equivalently the norm of a section cutting out the pole divisor. At each point the valuation of the norm is the sum of the valuations upstairs weighted by residue degrees. The resulting divisor has degree $C_U$ and is supported on images of cusps. Manin--Drinfeld gives torsion differences of cusps in the Jacobian, so every such image is torsion. The divisor differs from $C_U[O]$ by a torsion class in $\operatorname{Pic}^0 E$. The height machine, applied to a multiple that kills this class, gives the asserted bounded difference.
+\end{proof}
+
+In particular dividing $h(\Psi_U(nP))$ by $C_U n^2$ and letting $n\to\infty$ gives $\widehat h_E(P)$. Polarization recovers the entire height pairing, for every unit in the next construction.
+
+\section{Prescribing central zeros at a common level}
+Set $\Delta(z)=e(z)\prod_{n\ge1}(1-e(nz))^{24}$ and
+$U_0(z)=\Delta(z)/\Delta(Nz)$. Its weight is zero and it is a rational unit on $X_0(N)$. For any such unit put $g_U=-(48\pi i)^{-1}U'/U$, a holomorphic weight-two form, and define
+\[
+ I_M(U,s)=\int_{\Gamma_0(M)\backslash\mathfrak H}
+ E_{\infty,M}(z,s) f(z)\overline{g_U(z)}\,dx\,dy ,
+\]
+initially on $\Re s>3/2$. The Eisenstein series is normalized to the width-one cusp at infinity of the indicated common level. Its standard unfolding gives $\Gamma(s+1)(4\pi)^{-s-1}\sum_{n\ge1}a_n\overline{b_n}n^{-s-1}$ with $g_U=\sum b_n e(nz)$. In particular the expression after unfolding is independent of $M$ for a form already defined at a lower level.
+
+The positive Fourier coefficients of $g_{U_0}$ are $\sigma_1(n)-N\mathbf1_{N\mid n}\sigma_1(n/N)$. At good primes the Hecke recurrence, and at bad primes $a_{pm}=a_pa_m$, give
+\[
+ I_M(U_0,s)=
+ \frac{\Gamma(s+1)}{(4\pi)^{s+1}}
+ \frac{L(E,s)L(E,s+1)}{\zeta^{(N)}(2s)}(1-a_NN^{-s}).
+\]
+For example the unramified Euler identity is
+$\sum_{j\ge0}a_{p^j}\sigma_1(p^j)X^j=(1-p^2X^2)/
+[(1-a_pX+pX^2)(1-pa_pX+p^3X^2)]$, with $X=p^{-1-s}$. At a bad prime the numerator is absent. As $|a_N|\le1$ and $N>1$, the displayed integral has the same order at $s=1$ as $L(E,s)$.
+
+\begin{theorem}
+For every integer $k\ge1$ there is one level $M$ and two nonconstant rational modular units on $X_0(M)$ for which the orders at $s=1$ of these integrals are $\ord_1 L(E,s)$ and $\ord_1 L(E,s)+k$. Their normalized fibre heights recover the same N\'eron--Tate pairing.
+\end{theorem}
+\begin{proof}
+Take distinct primes $q_1,\ldots,q_k$ prime to $N$, and $M=N\prod q_i$. At a fresh prime $q$, put $V_q g(z)=qg(qz)$, the differential corresponding to $U(qz)$. Replacing $g_U$ by $V_q g_U$ multiplies the unfolded series by
+\[
+ R_q(X)=\frac{X(a_q-(q+1)X)}{1-X^2},
+ \qquad X=q^{-s}.
+\]
+Indeed at this place the coefficients of $g_U$ still have $q$-part $\sigma_1(q^j)$, each other previously applied degeneracy being at a different prime. The ratio is the quotient of the local series with coefficients $q\,a_{q^j}\sigma_1(q^{j-1})$ for $j\ge1$ and $a_{q^j}\sigma_1(q^j)$ for $j\ge0$, using variable $q^{-1-s}$. The recurrence gives the stated rational function.
+
+Write $A=qa_q-(q+1)$ and $B=q^2-1$. Then $BR_q(q^{-1})=A$. The derivative could vanish there only if $a_q=2q(q+1)/(q^2+1)$, strictly between 2 and 3. Thus $U(qz)^B/U(z)^A$ introduces one simple zero. The multipliers from distinct primes multiply. The original unit and the final unit give the two orders. Both are nonconstant since their unfolded integrals are nonzero meromorphic functions. The asserted common pairing follows from Section 1.
+\end{proof}
+
+\section{CM samples and their conjugates}
+Here assume $N$ squarefree, $E$ non-CM, root number $+1$ and $L(E,1)=0$. Put $\Psi(z)=\sum_{n\ge1}a_n e(nz)/n$, so $\Psi$ is the analytic lift of $\phi$, up to the fixed real nonzero Manin scaling. We use its own period lattice $\mathcal L$ in this normalization. The Fricke involution $W_N z=-1/(Nz)$ acts on $f(z)\,dz$ by $-1$, and $\Psi(0)=L(E,1)=0$. In particular every cusp of denominator coprime to $N$ has value in $\mathcal L$, by equivalence to the cusp 0. These statements use cuspidal limits.
+
+Fix an odd good prime $q$ split in $K=\Q(\sqrt{-N})$, with $q\nmid2N$, and choose a root $\mu$ of $-N$ modulo $q^3$. Put $c_0=\mu/N\bmod q^3$ and choose a primitive root $g$ modulo $q^3$. Choose coprime integers $a>b>0$, prime to $qN$, such that $a/b\equiv g\bmod q^3$, $h=\log(a/b)\to0$, and $a$ tends to infinity through primes. Such pairs are given by $b=a-N$, with $a$ in a fixed invertible residue class modulo $Nq^3$, by the Chinese remainder theorem and Dirichlet's theorem.
+
+Put $z_j=i(a/b)^j/\sqrt N$ and $P_j=\phi(z_j)$. For $e=1,2,3$ set $Q=q^e$, $L_e=\varphi(Q)$ and $c_j\equiv c_0g^j\bmod Q$. There is an Artin action $\sigma$ of a fixed choice of prime above $q$ on the pertinent ring class fields, such that
+\begin{equation}\label{cm}
+ \sigma^eP_j=\phi((z_j+c_j)/Q).
+\end{equation}
+Here $j$ ranges over the positive samples; the lifts of $c_j$ can be chosen arbitrarily. To verify the CM convention, present the modular point by the lattice $\langle1,z_j\rangle$ and cyclic subgroup $\langle1/N\rangle$. At $q$ the conductor is prime to $q$ and the split algebra acts with two free eigenlines modulo $Q$. Multiplication by $\sqrt{-N}$ on $z_j+c$ has coordinates $-(a/b)^j+cN(b/a)^j z_j$. Therefore $z_j+c_j$ spans the eigenline with eigenvalue $\mu$. The corresponding superlattice is generated by $1,(z_j+c_j)/Q$. The marked subgroup maps to the subgroup generated by $1/N$. The main theorem of complex multiplication in its isogeny form \cite{Darmon} gives \eqref{cm}; reversing the Artin convention exchanges the chosen prime with its inverse action.
+
+The exact average at a fixed imaginary argument $z$ is
+\begin{align}
+\frac1{L_e}\sum_{c\in(\Z/Q)^\times}\Psi((z+c)/Q)
+&=\frac{(a_{q^e}+a_{q^{e-2}})\Psi(z)
+ -a_{q^{e-1}}(\Psi(qz)+\Psi(z/q))}{L_e},
+\label{mean}
+\end{align}
+with $a_{q^{-1}}=0$. Summing all residues first selects the multiples of $q^e$ by additive character orthogonality; subtract the residues divisible by $q$ and use Hecke recursion. For $e=1$ the completed Mellin transform is therefore multiplied by $(a_q-q^s-q^{-s})/(q-1)$ relative to the transform of $\Psi$ at Mellin parameter $s$. These transforms converge initially on a right half-plane (and here $\Psi$ decays at both endpoints); unfolding gives $\Gamma(s)(2\pi)^{-s}L(E,1+s)$ up to an entire nonvanishing rescaling from the vertical coordinate. In particular, if $a_q\ne2$, the multiplier at $s=0$ is nonzero. Moreover $q$ times the average with $e=3$, minus $a_q$ times that with $e=2$, plus that with $e=1$, is identically zero, by \eqref{mean}. This cancellation holds for the full analytic functions.
+
+\section{A small logarithm with a nontorsion endpoint}
+Take $J=\lceil2\log(1/h)/h\rceil$, $S_h=\sum_{j=1}^J jP_j$, and
+$Z_h=(q\sigma^3-a_q\sigma^2+\sigma)S_h$. For all sufficiently small $h$ in the sequence just constructed, $Z_h$ is nontorsion and
+\[
+ \widehat h_E(Z_h)\ \ge\ (\sqrt q-1)^4\widehat h_E(S_h).
+\]
+Nevertheless the fixed multiple $24\varphi(q^3)Z_h$ has a complex logarithm of size $O_{M,N,q,E}(h^M)$ for every $M>0$.
+
+We first prove the small-logarithm assertion. Let
+\[
+ A_{e,v}(t)=\Psi\big((i e^t/\sqrt N+c_v)/Q\big),
+ \qquad v\bmod L_e.
+\]
+All derivatives decay faster than any exponential as $t\to+\infty$. Since $Nc_vc_{-v}\equiv-1\bmod Q$, the matrix
+$\left(\begin{smallmatrix}Nc_{-v}&-(Nc_vc_{-v}+1)/Q\\NQ&-Nc_v\end{smallmatrix}\right)$ is a lift of $W_N$ of determinant $N$. It takes $(i e^t/\sqrt N+c_v)/Q$ to $(i e^{-t}/\sqrt N+c_{-v})/Q$. Hence
+\[
+ A_{e,v}(t)+A_{e,-v}(-t)=\Pi_e(v)\in\mathcal L,\qquad
+ \Pi_e(v)=\Pi_e(-v).
+\]
+The constant follows by taking a cuspidal limit at $+\infty$. For each of the $L_e$ progressions apply Euler--Maclaurin on $[0,\infty)$ to $tA_{e,v}(t)$ with spacing $L_e h$ and shift $v/L_e$. Summing the expansions yields
+\[
+ \sum_{j\ge1}j A_{e,j}(jh)=
+ \frac1{L_e h^2}\int_0^\infty t\sum_v A_{e,v}(t)\,dt
+ -\frac{L_e}4\sum_v B_2(v/L_e)\Pi_e(v)+O_{M,q,E}(h^M).
+\]
+Indeed the degree-zero endpoint term is zero. For derivative order $n\ge2$ the terms for $v$ and $-v$ cancel by $B_{n+1}(1-x)=(-1)^{n+1}B_{n+1}(x)$ and the displayed Fricke relation. For $n=1$ the two derivatives sum to $\Pi_e(v)$, giving the stated coefficient, also at self-paired residues. The Euler--Maclaurin remainders have arbitrary order because all derivatives are integrable on this half-line. The tail $j>J$ costs $O_M(h^M)$ by the exponential Fourier expansion at infinity. The integrals cancel in the indicated Hecke combination. Since $B_2(x)=x^2-x+1/6$, multiplication by $24 L_3$ sends each endpoint correction into $\mathcal L$ ($L_e\mid L_3$). Equation \eqref{cm} now gives the desired lift after subtracting these periods.
+
+For the nonvanishing in the group, the discriminant of the multiplier order of $\langle1,z_j\rangle$ is $-4N(ab)^{2j}$, by the primitive equation $Nb^{2j}z_j^2+a^{2j}=0$. Its conductor is $f_j=f_0(ab)^j$ with $f_0$ fixed. Its units preserve $\langle1/N\rangle$: a generator of the nonconstant part of the order is $Nb^{2j}z_j$. The action of its integral multiples on $1/N$ respects that subgroup. The CM point is defined over the corresponding ring class field $H_j$ by reciprocity; its $j$-invariant already generates $H_j/K$. Thus the modular point has at least $[H_J:H_{J-1}]$ conjugates over $H_{J-1}$. All previous $P_j$ are defined over $H_{J-1}$. The ring class number formula gives $[H_J:H_{J-1}]\to\infty$, uniformly here: for $J\ge2$ the conductor ratio is $ab$, its prime divisors already occur in $f_{J-1}$, and the unit index cancels for large conductors.
+
+The group $E(K^{\rm ab})_{\rm tors}$ is finite by the non-CM open image theorem \cite{Serre}. For clarity, its points are fixed by the commutator of the image on the full torsion module. At all large primes this commutator contains $\mathrm{SL}_2(\Z_\ell)$; at each remaining prime it contains an open subgroup of $\mathrm{SL}_2(\Z_\ell)$. For the latter assertion take commutators of a sufficiently deep diagonal congruence matrix with upper and lower elementary unipotents. Such subgroups bound the fixed torsion. If $S_h$ were torsion, each conjugate of $P_J$ over $H_{J-1}$ would differ from it by a torsion point, since $J(\sigma' P_J-P_J)$ is torsion. Each value of $\phi$ has at most $\deg\phi$ preimages, contradicting the growing relative degree. Finally $\sigma$ is a finite-order isometry on the real Mordell--Weil vector space of $H_J$. On the complex unit circle the polynomial $qz^2-a_qz+1$ has absolute value at least $q(1-q^{-1/2})^2$, by Hasse and the two root moduli $q^{-1/2}$. Diagonalizing the isometry under the height pairing gives the height inequality and proves that $Z_h$ is nontorsion.
+
+The constructions preserve the primitive complex $L$-function in \eqref{mean} and recover a height pairing in Section 1. The translated sums show why a lower bound on a canonical height alone cannot imply a lower bound on one distinguished complex logarithm along these CM samples.
+
+\begin{thebibliography}{9}
+\bibitem{Darmon} H. Darmon, \emph{Rational points on modular elliptic curves}, CBMS 101 (2004), chapter on complex multiplication. \href{https://math.mcgill.ca/darmon/pub/Articles/Research/36.NSF-CBMS/chapter.pdf}{Author's text}.
+\bibitem{Serre} J.-P. Serre, \emph{Propri\'et\'es galoisiennes des points d'ordre fini des courbes elliptiques}, Invent. Math. 15 (1972), 259--331. \href{https://doi.org/10.1007/BF01405086}{Article}.
+\bibitem{Ligozat} G. Ligozat, \emph{Courbes modulaires de genre 1}, \href{https://www.numdam.org/item/MSMF_1975__43__5_0/}{M\'emoires de la SMF 43 (1975)}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,217 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\F}{\mathbf F_2}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Sel}{\operatorname{Sel}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Fr}{\operatorname{Frob}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\m}{\mathfrak m}
+\newcommand{\n}{\mathfrak n}
+\newcommand{\Sh}{\mathrm{Sha}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\set}[1]{\{#1\}}
+\title{Selmer classes and a determinantal Hecke identity\\at the original conductor}
+\author{\small\texttt{admin@cosmosgeek.org}\qquad\texttt{b321014@iiit-bh.ac.in}}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Under the hypotheses of Allen's fixed-level \(2\)-adic \(R=\mathbb T\) theorem for elliptic curves, we construct a quotient of the mod-\(2\) Hecke algebra with one square-zero variable for each of \(d\) independent \(2\)-Selmer classes. Mixed products of distinct variables survive. The corresponding weight-two cusp form at the original conductor satisfies a Hecke identity whose coefficient is a determinant of localizations. An augmentation-compatible lift of the quotient to precision \(2^h\) would force \(dh\le v_2(m_E)\), where \(m_E\) is the modular degree. The construction produces the quotient in characteristic two. It applies to classes mapping nontrivially into the Tate--Shafarevich group as well as to classes of rational points.
+\end{abstract}
+
+\section{The quotient and the cusp form}
+Let \(E/\Q\) have conductor \(N\) and minimal discriminant \(\Delta\). Assume
+\[
+2\parallel N,\qquad E(\Q)[2]=0,\qquad
+v_p(\Delta)\ \text{is odd at each multiplicative prime }p.
+\tag{H}
+\]
+Write \(V=E[2](\overline{\Q})\), \(\bar\rho:G_\Q\to\operatorname{GL}(V)\), and let
+\(e:V\times V\to\F\) be the additive Weil pairing. For \(0\ne v\in V\) write
+\(t_v=1+v\otimes e(v,-)\). The image of \(\bar\rho\) is \(S_3\). Indeed it acts transitively on \(V-\{0\}\), and the discriminant square class of the 2-division cubic has odd valuation at \(2\), so the image contains an odd permutation.
+
+Let \(\T(N)\) be the \(\Z_2\)-algebra of all classical weight-two Hecke operators on \(S_2(\Gamma_0(N))\), including \(U_p\) for \(p\mid N\). It is understood integrally as the base change of the algebra generated over \(\Z\). The normalized newform of \(E\) defines \(\lambda_E:\T(N)\to\Z_2\). Write \(A=\T(N)_{\m_E}\) for the complete local factor at \(\m_E=(2,\ker\lambda_E)\). The cusp forms modulo \(2\) used below are reductions of the classical \(q\)-integral lattice. Write \(\bar f_E\) for the reduction of the normalized newform. Set
+\[
+B_d=\F[X_1,\ldots,X_d]/(X_1^2,\ldots,X_d^2),\qquad
+\n=(X_1,\ldots,X_d).
+\]
+For a good prime \(q\) with \(\bar\rho(\Fr_q)=t_v\) in a chosen Frobenius representative, put
+\[
+ \lambda_q(c)=e\bigl(c(\Fr_q),v\bigr)\in\F
+ \qquad(c\in\Sel_2(E)).
+\tag{1}
+\]
+The value factors through the unramified localization in \(V/(t_v-1)V\), since \((t_v-1)V=\F v\), and is invariant under simultaneous conjugation of the data.
+
+\begin{theorem}\label{main}
+Under \textup{(H)}, let \(c_1,\ldots,c_d\) be any linearly independent classes in \(\Sel_2(E)\). There is a surjection
+\(\Phi:A/2A\twoheadrightarrow B_d\) compatible with the residual augmentation. For each good prime \(q\) of transvection type,
+\[
+ \Phi(T_q)=\sum_{j=1}^d\lambda_q(c_j) X_j\pmod{\n^2}.
+\tag{2}
+\]
+There is a single cusp form \(g\in S_2(\Gamma_0(N),\Z_2)\otimes\F\) such that for all \(d\)-tuples of good primes of this type,
+\[
+ T_{q_1}\cdots T_{q_d}\,g =
+ \det\bigl(\lambda_{q_i}(c_j)\bigr)_{i,j=1}^{d}\,\bar f_E .
+\tag{3}
+\]
+For each prescribed row vector in \(\F^d\), infinitely many primes realize that row. In particular, the right hand side of \textup{(3)} can be nonzero.
+\end{theorem}
+For rational marks \(P_j\) one takes \(c_j=\delta(P_j)\) and requires independence modulo \(2E(\Q)\). For positive \(d\), adjoining one more transvection Hecke operator to the left hand side of \textup{(3)} kills the resulting form. This identity concerns the Hecke action on a space of cusp forms; it does not evaluate a complex derivative of \(L(E,s)\).
+
+\section{A simultaneous deformation}
+Write \(I\) for the identity matrix and identify \(\mu_2\) with the additive group \(\F\). Define
+\[
+ J(0)=0,\qquad J(v)=I+v\otimes e(v,-)\quad (v\ne0).
+\]
+This is a linear, equivariant map \(V\to\operatorname{End}^0(V)\). For a symplectic basis \(u,w\), the three images of \(u,w,u+w\) are
+\[
+ \begin{pmatrix}1&1\\0&1\end{pmatrix},\quad
+ \begin{pmatrix}1&0\\1&1\end{pmatrix},\quad
+ \begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+The third is their sum. The resulting Lie bracket is
+\([J(v),J(w)]=e(v,w)I\).
+
+Choose normalized continuous cocycles representing the \(c_i\). In \(\operatorname{GL}_2(B_d)\) let \(U_i(v)=I+X_iJ(v)\). Each map \(v\mapsto U_i(v)\) is additive in its argument, its image consists of involutions and \(\det U_i(v)=1\). For \(i\ne j\), the group commutator is
+\[
+ U_i(v)U_j(w)U_i(v)^{-1}U_j(w)^{-1}
+       =(1+X_iX_j e(v,w))I .
+\tag{4}
+\]
+Indeed all terms repeating either variable vanish. The right hand side is central. In particular \(U:(v_i)\mapsto\prod_i U_i(v_i)\), in order of increasing \(i\), defines an equivariant group homomorphism into \(\operatorname{PGL}_2(B_d)\).
+
+Let \(C(g)=\prod_i U_i(c_i(g))\). The failure of \(C(g)\bar\rho(g)\) to be multiplicative is a product over \(i<j\) of factors
+\[
+  1+X_iX_j\, e(c_j(g),g c_i(h)).
+\tag{5}
+\]
+This follows by commuting the \(i\)-th factor of the transported second product left past the \(j\)-th factor of the first product. The coefficient is the inhomogeneous cup cocycle \(c_j\cup_e c_i\). At every completion the two local Kummer images annihilate each other under the local Tate pairing, including at \(2\) and at the real place \cite[Proposition 4.10]{pr}. The global cup class therefore vanishes by injectivity of the localization map on \(\operatorname{Br}(\Q)[2]\). Choose normalized continuous cochains \(b_{ji}:G_\Q\to\F\) with
+\[
+ b_{ji}(g)+b_{ji}(h)+b_{ji}(gh)=e(c_j(g),g c_i(h)).
+\tag{6}
+\]
+Then
+\[
+ \rho_0(g)=
+ \left(\prod_{i<j}(1+X_iX_j b_{ji}(g))\right)
+ C(g)\bar\rho(g)
+\tag{7}
+\]
+is a continuous representation of determinant one. For each individual pair the map \(z\mapsto 1+X_iX_jz\) is a group homomorphism from \(\F\) into central units. Thus its coboundary cancels the corresponding factor of (5) exactly in \(B_d\). Multiplication of the pairwise identities in the abelian group of central units proves (7) in every degree.
+
+\section{Local conditions and the fixed level}
+We give the local adjustments because an unrestricted deformation need not arise at level \(N\). Use the deformation datum in Allen \cite[\S5.8]{allen}. At every multiplicative prime \(p\), including \(2\), the local residual image is a ramified group of order two and the Tate line \(\F e_p\subset V\) is its unique stable line. The valuation hypothesis is used here. The proof of Allen's Lemma 5.5, using split or unramified-quadratic nonsplit Tate uniformization, shows that a local Kummer class has a representative taking values in \(\F e_p\). For nonsplit multiplicative reduction, odd valuation of the Tate parameter permits a norm-one representative of the parameter of a local point. Taking a square root then gives the required sign-valued cocycle.
+
+These choices of representatives can be made independently at different places. Indeed, locally write \(c'_i=c_i+\delta w_i\) with values in the Tate line. In \(\operatorname{PGL}_2(B_d)\), changing all representatives by these coboundaries conjugates the projective representation by \(U((w_i))\). A lift of this conjugating matrix over \(B_d\) makes \(\rho_0\) upper triangular: its projective image preserves the line generated by \(e_p\), since each \(U_i(c'_i(g))\) and each \(\bar\rho(g)\) does. Thus \(\rho_0\) preserves a free rank-one direct summand lifting the Tate line. Let \(d_p:G_{\Q_p}\to 1+\n\) be its character on the quotient. Modulo \(\n\) this character is trivial.
+
+At a good prime \(p\nmid 2N\), \(V\) and each Selmer cocycle are unramified. For a representative the inertia restriction is zero since inertia acts trivially on \(V\). Hence \(\rho_0\) is scalar on inertia by (7). Only finitely many good primes have nontrivial inertia image, since \(\rho_0\) has finite image.
+
+We now construct one global scalar character \(\xi:G_\Q\to1+\n\). Every element of \(\n\) has square zero, so \(1+\n\) is an elementary abelian \(2\)-group under multiplication. For odd multiplicative \(p\), prescribe \(\xi|_{I_p}=d_p|_{I_p}\); for odd good \(p\) prescribe the scalar of \(\rho_0|_{I_p}\). The unique possible nontrivial quadratic inertia character at an odd prime is tame. For each place with nontrivial prescription let \(u_p\in1+\n\) be its value on a tame generator and use the global character
+\[
+ g\longmapsto u_p^{\,\chi_{p^*}(g)},\qquad
+ p^*=(-1)^{(p-1)/2}p ,
+\tag{8}
+\]
+where \(\chi_a:G_\Q\to\F\) corresponds to \(\Q(\sqrt a)\). This character is unramified at finite places outside \(p\). Their product meets all odd prescriptions. At \(2\), the inertia restrictions of \(\chi_{-1},\chi_2\) form a basis of restrictions of quadratic characters of \(G_{\Q_2}\). Indeed \(-1,2,5\) generate the local square classes and \(5\) generates the unramified character. Multiplying (8) by
+\(u_{-1}^{\chi_{-1}}u_2^{\chi_2}\) for suitable \(u_{-1},u_2\in1+\n\) gives \(\xi|_{I_2}=d_2|_{I_2}\). Neither new factor changes odd inertia.
+
+For \(\rho=\xi\rho_0\), the multiplicative-place quotient character is now unramified, including at \(2\), as in Allen's Lemma 2.2. All good primes are unramified. No condition beyond the determinant is imposed at additive primes in this deformation datum. Scalar corrections preserve the determinant since \(\xi^2=1\), and the determinant equals the cyclotomic character reduced to \(B_d\). For complex conjugation \(\sigma\), the matrix \(M=\rho(\sigma)\) satisfies \(M^2=I\) and \(\det M=1\); Cayley--Hamilton in characteristic two gives \(\tr M=0\). This is the characteristic polynomial required by Allen's Lemma 2.5.
+
+Allen's Theorem 4.3 with the specialization in \S5.8 gives a homomorphism \(\Phi:A/2A\to B_d\) sending \(T_q\) to \(\tr\rho(\Fr_q)\) for \(q\nmid N\), with residual augmentation \(\lambda_E\bmod2\). This application uses Allen's multiplicative condition at \(2\); curves with good reduction at \(2\) require a different deformation problem.
+
+\section{Trace coordinates and determinant}
+For \(t_v=\bar\rho(\Fr_q)\), \(\tr(t_v)=0\); multiplying by a scalar in \(1+\n\) does not change any linear coefficient of \(\tr\rho(\Fr_q)\). The correction in (7) starts in degree two. A computation in a symplectic basis gives \(\tr(J(w)t_v)=e(w,v)\). These facts give (2).
+
+Put \(K=\Q(V)\). The subspace \(H^1(S_3,V)\) is zero: the normal group of order three has vanishing higher cohomology in characteristic two and no nonzero invariant vector. Inflation--restriction shows that the classes \(c_i\) restrict independently to \(G_K\), where they are homomorphisms. Their joint image is the whole \(V^d\). Indeed it is an \(S_3\)-submodule, \(V\) is simple with \(\operatorname{End}_{S_3}(V)=\F\), and any proper submodule of the semisimple module \(V^d\) is annihilated by a nonzero linear combination \(V^d\to V\). This would contradict independence. Consequently each lift of \(t_v\) in the joint affine image can be translated by any vector in \(V^d\). Formula (1) realizes all \(d\)-bit rows in these lifts. Chebotarev's theorem gives each such row at infinitely many good primes, avoiding any fixed finite set.
+
+Choose \(d\) primes with dual basis rows. Their traces generate the augmentation ideal modulo \(\n^2\). Products then span each \(\n^k/\n^{k+1}\) because the associated graded algebra is generated in degree one. Induction down the finite filtration proves surjectivity of \(\Phi\).
+
+For \(d\) arbitrary transvection primes, only the linear terms of their images contribute to a product in degree \(d\); every term of degree greater than \(d\) is zero. Repeated variables vanish, while every permutation giving \(X_1\cdots X_d\) contributes with the same sign in \(\F\). Hence
+\[
+ \Phi(T_{q_1}\cdots T_{q_d})
+ =\det\bigl(\lambda_{q_i}(c_j)\bigr) X_1\cdots X_d.
+\tag{9}
+\]
+In particular the resulting Hecke product has exact order \(d\) in the maximal-ideal filtration of \(A/2A\) whenever the determinant is one. Its image in \(B_d\) is nonzero and \(\n^{d+1}=0\).
+
+To pass to cusp forms, use the integral pairing \((T,f)\mapsto a_1(Tf)\). Over \(\Q_2\) it gives the full Hecke dual: \(a_1(T_n f)=a_n(f)\), so the cusp-form kernel is zero, and if \(a_1(Tf)=0\) for every \(f\), commutation with all \(T_n\) gives \(a_n(Tf)=0\) for every \(n,f\), hence \(T=0\). Integrally its dual lattice consists exactly of the forms with all \(a_n\in\Z_2\), since the Hecke operators \(T_n\) span the algebra over \(\Z_2\) by the Hecke relations. The respective duals thus remain perfect after reduction modulo two.
+
+Let \(\ell_{\rm top}\) be the coefficient of \(X_1\cdots X_d\) on \(B_d\). The functional obtained by composing the projection \(\T(N)\to A/2A\) with \(\Phi\) and \(\ell_{\rm top}\) defines \(g\) by this pairing. For any \(T\), multiplication of \(\Phi(T)\) by \(X_1\cdots X_d\) retains just its constant term \(\lambda_E(T)\bmod2\). Applying (9) to \(T T_{q_1}\cdots T_{q_d}\) gives (3) by the same perfect pairing. More generally \(g_J\) defined by extracting \(\prod_{j\in J}X_j\) has \(g_{\varnothing}=\bar f_E\), and for any transvection prime
+\[
+ T_qg_J=\sum_{\varnothing\ne H\subseteq J}
+ \bigl[X_H\bigr]\Phi(T_q)\,g_{J\setminus H},
+ \qquad X_H=\prod_{i\in H}X_i .
+\tag{10}
+\]
+This formula keeps every term of the intermediate Hecke chain. It makes no assumption on coefficients beyond the linear terms in (2).
+
+\section{Additional directions at the odd conductor primes}
+Let \(P=\{p\mid N:p\ {\rm odd}\}\). The previous quotient can be refined by adding one variable \(Y_p\) with \(Y_p^2=0\) for each \(p\in P\). We give the construction separately because the additional coordinates need no marked points.
+
+\begin{corollary}\label{extras}
+With all distinct variables commuting, \(A/2A\) surjects onto
+\[
+ B'= B_d[Y_p:p\in P]/(Y_p^2:p\in P).
+\]
+Setting the \(Y_p\) equal to zero recovers \(\Phi\). In particular \(\operatorname{rank}_{\Z_2} A\ge 2^{d+\#P}\).
+\end{corollary}
+\begin{proof}
+For additive \(p\in P\), twist \(\rho\) by the scalar \((1+Y_p)^{\chi_{p^*}}\). At multiplicative \(p\in P\), in the local basis constructed above the representation is
+\[
+ d(g)(I+u(g)E_{12}),\qquad g\in G_{\Q_p},
+\]
+where \(d\) is unramified and \(u:G_{\Q_p}\to (B_d,+)\) is a homomorphism. This follows because \(d^2=1\) and both diagonal entries equal \(d\). The reduction of \(u\) modulo \(\n\) is ramified. Since \(p\) is odd, \(u(I_p)\) is generated by a single element \(u_0\) with residue \(1\). Twist by \((1+Y_p u_0)^{\chi_{p^*}}\). In the basis \(e,f\) used above the line generated by \(e+Y_p f\) is stable: its multiplier before twisting is \(d(g)(1+Y_p u(g))\), which is also the quotient character. The twist makes this character unramified at \(p\). All other new factors are unramified there. No new ramification occurs outside \(N\), and every factor is unramified at \(2\). Determinant and the characteristic polynomial at infinity satisfy the same conditions as before. Allen's theorem gives the homomorphism to \(B'\).
+
+For each transvection prime the new variables have zero linear trace coefficients, since the residual trace is zero. These primes already span the \(X\)-directions. For an element with residual order three the residual trace is one, and its linear \(Y_p\)-coefficient is exactly \(\chi_{p^*}\). The fields \(\Q(\sqrt{p^*})\) are independent by ramification. Their compositum is disjoint from \(\Q(V)\): a common nontrivial quotient would contain its unique quadratic subfield \(\Q(\sqrt\Delta)\), which is ramified at \(2\), whereas every \(p^*\)-field is unramified there. Chebotarev therefore prescribes all the \(\chi_{p^*}\)-values at order-three primes. The centered traces at these primes, together with the transvection traces, span the cotangent space of \(B'\). The filtration argument used above gives surjectivity. The rank inequality follows from the finite flatness of \(A\) over \(\Z_2\).
+\end{proof}
+The numerical rank bound also follows from Allen's tangent dimension estimate and the local multiplicity bound for a complete intersection. The corollary identifies a particular quotient and separates the extra cotangent directions by Frobenius type.
+
+\section{The bound on a compatible lift}
+Let \(I_E=\ker(\lambda_E:A\to\Z_2)\). In Allen's setting his Corollary 4.4 and the modular-degree comparison in the proof of Theorem 1.2 give
+\[
+ \operatorname{length}_{\Z_2}(I_E/I_E^2)=v_2(m_E).
+\tag{11}
+\]
+One may take \(E\) to be the optimal curve when defining the modular degree. More generally (11) uses the normalization of the modular degree in that comparison.
+
+\begin{proposition}
+Suppose that \(A\) admits a surjection of \(\Z_2\)-algebras
+\[
+ \Psi:A\twoheadrightarrow B_{d,h}
+  =(\Z/2^h)[X_1,\ldots,X_d]/(X_1^2,\ldots,X_d^2),
+ \qquad \operatorname{ev}_0\circ\Psi=\lambda_E\bmod 2^h .
+\]
+Then \(dh\le v_2(m_E)\).
+\end{proposition}
+\begin{proof}
+Write \(J=(X_1,\ldots,X_d)\subset B_{d,h}\). Augmentation compatibility gives \(\Psi(I_E)\subseteq J\). For \(y\in J\), choose a lift \(a\in A\). The constant \(\lambda_E(a)\) is zero modulo \(2^h\); thus \(a-\lambda_E(a)\in I_E\) is still a lift of \(y\). We obtain a surjection \(I_E/I_E^2\twoheadrightarrow J/J^2\cong(\Z/2^h)^d\). Take lengths and use (11).
+\end{proof}
+The construction of Theorem \ref{main} establishes \(h=1\). Agreement at the residual maximal ideal alone does not provide the augmentation equality at \(h>1\). For such a lift the top coefficient of a product of \(d\) elements of \(J\) is the permanent of their linear-coefficient matrix over \(\Z/2^h\). It becomes the determinant after reduction modulo two.
+
+Finally, the exact sequence
+\[
+ 0\longrightarrow E(\Q)/2E(\Q)\longrightarrow\Sel_2(E)
+ \longrightarrow\Sh(E/\Q)[2]\longrightarrow0
+\]
+accounts for the scope of the construction. The Hecke identity applies to any independent Selmer directions. A relationship between this Hecke action and derivatives of the individual complex newform would require an additional theorem.
+
+\begin{thebibliography}{9}
+\bibitem{allen} P. B. Allen, \emph{Powers of 2 in the modular degree via 2-adic \(R=T\)}, preprint. Lemmas 2.2, 2.5 and 5.5, Theorem 4.3, Proposition 4.2, Corollary 4.4, and \S5.8. \url{https://patrick-allen.github.io/research/watkins.pdf}.
+\bibitem{pr} B. Poonen and E. Rains, \emph{Random maximal isotropic subspaces and Selmer groups}, J. Amer. Math. Soc. \textbf{25} (2012), 245--269. \url{https://doi.org/10.1090/S0894-0347-2011-00710-8}.
+\end{thebibliography}
+\end{document}

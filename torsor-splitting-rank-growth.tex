@@ -4,6 +4,11 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[hidelinks]{hyperref}
 \newcommand{\Sha}{\mathop{\mathrm{Sha}}\nolimits}
+\newtheorem{picproposition}{Proposition}[section]
+\newtheorem{pictheorem}[picproposition]{Theorem}
+\newtheorem{piccorollary}[picproposition]{Corollary}
+\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}\newcommand{\Z}{\mathbb Z}
+\newcommand{\Pic}{\operatorname{Pic}}\newcommand{\Sel}{\operatorname{Sel}}\newcommand{\End}{\operatorname{End}}\newcommand{\NS}{\operatorname{NS}}
 \title{Splitting Genus-One Torsors and Rank Growth in Quadratic Towers}
 \author{\small \href{mailto:admin@cosmosgeek.org}{admin@cosmosgeek.org}\qquad \href{mailto:b321014@iiit-bh.ac.in}{b321014@iiit-bh.ac.in}}
 \date{Working draft for specialist review}
@@ -17,7 +22,10 @@ splitting prescribed at finitely many places. The differences between
 conjugates of its splitting point generate the full rational augmentation
 representation in the Mordell--Weil group of the normal closure. In
 particular the rank increases at every step, and the gain in the normal
-closure is at least $2^k-1$.
+closure is at least $2^k-1$. For any number field, we also characterize
+when a symmetric Frobenius correspondence on two locally soluble torsors
+lifts to a line bundle on their product. At split odd-order division primes
+this recovers individual Mordell--Weil cosets inside the Selmer group.
 \end{abstract}
 \medskip
 \noindent\textbf{Theorem.}
@@ -407,6 +415,199 @@ The rank gain concerns $E$ after extending its ground field. The original
 central order of $L(E/K,s)$ is a separate question.
 
 
+\section{Descent of correspondences between torsors}
+
+The splitting-field height test in Appendix~A starts from representatives of one class. A product of two torsors supplies a complementary test over the base field: the obstruction to lifting a natural numerical correspondence determines whether two odd-order classes coincide. This section applies over any number field, without the totally real or irreducible two-torsion hypotheses of the tower theorem.
+
+\subsection{Numerical classes and descent}
+
+Let $k$ be a number field, $E/k$ an elliptic curve, and $C,D$
+torsors for $E$. We keep their actions and the resulting identifications
+of their Jacobians with $E$. Write $c,d\in H^1(k,E)$ for their classes.
+Throughout this section both torsors are everywhere locally soluble.
+For a line bundle on $C_{\bar k}\times D_{\bar k}$ let $h$ be its
+degree on $C_{\bar k}\times\{y\}$ and $v$ its degree on
+$\{x\}\times D_{\bar k}$. Varying $x$ gives a morphism
+$C_{\bar k}\to\Pic^v(D_{\bar k})$. The corresponding homomorphism on
+Jacobians is denoted by $\phi$. We use the convention that the graph of
+the identity has $\phi=[1]$.
+
+These data identify the geometric N\'eron--Severi group with
+$\Z\oplus\Z\oplus\End_{\bar k}(E)$ as abelian groups. Indeed, over
+$\bar k$ choose origins on both curves. Subtract line bundles pulled back
+from the factors to normalize the restrictions to the two axes.
+A normalized bundle is the pullback of the Poincar\'e bundle under the
+homomorphism $\phi$ on the first factor, by the universal property and
+the see-saw principle \cite[\S4.6]{CTS}. Pullbacks from the two factors
+contribute their degrees after passage to numerical classes.
+Translations of the origins do not change the triple. On the resulting
+abelian surface numerical and algebraic equivalence of divisor classes
+coincide. In particular the correspondence triple is defined even when no
+origins are available over $k$.
+
+\begin{picproposition}\label{prop:scalar}
+For integers $h,v,m$, the triple $(h,v,[m])$ is represented by a
+line bundle on $C\times_k D$ if and only if
+\begin{equation}\label{eq:ob}
+             h c=m d,\qquad v d=m c \qquad\text{in }H^1(k,E).
+\end{equation}
+\end{picproposition}
+
+\begin{proof}
+Choose $c_0\in C(\bar k)$ and $d_0\in D(\bar k)$, and use
+$u\mapsto u-c_0$, $v'\mapsto v'-d_0$ as coordinates on the two factors.
+Let $B$ be the graph in these coordinates of the identity, and put
+\[
+ {\cal L}=\mathcal O(mB)\otimes
+       \operatorname{pr}_1^*\mathcal O_C((h-m)c_0)
+          \otimes\operatorname{pr}_2^*\mathcal O_D((v-m)d_0).
+\]
+It has triple $(h,v,[m])$. For a Galois element $\sigma$ put
+$x_\sigma=\sigma c_0-c_0$, $y_\sigma=\sigma d_0-d_0$. These are
+cocycles representing $c,d$. In our coordinates $\sigma B$ has
+equation $v'-d_0=u-c_0+(y_\sigma-x_\sigma)$. The restrictions of
+$\mathcal O(\sigma B-B)$ to a horizontal and a vertical fibre have
+degree zero and represent $x_\sigma-y_\sigma$ and
+$y_\sigma-x_\sigma$, respectively. Since
+$\Pic^0(C_{\bar k}\times D_{\bar k})=E_{\bar k}\times E_{\bar k}$,
+the cocycle $\sigma{\cal L}\otimes{\cal L}^{-1}$ is represented by
+\[
+      (h x_\sigma-m y_\sigma,\ v y_\sigma-m x_\sigma).
+\]
+Thus a Galois-invariant representative of the numerical class in the
+geometric Picard group exists precisely under \eqref{eq:ob}.
+
+For completeness, a Galois-invariant geometric line-bundle class on
+$X=C\times D$ has descent obstruction in
+$\ker[\operatorname{Br}(k)\to\operatorname{Br}(X)]$, by the low-degree
+Hochschild--Serre sequence \cite[Chap.~4]{CTS}. A local point on $X$
+at every place makes this element zero in each local Brauer group, by
+pullback to the point. Brauer--Hasse--Noether gives its vanishing in
+$\operatorname{Br}(k)$. This gives an actual line bundle on $X$.
+\end{proof}
+
+\subsection{The symmetric Frobenius class}
+
+Let $\mathfrak q$ be a good finite place of $E$, with residue field
+$\F_q$ of cardinality $q$. A local point identifies each of $C,D$
+with $E$ over $k_{\mathfrak q}$. Transport its smooth proper model
+using these identifications. Replacing the chosen points acts by
+translations, which extend over the valuation ring and act trivially
+on numerical divisor classes.
+
+Let $\pi$ be the $q$-power Frobenius on $E_{\F_q}$. Transfer the
+numerical class of
+\[
+             \Gamma_\pi+\Gamma_\pi^{\,t}
+             \quad\text{on }E_{\F_q}\times E_{\F_q}
+\]
+to the special fibre of $C\times D$. Denote it by $W_{\mathfrak q}$.
+Say that $W_{\mathfrak q}$ \emph{lifts} if it is the specialization
+of the numerical class of a line bundle on $C\times_k D$.
+Such a specialization is well-defined: on the local product model
+one can close up a divisor representing the bundle. The model is
+regular, and changing the extension by a vertical divisor has no
+effect on the numerical class on the smooth integral special fibre.
+
+The graph has triple $(q,1,\pi)$: its intersection with a horizontal
+fibre counts inverse images, and a vertical restriction gives the
+Frobenius image of the base point. Transposition exchanges the degrees
+and replaces $\pi$ by its dual $\pi^\vee$. The Frobenius equation and
+$\pi^\vee\pi=[q]$ give $\pi+\pi^\vee=[a_{\mathfrak q}]$, where
+$a_{\mathfrak q}=q+1-\#E(\F_q)$. Hence
+\begin{equation}\label{eq:triple}
+             W_{\mathfrak q}=(q+1,q+1,[a_{\mathfrak q}]).
+\end{equation}
+The geometric specialization of the two degrees is the identity.
+It is injective on the correspondence endomorphism: any homomorphism
+of the generic elliptic curve extends over a finite extension with
+good reduction, and if its reduction is zero, its action on all
+prime-to-residue-characteristic torsion is zero by smooth proper base
+change. This forces the homomorphism itself to be zero. The specialization
+of a scalar endomorphism is the same scalar, so \eqref{eq:triple} has
+the unique geometric lift with that triple. This remains valid if
+the special fibre has extra endomorphisms.
+
+\begin{pictheorem}\label{th:criterion}
+At any good finite place, $W_{\mathfrak q}$ lifts if and only if
+\[
+        (q+1)c=a_{\mathfrak q}d,\qquad
+        (q+1)d=a_{\mathfrak q}c .
+\]
+If $n\ge3$ is odd, $nc=nd=0$, and $\mathfrak q$ is prime to $n$ and
+splits completely in $k(E[n])$, liftability is equivalent to $c=d$.
+\end{pictheorem}
+
+\begin{proof}
+The general statement follows by applying Proposition~\ref{prop:scalar}
+to \eqref{eq:triple}. At a split place Frobenius acts trivially on
+$E[n]$. Its trace is $2$ modulo $n$, and the determinant or the Weil
+pairing gives $q\equiv1\pmod n$. Both equations therefore reduce
+to $2(c-d)=0$. Multiplication by two is invertible on $n$-torsion.
+\end{proof}
+
+An explicit lift in the equal-class case is instructive. Choose an
+$E$-equivariant isomorphism $i:C\to D$ over $k$. The bundle
+$\mathcal O(a_{\mathfrak q}\Gamma_i)$ supplies correspondence
+endomorphism $[a_{\mathfrak q}]$. The remaining two degrees equal
+$q+1-a_{\mathfrak q}=\#E(\F_q)$, a multiple of $n$. Each torsor has
+period dividing $n$ and index equal to its period by local solubility
+\cite[Thm.~2.7(ii)]{FisherVisibility}. Line bundles of degree $n$ from the two
+factors complete the lift. This construction also explains why numerical
+lifting does not require a lift of Frobenius as an endomorphism.
+
+\subsection{Counting the fibres}
+
+For $n\ge2$, let $\Sha(E/k)$ be the subgroup of everywhere locally
+trivial classes in $H^1(k,E)$, and use the Kummer sequence
+\begin{equation}\label{eq:kum}
+ 0\longrightarrow E(k)/nE(k)
+ \longrightarrow\Sel_n(E/k)\longrightarrow\Sha(E/k)[n]
+ \longrightarrow0 .
+\end{equation}
+For $\alpha,\beta\in\Sel_n(E/k)$ choose their underlying torsors and
+test $W_{\mathfrak q}$ on the product of these torsors. The criterion
+uses their images in $\Sha(E/k)[n]$, so the choice of representative
+has no effect.
+
+\begin{piccorollary}
+Let $n\ge3$ be odd and choose a good place prime to $n$ splitting
+completely in $k(E[n])$. For each fixed $\alpha\in\Sel_n(E/k)$, the
+number of $\beta$ for which $W_{\mathfrak q}$ lifts equals
+\[
+              |E(k)/nE(k)|=n^{\operatorname{rank}E(k)}|E(k)[n]|.
+\]
+This count uses no assumption on the size of the full group $\Sha(E/k)$.
+\end{piccorollary}
+
+\begin{proof}
+By Theorem~\ref{th:criterion} the set is exactly the coset
+$\alpha+E(k)/nE(k)$ in \eqref{eq:kum}. Its cardinality follows from the
+finite generation of $E(k)$.
+\end{proof}
+
+One can also read the variation with the prime directly. Suppose
+$n=\ell$ is an odd prime, $\mathcal S=\Sha(E/k)[\ell]$, and write
+$u=q+1$, $a=a_{\mathfrak q}$ in $\F_\ell$. If $(u,a)=(0,0)$ every
+pair in $\mathcal S^2$ passes. If $u=a\ne0$, the admissible pairs
+are $(c,c)$; if $u=-a\ne0$, they are $(c,-c)$. For
+$u^2-a^2\ne0$ the zero pair is the only one, by the determinant of the
+two equations. For $\ell=2$ a completely split good place of odd
+characteristic has $(u,a)=(0,0)$ in $\F_2$ and accepts all pairs.
+The oddness assumption in the fibre count is therefore essential for
+this particular symmetric class.
+
+Liftability detects equality of two torsor classes and includes pairs
+of equal nonzero classes. The numerical correspondence on the special
+fibre is the same for all pairs. A calculation of its ordinary Frobenius
+trace alone omits the global descent condition. Neither the fibre count
+nor the construction of the lift gives the order of vanishing of the
+complex elliptic $L$-function. The ingredients are the classical Picard
+group of a product, the Frobenius relation, and Kummer descent. The
+contribution isolated here is their integral numerical lifting criterion
+for Selmer pairs. Literature-wide priority remains open.
+
+
 \appendix
 \section{Heights of representatives over splitting fields}
 \label{sec:heights}
@@ -550,6 +751,10 @@ arXiv:math/0703363.
 J. H. Silverman, \emph{A lower bound for the canonical height on
 elliptic curves over abelian extensions}, J. Number Theory 104
 (2004), 353--372. \url{https://arxiv.org/abs/math/0305041}
+
+\bibitem{CTS} J.-L. Colliot-Th\'el\`ene and A. N. Skorobogatov,
+\emph{The Brauer--Grothendieck Group}, Chapter~4, especially
+\href{https://www.imo.universite-paris-saclay.fr/~jean-louis.colliot-thelene/BGgroup_book.pdf}{Section~4.6}.
 
 \end{thebibliography}
 
