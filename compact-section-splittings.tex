@@ -25,7 +25,7 @@ determine the compact intertwining matrix and construct integral
 preimages at its critical parameter. At an unramified inert place a
 Steinberg-weighted boundary operator has two rows on ten parahoric
 orbits. Two orbit indicators give a right inverse throughout the
-unramified parameter germ. Both calculations retain the lattices
+unramified parameter germ. A common open-cell Fourier calculation supplies the exact rank-two determinant factor at both places. Both calculations retain the lattices
 and denominators governing coefficient specialization.
 \end{abstract}
 
@@ -448,6 +448,115 @@ minor supplies an integral correction in this module, even when the
 weight varies. Applying it to an additional toric period, a different
 compact level, or a global cusp form requires the maps to those
 particular spaces.
+
+\section{A common nonsingular Fourier coefficient}
+The compact calculations can be compared in open coordinates at a
+nonsingular binary Fourier index. We give the scalar in the
+unnormalized Fourier transform at both sorts of places. This also
+records a sign and a determinant power that are lost by identifying
+the compact character spaces up to an unspecified scalar.
+
+Let $F_0=\mathbb Q_q$ and let $K$ now denote either its unramified
+quadratic field extension or the split algebra $F_0\oplus F_0$ with
+factor-exchanging involution. Write $\eta$ for the corresponding
+unramified quadratic character, equal to one in the split case.
+Normalize $\psi$ to have conductor $\mathbb Z_q$ and use additive
+measures giving the rings of integers volume one. The trace pairings
+are self-dual with these choices. Let $c$ be an unramified
+complex-valued character of $F_0^\times$ and put
+\[
+ J(u,c)=\frac{1-c(q)q^{u-1}}{1-c(q)^{-1}q^{-u}} .
+\]
+This is the Fourier coefficient at one of
+$c(x)^{-1}|x|^{u-1}dx$. The shells with $v(x)\ge0$ contribute
+$(1-q^{-1})/(1-c(q)^{-1}q^{-u})$, the shell $v(x)=-1$
+contributes $-c(q)q^{u-1}$, and all lower shells give zero.
+
+\begin{lemma}
+For $\beta$ nonsingular in $\operatorname{Herm}_2(K/F_0)$ the Fourier
+transform of $c(\det A)^{-1}|\det A|^{t-2}$ at $\beta$ has value
+\[
+ G_2(t,c)\,c(\det\beta)\eta(\det\beta)|\det\beta|^{-t},
+ \qquad G_2(t,c)=J(t-1,c)J(t,c\eta).
+\]
+The assertion concerns the restriction to the nonsingular locus.
+\end{lemma}
+\begin{proof}
+First diagonalize $\beta=\operatorname{diag}(a,d)$ with $ad\ne0$.
+Writing $A=\left(\begin{smallmatrix}x&z\\\bar z&y\end{smallmatrix}\right)$,
+replace $x$ by $r+z\bar z/y$ on $y\ne0$. The determinant becomes $yr$.
+The integral in $r$ with phase $\psi(ar)$ gives
+$J(t-1,c)c(a)|a|^{1-t}$. The integral in $z$ gives
+\[
+ \int_K\psi((a/y) z\bar z)\,dz=\eta(a/y)|a/y|^{-1}.
+\]
+For the split algebra this is additive Fourier inversion for $z_1z_2$.
+In the field case the integral is the oscillatory norm Gaussian. For
+unit parameter, integrating the integral ball gives one and the
+remaining annuli vanish by first-digit character orthogonality. At
+valuation $-1$ the integral is $-q^{-1}$ since the finite norm has
+one zero and $q+1$ preimages of each nonzero value. Scaling by $q$
+in $z$ covers all valuations. The remaining $y$-Fourier integral
+gives $J(t,c\eta)(c\eta)(d)|d|^{-t}$. The factors give the formula.
+For a general $\beta$ use congruence by $g\in\mathrm{GL}_2(K)$,
+whose additive Jacobian on $\operatorname{Herm}_2$ is
+$|N_{K/F_0}\det g|^2$. Either sign of the Fourier phase gives the same
+answer since $\det(-\beta)=\det\beta$.
+
+The integrations may be read as distributional Fourier transforms:
+first test in the open pivot chart with $a,d$ units in small
+neighborhoods of their fixed nonzero values. The input determinant
+power is locally integrable for $\Re t$ large and Fourier transforms
+of compact locally constant tests are compactly supported. The
+one-variable shell sums above give rational continuations of the
+tested expressions. The chart $y=0$ has measure zero in the initial
+locally integrable expression. This calculation assigns no point value
+to the Fourier transform on the singular $\beta$ locus.
+\end{proof}
+
+To see the implication for the rank-three kernel, on the open block
+$d\ne0$ write
+$Z=\left(\begin{smallmatrix}A&b\\b^*&d\end{smallmatrix}\right)$.
+In the split algebra the two components of the column represent
+the independent column and row in an ordinary three-by-three matrix.
+The Siegel convolution kernel on the open cell is
+$c(\det Z)^{-1}|\det Z|^{2s-3}$. Replacing $A$ by $A'+bb^*/d$ and
+taking the negative Fourier transform in $A$ gives
+\begin{align*}
+ &G_2(2s-1,c)\,c(\det\beta)\eta(\det\beta)
+    |\det\beta|^{1-2s}\\[-2pt]
+ &\hspace{16mm}\cdot c(d)^{-1}|d|^{2s-3}
+           \psi(-b^*\beta b/d).
+\end{align*}
+With the ordinary additive measure on $K^2$ the binary lower Weil
+kernel at $-d$ is
+\[\eta(\det\beta)|\det\beta|\,|d|^{-2}\psi(-b^*\beta b/d).\]
+Indeed the Fourier transform using the
+$\beta$-pairing has measure $|\det\beta|\,db$. Conjugating
+multiplication by the quadratic phase with this transform gives
+the square of this determinant multiplier and a Gaussian integral.
+Diagonalizing $\beta$ and using the norm Gaussian twice gives
+$\eta(\det\beta)|\det\beta|^{-1}|d|^{-2}$; completion of the square
+gives the displayed phase. This proves the identity in this
+normalization at both places. Removing the Weil kernel leaves exactly
+the rank-one kernel $c(d)^{-1}|d|^{2s-1}$ multiplied by
+\[
+                G_2(2s-1,c)c(\det\beta)|\det\beta|^{-2s}.
+\]
+In particular for $c=1$, $s=1/2$ at the inert place this scalar is
+$-(q+1)^2 q^{v_q(\det\beta)}/(2q^3)$. At the split place put
+$Y=c(q)^{-1}q^{-2s}$ and normalize the rank-one and rank-three
+intertwiners to fix their spherical vectors. Multiplying the scalar
+by $[(1-Y/q)/(1-Y)]/m_0(Y)$ gives
+\[
+       Y^{-2-v_q(\det\beta)}
+       \frac{(q^2Y-1)(q^3Y-1)}{(q^2-Y)(q^3-Y)} .
+\]
+If $2q(q^2-1)(q^3-1)(q^4-1)$ is a coefficient unit, both displayed
+critical scalars are units (in the split case take $Y=q^{-1}$).
+This is an open-cell calculation for nonsingular $\beta$.
+Determining a whole global period additionally requires the remaining
+local sources, its global linear functional, and normalization.
 
 \section{Using the splittings}
 On the split nonsingular character space take a tuple supported at

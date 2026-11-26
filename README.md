@@ -16,7 +16,7 @@
 
 - **Central-derivative quadratures for elliptic modular forms.** The paper derives squarefree modular-symbol and Kummer-correlated formulas with explicit correction terms and gives a same-curve control for the bounded integer quadrature. [PDF](central-derivative-quadratures.pdf) · [LaTeX](central-derivative-quadratures.tex)
 
-- **Integral splittings in split and unitary rank-three compact models.** The paper derives the integral projector and its denominator in the split model, and the ten-orbit boundary and constant splitting in the inert model. [PDF](compact-section-splittings.pdf) · [LaTeX](compact-section-splittings.tex)
+- **Integral splittings in split and unitary rank-three compact models.** The paper derives the integral projector and its denominator in the split model, and the ten-orbit boundary and constant splitting in the inert model. The closing section relates the split and inert models through a rank-two determinant transform and unramified Jacobi multipliers. [PDF](compact-section-splittings.pdf) · [LaTeX](compact-section-splittings.tex)
 
 - **Cyclic splitting fields, integral norms and Heegner derivatives.** The paper bounds the number of cyclic fields that can split a torsor under a rank-growth hypothesis, calculates the one-orbit integral norm index and gives conditional equality of relative ranks for a primitive Heegner derivative. [PDF](cyclic-splitting-fields.pdf) · [LaTeX](cyclic-splitting-fields.tex)
 
@@ -26,7 +26,7 @@
 
 - **Dihedral branch cycles.** Explicit covers, their branch cycles and arithmetic points recovered from the original geometry record. [PDF](dihedral-branch-cycles.pdf) · [LaTeX](dihedral-branch-cycles.tex)
 
-- **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. The combined edition includes the all-character averaging calculation, ramification correction and a semistable abelian-surface example with unbounded projected monodromy index. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
+- **Finite coefficient lifts and integral jets of cyclotomic Gauss rows.** A length inequality under explicit module and cocycle assumptions, sharp counterexamples, and finite-precision Gauss-row calculations. Existence of the required arithmetic lift remains open. The combined edition includes the all-character averaging calculation, ramification correction and a semistable abelian-surface example with unbounded projected monodromy index. The final edition gives an exterior-square Pfaffian precision calculation and an optimal scalar descent depth for a finite eigenvector. [PDF](finite-precision-descent.pdf) · [LaTeX](finite-precision-descent.tex)
 
 - **Modular-unit fibre heights and CM translates of central Mellin integrals.** Modular units control height pairings on fibres, while CM translates on a non-CM curve test the arithmetic content of central Mellin integrals. [PDF](modular-fibre-heights.pdf) · [LaTeX](modular-fibre-heights.tex)
 
